@@ -1,0 +1,1 @@
+$cachedPrompts | fzf | hx
