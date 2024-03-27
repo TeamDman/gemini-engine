@@ -1,0 +1,34 @@
+{
+    "candidates": [
+        {
+            "content": {
+                "parts": [
+                    {
+                        "text": "The title of the VSCode window present in the screenshot is \"explore.ipynb - Cursor-Hero - Visual Studio Code\"."
+                    }
+                ],
+                "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0,
+            "safetyRatings": [
+                {
+                    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                    "probability": "NEGLIGIBLE"
+                },
+                {
+                    "category": "HARM_CATEGORY_HATE_SPEECH",
+                    "probability": "NEGLIGIBLE"
+                },
+                {
+                    "category": "HARM_CATEGORY_HARASSMENT",
+                    "probability": "NEGLIGIBLE"
+                },
+                {
+                    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                    "probability": "NEGLIGIBLE"
+                }
+            ]
+        }
+    ]
+}

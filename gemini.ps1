@@ -14,9 +14,11 @@ $cachedPrompts = Get-ChildItem -Path "prompts/*.txt" | Select-Object -ExpandProp
 while ($true) {
   $action = Get-ChildItem -Path actions `
     | Select-Object -ExpandProperty name `
+    | Sort-Object -Descending `
     | fzf
   if ([string]::IsNullOrWhiteSpace($action)) {
     break
   }
-  . ".\actions\$action"  
+  . ".\actions\$action"
+  pause
 }

@@ -1,0 +1,10 @@
+This is a screenshot of VSCode running on Windows.
+List the UI contents included in the picture.
+Things to include:
+- Files visible in the VSCode file explorer
+- OS system clock in the bottom right
+- Number of unread notifications in the bottom right
+- Applications visible in the taskbar, open or pinned-but-not-open
+- Contents of the terminal
+- Contents of the editor buffors
+- Title bar of the window
