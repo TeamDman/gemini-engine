@@ -1,1 +1,2 @@
-$cachedPrompts | fzf | hx
+$file = $cachedPrompts | fzf 
+hx "prompts\$file"

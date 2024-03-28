@@ -1,0 +1,4834 @@
+
+
+#REGION crates/calculator_app_types/src/calculator_app_types_plugin.rs
+use crate::prelude::*;
+use bevy::prelude::*;
+
+pub struct CalculatorAppTypesPlugin;
+
+impl Plugin for CalculatorAppTypesPlugin {
+    fn build(&self, app: &mut App) {
+        app.register_type::<AppWindow>();
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/calculator_app_types/src/calculator_app_types.rs
+use bevy::prelude::*;
+
+#[derive(Component, Debug, Reflect)]
+pub struct AppWindow;
+
+#ENDREGION
+
+
+#REGION crates/calculator_app_types/src/lib.rs
+pub mod calculator_app_types;
+pub mod calculator_app_types_plugin;
+
+pub mod prelude {
+    pub use crate::calculator_app_types::*;
+    pub use crate::calculator_app_types_plugin::*;
+}
+
+#ENDREGION
+
+
+#REGION crates/calculator_app/src/calculator_app_plugin.rs
+use bevy::prelude::*;
+
+pub struct CalculatorAppPlugin;
+
+impl Plugin for CalculatorAppPlugin {
+    fn build(&self, _app: &mut App) {}
+}
+
+#ENDREGION
+
+
+#REGION crates/calculator_app/src/lib.rs
+pub mod calculator_app_plugin;
+
+pub mod prelude {
+    pub use crate::calculator_app_plugin::*;
+}
+
+#ENDREGION
+
+
+#REGION crates/fullscreen_tool/src/fullscreen_tool_populate_plugin.rs
+use bevy::prelude::*;
+use bevy::window::PrimaryWindow;
+use cursor_hero_fullscreen_tool_types::prelude::*;
+use cursor_hero_toolbelt_types::prelude::*;
+use cursor_hero_tools::tool_spawning::NoInputs;
+use cursor_hero_tools::tool_spawning::ToolSpawnConfig;
+
+pub struct FullscreenToolPopulatePlugin;
+
+impl Plugin for FullscreenToolPopulatePlugin {
+    fn build(&self, app: &mut App) {
+        app.add_systems(Update, handle_toolbelt_events);
+    }
+}
+
+fn handle_toolbelt_events(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    mut reader: EventReader<ToolbeltPopulateEvent>,
+    window_query: Query<&Window, With<PrimaryWindow>>,
+) {
+    for event in reader.read() {
+        let ToolbeltLoadout::WindowPosition = event.loadout else {
+            continue;
+        };
+
+        let mode = window_query
+            .iter()
+            .map(|w| w.mode)
+            .next()
+            .unwrap_or_default();
+        let state = FullscreenTool::state_for_mode(mode);
+        debug!("Window: {:?}, tool: {:?}", mode, state);
+        ToolSpawnConfig::<_, NoInputs>::new(FullscreenTool, event.id, event)
+            .with_src_path(file!().into())
+            .guess_name(file!())
+            .guess_image(file!(), &asset_server, "webp")
+            .with_description("Toggles fullscreen mode.")
+            .with_starting_state(state)
+            .spawn(&mut commands);
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/hover/src/hover_ui_automation_plugin.rs
+use std::thread;
+
+use bevy::prelude::*;
+use bevy::window::PrimaryWindow;
+use crossbeam_channel::bounded;
+use crossbeam_channel::Receiver;
+use crossbeam_channel::Sender;
+use cursor_hero_ui_automation::prelude::find_element_at;
+use cursor_hero_ui_automation::prelude::gather_single_element_info;
+use cursor_hero_ui_automation::prelude::ElementInfo;
+use cursor_hero_winutils::win_mouse::get_cursor_position;
+
+use cursor_hero_camera::camera_plugin::MainCamera;
+
+pub struct HoverUiAutomationPlugin;
+
+impl Plugin for HoverUiAutomationPlugin {
+    fn build(&self, app: &mut App) {
+        info!("Adding HoverInfo resource");
+        app.insert_resource(HoverInfo::default());
+        app.register_type::<HoveredElement>();
+        app.add_systems(Startup, setup);
+        app.add_systems(
+            Update,
+            (
+                update_game_mouse_position,
+                update_hover_info,
+                show_hovered_rect,
+            )
+                .chain(),
+        );
+    }
+}
+
+#[derive(Debug)]
+enum GameboundMessage {
+    ScreenHoverInfo(ElementInfo),
+    ScreenHoverInfoNone,
+    GameHoverInfo(ElementInfo),
+    GameHoverInfoNone,
+}
+
+#[derive(Debug)]
+enum ThreadboundMessage {
+    CursorPosition(IVec2),
+    CursorPositionNone,
+}
+
+#[derive(Resource)]
+struct Bridge {
+    pub sender: Sender<ThreadboundMessage>,
+    pub receiver: Receiver<GameboundMessage>,
+}
+
+#[derive(Resource, Default)]
+pub struct HoverInfo {
+    screen_element: Option<ElementInfo>,
+    game_element: Option<ElementInfo>,
+    enabled: bool,
+}
+impl HoverInfo {
+    pub fn set_enabled(&mut self, enabled: bool) {
+        self.enabled = enabled;
+        if !enabled {
+            self.screen_element = None;
+            self.game_element = None;
+        }
+    }
+    pub fn is_enabled(&self) -> bool {
+        self.enabled
+    }
+}
+
+#[derive(Component, Reflect)]
+pub struct HoveredElement {
+    pub info: ElementInfo,
+}
+
+fn setup(mut commands: Commands) {
+    let (game_tx, game_rx) = bounded::<_>(10);
+    let (thread_tx, thread_rx) = bounded::<_>(10);
+    commands.insert_resource(Bridge {
+        sender: thread_tx,
+        receiver: game_rx,
+    });
+
+    let game_tx_clone = game_tx.clone();
+    thread::Builder::new()
+        .name("Screen element hover info thread".to_string())
+        .spawn(move || {
+            let game_tx = game_tx_clone;
+            loop {
+                if let Ok(cursor_pos) = get_cursor_position() {
+                    if let Ok(root) = find_element_at(cursor_pos) {
+                        let info = gather_single_element_info(&root);
+                        match info {
+                            Ok(info) => {
+                                game_tx
+                                    .send(GameboundMessage::ScreenHoverInfo(info))
+                                    .unwrap();
+                            }
+                            Err(_) => {
+                                game_tx.send(GameboundMessage::ScreenHoverInfoNone).unwrap();
+                            }
+                        }
+                    }
+                }
+                std::thread::sleep(std::time::Duration::from_millis(50));
+            }
+        })
+        .expect("Failed to spawn screen element hover info thread");
+
+    thread::Builder::new()
+        .name("Game element hover info thread".to_string())
+        .spawn(move || {
+            loop {
+                // Block until at least one message is available
+                let mut msg = match thread_rx.recv() {
+                    Ok(msg) => msg,
+                    Err(e) => {
+                        error!("Failed to receive thread message, exiting: {:?}", e);
+                        break;
+                    }
+                };
+
+                // Check for and use the latest message available
+                while let Ok(newer_msg) = thread_rx.try_recv() {
+                    msg = newer_msg;
+                }
+                match msg {
+                    ThreadboundMessage::CursorPositionNone => {
+                        game_tx.send(GameboundMessage::GameHoverInfoNone).unwrap();
+                        continue;
+                    }
+                    ThreadboundMessage::CursorPosition(cursor_pos) => {
+                        if let Ok(root) = find_element_at(cursor_pos) {
+                            let info = gather_single_element_info(&root);
+                            match info {
+                                Ok(info) => {
+                                    game_tx.send(GameboundMessage::GameHoverInfo(info)).unwrap();
+                                }
+                                Err(_) => {
+                                    game_tx.send(GameboundMessage::GameHoverInfoNone).unwrap();
+                                }
+                            }
+                        }
+                    }
+                }
+                std::thread::sleep(std::time::Duration::from_millis(50));
+            }
+        })
+        .expect("Failed to spawn game element hover info thread");
+}
+
+fn update_game_mouse_position(
+    bridge: ResMut<Bridge>,
+    camera_query: Query<(&Camera, &GlobalTransform), With<MainCamera>>,
+    window_query: Query<&Window, With<PrimaryWindow>>,
+    mut debounce: Local<Option<IVec2>>,
+    hover_info: Res<HoverInfo>,
+) {
+    if !hover_info.enabled {
+        return;
+    }
+    let (camera, camera_transform) = camera_query.single();
+    let window = window_query.single();
+    let value = window
+        .cursor_position()
+        .and_then(|cursor| camera.viewport_to_world(camera_transform, cursor))
+        .map(|ray| ray.origin.truncate())
+        .map(|world_position| IVec2::new(world_position.x as i32, -world_position.y as i32));
+    if *debounce != value {
+        *debounce = value;
+        match value {
+            Some(value) => bridge
+                .sender
+                .send(ThreadboundMessage::CursorPosition(value))
+                .unwrap(),
+            None => bridge
+                .sender
+                .send(ThreadboundMessage::CursorPositionNone)
+                .unwrap(),
+        }
+    }
+}
+
+fn update_hover_info(mut hovered: ResMut<HoverInfo>, bridge: Res<Bridge>) {
+    if !hovered.enabled {
+        bridge.receiver.try_iter().for_each(drop);
+        return;
+    }
+    if let Ok(msg) = bridge.receiver.try_recv() {
+        match msg {
+            GameboundMessage::ScreenHoverInfo(info) => {
+                hovered.screen_element = Some(info);
+            }
+            GameboundMessage::ScreenHoverInfoNone => {
+                hovered.screen_element = None;
+            }
+            GameboundMessage::GameHoverInfo(info) => {
+                hovered.game_element = Some(info);
+            }
+            GameboundMessage::GameHoverInfoNone => {
+                hovered.game_element = None;
+            }
+        }
+    }
+}
+
+#[derive(Component, Reflect, Debug)]
+struct ScreenHoveredIndicatorTag;
+#[derive(Component, Reflect, Debug)]
+struct GameHoveredIndicatorTag;
+
+#[allow(clippy::type_complexity)]
+fn show_hovered_rect(
+    mut screen_indicator: Query<
+        (Entity, &mut Sprite, &mut Transform, &mut HoveredElement),
+        (
+            With<ScreenHoveredIndicatorTag>,
+            Without<GameHoveredIndicatorTag>,
+        ),
+    >,
+    mut game_indicator: Query<
+        (Entity, &mut Sprite, &mut Transform, &mut HoveredElement),
+        (
+            With<GameHoveredIndicatorTag>,
+            Without<ScreenHoveredIndicatorTag>,
+        ),
+    >,
+    hovered: Res<HoverInfo>,
+    mut commands: Commands,
+) {
+    if let Ok((entity, mut sprite, mut transform, mut element)) = screen_indicator.get_single_mut()
+    {
+        if let Some(info) = &hovered.screen_element {
+            sprite.custom_size = Some(Vec2::new(
+                info.bounding_rect.width(),
+                info.bounding_rect.height(),
+            ));
+            transform.translation = Vec3::new(
+                info.bounding_rect.min.x + info.bounding_rect.width() / 2.,
+                -info.bounding_rect.min.y - info.bounding_rect.height() / 2.,
+                0.,
+            );
+            element.info = info.clone();
+        } else {
+            commands.entity(entity).despawn_recursive();
+        }
+    } else if let Some(info) = &hovered.screen_element {
+        commands.spawn((
+            SpriteBundle {
+                transform: Transform::from_xyz(
+                    info.bounding_rect.min.x + info.bounding_rect.width() / 2.,
+                    -info.bounding_rect.min.y - info.bounding_rect.height() / 2.,
+                    0.,
+                ),
+                sprite: Sprite {
+                    custom_size: Some(Vec2::new(
+                        info.bounding_rect.width(),
+                        info.bounding_rect.height(),
+                    )),
+                    color: Color::rgba(0.141, 0.675, 0.949, 0.05),
+                    ..default()
+                },
+                ..default()
+            },
+            Name::new("Screen Hovered Indicator"),
+            ScreenHoveredIndicatorTag,
+            HoveredElement { info: info.clone() },
+        ));
+    }
+
+    if let Ok((entity, mut sprite, mut transform, mut element)) = game_indicator.get_single_mut() {
+        if let Some(info) = &hovered.game_element {
+            sprite.custom_size = Some(Vec2::new(
+                info.bounding_rect.width(),
+                info.bounding_rect.height(),
+            ));
+            transform.translation = Vec3::new(
+                info.bounding_rect.min.x + info.bounding_rect.width() / 2.,
+                -info.bounding_rect.min.y - info.bounding_rect.height() / 2.,
+                0.,
+            );
+            element.info = info.clone();
+        } else {
+            commands.entity(entity).despawn_recursive();
+        }
+    } else if let Some(info) = &hovered.game_element {
+        commands.spawn((
+            SpriteBundle {
+                transform: Transform::from_xyz(
+                    info.bounding_rect.min.x + info.bounding_rect.width() / 2.,
+                    -info.bounding_rect.min.y - info.bounding_rect.height() / 2.,
+                    0.,
+                ),
+                sprite: Sprite {
+                    custom_size: Some(Vec2::new(
+                        info.bounding_rect.width(),
+                        info.bounding_rect.height(),
+                    )),
+                    color: Color::rgba(0.641, 0.275, 0.649, 0.05),
+                    ..default()
+                },
+                ..default()
+            },
+            Name::new("Game Hovered Indicator"),
+            GameHoveredIndicatorTag,
+            HoveredElement { info: info.clone() },
+        ));
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/hover/src/screenshot_tool.rs
+use bevy::prelude::*;
+use bevy::window::PrimaryWindow;
+use bevy_egui::egui;
+use bevy_egui::egui::Pos2;
+use bevy_egui::EguiContext;
+use bevy_egui::EguiContexts;
+use bevy_inspector_egui::reflect_inspector::Context;
+use bevy_inspector_egui::reflect_inspector::InspectorUi;
+use bevy_xpbd_2d::components::Collider;
+use bevy_xpbd_2d::components::RigidBody;
+use crossbeam_channel::Sender;
+use cursor_hero_bevy::prelude::NegativeYVec2;
+use cursor_hero_bevy::prelude::NegativeYVec3;
+use cursor_hero_camera::camera_plugin::MainCamera;
+use cursor_hero_character_types::prelude::*;
+use cursor_hero_environment_types::prelude::TrackEnvironmentTag;
+use cursor_hero_physics::damping_plugin::MovementDamping;
+use cursor_hero_pointer_types::prelude::*;
+use cursor_hero_screen::get_image::get_image;
+use cursor_hero_screen::get_image::ScreensToImageParam;
+use cursor_hero_toolbelt_types::prelude::*;
+use cursor_hero_tools::cube_tool::CubeToolInteractable;
+use cursor_hero_tools::prelude::*;
+use cursor_hero_ui_automation::prelude::find_element_at;
+use cursor_hero_ui_automation::prelude::gather_elements_at;
+use cursor_hero_ui_automation::prelude::gather_incomplete_ui_tree_starting_deep;
+use cursor_hero_ui_automation::prelude::DrillId;
+use cursor_hero_ui_automation::prelude::ElementInfo;
+use cursor_hero_worker::prelude::Message;
+use cursor_hero_worker::prelude::WorkerConfig;
+use cursor_hero_worker::prelude::WorkerPlugin;
+use itertools::Itertools;
+use leafwing_input_manager::prelude::*;
+use rand::thread_rng;
+use rand::Rng;
+
+pub struct ScreenshotToolPlugin;
+
+impl Plugin for ScreenshotToolPlugin {
+    fn build(&self, app: &mut App) {
+        app.add_plugins(WorkerPlugin {
+            config: WorkerConfig::<ThreadboundMessage, GameboundMessage> {
+                name: "screenshot_tool".to_string(),
+                is_ui_automation_thread: true,
+                handle_threadbound_message,
+                ..default()
+            },
+        });
+        app.register_type::<ScreenshotTool>();
+        app.register_type::<ScreenshotBrick>();
+        app.add_plugins(InputManagerPlugin::<ScreenshotToolAction>::default());
+        app.add_systems(Update, toolbelt_events);
+        app.add_systems(Update, handle_input);
+        app.add_systems(Update, handle_replies);
+        app.add_systems(Update, ui);
+    }
+}
+
+#[derive(Debug, Reflect, Clone, Event)]
+enum ThreadboundMessage {
+    Capture { world_position: Vec3 },
+    CaptureBrick { world_position: Vec3 },
+    Print { world_position: Vec3 },
+    Fracture { world_position: Vec3 },
+}
+impl Message for ThreadboundMessage {}
+
+#[derive(Debug, Reflect, Clone, Event)]
+enum GameboundMessage {
+    Capture {
+        ui_tree: ElementInfo,
+        hovered_element: ElementInfo,
+        world_position: Vec3,
+    },
+    CaptureBrick {
+        ui_tree: ElementInfo,
+        hovered_element: ElementInfo,
+        world_position: Vec3,
+    },
+    Print(ElementInfo),
+    Fracture {
+        data: Vec<(ElementInfo, usize)>,
+        world_position: Vec3,
+    },
+}
+impl Message for GameboundMessage {}
+
+#[derive(Component, Reflect, Default)]
+struct ScreenshotTool;
+
+#[derive(Actionlike, PartialEq, Eq, Clone, Copy, Hash, Debug, Reflect)]
+enum ScreenshotToolAction {
+    Capture,
+    CaptureBrick,
+    Print,
+    Fracture,
+}
+impl ScreenshotToolAction {
+    fn default_gamepad_binding(&self) -> UserInput {
+        match self {
+            Self::Capture => GamepadButtonType::RightTrigger.into(),
+            Self::CaptureBrick => GamepadButtonType::South.into(),
+            Self::Print => GamepadButtonType::North.into(),
+            Self::Fracture => GamepadButtonType::Select.into(),
+        }
+    }
+
+    fn default_mkb_binding(&self) -> UserInput {
+        match self {
+            Self::Capture => MouseButton::Left.into(),
+            Self::CaptureBrick => MouseButton::Middle.into(),
+            Self::Print => MouseButton::Right.into(),
+            Self::Fracture => KeyCode::G.into(),
+        }
+    }
+}
+impl ToolAction for ScreenshotToolAction {
+    fn default_input_map(_event: &ToolbeltPopulateEvent) -> Option<InputMap<ScreenshotToolAction>> {
+        let mut input_map = InputMap::default();
+
+        for variant in ScreenshotToolAction::variants() {
+            input_map.insert(variant.default_mkb_binding(), variant);
+            input_map.insert(variant.default_gamepad_binding(), variant);
+        }
+        Some(input_map)
+    }
+}
+
+#[derive(Reflect, Default)]
+struct ScreenshotBrickEguiState {
+    selected: Option<DrillId>,
+    expanded: Vec<DrillId>,
+}
+
+#[derive(Component, Reflect)]
+struct ScreenshotBrick {
+    ui_tree: ElementInfo,
+    hero_element: ElementInfo,
+    egui_state: ScreenshotBrickEguiState,
+}
+
+fn toolbelt_events(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    mut reader: EventReader<ToolbeltPopulateEvent>,
+) {
+    for event in reader.read() {
+        if event.loadout == ToolbeltLoadout::Inspector {
+            ToolSpawnConfig::<ScreenshotTool, ScreenshotToolAction>::new(
+                ScreenshotTool,
+                event.id,
+                event,
+            )
+            .with_src_path(file!().into())
+            .guess_name(file!())
+            .guess_image(file!(), &asset_server, "webp")
+            .with_description("Turn UI elements into information.")
+            .spawn(&mut commands);
+        }
+    }
+}
+
+fn handle_input(
+    tools: Query<(&ActionState<ScreenshotToolAction>, &Parent), With<ActiveTool>>,
+    toolbelts: Query<&Parent, With<Toolbelt>>,
+    characters: Query<&Children, With<Character>>,
+    pointers: Query<&GlobalTransform, With<Pointer>>,
+    mut bridge: EventWriter<ThreadboundMessage>,
+    egui_context_query: Query<&EguiContext, With<PrimaryWindow>>,
+) {
+    for tool in tools.iter() {
+        let (tool_actions, tool_parent) = tool;
+
+        let Ok(toolbelt) = toolbelts.get(tool_parent.get()) else {
+            warn!("Tool not inside a toolbelt?");
+            continue;
+        };
+        let toolbelt_parent = toolbelt;
+
+        let Ok(character) = characters.get(toolbelt_parent.get()) else {
+            warn!("Toolbelt parent not a character?");
+            continue;
+        };
+        let character_children = character;
+
+        let Some(pointer) = character_children
+            .iter()
+            .filter_map(|x| pointers.get(*x).ok())
+            .next()
+        else {
+            //TODO: warn if more than one pointer found
+            warn!("Character {:?} missing a pointer?", toolbelt_parent.get());
+            debug!("Character children: {:?}", character_children);
+            continue;
+        };
+        let pointer_transform = pointer;
+        let pointer_translation = pointer_transform.translation();
+        let hovering_over_egui = egui_context_query
+            .get_single()
+            .ok()
+            .map(|egui_context| egui_context.clone().get_mut().is_pointer_over_area())
+            .unwrap_or(false);
+        if hovering_over_egui {
+            continue;
+        }
+        if tool_actions.just_pressed(ScreenshotToolAction::Capture) {
+            info!("Capture");
+            let msg = ThreadboundMessage::Capture {
+                world_position: pointer_translation,
+            };
+            bridge.send(msg);
+        }
+        if tool_actions.just_pressed(ScreenshotToolAction::CaptureBrick) {
+            info!("CaptureBrick");
+            let msg = ThreadboundMessage::CaptureBrick {
+                world_position: pointer_translation,
+            };
+            bridge.send(msg);
+        }
+        if tool_actions.just_pressed(ScreenshotToolAction::Print) {
+            info!("Print");
+            let msg = ThreadboundMessage::Print {
+                world_position: pointer_translation,
+            };
+            bridge.send(msg);
+        }
+        if tool_actions.just_pressed(ScreenshotToolAction::Fracture) {
+            info!("Fracture");
+            let msg = ThreadboundMessage::Fracture {
+                world_position: pointer_translation,
+            };
+            bridge.send(msg);
+        }
+    }
+}
+
+fn handle_threadbound_message(
+    msg: &ThreadboundMessage,
+    reply_tx: &Sender<GameboundMessage>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    match msg {
+        ThreadboundMessage::Capture { world_position }
+        | ThreadboundMessage::CaptureBrick { world_position } => {
+            let mouse_position = world_position.xy().neg_y().as_ivec2();
+            debug!("Worker received click: {:?} {:?}", msg, mouse_position);
+
+            let elem = find_element_at(mouse_position)?;
+            info!("{} - {}", elem.get_classname()?, elem.get_name()?);
+
+            let id = elem.get_automation_id()?;
+            info!("Automation ID: {}", id);
+            let gathered = gather_incomplete_ui_tree_starting_deep(elem)?;
+            // debug!("Element info: {:?}", element_info);
+            let msg = match msg {
+                ThreadboundMessage::Capture { world_position } => GameboundMessage::Capture {
+                    ui_tree: gathered.ui_tree,
+                    hovered_element: gathered.start_info,
+                    world_position: *world_position,
+                },
+                ThreadboundMessage::CaptureBrick { world_position } => {
+                    GameboundMessage::CaptureBrick {
+                        ui_tree: gathered.ui_tree,
+                        hovered_element: gathered.start_info,
+                        world_position: *world_position,
+                    }
+                }
+                _ => unreachable!(),
+            };
+            reply_tx.send(msg)?;
+        }
+        ThreadboundMessage::Print { world_position } => {
+            let mouse_position = world_position.xy().neg_y().as_ivec2();
+            debug!("Worker received click: {:?} {:?}", msg, mouse_position);
+
+            let elem = find_element_at(mouse_position)?;
+            info!("{:?}", elem);
+
+            // Can we click on elements with this?
+            // elem.send_keys(keys, interval) exists!
+
+            // Send the info
+            let id = elem.get_automation_id()?;
+            info!("Automation ID: {}", id);
+            let gathered = gather_incomplete_ui_tree_starting_deep(elem)?;
+            reply_tx.send(GameboundMessage::Print(gathered.ui_tree))?;
+        }
+        ThreadboundMessage::Fracture { world_position } => {
+            let mouse_position = world_position.xy().neg_y().as_ivec2();
+            debug!("Worker received click: {:?} {:?}", msg, mouse_position);
+
+            let found = gather_elements_at(mouse_position)?;
+            let data = found
+                .into_iter()
+                .filter_map(|(elem, depth)| {
+                    gather_incomplete_ui_tree_starting_deep(elem)
+                        .ok()
+                        .map(|info| (info.start_info, depth))
+                })
+                .collect();
+            reply_tx.send(GameboundMessage::Fracture {
+                data,
+                world_position: *world_position,
+            })?;
+        }
+    }
+
+    Ok(())
+}
+
+fn handle_replies(
+    mut commands: Commands,
+    mut bridge: EventReader<GameboundMessage>,
+    screen_access: ScreensToImageParam,
+    asset_server: Res<AssetServer>,
+) {
+    for msg in bridge.read() {
+        match &msg {
+            GameboundMessage::Capture {
+                ui_tree,
+                hovered_element,
+                world_position,
+            }
+            | GameboundMessage::CaptureBrick {
+                ui_tree,
+                hovered_element,
+                world_position,
+            } => {
+                let (size, pos, texture_region) = match msg {
+                    GameboundMessage::Capture { .. } => (
+                        hovered_element.bounding_rect.size(),
+                        hovered_element.bounding_rect.center().extend(20.0).neg_y(),
+                        hovered_element.bounding_rect,
+                    ),
+                    GameboundMessage::CaptureBrick { .. } => (
+                        hovered_element.bounding_rect.size().normalize() * 60.0,
+                        *world_position,
+                        hovered_element.bounding_rect,
+                    ),
+                    _ => unreachable!(),
+                };
+                spawn_brick(
+                    &mut commands,
+                    ui_tree,
+                    hovered_element,
+                    size,
+                    pos,
+                    texture_region,
+                    &screen_access,
+                    &asset_server,
+                );
+            }
+            GameboundMessage::Print(info) => {
+                info!("Received info for element {:?}", info);
+                commands.spawn((
+                    AudioBundle {
+                        source: asset_server.load("sounds/tape recorder eject 4.ogg"),
+                        settings: PlaybackSettings::REMOVE,
+                    },
+                    Name::new(format!("SFX Element - {}", info.name)),
+                ));
+            }
+            GameboundMessage::Fracture {
+                data,
+                world_position,
+            } => {
+                info!("Received info with {} elements", data.len());
+                if !data.is_empty() {
+                    commands.spawn((
+                        SpatialBundle {
+                            transform: Transform::from_translation(*world_position),
+                            ..default()
+                        },
+                        AudioBundle {
+                            source: asset_server.load("sounds/spring strung light 4.ogg"),
+                            settings: PlaybackSettings::DESPAWN.with_spatial(true),
+                        },
+                        Name::new("Fracture Sound"),
+                    ));
+                }
+                for (info, depth) in data {
+                    // let Ok(image) = get_image(info.bounding_rect, &access) else {
+                    //     continue;
+                    // };
+                    // let texture_handle = asset_server.add(image);
+
+                    // spawn the element image
+                    let mut elem_center_pos = info.bounding_rect.center().extend(*depth as f32);
+                    elem_center_pos.y *= -1.0;
+                    commands.spawn((
+                        SpriteBundle {
+                            transform: Transform::from_translation(elem_center_pos),
+                            sprite: Sprite {
+                                custom_size: Some(info.bounding_rect.size()),
+                                color: Color::hsl(thread_rng().gen_range(0.0..360.0), 0.5, 0.5),
+                                ..default()
+                            },
+                            // texture: texture_handle,
+                            ..default()
+                        },
+                        CubeToolInteractable,
+                        RigidBody::Dynamic,
+                        Collider::cuboid(info.bounding_rect.width(), info.bounding_rect.height()),
+                        MovementDamping::default(),
+                        Name::new(format!("Element - {}", info.name)),
+                    ));
+                }
+            }
+        }
+    }
+}
+
+fn spawn_brick(
+    commands: &mut Commands,
+    ui_tree: &ElementInfo,
+    hero_element: &ElementInfo,
+    size: Vec2,
+    pos: Vec3,
+    texture_region: Rect,
+    screen_access: &ScreensToImageParam,
+    asset_server: &Res<AssetServer>,
+) {
+    let Ok(image) = get_image(texture_region, screen_access) else {
+        return;
+    };
+    let texture_handle = asset_server.add(image);
+    let expanded = ui_tree
+        .get_descendents()
+        .iter()
+        .chain([ui_tree].iter())
+        .filter(|x| x.children.is_some())
+        .map(|x| x.drill_id.clone())
+        .collect();
+    commands.spawn((
+        SpriteBundle {
+            transform: Transform::from_translation(pos),
+            sprite: Sprite {
+                custom_size: Some(size),
+                ..default()
+            },
+            texture: texture_handle,
+            ..default()
+        },
+        AudioBundle {
+            source: asset_server.load("sounds/spring strung light 4.ogg"),
+            settings: PlaybackSettings::REMOVE.with_spatial(true),
+        },
+        // FloatyName {
+        //     text: element_info.name.clone(),
+        //     vertical_offset: 40.0,
+        //     appearance: NametagAppearance::Databrick,
+        // },
+        Hoverable,
+        Clickable,
+        CubeToolInteractable,
+        RigidBody::Dynamic,
+        TrackEnvironmentTag,
+        ScreenshotBrick {
+            ui_tree: ui_tree.clone(),
+            hero_element: hero_element.clone(),
+            egui_state: ScreenshotBrickEguiState {
+                selected: Some(hero_element.drill_id.clone()),
+                expanded,
+            },
+        },
+        Collider::cuboid(size.x, size.y),
+        MovementDamping::default(),
+        Name::new(format!("Element - {}", hero_element.name)),
+    ));
+}
+
+fn ui(
+    mut commands: Commands,
+    screen_access: ScreensToImageParam,
+    asset_server: Res<AssetServer>,
+    mut contexts: EguiContexts,
+    mut brick_query: Query<(
+        Entity,
+        &mut ScreenshotBrick,
+        &Sprite,
+        &Name,
+        &GlobalTransform,
+    )>,
+    camera_query: Query<(&GlobalTransform, &Camera), With<MainCamera>>,
+    type_registry: Res<AppTypeRegistry>,
+) {
+    let Ok(camera) = camera_query.get_single() else {
+        warn!("No camera found");
+        return;
+    };
+    let (camera_transform, camera) = camera;
+
+    let ctx = contexts.ctx_mut();
+    // let scale = (camera_transform.compute_transform().scale.x * 1.0).round();
+    // debug!("Scale: {}", scale);
+    // ctx.set_zoom_factor(scale);
+
+    if brick_query.is_empty() {
+        return;
+    }
+
+    let mut cx = Context {
+        world: None,
+        queue: None,
+    };
+
+    let type_registry = type_registry.0.clone();
+    let type_registry = type_registry.read();
+
+    let mut inspector = InspectorUi::for_bevy(&type_registry, &mut cx);
+
+    for brick in brick_query.iter_mut() {
+        let (brick_id, mut brick, brick_sprite, brick_name, brick_global_transform) = brick;
+        let brick_global_translation = brick_global_transform.translation();
+        let popout_pos = brick_global_translation
+            + Vec3::new(
+                brick_sprite.custom_size.unwrap_or_default().x + 50.0,
+                0.0,
+                0.0,
+            );
+        let egui_pos = camera
+            .world_to_viewport(camera_transform, brick_global_translation)
+            .unwrap_or_default();
+
+        let id = egui::Id::new(brick_id);
+
+        egui::Window::new(brick_name.chars().take(64).collect::<String>())
+            .id(id)
+            .fixed_pos(Pos2::new(egui_pos.x, egui_pos.y))
+            .default_width(1200.0)
+            // .resizable(true)
+            .show(ctx, |ui| {
+                egui::SidePanel::left(id.with("tree"))
+                    .resizable(true)
+                    .width_range(100.0..=4000.0)
+                    .default_width(600.0)
+                    .show_inside(ui, |ui| {
+                        ui.vertical_centered(|ui| {
+                            ui.heading("UI Tree");
+                        });
+                        egui::ScrollArea::both().show(ui, |ui| {
+                            let id = id.with(brick.ui_tree.runtime_id.clone());
+
+                            let mut temp_egui_state = std::mem::take(&mut brick.egui_state);
+                            let mut temp_info = std::mem::take(&mut brick.ui_tree);
+                            ui_for_element_info(
+                                &mut temp_egui_state,
+                                id,
+                                &mut commands,
+                                &screen_access,
+                                &asset_server,
+                                ui,
+                                &mut temp_info,
+                                &mut inspector,
+                                &popout_pos,
+                            );
+                            brick.egui_state = temp_egui_state;
+                            brick.ui_tree = temp_info;
+
+                            ui.allocate_space(ui.available_size());
+                        });
+                    });
+
+                egui::TopBottomPanel::bottom(id.with("invisible bottom panel"))
+                    .show_separator_line(false)
+                    .show_inside(ui, |_| ());
+
+                egui::CentralPanel::default().show_inside(ui, |ui| {
+                    ui.heading("AHOY!");
+                    let id = brick.egui_state.selected.clone();
+                    if let Some(id) = id
+                        && let Some(x) = brick.ui_tree.lookup_drill_id_mut(id)
+                    {
+                        inspector.ui_for_reflect(x, ui);
+                    }
+                    // inspector.ui_for_reflect_readonly(&data, ui);
+                });
+            });
+    }
+}
+
+#[derive(Reflect, Debug)]
+struct ElementUIData {
+    runtime_id: String,
+    frick: String,
+}
+
+#[allow(clippy::too_many_arguments)]
+fn ui_for_element_info(
+    state: &mut ScreenshotBrickEguiState,
+    id: egui::Id,
+    commands: &mut Commands,
+    screen_access: &ScreensToImageParam,
+    asset_server: &Res<AssetServer>,
+    ui: &mut egui::Ui,
+    element_info: &mut ElementInfo,
+    _inspector: &mut InspectorUi,
+    popout_pos: &Vec3,
+) {
+    egui::collapsing_header::CollapsingState::load_with_default_open(
+        ui.ctx(),
+        id,
+        state.expanded.contains(&element_info.drill_id),
+    )
+    .show_header(ui, |ui| {
+        let mut selected = state.selected == Some(element_info.drill_id.clone());
+        if ui
+            .toggle_value(
+                &mut selected,
+                format!(
+                    "{:?} | {}",
+                    element_info.name, element_info.localized_control_type
+                ),
+            )
+            .changed()
+        {
+            state.selected = if selected {
+                Some(element_info.drill_id.clone())
+            } else {
+                None
+            };
+        };
+    })
+    .body(|ui| {
+        // if ui.button("Popout").clicked() {
+        //     spawn_brick(
+        //         commands,
+        //         element_info,
+        //         element_info.bounding_rect.size(),
+        //         *popout_pos,
+        //         screen_access,
+        //         asset_server,
+        //     )
+        // }
+
+        if let Some(children) = &mut element_info.children {
+            for child in children.iter_mut() {
+                ui_for_element_info(
+                    state,
+                    id.with(child.runtime_id.clone()),
+                    commands,
+                    screen_access,
+                    asset_server,
+                    ui,
+                    child,
+                    _inspector,
+                    popout_pos,
+                );
+            }
+        }
+    });
+}
+
+#ENDREGION
+
+
+#REGION crates/movement_tool/src/movement_tool_populate_plugin.rs
+use bevy::prelude::*;
+use cursor_hero_movement_tool_types::prelude::*;
+use cursor_hero_toolbelt_types::prelude::*;
+use cursor_hero_tools::tool_spawning::ToolSpawnConfig;
+
+pub struct MovementToolPopulatePlugin;
+
+impl Plugin for MovementToolPopulatePlugin {
+    fn build(&self, app: &mut App) {
+        app.add_systems(Update, handle_toolbelt_events);
+    }
+}
+
+fn handle_toolbelt_events(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    mut reader: EventReader<ToolbeltPopulateEvent>,
+) {
+    for event in reader.read() {
+        match event.loadout {
+            ToolbeltLoadout::Default
+            | ToolbeltLoadout::Inspector
+            | ToolbeltLoadout::Taskbar
+            | ToolbeltLoadout::WindowPosition
+            | ToolbeltLoadout::Keyboard => {
+                ToolSpawnConfig::<_, MovementToolAction>::new(
+                    MovementTool::default(),
+                    event.id,
+                    event,
+                )
+                .with_src_path(file!().into())
+                .guess_name(file!())
+                .guess_image(file!(), &asset_server, "png")
+                .with_description("Go faster, reach further")
+                .spawn(&mut commands);
+            }
+            ToolbeltLoadout::Agent => {
+                ToolSpawnConfig::<_, MovementToolAction>::new(
+                    MovementTool::default(),
+                    event.id,
+                    event,
+                )
+                .with_src_path(file!().into())
+                .with_input_map(None)
+                .guess_name(file!())
+                .guess_image(file!(), &asset_server, "png")
+                .with_description("Go faster, reach further")
+                .spawn(&mut commands);
+            }
+            _ => {}
+        }
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/pressure_plate/src/pressure_plate_plugin.rs
+use bevy::prelude::*;
+use bevy_xpbd_2d::components::CollidingEntities;
+
+pub struct PressurePlatePlugin;
+impl Plugin for PressurePlatePlugin {
+    fn build(&self, app: &mut App) {
+        app.add_systems(Update, update_plate)
+            .add_event::<PressurePlateActivationEvent>()
+            .register_type::<PressurePlate>();
+    }
+}
+
+#[derive(Event)]
+pub struct PressurePlateActivationEvent(pub Entity);
+
+#[derive(Component, Reflect)]
+pub struct PressurePlate {
+    active_time: f32,
+    debounce: bool,
+    indicator: Entity,
+}
+
+#[derive(Component, Default, Reflect)]
+pub struct PressurePlateProgressIndicator {
+    visual_progress: f32,
+}
+
+impl PressurePlate {
+    pub fn new(indicator: Entity) -> Self {
+        Self {
+            active_time: 0.0,
+            debounce: false,
+            indicator,
+        }
+    }
+}
+
+#[allow(clippy::type_complexity)]
+fn update_plate(
+    asset_server: Res<AssetServer>,
+    mut commands: Commands,
+    time: Res<Time>,
+    mut query: Query<
+        (
+            Entity,
+            &mut PressurePlate,
+            &mut Sprite,
+            &CollidingEntities,
+            Option<&SpatialAudioSink>,
+        ),
+        Without<PressurePlateProgressIndicator>,
+    >,
+    mut indicator_query: Query<
+        (&mut PressurePlateProgressIndicator, &mut Sprite),
+        Without<PressurePlate>,
+    >,
+    mut activation_writer: EventWriter<PressurePlateActivationEvent>,
+) {
+    for (entity, mut plate, mut sprite, colliding_entities, sink) in &mut query {
+        if colliding_entities.0.is_empty() {
+            sprite.color = Color::rgb(0.2, 0.7, 0.9);
+            plate.active_time = 0.0;
+            sink.map(SpatialAudioSink::stop);
+            plate.debounce = false;
+        } else {
+            if plate.debounce {
+                continue;
+            }
+            sprite.color = Color::rgb(0.9, 0.7, 0.2);
+            if plate.active_time == 0.0 {
+                let bundle = AudioBundle {
+                    source: asset_server.load("sounds/pressure plate activation.ogg"),
+                    settings: PlaybackSettings::REMOVE.with_spatial(true),
+                };
+                commands.entity(entity).insert(bundle);
+                plate.active_time += time.delta_seconds();
+            } else {
+                plate.active_time += time.delta_seconds();
+                if plate.active_time > cursor_hero_data::sounds::PRESSURE_PLATE_ACTIVATION_DURATION
+                {
+                    plate.active_time = 0.0;
+                    plate.debounce = true;
+                    activation_writer.send(PressurePlateActivationEvent(entity));
+                }
+            }
+        }
+        if let Ok((mut indicator, mut indicator_sprite)) = indicator_query.get_mut(plate.indicator)
+        {
+            indicator.visual_progress =
+                plate.active_time / cursor_hero_data::sounds::PRESSURE_PLATE_ACTIVATION_DURATION;
+            indicator_sprite.color = Color::rgb(0.2, 0.7, 0.9) * indicator.visual_progress;
+        }
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/toolbelt/src/tool_help_populate.rs
+use cursor_hero_host_fs_types::host_fs_types::HostPath;
+use cursor_hero_toolbelt_types::toolbelt_types::*;
+
+use bevy::prelude::*;
+use bevy_xpbd_2d::components::Collider;
+use bevy_xpbd_2d::components::RigidBody;
+use bevy_xpbd_2d::components::Sensor;
+use cursor_hero_pointer_types::prelude::*;
+
+use leafwing_input_manager::action_state::ActionState;
+
+#[allow(clippy::type_complexity)]
+pub fn tool_help_lifecycle(
+    mut commands: Commands,
+    toolbelt_query: Query<
+        (&ActionState<ToolbeltAction>, &Children),
+        (Without<Tool>, With<Toolbelt>),
+    >,
+    tool_query: Query<(Entity, Option<&HostPath>, Option<&Children>, Option<&Name>), With<Tool>>,
+    tool_help_triggger_query: Query<Entity, With<ToolHelpTrigger>>,
+    asset_server: Res<AssetServer>,
+) {
+    for (toolbelt_actions, toolbelt_kids) in toolbelt_query.iter() {
+        if toolbelt_actions.just_pressed(ToolbeltAction::Show) {
+            for child_id in toolbelt_kids.iter() {
+                let Ok(tool) = tool_query.get(*child_id) else {
+                    continue;
+                };
+
+                let (tool_id, tool_src_path, _, tool_name) = tool;
+                commands.entity(tool_id).with_children(|parent| {
+                    let mut help = parent.spawn((
+                        Name::new(format!("Help Trigger for {:?} ({:?})", tool_name, tool_id)),
+                        SpriteBundle {
+                            sprite: Sprite {
+                                custom_size: Some(Vec2::new(50.0, 50.0)),
+                                ..default()
+                            },
+                            transform: Transform::from_xyz(0.0, 0.0, 1.0),
+                            texture: asset_server.load("textures/toolbelt_wheel/help_trigger.png"),
+                            ..default()
+                        },
+                        Hoverable,
+                        Clickable,
+                        ToolHelpTrigger,
+                        Sensor,
+                        RigidBody::Kinematic,
+                        Collider::cuboid(50.0, 50.0),
+                    ));
+                    if let Some(src_path) = tool_src_path {
+                        help.insert(src_path.clone());
+                    }
+                });
+            }
+        } else if toolbelt_actions.just_released(ToolbeltAction::Show) {
+            for child_id in toolbelt_kids.iter() {
+                let Ok(tool) = tool_query.get(*child_id) else {
+                    continue;
+                };
+                let (tool_id, _, Some(tool_children), _) = tool else {
+                    continue;
+                };
+                for child_id in tool_children.iter() {
+                    if let Ok(tool_help_trigger_id) = tool_help_triggger_query.get(*child_id) {
+                        commands
+                            .entity(tool_id)
+                            .remove_children(&[tool_help_trigger_id]);
+                        commands.entity(tool_help_trigger_id).despawn_recursive();
+                    }
+                }
+            }
+        }
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation_types/src/calculator_ui_types.rs
+use bevy::prelude::*;
+use serde::{Deserialize, Serialize};
+
+#[derive(Component, Debug, Reflect, Default, Clone, Serialize, Deserialize, PartialEq)]
+pub struct Calculator {
+    pub memory: CalculatorMemory,
+}
+impl std::fmt::Display for Calculator {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Calculator (value={})", self.memory.buffer)
+    }
+}
+
+#[derive(Component, Debug, Reflect, Default)]
+pub struct NumberDisplayPanel;
+
+#[derive(Component, Debug, Reflect, Default)]
+pub struct DigitInputButton(u8);
+
+#[derive(Component, Debug, Reflect, Default)]
+pub struct EqualsButton;
+
+#[derive(Component, Debug, Reflect, Default)]
+pub struct PlusButton;
+
+#[derive(Component, Debug, Reflect, Default, Clone, Serialize, Deserialize, PartialEq)]
+pub struct CalculatorMemory {
+    pub buffer: f64,
+}
+
+#[derive(Event, Debug, Reflect, Default)]
+pub struct SpawnCalculatorRequest {
+    calculator: Calculator,
+}
+#[derive(Event, Debug, Reflect)]
+pub struct CalculatorRequestDefaultPositioningRequest {
+    calculator: Entity,
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation_types/src/edge_ui_types.rs
+use bevy::prelude::*;
+use itertools::Itertools;
+use serde::Deserialize;
+use serde::Serialize;
+use std::collections::VecDeque;
+use std::fmt;
+use std::fmt::Display;
+use std::fmt::Formatter;
+use uiautomation::UIElement;
+
+pub enum EdgeResolveError {
+    BadChildCount { tried_accessing: u32 },
+    UI(uiautomation::Error),
+    UnknownSideTabKind(String),
+    UnknownState,
+}
+impl From<u32> for EdgeResolveError {
+    fn from(tried_accessing: u32) -> Self {
+        EdgeResolveError::BadChildCount { tried_accessing }
+    }
+}
+
+impl From<uiautomation::Error> for EdgeResolveError {
+    fn from(e: uiautomation::Error) -> Self {
+        EdgeResolveError::UI(e)
+    }
+}
+impl TryFrom<VecDeque<UIElement>> for EdgeCrawlState {
+    type Error = EdgeResolveError;
+    fn try_from(mut kids: VecDeque<UIElement>) -> Result<Self, Self::Error> {
+        let state = match kids.len() {
+            2 => EdgeCrawlState::LeftTabClosed {
+                tabs: kids.pop_front().ok_or(0u32)?,
+                editor: kids.pop_front().ok_or(1u32)?,
+            },
+            3 => EdgeCrawlState::LeftTabOpen {
+                side_nav_tabs: kids.pop_front().ok_or(0u32)?,
+                side_nav_view: kids.pop_front().ok_or(1u32)?,
+                editor: kids.pop_front().ok_or(2u32)?,
+            },
+            _ => EdgeCrawlState::Unknown,
+        };
+        Ok(state)
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub enum View {
+    Explorer {
+        sticky: Vec<ExplorerItem>,
+        items: Vec<ExplorerItem>,
+    },
+    Unknown {},
+}
+impl Display for View {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        match self {
+            View::Explorer { sticky, items } => {
+                writeln!(f, "Explorer entries:")?;
+                writeln!(f, "=== BEGIN STICKY ===")?;
+                for item in sticky.iter().sorted_by_key(|x| x.bounds.min.y) {
+                    writeln!(
+                        f,
+                        "{}- {} ({})",
+                        " ".repeat(item.ui_level as usize),
+                        item.label.clone()
+                            + if matches!(item.kind, ExplorerItemKind::Directory { .. }) {
+                                "/"
+                            } else {
+                                ""
+                            },
+                        item.path
+                    )?;
+                }
+                writeln!(f, "=== END STICKY ===")?;
+                for item in items.iter().sorted_by_key(|x| x.bounds.min.y) {
+                    writeln!(
+                        f,
+                        "{}- {} ({})",
+                        " ".repeat(item.ui_level as usize),
+                        item.label.clone()
+                            + if matches!(item.kind, ExplorerItemKind::Directory { .. }) {
+                                "/"
+                            } else {
+                                ""
+                            },
+                        item.path
+                    )?;
+                }
+                fmt::Result::Ok(())
+            }
+            View::Unknown {} => {
+                writeln!(f, "Unknown view")?;
+                fmt::Result::Ok(())
+            }
+        }
+    }
+}
+
+pub enum EdgeCrawlState {
+    LeftTabClosed {
+        tabs: UIElement,
+        editor: UIElement,
+    },
+    LeftTabOpen {
+        side_nav_tabs: UIElement,
+        side_nav_view: UIElement,
+        editor: UIElement,
+    },
+    Unknown,
+}
+impl EdgeCrawlState {
+    pub fn get_side_nav_tabs_root_elem(&self) -> Result<&UIElement, EdgeResolveError> {
+        match self {
+            EdgeCrawlState::LeftTabClosed { tabs, .. } => Ok(tabs),
+            EdgeCrawlState::LeftTabOpen {
+                side_nav_tabs: tabs,
+                ..
+            } => Ok(tabs),
+            EdgeCrawlState::Unknown => Err(EdgeResolveError::UnknownState),
+        }
+    }
+    pub fn get_side_nav_view_root_elem(&self) -> Result<&UIElement, EdgeResolveError> {
+        match self {
+            EdgeCrawlState::LeftTabClosed { tabs, .. } => Ok(tabs),
+            EdgeCrawlState::LeftTabOpen {
+                side_nav_view: view,
+                ..
+            } => Ok(view),
+            EdgeCrawlState::Unknown => Err(EdgeResolveError::UnknownState),
+        }
+    }
+    pub fn get_editor_root_elem(&self) -> Result<&UIElement, EdgeResolveError> {
+        match self {
+            EdgeCrawlState::LeftTabClosed { editor, .. } => Ok(editor),
+            EdgeCrawlState::LeftTabOpen { editor, .. } => Ok(editor),
+            EdgeCrawlState::Unknown => Err(EdgeResolveError::UnknownState),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EdgeWindowHeader {}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EdgeWindowBody {
+    pub editor_area: EditorArea,
+    pub side_nav: Vec<SideTab>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EdgeWindowFooter {
+    pub cursor_position: IVec2,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EdgeWindow {
+    pub focused: bool,
+    pub header: EdgeWindowHeader,
+    pub body: EdgeWindowBody,
+    pub footer: EdgeWindowFooter,
+}
+
+impl Display for EdgeWindow {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        writeln!(
+            f,
+            ":D :D :D Visual Studio Code {} owo owo owo",
+            if self.focused { "(focused)" } else { "" }
+        )?;
+
+        writeln!(f, "Side tabs:")?;
+        for tab in self.body.side_nav.iter() {
+            match tab {
+                SideTab::Open { kind, view } => {
+                    writeln!(f, "- (open) {:?} {{{{\n{}}}}}", kind, view)?;
+                }
+                SideTab::Closed { kind } => {
+                    writeln!(f, "- {:?}", kind)?;
+                }
+            }
+        }
+
+        writeln!(f, "Editor groups:")?;
+        for (i, group) in self.body.editor_area.groups.iter().enumerate() {
+            writeln!(f, "Group {} tabs:", i + 1)?;
+            for tab in group.tabs.iter() {
+                if tab.active {
+                    writeln!(f, "- (active) {}", tab.title)?;
+                } else {
+                    writeln!(f, "- {}", tab.title)?;
+                }
+            }
+            if let Some(ref content) = group.content {
+                writeln!(
+                    f,
+                    "Group {} buffer:\n=======\n{}\n=======",
+                    i + 1,
+                    content.content
+                )?;
+            }
+        }
+
+        writeln!(f, "Cursor position: {:?}", self.footer.cursor_position)?;
+
+        fmt::Result::Ok(())
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub enum SideTab {
+    Closed { kind: SideTabKind },
+    Open { kind: SideTabKind, view: View },
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub enum ExplorerItemKind {
+    File,
+    Directory { expanded: bool },
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct ExplorerItem {
+    pub label: String,
+    pub path: String,
+    pub ui_position_in_set: u32,
+    pub ui_size_of_set: u32,
+    pub ui_level: u32,
+    pub bounds: IRect,
+    pub kind: ExplorerItemKind,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EditorArea {
+    pub groups: Vec<EditorGroup>,
+}
+impl EditorArea {
+    pub fn get_expected_automation_id() -> &'static str {
+        "workbench.parts.editor"
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EditorGroup {
+    pub tabs: Vec<EditorTab>,
+    pub content: Option<EditorContent>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EditorTab {
+    pub title: String,
+    pub active: bool,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EditorContent {
+    pub content: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub enum SideTabKind {
+    Explorer,
+    Search,
+    SourceControl,
+    RunAndDebug,
+    Extensions,
+    GitLens,
+    Azure,
+    Jupyter,
+    Chat,
+    GitHubActions,
+    Todo,
+}
+impl SideTabKind {
+    pub fn variants() -> Vec<SideTabKind> {
+        vec![
+            SideTabKind::Explorer,
+            SideTabKind::Search,
+            SideTabKind::SourceControl,
+            SideTabKind::RunAndDebug,
+            SideTabKind::Extensions,
+            SideTabKind::GitLens,
+            SideTabKind::Azure,
+            SideTabKind::Jupyter,
+            SideTabKind::Chat,
+            SideTabKind::GitHubActions,
+            SideTabKind::Todo,
+        ]
+    }
+    pub fn get_view_automation_id(&self) -> Option<&str> {
+        match self {
+            SideTabKind::Explorer => Some("workbench.view.explorer"),
+            _ => None,
+        }
+    }
+}
+impl TryFrom<String> for SideTabKind {
+    type Error = EdgeResolveError;
+    fn try_from(s: String) -> Result<Self, Self::Error> {
+        let before_first_lparen = s.split_once(" (").map(|x| x.0).unwrap_or(s.as_str());
+        match before_first_lparen {
+            "Explorer" => Ok(SideTabKind::Explorer),
+            "Search" => Ok(SideTabKind::Search),
+            "Source Control" => Ok(SideTabKind::SourceControl),
+            "Run and Debug" => Ok(SideTabKind::RunAndDebug),
+            "Extensions" => Ok(SideTabKind::Extensions),
+            "GitLens" => Ok(SideTabKind::GitLens),
+            "Azure" => Ok(SideTabKind::Azure),
+            "Jupyter" => Ok(SideTabKind::Jupyter),
+            "Chat" => Ok(SideTabKind::Chat),
+            "GitHub Actions" => Ok(SideTabKind::GitHubActions),
+            "TODOs" => Ok(SideTabKind::Todo),
+            _ => Err(EdgeResolveError::UnknownSideTabKind(s)),
+        }
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation_types/src/lib.rs
+#![feature(trivial_bounds)]
+
+mod taskbar_ui_types;
+mod ui_automation_drill;
+mod ui_automation_error_types;
+mod ui_automation_types;
+mod ui_automation_types_plugin;
+mod vscode_ui_types;
+mod calculator_ui_types;
+
+pub mod prelude {
+    pub use crate::taskbar_ui_types::*;
+    pub use crate::ui_automation_drill::*;
+    pub use crate::ui_automation_error_types::*;
+    pub use crate::ui_automation_types::*;
+    pub use crate::ui_automation_types_plugin::*;
+    pub use crate::vscode_ui_types::*;
+    pub use crate::calculator_ui_types::*;
+    // pub use uiautomation;
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation_types/src/taskbar_ui_types.rs
+use bevy::prelude::*;
+
+#[derive(Debug, Reflect, Clone)]
+pub struct Taskbar {
+    pub entries: Vec<TaskbarEntry>,
+}
+#[derive(Debug, Reflect, Clone)]
+pub struct TaskbarEntry {
+    pub name: String,
+    pub bounds: IRect,
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation_types/src/ui_automation_drill.rs
+use std::collections::VecDeque;
+use uiautomation::UIElement;
+use uiautomation::UITreeWalker;
+
+use crate::prelude::DrillId;
+
+#[derive(Debug)]
+pub enum DrillError {
+    UI(uiautomation::Error),
+    EmptyPath,
+    BadPath,
+    OutOfBounds {
+        given: u32,
+        max: u32,
+        error: uiautomation::Error,
+    },
+}
+impl std::error::Error for DrillError {}
+impl std::fmt::Display for DrillError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            DrillError::UI(e) => write!(f, "UIAutomation error: {}", e),
+            DrillError::EmptyPath => write!(f, "Empty path"),
+            DrillError::BadPath => write!(f, "Bad path"),
+            DrillError::OutOfBounds { given, max, error } => write!(
+                f,
+                "Out of bounds: given {}, max {}, error: {}",
+                given, max, error
+            ),
+        }
+    }
+}
+impl From<uiautomation::Error> for DrillError {
+    fn from(e: uiautomation::Error) -> Self {
+        DrillError::UI(e)
+    }
+}
+pub trait Drillable {
+    fn drill<T: Into<DrillId>>(
+        &self,
+        walker: &UITreeWalker,
+        path: T,
+    ) -> Result<UIElement, DrillError>;
+}
+impl Drillable for UIElement {
+    fn drill<T: Into<DrillId>>(
+        &self,
+        walker: &UITreeWalker,
+        path: T,
+    ) -> Result<UIElement, DrillError> {
+        let drill_id: DrillId = path.into();
+        match drill_id {
+            DrillId::Child(path) => {
+                let mut path = path
+                    .into_iter()
+                    .map(|x| x as u32)
+                    .collect::<VecDeque<u32>>();
+                if path.iter().any(|x| (*x as i32) < 0) {
+                    return Err(DrillError::BadPath);
+                }
+                drill_inner(self, walker, &mut path)
+            }
+            DrillId::Root | DrillId::Unknown => {
+                return Err(DrillError::BadPath);
+            }
+        }
+    }
+}
+fn drill_inner(
+    start: &UIElement,
+    walker: &UITreeWalker,
+    path: &mut VecDeque<u32>,
+) -> Result<UIElement, DrillError> {
+    let target_index = match path.pop_front() {
+        Some(x) => x,
+        None => return Err(DrillError::EmptyPath),
+    };
+    let mut child = walker.get_first_child(start)?;
+    let mut i = 0;
+    while i < target_index {
+        i += 1;
+        child = match walker.get_next_sibling(&child) {
+            Ok(x) => x,
+            Err(e) => {
+                return Err(DrillError::OutOfBounds {
+                    given: i,
+                    max: target_index,
+                    error: e,
+                })
+            }
+        };
+    }
+    if path.is_empty() {
+        Ok(child)
+    } else {
+        drill_inner(&child, walker, path)
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation_types/src/ui_automation_error_types.rs
+use crate::prelude::VSCodeResolveError;
+use crate::ui_automation_drill::DrillError;
+use std::fmt;
+
+#[derive(Debug)]
+pub enum AppResolveError {
+    UI(uiautomation::Error),
+    BadStructure(String),
+    BadVSCodeStructure(String),
+    NoMatch,
+}
+impl From<uiautomation::Error> for AppResolveError {
+    fn from(e: uiautomation::Error) -> Self {
+        AppResolveError::UI(e)
+    }
+}
+impl From<DrillError> for AppResolveError {
+    fn from(e: DrillError) -> Self {
+        match e {
+            DrillError::UI(e) => AppResolveError::UI(e),
+            DrillError::EmptyPath => AppResolveError::BadStructure("Empty path".to_string()),
+            DrillError::BadPath => AppResolveError::BadStructure("Bad path".to_string()),
+            DrillError::OutOfBounds {
+                given,
+                max,
+                error: e,
+            } => AppResolveError::BadStructure(format!(
+                "Out of bounds: given: {}, max: {}, error: {}",
+                given, max, e
+            )),
+        }
+    }
+}
+impl From<VSCodeResolveError> for AppResolveError {
+    fn from(e: VSCodeResolveError) -> Self {
+        match e {
+            VSCodeResolveError::UnknownSideTabKind(s) => {
+                AppResolveError::BadVSCodeStructure(format!("Unknown VSCode side tab kind: {}", s))
+            }
+            VSCodeResolveError::UnknownState => {
+                AppResolveError::BadVSCodeStructure("Unknown VSCode state".to_string())
+            }
+            VSCodeResolveError::UI(e) => AppResolveError::UI(e),
+            VSCodeResolveError::BadChildCount { tried_accessing } => AppResolveError::BadVSCodeStructure(
+                format!("Bad child count: tried accessing: {}", tried_accessing),
+            ),
+        }
+    }
+}
+
+impl fmt::Display for AppResolveError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // Write a descriptive message for the error.
+        write!(f, "{:?}", self)
+    }
+}
+impl std::error::Error for AppResolveError {}
+
+#[derive(Debug)]
+pub enum GatherAppsError {
+    UI(uiautomation::Error),
+    NoneMatch,
+    ResolveFailed(Vec<AppResolveError>),
+}
+impl From<uiautomation::Error> for GatherAppsError {
+    fn from(e: uiautomation::Error) -> Self {
+        GatherAppsError::UI(e)
+    }
+}
+
+impl fmt::Display for GatherAppsError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // Write a descriptive message for the error.
+        write!(f, "{:?}", self)
+    }
+}
+impl std::error::Error for GatherAppsError {}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation_types/src/ui_automation_types_plugin.rs
+use crate::prelude::*;
+use bevy::prelude::*;
+
+pub struct UiAutomationTypesPlugin;
+
+impl Plugin for UiAutomationTypesPlugin {
+    fn build(&self, app: &mut App) {
+        app.register_type::<ElementInfo>();
+        app.register_type::<DrillId>();
+        app.register_type::<ControlType>();
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation_types/src/ui_automation_types.rs
+use crate::prelude::Calculator;
+use crate::vscode_ui_types::*;
+use bevy::prelude::*;
+use serde::Deserialize;
+use serde::Serialize;
+use std::collections::VecDeque;
+use std::fmt;
+use std::fmt::Display;
+use std::fmt::Formatter;
+use uiautomation::core::UICondition;
+use uiautomation::UIAutomation;
+
+
+pub trait HexList {
+    fn to_hex_list(&self) -> String;
+}
+impl HexList for Vec<i32> {
+    fn to_hex_list(&self) -> String {
+        format!(
+            "[{}]",
+            self.iter()
+                .map(|x| format!("{:X}", x).to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+        )
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Reflect)]
+pub struct UISnapshot {
+    pub app_windows: Vec<AppWindow>,
+}
+
+impl Display for UISnapshot {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        writeln!(f, "!!! UISnapshot !!!")?;
+        for window in self.app_windows.iter() {
+            write!(f, "{}", window)?;
+        }
+        fmt::Result::Ok(())
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Reflect)]
+pub enum AppWindow {
+    VSCode(VSCodeWindow),
+    Calculator(Calculator),
+}
+
+impl Display for AppWindow {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        match self {
+            AppWindow::VSCode(window) => write!(f, "{}", window),
+            AppWindow::Calculator(window) => write!(f, "{}", window), 
+        }
+    }
+}
+
+pub fn all_of(
+    automation: &UIAutomation,
+    conditions: Vec<UICondition>,
+) -> Result<UICondition, uiautomation::Error> {
+    let iter = conditions.into_iter();
+    let mut current = automation.create_true_condition()?;
+
+    for condition in iter {
+        current = automation.create_and_condition(current, condition)?;
+    }
+
+    Ok(current)
+}
+
+pub trait ToBevyIRect {
+    fn to_bevy_irect(&self) -> IRect;
+}
+impl ToBevyIRect for uiautomation::types::Rect {
+    fn to_bevy_irect(&self) -> IRect {
+        IRect {
+            min: IVec2::new(self.get_left(), self.get_top()),
+            max: IVec2::new(self.get_right(), self.get_bottom()),
+        }
+    }
+}
+
+/// Defines enum for `windows::Win32::UI::Accessibility::UIA_CONTROLTYPE_ID`.
+///
+/// Contains the named constants used to identify Microsoft UI Automation control types.
+#[repr(u32)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Reflect)]
+pub enum ControlType {
+    /// Identifies the Button control type.
+    Button = 50000u32,
+    /// Identifies the Calendar control type.
+    Calendar = 50001u32,
+    /// Identifies the CheckBox control type.
+    CheckBox = 50002u32,
+    /// Identifies the ComboBox control type.
+    ComboBox = 50003u32,
+    /// Identifies the Edit control type.
+    Edit = 50004u32,
+    /// Identifies the Hyperlink control type.
+    Hyperlink = 50005u32,
+    /// Identifies the Image control type.
+    Image = 50006u32,
+    /// Identifies the ListItem control type.
+    ListItem = 50007u32,
+    /// Identifies the List control type.
+    List = 50008u32,
+    /// Identifies the Menu control type.
+    Menu = 50009u32,
+    /// Identifies the MenuBar control type.
+    MenuBar = 50010u32,
+    /// Identifies the MenuItem control type.
+    MenuItem = 50011u32,
+    /// Identifies the ProgressBar control type.
+    ProgressBar = 50012u32,
+    /// Identifies the RadioButton control type.
+    RadioButton = 50013u32,
+    /// Identifies the ScrollBar control type.
+    ScrollBar = 50014u32,
+    /// Identifies the Slider control type.
+    Slider = 50015u32,
+    /// Identifies the Spinner control type.
+    Spinner = 50016u32,
+    /// Identifies the StatusBar control type.
+    StatusBar = 50017u32,
+    /// Identifies the Tab control type.
+    Tab = 50018u32,
+    /// Identifies the TabItem control type.
+    TabItem = 50019u32,
+    /// Identifies the Text control type.
+    Text = 50020u32,
+    /// Identifies the ToolBar control type.
+    ToolBar = 50021u32,
+    /// Identifies the ToolTip control type.
+    ToolTip = 50022u32,
+    /// Identifies the Tree control type.
+    Tree = 50023u32,
+    /// Identifies the TreeItem control type.
+    TreeItem = 50024u32,
+    /// Identifies the Custom control type. For more information, see Custom Properties, Events, and Control Patterns.
+    Custom = 50025u32,
+    /// Identifies the Group control type.
+    Group = 50026u32,
+    /// Identifies the Thumb control type.
+    Thumb = 50027u32,
+    /// Identifies the DataGrid control type.
+    DataGrid = 50028u32,
+    /// Identifies the DataItem control type.
+    DataItem = 50029u32,
+    /// Identifies the Document control type.
+    Document = 50030u32,
+    /// Identifies the SplitButton control type.
+    SplitButton = 50031u32,
+    /// Identifies the Window control type.
+    Window = 50032u32,
+    /// Identifies the Pane control type.
+    Pane = 50033u32,
+    /// Identifies the Header control type.
+    Header = 50034u32,
+    /// Identifies the HeaderItem control type.
+    HeaderItem = 50035u32,
+    /// Identifies the Table control type.
+    Table = 50036u32,
+    /// Identifies the TitleBar control type.
+    TitleBar = 50037u32,
+    /// Identifies the Separator control type.
+    Separator = 50038u32,
+    /// Identifies the SemanticZoom control type. Supported starting with Windows 8.
+    SemanticZoom = 50039u32,
+    /// Identifies the AppBar control type. Supported starting with Windows 8.1.
+    AppBar = 50040u32,
+}
+impl From<uiautomation::controls::ControlType> for ControlType {
+    fn from(value: uiautomation::controls::ControlType) -> Self {
+        match value {
+            uiautomation::controls::ControlType::Button => ControlType::Button,
+            uiautomation::controls::ControlType::Calendar => ControlType::Calendar,
+            uiautomation::controls::ControlType::CheckBox => ControlType::CheckBox,
+            uiautomation::controls::ControlType::ComboBox => ControlType::ComboBox,
+            uiautomation::controls::ControlType::Edit => ControlType::Edit,
+            uiautomation::controls::ControlType::Hyperlink => ControlType::Hyperlink,
+            uiautomation::controls::ControlType::Image => ControlType::Image,
+            uiautomation::controls::ControlType::ListItem => ControlType::ListItem,
+            uiautomation::controls::ControlType::List => ControlType::List,
+            uiautomation::controls::ControlType::Menu => ControlType::Menu,
+            uiautomation::controls::ControlType::MenuBar => ControlType::MenuBar,
+            uiautomation::controls::ControlType::MenuItem => ControlType::MenuItem,
+            uiautomation::controls::ControlType::ProgressBar => ControlType::ProgressBar,
+            uiautomation::controls::ControlType::RadioButton => ControlType::RadioButton,
+            uiautomation::controls::ControlType::ScrollBar => ControlType::ScrollBar,
+            uiautomation::controls::ControlType::Slider => ControlType::Slider,
+            uiautomation::controls::ControlType::Spinner => ControlType::Spinner,
+            uiautomation::controls::ControlType::StatusBar => ControlType::StatusBar,
+            uiautomation::controls::ControlType::Tab => ControlType::Tab,
+            uiautomation::controls::ControlType::TabItem => ControlType::TabItem,
+            uiautomation::controls::ControlType::Text => ControlType::Text,
+            uiautomation::controls::ControlType::ToolBar => ControlType::ToolBar,
+            uiautomation::controls::ControlType::ToolTip => ControlType::ToolTip,
+            uiautomation::controls::ControlType::Tree => ControlType::Tree,
+            uiautomation::controls::ControlType::TreeItem => ControlType::TreeItem,
+            uiautomation::controls::ControlType::Custom => ControlType::Custom,
+            uiautomation::controls::ControlType::Group => ControlType::Group,
+            uiautomation::controls::ControlType::Thumb => ControlType::Thumb,
+            uiautomation::controls::ControlType::DataGrid => ControlType::DataGrid,
+            uiautomation::controls::ControlType::DataItem => ControlType::DataItem,
+            uiautomation::controls::ControlType::Document => ControlType::Document,
+            uiautomation::controls::ControlType::SplitButton => ControlType::SplitButton,
+            uiautomation::controls::ControlType::Window => ControlType::Window,
+            uiautomation::controls::ControlType::Pane => ControlType::Pane,
+            uiautomation::controls::ControlType::Header => ControlType::Header,
+            uiautomation::controls::ControlType::HeaderItem => ControlType::HeaderItem,
+            uiautomation::controls::ControlType::Table => ControlType::Table,
+            uiautomation::controls::ControlType::TitleBar => ControlType::TitleBar,
+            uiautomation::controls::ControlType::Separator => ControlType::Separator,
+            uiautomation::controls::ControlType::SemanticZoom => ControlType::SemanticZoom,
+            uiautomation::controls::ControlType::AppBar => ControlType::AppBar,
+        }
+    }
+}
+
+pub type RuntimeId = Vec<i32>;
+
+#[derive(Debug, Eq, PartialEq, Clone, Reflect, Default, Hash)]
+pub enum DrillId {
+    Root,
+    Child(VecDeque<usize>),
+    #[default]
+    Unknown,
+}
+impl From<Vec<usize>> for DrillId {
+    fn from(value: Vec<usize>) -> Self {
+        DrillId::Child(value.into())
+    }
+}
+impl From<VecDeque<usize>> for DrillId {
+    fn from(value: VecDeque<usize>) -> Self {
+        DrillId::Child(value)
+    }
+}
+impl From<Vec<i32>> for DrillId {
+    fn from(value: Vec<i32>) -> Self {
+        DrillId::Child(value.into_iter().map(|x| x as usize).collect())
+    }
+}
+impl From<VecDeque<i32>> for DrillId {
+    fn from(value: VecDeque<i32>) -> Self {
+        DrillId::Child(value.into_iter().map(|x| x as usize).collect())
+    }
+}
+impl std::fmt::Display for DrillId {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            DrillId::Root => write!(f, "Root"),
+            DrillId::Child(drill_id) => write!(
+                f,
+                "{}",
+                drill_id
+                    .iter()
+                    .map(|x| x.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+            ),
+            DrillId::Unknown => write!(f, "Unknown"),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Reflect, PartialEq)]
+// #[reflect(no_field_bounds)] //https://github.com/bevyengine/bevy/issues/8965
+pub struct ElementInfo {
+    pub name: String,
+    pub bounding_rect: Rect,
+    pub control_type: ControlType,
+    pub localized_control_type: String,
+    pub class_name: String,
+    pub automation_id: String,
+    #[reflect(ignore)]
+    pub runtime_id: Vec<i32>,
+    #[reflect(ignore)]
+    pub drill_id: DrillId,
+    #[reflect(ignore)]
+    pub children: Option<Vec<ElementInfo>>,
+}
+impl Default for ElementInfo {
+    fn default() -> Self {
+        ElementInfo {
+            name: "".to_string(),
+            bounding_rect: Rect::new(0.0, 0.0, 0.0, 0.0),
+            control_type: ControlType::Pane,
+            localized_control_type: "".to_string(),
+            class_name: "".to_string(),
+            automation_id: "".to_string(),
+            runtime_id: vec![],
+            drill_id: DrillId::Unknown,
+            children: None,
+        }
+    }
+}
+impl ElementInfo {
+    pub fn lookup_drill_id(&self, drill_id: DrillId) -> Option<&ElementInfo> {
+        self.lookup_drill_id_inner(drill_id, 0)
+    }
+    fn lookup_drill_id_inner(&self, drill_id: DrillId, skip: usize) -> Option<&ElementInfo> {
+        // println!("Looking in {} for {:?} ({:?})", self.name, drill_id.map(|x| x.iter().skip(skip).collect::<Vec<&usize>>()), drill_id);
+        if self.drill_id == drill_id {
+            return Some(self);
+        }
+        let DrillId::Child(drill_id) = drill_id else {
+            return None;
+        };
+        if drill_id.is_empty() {
+            return None;
+        }
+        let Some(children) = &self.children else {
+            return None;
+        };
+        // println!("found children {:?}", children.children.iter().map(|x| x.drill_id.clone()).collect_vec());
+        for child in children {
+            let DrillId::Child(child_drill_id) = &child.drill_id else {
+                continue;
+            };
+            if child_drill_id.back() == drill_id.iter().skip(skip).next() {
+                if skip == drill_id.len() - 1 {
+                    return Some(child);
+                } else {
+                    return child.lookup_drill_id_inner(DrillId::Child(drill_id.clone()), skip + 1);
+                }
+            }
+        }
+        None
+    }
+    pub fn lookup_drill_id_mut(&mut self, drill_id: DrillId) -> Option<&mut ElementInfo> {
+        self.lookup_drill_id_mut_inner(drill_id, 0)
+    }
+    
+    fn lookup_drill_id_mut_inner(&mut self, drill_id: DrillId, skip: usize) -> Option<&mut ElementInfo> {
+        // println!("Looking in {} for {:?} ({:?})", self.name, drill_id.map(|x| x.iter().skip(skip).collect::<Vec<&usize>>()), drill_id);
+        if self.drill_id == drill_id {
+            return Some(self);
+        }
+        let DrillId::Child(drill_id) = drill_id else {
+            return None;
+        };
+        if drill_id.is_empty() {
+            return None;
+        }
+        let Some(ref mut children) = self.children else {
+            return None;
+        };
+        // println!("found children {:?}", children.children.iter().map(|x| x.drill_id.clone()).collect_vec());
+        for child in children.iter_mut() {
+            let DrillId::Child(child_drill_id) = &child.drill_id else {
+                continue;
+            };
+            if child_drill_id.back() == drill_id.iter().skip(skip).next() {
+                if skip == drill_id.len() - 1 {
+                    return Some(child);
+                } else {
+                    return child.lookup_drill_id_mut_inner(DrillId::Child(drill_id.clone()), skip + 1);
+                }
+            }
+        }
+        None
+    }
+    pub fn get_descendents(&self) -> Vec<&ElementInfo> {
+        let mut descendents = vec![];
+        if let Some(children) = &self.children {
+            for child in children {
+                descendents.push(child);
+                descendents.extend(child.get_descendents());
+            }
+        }
+        descendents
+    }
+}
+// test lookup_drill_id
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn test_lookup_drill_id() {
+        use super::*;
+        fn new_elem(name: &str, drill_id: Vec<usize>) -> ElementInfo {
+            ElementInfo {
+                name: name.to_string(),
+                bounding_rect: Rect::new(0.0, 0.0, 100.0, 100.0),
+                control_type: ControlType::Button,
+                localized_control_type: "Button".to_string(),
+                class_name: "Button".to_string(),
+                automation_id: "Button".to_string(),
+                runtime_id: vec![],
+                drill_id: match drill_id.is_empty() {
+                    true => DrillId::Root,
+                    false => DrillId::Child(drill_id.into()),
+                },
+                children: None,
+            }
+        }
+        let mut root = new_elem("root", vec![]);
+
+        let mut a = new_elem("a", vec![0]);
+        let a_a = new_elem("a_a", vec![0, 0]);
+        let a_b = new_elem("a_b", vec![0, 1]);
+        a.children = Some(vec![a_a.clone(), a_b.clone()]);
+
+        let mut b = new_elem("b", vec![1]);
+        let mut b_a = new_elem("b_a", vec![1, 0]);
+        let b_a_a = new_elem("b_a_a", vec![1, 0, 0]);
+        let b_a_b = new_elem("b_a_b", vec![1, 0, 1]);
+        b_a.children = Some(vec![b_a_a.clone(), b_a_b.clone()]);
+        let b_b = new_elem("b_b", vec![1, 1]);
+        b.children = Some(vec![b_a.clone(), b_b.clone()]);
+
+        root.children = Some(vec![a.clone(), b.clone()]);
+
+        let items = vec![&root, &a, &a_a, &a_b, &b, &b_a, &b_a_a, &b_a_b, &b_b];
+        for item in items {
+            println!("Looking for {}", item.name);
+            let found = root.lookup_drill_id(item.drill_id.clone());
+            assert_eq!(found, Some(item));
+            println!();
+        }
+    }
+}
+#ENDREGION
+
+
+#REGION crates/ui_automation_types/src/vscode_ui_types.rs
+use bevy::prelude::*;
+use itertools::Itertools;
+use serde::Deserialize;
+use serde::Serialize;
+use std::collections::VecDeque;
+use std::fmt;
+use std::fmt::Display;
+use std::fmt::Formatter;
+use uiautomation::UIElement;
+
+pub enum VSCodeResolveError {
+    BadChildCount { tried_accessing: u32 },
+    UI(uiautomation::Error),
+    UnknownSideTabKind(String),
+    UnknownState,
+}
+impl From<u32> for VSCodeResolveError {
+    fn from(tried_accessing: u32) -> Self {
+        VSCodeResolveError::BadChildCount { tried_accessing }
+    }
+}
+
+impl From<uiautomation::Error> for VSCodeResolveError {
+    fn from(e: uiautomation::Error) -> Self {
+        VSCodeResolveError::UI(e)
+    }
+}
+impl TryFrom<VecDeque<UIElement>> for VSCodeCrawlState {
+    type Error = VSCodeResolveError;
+    fn try_from(mut kids: VecDeque<UIElement>) -> Result<Self, Self::Error> {
+        let state = match kids.len() {
+            2 => VSCodeCrawlState::LeftTabClosed {
+                tabs: kids.pop_front().ok_or(0u32)?,
+                editor: kids.pop_front().ok_or(1u32)?,
+            },
+            3 => VSCodeCrawlState::LeftTabOpen {
+                side_nav_tabs: kids.pop_front().ok_or(0u32)?,
+                side_nav_view: kids.pop_front().ok_or(1u32)?,
+                editor: kids.pop_front().ok_or(2u32)?,
+            },
+            _ => VSCodeCrawlState::Unknown,
+        };
+        Ok(state)
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub enum View {
+    Explorer {
+        sticky: Vec<ExplorerItem>,
+        items: Vec<ExplorerItem>,
+    },
+    Unknown {},
+}
+impl Display for View {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        match self {
+            View::Explorer { sticky, items } => {
+                writeln!(f, "Explorer entries:")?;
+                writeln!(f, "=== BEGIN STICKY ===")?;
+                for item in sticky.iter().sorted_by_key(|x| x.bounds.min.y) {
+                    writeln!(
+                        f,
+                        "{}- {} ({})",
+                        " ".repeat(item.ui_level as usize),
+                        item.label.clone()
+                            + if matches!(item.kind, ExplorerItemKind::Directory { .. }) {
+                                "/"
+                            } else {
+                                ""
+                            },
+                        item.path
+                    )?;
+                }
+                writeln!(f, "=== END STICKY ===")?;
+                for item in items.iter().sorted_by_key(|x| x.bounds.min.y) {
+                    writeln!(
+                        f,
+                        "{}- {} ({})",
+                        " ".repeat(item.ui_level as usize),
+                        item.label.clone()
+                            + if matches!(item.kind, ExplorerItemKind::Directory { .. }) {
+                                "/"
+                            } else {
+                                ""
+                            },
+                        item.path
+                    )?;
+                }
+                fmt::Result::Ok(())
+            }
+            View::Unknown {} => {
+                writeln!(f, "Unknown view")?;
+                fmt::Result::Ok(())
+            }
+        }
+    }
+}
+
+pub enum VSCodeCrawlState {
+    LeftTabClosed {
+        tabs: UIElement,
+        editor: UIElement,
+    },
+    LeftTabOpen {
+        side_nav_tabs: UIElement,
+        side_nav_view: UIElement,
+        editor: UIElement,
+    },
+    Unknown,
+}
+impl VSCodeCrawlState {
+    pub fn get_side_nav_tabs_root_elem(&self) -> Result<&UIElement, VSCodeResolveError> {
+        match self {
+            VSCodeCrawlState::LeftTabClosed { tabs, .. } => Ok(tabs),
+            VSCodeCrawlState::LeftTabOpen {
+                side_nav_tabs: tabs,
+                ..
+            } => Ok(tabs),
+            VSCodeCrawlState::Unknown => Err(VSCodeResolveError::UnknownState),
+        }
+    }
+    pub fn get_side_nav_view_root_elem(&self) -> Result<&UIElement, VSCodeResolveError> {
+        match self {
+            VSCodeCrawlState::LeftTabClosed { tabs, .. } => Ok(tabs),
+            VSCodeCrawlState::LeftTabOpen {
+                side_nav_view: view,
+                ..
+            } => Ok(view),
+            VSCodeCrawlState::Unknown => Err(VSCodeResolveError::UnknownState),
+        }
+    }
+    pub fn get_editor_root_elem(&self) -> Result<&UIElement, VSCodeResolveError> {
+        match self {
+            VSCodeCrawlState::LeftTabClosed { editor, .. } => Ok(editor),
+            VSCodeCrawlState::LeftTabOpen { editor, .. } => Ok(editor),
+            VSCodeCrawlState::Unknown => Err(VSCodeResolveError::UnknownState),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct VSCodeWindowHeader {}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct VSCodeWindowBody {
+    pub editor_area: EditorArea,
+    pub side_nav: Vec<SideTab>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct VSCodeWindowFooter {
+    pub cursor_position: IVec2,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct VSCodeWindow {
+    pub focused: bool,
+    pub header: VSCodeWindowHeader,
+    pub body: VSCodeWindowBody,
+    pub footer: VSCodeWindowFooter,
+}
+
+impl Display for VSCodeWindow {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        writeln!(
+            f,
+            ":D :D :D Visual Studio Code {} owo owo owo",
+            if self.focused { "(focused)" } else { "" }
+        )?;
+
+        writeln!(f, "Side tabs:")?;
+        for tab in self.body.side_nav.iter() {
+            match tab {
+                SideTab::Open { kind, view } => {
+                    writeln!(f, "- (open) {:?} {{{{\n{}}}}}", kind, view)?;
+                }
+                SideTab::Closed { kind } => {
+                    writeln!(f, "- {:?}", kind)?;
+                }
+            }
+        }
+
+        writeln!(f, "Editor groups:")?;
+        for (i, group) in self.body.editor_area.groups.iter().enumerate() {
+            writeln!(f, "Group {} tabs:", i + 1)?;
+            for tab in group.tabs.iter() {
+                if tab.active {
+                    writeln!(f, "- (active) {}", tab.title)?;
+                } else {
+                    writeln!(f, "- {}", tab.title)?;
+                }
+            }
+            if let Some(ref content) = group.content {
+                writeln!(
+                    f,
+                    "Group {} buffer:\n=======\n{}\n=======",
+                    i + 1,
+                    content.content
+                )?;
+            }
+        }
+
+        writeln!(f, "Cursor position: {:?}", self.footer.cursor_position)?;
+
+        fmt::Result::Ok(())
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub enum SideTab {
+    Closed { kind: SideTabKind },
+    Open { kind: SideTabKind, view: View },
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub enum ExplorerItemKind {
+    File,
+    Directory { expanded: bool },
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct ExplorerItem {
+    pub label: String,
+    pub path: String,
+    pub ui_position_in_set: u32,
+    pub ui_size_of_set: u32,
+    pub ui_level: u32,
+    pub bounds: IRect,
+    pub kind: ExplorerItemKind,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EditorArea {
+    pub groups: Vec<EditorGroup>,
+}
+impl EditorArea {
+    pub fn get_expected_automation_id() -> &'static str {
+        "workbench.parts.editor"
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EditorGroup {
+    pub tabs: Vec<EditorTab>,
+    pub content: Option<EditorContent>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EditorTab {
+    pub title: String,
+    pub active: bool,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub struct EditorContent {
+    pub content: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Reflect)]
+pub enum SideTabKind {
+    Explorer,
+    Search,
+    SourceControl,
+    RunAndDebug,
+    Extensions,
+    GitLens,
+    Azure,
+    Jupyter,
+    Chat,
+    GitHubActions,
+    Todo,
+}
+impl SideTabKind {
+    pub fn variants() -> Vec<SideTabKind> {
+        vec![
+            SideTabKind::Explorer,
+            SideTabKind::Search,
+            SideTabKind::SourceControl,
+            SideTabKind::RunAndDebug,
+            SideTabKind::Extensions,
+            SideTabKind::GitLens,
+            SideTabKind::Azure,
+            SideTabKind::Jupyter,
+            SideTabKind::Chat,
+            SideTabKind::GitHubActions,
+            SideTabKind::Todo,
+        ]
+    }
+    pub fn get_view_automation_id(&self) -> Option<&str> {
+        match self {
+            SideTabKind::Explorer => Some("workbench.view.explorer"),
+            _ => None,
+        }
+    }
+}
+impl TryFrom<String> for SideTabKind {
+    type Error = VSCodeResolveError;
+    fn try_from(s: String) -> Result<Self, Self::Error> {
+        let before_first_lparen = s.split_once(" (").map(|x| x.0).unwrap_or(s.as_str());
+        match before_first_lparen {
+            "Explorer" => Ok(SideTabKind::Explorer),
+            "Search" => Ok(SideTabKind::Search),
+            "Source Control" => Ok(SideTabKind::SourceControl),
+            "Run and Debug" => Ok(SideTabKind::RunAndDebug),
+            "Extensions" => Ok(SideTabKind::Extensions),
+            "GitLens" => Ok(SideTabKind::GitLens),
+            "Azure" => Ok(SideTabKind::Azure),
+            "Jupyter" => Ok(SideTabKind::Jupyter),
+            "Chat" => Ok(SideTabKind::Chat),
+            "GitHub Actions" => Ok(SideTabKind::GitHubActions),
+            "TODOs" => Ok(SideTabKind::Todo),
+            _ => Err(VSCodeResolveError::UnknownSideTabKind(s)),
+        }
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/examples/calculator_example.rs
+#![feature(let_chains)]
+use bevy::input::common_conditions::input_toggle_active;
+use bevy::log::LogPlugin;
+use bevy::prelude::*;
+use bevy::window::PrimaryWindow;
+use bevy_egui::egui;
+use bevy_egui::EguiContexts;
+use bevy_egui::EguiSet;
+use bevy_inspector_egui::quick::WorldInspectorPlugin;
+use bevy_inspector_egui::reflect_inspector::Context;
+use bevy_inspector_egui::reflect_inspector::InspectorUi;
+use cursor_hero_memory::primary_window_memory_plugin::PrimaryWindowMemoryPlugin;
+use cursor_hero_ui_automation::prelude::*;
+use cursor_hero_winutils::win_mouse::get_cursor_position;
+use cursor_hero_worker::prelude::Message;
+use cursor_hero_worker::prelude::Sender;
+use cursor_hero_worker::prelude::WorkerConfig;
+use cursor_hero_worker::prelude::WorkerPlugin;
+fn main() {
+    let mut app = App::new();
+    app.add_plugins(
+        DefaultPlugins
+            .set(LogPlugin {
+                level: bevy::log::Level::DEBUG,
+                filter: "
+info,
+wgpu_core=warn,
+wgpu_hal=warn,
+calculator_example=trace,
+cursor_hero_worker=debug,
+"
+                .replace('\n', "")
+                .trim()
+                .into(),
+            })
+            .build(),
+    );
+    app.add_plugins(WorkerPlugin {
+        config: WorkerConfig::<ThreadboundUISnapshotMessage, GameboundUISnapshotMessage> {
+            name: "calculator".to_string(),
+            is_ui_automation_thread: true,
+            handle_threadbound_message: handle_threadbound_message,
+            ..default()
+        },
+    });
+    app.add_plugins(
+        WorldInspectorPlugin::default().run_if(input_toggle_active(false, KeyCode::Grave)),
+    );
+    app.add_plugins(PrimaryWindowMemoryPlugin);
+    app.insert_resource(ClearColor(Color::rgb(0.992, 0.714, 0.69)));
+    app.add_systems(Startup, spawn_camera);
+    app.add_systems(
+        Update,
+        step_1_of_making_the_calculators_in_the_game_match_the_calculator_apps_running_in_the_host,
+    );
+    app.add_systems(
+        Update,
+        step_2_of_making_the_calculators_in_the_game_match_the_calculator_apps_running_in_the_host,
+    );
+    app.run();
+}
+
+fn spawn_camera(mut commands: Commands) {
+    commands.spawn(Camera2dBundle::default());
+}
+
+#[derive(Debug, Reflect, Clone, Event)]
+enum ThreadboundUISnapshotMessage {
+    RequestUISnapshot,
+}
+impl Message for ThreadboundUISnapshotMessage {}
+
+#[derive(Debug, Reflect, Clone, Event)]
+enum GameboundUISnapshotMessage {
+    UISnapshot(UISnapshot),
+}
+impl Message for GameboundUISnapshotMessage {}
+
+fn handle_threadbound_message(
+    msg: &ThreadboundUISnapshotMessage,
+    reply_tx: &Sender<GameboundUISnapshotMessage>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let ThreadboundUISnapshotMessage::RequestUISnapshot = msg;
+    debug!("getting state of host calculators");
+    let snapshot = take_snapshot()?;
+    if let Err(e) = reply_tx.send(GameboundUISnapshotMessage::UISnapshot(snapshot)) {
+        error!("Failed to send snapshot: {:?}", e);
+    }
+    Ok(())
+}
+
+fn step_1_of_making_the_calculators_in_the_game_match_the_calculator_apps_running_in_the_host(
+    // mut data: ResMut<UIData>,
+    mut cooldown: Local<Option<Timer>>,
+    time: Res<Time>,
+    mut events: EventWriter<ThreadboundUISnapshotMessage>,
+    window: Query<&Window, With<PrimaryWindow>>,
+) {
+    let Ok(window) = window.get_single() else {
+        return;
+    };
+    if window.cursor_position().is_some() {
+        return;
+    }
+    let cooldown_over = if let Some(cooldown) = cooldown.as_mut() {
+        if cooldown.tick(time.delta()).just_finished() {
+            cooldown.reset();
+            true
+        } else {
+            false
+        }
+    } else {
+        cooldown.replace(Timer::from_seconds(0.5, TimerMode::Repeating));
+        true
+    };
+    if !cooldown_over {
+        return;
+    }
+
+    // if data.in_flight {
+    //     warn!("Too fast!");
+    //     return;
+    // }
+
+    events.send(ThreadboundUISnapshotMessage::RequestUISnapshot);
+    // data.in_flight = true;
+}
+
+fn step_2_of_making_the_calculators_in_the_game_match_the_calculator_apps_running_in_the_host(
+    mut snapshot: EventReader<GameboundUISnapshotMessage>,
+    calculator_query: Query<&Calculator>,
+    mut commands: Commands,
+) {
+    for msg in snapshot.read() {
+        let GameboundUISnapshotMessage::UISnapshot(snapshot) = msg;
+        debug!("Received snapshot: {:?}", snapshot);
+        for app in snapshot.app_windows.iter() {
+            let AppWindow::Calculator(calculator) = app else {
+                continue;
+            };
+            debug!("Received calculator: {:?}", calculator);
+        }
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/examples/ui_hover_example.rs
+#![feature(let_chains, trivial_bounds)]
+use std::collections::VecDeque;
+
+use bevy::input::common_conditions::input_toggle_active;
+use bevy::log::LogPlugin;
+use bevy::prelude::*;
+use bevy::utils::HashMap;
+use bevy::window::PrimaryWindow;
+use bevy_egui::egui;
+use bevy_egui::egui::Align2;
+use bevy_egui::EguiContexts;
+use bevy_egui::EguiSet;
+use bevy_inspector_egui::quick::WorldInspectorPlugin;
+use bevy_inspector_egui::reflect_inspector::Context;
+use bevy_inspector_egui::reflect_inspector::InspectorUi;
+use cursor_hero_memory::primary_window_memory_plugin::PrimaryWindowMemoryPlugin;
+use cursor_hero_ui_automation::prelude::*;
+use cursor_hero_winutils::win_mouse::get_cursor_position;
+use cursor_hero_worker::prelude::Message;
+use cursor_hero_worker::prelude::Sender;
+use cursor_hero_worker::prelude::WorkerConfig;
+use cursor_hero_worker::prelude::WorkerPlugin;
+use itertools::Itertools;
+use uiautomation::UIAutomation;
+fn main() {
+    let mut app = App::new();
+    app.add_plugins(
+        DefaultPlugins
+            .set(LogPlugin {
+                level: bevy::log::Level::DEBUG,
+                filter: "
+info,
+wgpu_core=warn,
+wgpu_hal=warn,
+ui_hover_example=trace,
+cursor_hero_worker=debug,
+"
+                .replace('\n', "")
+                .trim()
+                .into(),
+            })
+            .build(),
+    );
+    app.add_plugins(WorkerPlugin {
+        config: WorkerConfig::<ThreadboundUISnapshotMessage, GameboundUISnapshotMessage> {
+            name: "ui_hover".to_string(),
+            is_ui_automation_thread: true,
+            handle_threadbound_message: handle_threadbound_message,
+            handle_threadbound_message_error_handler: handle_threadbound_message_error_handler,
+            ..default()
+        },
+    });
+    app.add_plugins(
+        WorldInspectorPlugin::default().run_if(input_toggle_active(false, KeyCode::Grave)),
+    );
+    app.add_plugins(PrimaryWindowMemoryPlugin);
+    app.insert_resource(ClearColor(Color::rgb(0.992, 0.714, 0.69)));
+    app.add_systems(Startup, spawn_camera);
+    app.add_systems(Update, periodic_snapshot);
+    app.add_systems(Update, fetch_requested);
+    app.add_systems(Update, receive);
+    app.add_systems(Update, gui.after(EguiSet::InitContexts));
+    app.init_resource::<UIData>();
+    app.register_type::<UIData>();
+    app.run();
+}
+
+fn spawn_camera(mut commands: Commands) {
+    commands.spawn(Camera2dBundle::default());
+}
+
+#[derive(Debug, Reflect, Clone, Event)]
+enum ThreadboundUISnapshotMessage {
+    CaptureHovered,
+    ChildrenFetchRequest {
+        drill_id: DrillId,
+        runtime_id: RuntimeId,
+    },
+}
+impl Message for ThreadboundUISnapshotMessage {}
+
+#[derive(Debug, Reflect, Clone, Event)]
+enum GameboundUISnapshotMessage {
+    Hovered {
+        ui_tree: ElementInfo,
+        start: ElementInfo,
+        hovered: ElementInfo,
+    },
+    ChildrenFetchResponse {
+        drill_id: DrillId,
+        runtime_id: RuntimeId,
+        children: Vec<ElementInfo>,
+    },
+    Error,
+}
+impl Message for GameboundUISnapshotMessage {}
+
+#[derive(Debug, Reflect)]
+enum FetchingState {
+    FetchRequest,
+    FetchDispatched,
+    Fetched(Vec<ElementInfo>),
+}
+
+#[derive(Resource, Debug, Reflect, Default)]
+#[reflect(Resource)]
+struct UIData {
+    pub start: ElementInfo,
+    pub hovered: ElementInfo,
+    pub ui_tree: ElementInfo,
+    pub selected: Option<DrillId>,
+    pub expanded: Vec<DrillId>,
+    pub fresh: bool,
+    pub in_flight: bool,
+    pub paused: bool,
+    // Include runtime id in case tree changes and we quickly fetch something with the same drill_id before the first request comes back
+    pub fetching: HashMap<(DrillId, RuntimeId), FetchingState>,
+}
+
+fn handle_threadbound_message_error_handler(
+    _msg: &ThreadboundUISnapshotMessage,
+    reply_tx: &Sender<GameboundUISnapshotMessage>,
+    error: &Box<dyn std::error::Error>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    reply_tx.send(GameboundUISnapshotMessage::Error)?;
+    Ok(())
+}
+fn handle_threadbound_message(
+    msg: &ThreadboundUISnapshotMessage,
+    reply_tx: &Sender<GameboundUISnapshotMessage>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    match msg {
+        ThreadboundUISnapshotMessage::CaptureHovered => {
+            debug!("taking snapshot");
+            let cursor_pos = get_cursor_position()?;
+            let hovered = find_element_at(cursor_pos)?;
+            let hovered_info = gather_single_element_info(&hovered)?;
+            let gathered = gather_incomplete_ui_tree_starting_deep(hovered)?;
+            if let Err(e) = reply_tx.send(GameboundUISnapshotMessage::Hovered {
+                ui_tree: gathered.ui_tree,
+                start: gathered.start_info,
+                hovered: hovered_info,
+            }) {
+                error!("Failed to send snapshot: {:?}", e);
+            }
+        }
+        ThreadboundUISnapshotMessage::ChildrenFetchRequest {
+            drill_id,
+            runtime_id,
+        } => {
+            debug!("fetching children for {:?}", drill_id);
+            let automation = UIAutomation::new()?;
+            let walker = automation.create_tree_walker()?;
+            let root = automation.get_root_element()?;
+            let found = root.drill(&walker, drill_id.clone())?;
+            let mut children = found
+                .gather_children(&walker, &StopBehaviour::EndOfSiblings)
+                .into_iter()
+                .enumerate()
+                .filter_map(|(i, child)| {
+                    gather_single_element_info(&child)
+                        .ok()
+                        .map(|mut child_info| {
+                            child_info.drill_id = DrillId::Child(vec![i].into_iter().collect());
+                            child_info
+                        })
+                })
+                .collect_vec();
+
+            update_drill_ids(Some(&mut children), &drill_id);
+            if let Err(e) = reply_tx.send(GameboundUISnapshotMessage::ChildrenFetchResponse {
+                drill_id: drill_id.clone(),
+                runtime_id: runtime_id.clone(),
+                children,
+            }) {
+                error!("Failed to send ChildrenFetchResponse: {:?}", e);
+            }
+        }
+    }
+    Ok(())
+}
+
+fn fetch_requested(
+    mut data: ResMut<UIData>,
+    mut events: EventWriter<ThreadboundUISnapshotMessage>,
+) {
+    for (key, state) in data.fetching.iter_mut() {
+        if let FetchingState::FetchRequest = state {
+            *state = FetchingState::FetchDispatched;
+            events.send(ThreadboundUISnapshotMessage::ChildrenFetchRequest {
+                drill_id: key.0.clone(),
+                runtime_id: key.1.clone(),
+            });
+        }
+    }
+}
+
+fn periodic_snapshot(
+    mut data: ResMut<UIData>,
+    mut cooldown: Local<Option<Timer>>,
+    time: Res<Time>,
+    mut events: EventWriter<ThreadboundUISnapshotMessage>,
+    window: Query<&Window, With<PrimaryWindow>>,
+) {
+    let Ok(window) = window.get_single() else {
+        return;
+    };
+    if window.cursor_position().is_some() {
+        return;
+    }
+    let cooldown_over = if let Some(cooldown) = cooldown.as_mut() {
+        if cooldown.tick(time.delta()).just_finished() {
+            cooldown.reset();
+            true
+        } else {
+            false
+        }
+    } else {
+        cooldown.replace(Timer::from_seconds(0.5, TimerMode::Repeating));
+        true
+    };
+    if !cooldown_over {
+        return;
+    }
+
+    if data.paused {
+        return;
+    }
+
+    if data.in_flight {
+        warn!("Too fast!");
+        return;
+    }
+
+    events.send(ThreadboundUISnapshotMessage::CaptureHovered);
+    data.in_flight = true;
+}
+
+fn receive(mut snapshot: EventReader<GameboundUISnapshotMessage>, mut ui_data: ResMut<UIData>) {
+    for msg in snapshot.read() {
+        match msg {
+            GameboundUISnapshotMessage::Error => {
+                ui_data.in_flight = false;
+            }
+            GameboundUISnapshotMessage::Hovered {
+                ui_tree,
+                start,
+                hovered,
+            } => {
+                ui_data.in_flight = false;
+                ui_data.ui_tree = ui_tree.clone();
+                ui_data.start = start.clone();
+                ui_data.hovered = hovered.clone();
+                ui_data.selected = Some(start.drill_id.clone());
+                ui_data.expanded = ui_tree
+                    .get_descendents()
+                    .iter()
+                    .chain([ui_tree].iter())
+                    .filter(|x| x.children.is_some())
+                    .map(|x| x.drill_id.clone())
+                    .collect();
+                ui_data.fresh = true;
+                debug!("Received snapshot");
+            }
+            GameboundUISnapshotMessage::ChildrenFetchResponse {
+                drill_id,
+                runtime_id,
+                children,
+            } => {
+                let key = (drill_id.clone(), runtime_id.clone());
+                if let Some(FetchingState::FetchDispatched) = ui_data.fetching.get(&key) {
+                    ui_data
+                        .fetching
+                        .insert(key, FetchingState::Fetched(children.clone()));
+                }
+            }
+        }
+    }
+}
+
+fn gui(
+    mut contexts: EguiContexts,
+    mut ui_data: ResMut<UIData>,
+    type_registry: Res<AppTypeRegistry>,
+) {
+    let ctx = contexts.ctx_mut();
+
+    let mut cx = Context {
+        world: None,
+        queue: None,
+    };
+
+    let type_registry = type_registry.0.clone();
+    let type_registry = type_registry.read();
+    let mut inspector = InspectorUi::for_bevy(&type_registry, &mut cx);
+
+    let id = egui::Id::new("Inspector");
+    egui::Window::new("Inspector")
+        .title_bar(false)
+        .id(id)
+        .default_pos((5.0, 5.0))
+        .default_width(1200.0)
+        .default_height(1000.0)
+        .show(ctx, |ui| {
+            egui::SidePanel::left(id.with("tree"))
+                .resizable(true)
+                .width_range(100.0..=4000.0)
+                .default_width(600.0)
+                .show_inside(ui, |ui| {
+                    ui.vertical_centered(|ui| {
+                        ui.heading("UI Tree");
+                    });
+                    egui::ScrollArea::both().show(ui, |ui| {
+                        let id = id.with(ui_data.ui_tree.runtime_id.clone());
+                        let mut elem = ui_data.ui_tree.clone();
+                        ui_for_element_info(id, ui, &mut ui_data, &mut elem, &mut inspector);
+                        ui_data.ui_tree = elem;
+                        ui.allocate_space(ui.available_size());
+                    });
+                });
+
+            egui::TopBottomPanel::bottom(id.with("invisible bottom panel"))
+                .show_separator_line(false)
+                .show_inside(ui, |_| ());
+
+            egui::CentralPanel::default().show_inside(ui, |ui| {
+                ui.vertical_centered(|ui| {
+                    ui.heading("Properties");
+                });
+                let id = ui_data.selected.clone();
+                if let Some(id) = id
+                    && let Some(x) = ui_data.ui_tree.lookup_drill_id_mut(id)
+                {
+                    inspector.ui_for_reflect_readonly(x, ui);
+                    ui.separator();
+                    ui.label("drill_id");
+                    let drill_id = x.drill_id.to_string();
+                    inspector.ui_for_reflect_readonly(&drill_id, ui);
+                    if ui.button("copy").clicked() {
+                        ui.output_mut(|out| {
+                            out.copied_text = drill_id.clone();
+                        });
+                        info!("Copied drill_id {} to clipboard", drill_id);
+                    }
+                }
+                // inspector.ui_for_reflect_readonly(&data, ui);
+            });
+        });
+
+    let id = egui::Id::new("Paused");
+    egui::Window::new("Paused")
+        .id(id)
+        .title_bar(false)
+        .anchor(Align2::RIGHT_TOP, (5.0, 5.0))
+        .show(ctx, |ui| {
+            ui.checkbox(&mut ui_data.paused, "Paused");
+        });
+    ui_data.fresh = false;
+}
+
+#[allow(clippy::too_many_arguments)]
+fn ui_for_element_info(
+    id: egui::Id,
+    ui: &mut egui::Ui,
+    data: &mut UIData,
+    element_info: &mut ElementInfo,
+    _inspector: &mut InspectorUi,
+) {
+    let default_open = data.expanded.contains(&element_info.drill_id);
+    let mut expando = egui::collapsing_header::CollapsingState::load_with_default_open(
+        ui.ctx(),
+        id,
+        default_open,
+    );
+    if data.fresh {
+        expando.set_open(default_open);
+        data.fetching.clear();
+    }
+    if expando.is_open() && element_info.children.is_none() {
+        let key = (
+            element_info.drill_id.clone(),
+            element_info.runtime_id.clone(),
+        );
+        let found = data.fetching.get_mut(&key);
+        if !found.is_some() {
+            data.fetching.insert(key, FetchingState::FetchRequest);
+        } else if let Some(FetchingState::Fetched(ref mut children)) = found {
+            element_info.children = Some(std::mem::take(children));
+            data.fetching.remove(&key);
+        } else {
+            ui.label("fetching...");
+        }
+    }
+    expando
+        .show_header(ui, |ui| {
+            let mut selected = data.selected == Some(element_info.drill_id.clone());
+            if selected && data.fresh {
+                ui.scroll_to_cursor(Some(egui::Align::Center));
+            }
+            if ui
+                .toggle_value(
+                    &mut selected,
+                    format!(
+                        "{:?} | {}",
+                        element_info.name, element_info.localized_control_type
+                    ),
+                )
+                .changed()
+            {
+                data.selected = if selected {
+                    Some(element_info.drill_id.clone())
+                } else {
+                    None
+                };
+            };
+        })
+        .body(|ui| {
+            if let Some(ref mut children) = element_info.children {
+                for child in children.iter_mut() {
+                    ui_for_element_info(
+                        id.with(child.runtime_id.clone()),
+                        ui,
+                        data,
+                        child,
+                        _inspector,
+                    );
+                }
+            }
+        });
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/examples/ui_snapshot_example.rs
+use bevy::log::LogPlugin;
+use bevy::prelude::*;
+use bevy::window::ExitCondition;
+use cursor_hero_memory_types::prelude::get_persist_file;
+use cursor_hero_memory_types::prelude::Usage;
+use cursor_hero_ui_automation::prelude::*;
+use cursor_hero_worker::prelude::*;
+use std::io::Write;
+fn main() {
+    let mut app = App::new();
+    app.add_plugins(
+        DefaultPlugins
+            .set(LogPlugin {
+                level: bevy::log::Level::DEBUG,
+                filter: "
+info,
+wgpu_core=warn,
+wgpu_hal=warn,
+ui_snapshot_example=trace,
+cursor_hero_worker=debug,
+"
+                .replace('\n', "")
+                .trim()
+                .into(),
+            })
+            .set(WindowPlugin {
+                primary_window: None,
+                exit_condition: ExitCondition::DontExit,
+                ..default()
+            })
+            .build(),
+    );
+    app.add_plugins(WorkerPlugin {
+        config: WorkerConfig::<ThreadboundUISnapshotMessage, GameboundUISnapshotMessage> {
+            name: "ui_snapshot".to_string(),
+            is_ui_automation_thread: true,
+            handle_threadbound_message: handle_threadbound_message,
+            ..default()
+        },
+    });
+    app.add_systems(Update, trigger);
+    app.add_systems(Update, receive);
+    app.run();
+}
+
+#[derive(Debug, Reflect, Clone, Event)]
+enum ThreadboundUISnapshotMessage {
+    TakeSnapshot,
+}
+impl Message for ThreadboundUISnapshotMessage {}
+
+#[derive(Debug, Reflect, Clone, Event)]
+enum GameboundUISnapshotMessage {
+    Snapshot(UISnapshot),
+}
+impl Message for GameboundUISnapshotMessage {}
+
+fn handle_threadbound_message(
+    msg: &ThreadboundUISnapshotMessage,
+    reply_tx: &Sender<GameboundUISnapshotMessage>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let ThreadboundUISnapshotMessage::TakeSnapshot = msg;
+    debug!("taking snapshot");
+    let snapshot = take_snapshot()?;
+    if let Err(e) = reply_tx.send(GameboundUISnapshotMessage::Snapshot(snapshot)) {
+        error!("Failed to send snapshot: {:?}", e);
+    }
+    Ok(())
+}
+
+fn trigger(
+    mut cooldown: Local<Option<Timer>>,
+    time: Res<Time>,
+    mut events: EventWriter<ThreadboundUISnapshotMessage>,
+) {
+    let should_tick = if let Some(cooldown) = cooldown.as_mut() {
+        if cooldown.tick(time.delta()).just_finished() {
+            cooldown.reset();
+            true
+        } else {
+            false
+        }
+    } else {
+        cooldown.replace(Timer::from_seconds(3.0, TimerMode::Repeating));
+        true
+    };
+    if !should_tick {
+        return;
+    }
+    events.send(ThreadboundUISnapshotMessage::TakeSnapshot);
+}
+
+fn receive(mut snapshot: EventReader<GameboundUISnapshotMessage>) {
+    for msg in snapshot.read() {
+        match msg {
+            GameboundUISnapshotMessage::Snapshot(snapshot) => {
+                debug!("received snapshot, writing to file");
+                match get_persist_file(file!(), "ui_snapshot.txt", Usage::Persist) {
+                    Ok(mut file) => {
+                        if let Err(e) = file.write_all(snapshot.to_string().as_bytes()) {
+                            debug!("Failed to write to file: {:?}", e);
+                        }
+                    }
+                    Err(e) => {
+                        error!("Failed to open file: {:?}", e);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/elements_at_point.rs
+use bevy::math::IVec2;
+use std::collections::VecDeque;
+use uiautomation::types::Point;
+use uiautomation::UIAutomation;
+use uiautomation::UIElement;
+
+pub fn find_element_at(pos: IVec2) -> Result<UIElement, uiautomation::Error> {
+    let automation = UIAutomation::new()?;
+    automation.element_from_point(Point::new(pos.x, pos.y))
+}
+
+pub fn gather_elements_at(pos: IVec2) -> Result<Vec<(UIElement, usize)>, uiautomation::Error> {
+    let automation = UIAutomation::new()?;
+    let walker = automation.create_tree_walker()?;
+    let start = automation.element_from_point(Point::new(pos.x, pos.y))?;
+    let mut rtn = vec![];
+    let mut next = VecDeque::new();
+    next.push_back((start, 0));
+    while let Some((elem, depth)) = next.pop_front() {
+        rtn.push((elem.clone(), depth));
+        if let Ok(child) = walker.get_first_child(&elem) {
+            next.push_back((child.clone(), depth + 1));
+            let mut next_sibling = child;
+            while let Ok(sibling) = walker.get_next_sibling(&next_sibling) {
+                next.push_back((sibling.clone(), depth + 1));
+                next_sibling = sibling;
+            }
+        }
+    }
+    Ok(rtn)
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/formatting.rs
+use uiautomation::UIAutomation;
+use uiautomation::UIElement;
+
+pub fn get_tree_string(element: &UIElement) -> Result<String, uiautomation::Error> {
+    let automation = UIAutomation::new()?;
+    format_tree_recursive(element, &automation, 0)
+}
+fn format_tree_recursive(
+    element: &UIElement,
+    automation: &UIAutomation,
+    depth: usize,
+) -> Result<String, uiautomation::Error> {
+    // Format the current element's label.
+    let mut result = format!(
+        "{}{}\n",
+        " ".repeat(depth * 2), // Increase indentation with depth.
+        format_tree_label(element)
+    );
+
+    // Use the TreeWalker to navigate the children.
+    let walker = automation.create_tree_walker()?;
+    if let Ok(child) = walker.get_first_child(element) {
+        // Recursively format the child and any siblings.
+        result.push_str(&format_tree_recursive(&child, automation, depth + 1)?);
+        let mut next_sibling = child;
+        while let Ok(sibling) = walker.get_next_sibling(&next_sibling) {
+            result.push_str(&format_tree_recursive(&sibling, automation, depth + 1)?);
+            next_sibling = sibling;
+        }
+    }
+    Ok(result)
+}
+fn format_tree_label(element: &UIElement) -> String {
+    format!(
+        "name={} control_type={} class_name={} runtime_id={} rect={}",
+        element
+            .get_name()
+            .map(|name| format!("{:?}", name))
+            .unwrap_or_else(|_| "(null)".to_string()),
+        element
+            .get_control_type()
+            .map(|ct| format!("{:?}", ct))
+            .unwrap_or_else(|_| "unknown control type".to_string()),
+        element
+            .get_classname()
+            .map(|name| format!("{:?}", name))
+            .unwrap_or_else(|_| "(null)".to_string()),
+        element
+            .get_runtime_id()
+            .map(|id| format!("{:?}", id))
+            .unwrap_or_else(|_| "(null)".to_string()),
+        element
+            .get_bounding_rectangle()
+            .map(|rect| format!("{:?}", rect))
+            .unwrap_or_else(|_| "(null)".to_string()),
+    )
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/gather_children.rs
+use std::collections::VecDeque;
+
+use cursor_hero_metrics::Metrics;
+use uiautomation::UIElement;
+use uiautomation::UITreeWalker;
+
+#[allow(dead_code)]
+#[derive(Debug)]
+pub enum StopBehaviour {
+    EndOfSiblings,
+    LastChildEncountered,
+    TaskbarEndEncountered,
+    RootEndEncountered, // Calling get_next_sibling on the last child of root will hang, so use this to mitigate
+}
+impl StopBehaviour {
+    fn include_last_child(&self) -> bool {
+        !matches!(self, StopBehaviour::TaskbarEndEncountered)
+    }
+}
+trait GatherChildrenStopBehaviourFn {
+    fn should_stop(&self, next: &UIElement) -> bool;
+}
+
+#[derive(Debug)]
+struct EndOfSiblings;
+impl GatherChildrenStopBehaviourFn for EndOfSiblings {
+    fn should_stop(&self, _element: &UIElement) -> bool {
+        false
+    }
+}
+
+#[derive(Debug)]
+struct LastChildEncountered {
+    runtime_id_of_last: Vec<i32>,
+}
+impl GatherChildrenStopBehaviourFn for LastChildEncountered {
+    fn should_stop(&self, element: &UIElement) -> bool {
+        element.get_runtime_id() == Ok(self.runtime_id_of_last.clone())
+    }
+}
+
+#[derive(Debug)]
+struct TaskbarEndEncountered;
+impl GatherChildrenStopBehaviourFn for TaskbarEndEncountered {
+    fn should_stop(&self, element: &UIElement) -> bool {
+        element.get_automation_id() == Ok("TaskbarEndAccessibilityElement".to_string())
+    }
+}
+
+#[derive(Debug)]
+struct RootEndEncountered;
+impl GatherChildrenStopBehaviourFn for RootEndEncountered {
+    fn should_stop(&self, element: &UIElement) -> bool {
+        element.get_name() == Ok("Program Manager".to_string())
+            && element.get_classname() == Ok("Progman".to_string())
+        // This could be more specific, but until a false positive is encountered, this is fine
+    }
+}
+
+pub trait GatherChildrenable {
+    fn gather_children(
+        &self,
+        walker: &UITreeWalker,
+        stop_behaviour: &StopBehaviour,
+    ) -> VecDeque<UIElement>;
+}
+impl GatherChildrenable for UIElement {
+    fn gather_children(
+        &self,
+        walker: &UITreeWalker,
+        stop_behaviour: &StopBehaviour,
+    ) -> VecDeque<UIElement> {
+        gather_children(walker, self, stop_behaviour)
+    }
+}
+
+pub fn gather_children(
+    walker: &UITreeWalker,
+    parent: &UIElement,
+    stop_behaviour: &StopBehaviour,
+) -> VecDeque<UIElement> {
+    // println!("Gathering children of {:?}", parent);
+    let mut children = VecDeque::new();
+    let mut metrics = Metrics::default();
+
+    // println!("Constructing stop behaviour fn for {:?}", stop_behaviour);
+    metrics.begin("construct stop behaviour");
+    let stop: Box<dyn GatherChildrenStopBehaviourFn> = match stop_behaviour {
+        StopBehaviour::EndOfSiblings => Box::new(EndOfSiblings),
+        StopBehaviour::LastChildEncountered => {
+            // println!("Getting last child of {:?}", parent);
+            let last = walker.get_last_child(parent);
+            let last = match last {
+                Ok(last) => last,
+                Err(_) => {
+                    eprintln!("Failed to get last child of {:?}", parent);
+                    return children
+                },
+            };
+            let runtime_id_of_last = last.get_runtime_id();
+            let runtime_id_of_last = match runtime_id_of_last {
+                Ok(runtime_id_of_last) => runtime_id_of_last,
+                Err(_) => {
+                    eprintln!("Failed to get runtime id of last child {:?} of {:?}", last, parent);
+                    return children
+                },
+            };
+            Box::new(LastChildEncountered { runtime_id_of_last })
+        }
+        StopBehaviour::TaskbarEndEncountered => Box::new(TaskbarEndEncountered),
+        StopBehaviour::RootEndEncountered => Box::new(RootEndEncountered),
+    };
+    metrics.end("construct stop behaviour");
+    // println!("Constructed stop behaviour {:?}", stop_behaviour);
+
+    // println!("Finding first child");
+    metrics.begin("find first child");
+    let first = walker.get_first_child(parent);
+    metrics.end("find first child");
+    // println!("Found first child");
+
+    let Ok(first) = first else {
+        return children;
+    };
+    children.push_back(first.clone());
+    let mut next = first;
+    let mut i = 0;
+    loop {
+        // println!("About to grab next sibling of {:?}", next);
+        metrics.begin(format!("get next sibling {}", i).as_str());
+        let sibling = walker.get_next_sibling(&next);
+        metrics.end(format!("get next sibling {}", i).as_str());
+        i += 1;
+
+        if let Ok(sibling) = sibling {
+            // println!("Got sibling {:?}", sibling);
+            // println!("Checking if should stop");
+            if stop.should_stop(&sibling) {
+                // println!("Should stop");
+                if stop_behaviour.include_last_child() {
+                    // println!("Including last child");
+                    children.push_back(sibling.clone());
+                }
+                break;
+            } else {
+                // println!("Should not stop");
+                children.push_back(sibling.clone());
+                next = sibling;
+            }
+        } else {
+            break;
+        }
+    }
+    // println!("Gathered {} children", children.len());
+    // println!("| {}", metrics.report().split(" | ").join("\n| "));
+    children
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/gather_element_info.rs
+use bevy::math::Rect;
+use cursor_hero_ui_automation_types::prelude::DrillId;
+use cursor_hero_ui_automation_types::prelude::ElementInfo;
+use itertools::Itertools;
+use std::collections::VecDeque;
+use uiautomation::Error;
+use uiautomation::UIAutomation;
+use uiautomation::UIElement;
+use uiautomation::UITreeWalker;
+
+use crate::gather_children::GatherChildrenable;
+use crate::gather_children::StopBehaviour;
+
+pub struct GatherUITreeOkResult {
+    pub ui_tree: ElementInfo,
+    pub start_info: ElementInfo,
+}
+pub fn gather_incomplete_ui_tree_starting_deep(
+    start_element: UIElement,
+) -> Result<GatherUITreeOkResult, Error> {
+    let automation = UIAutomation::new()?;
+    let walker = automation.create_tree_walker()?;
+    let ancestors = collect_ancestors(&start_element, &walker)?;
+    // println!("ancestors: {:?}", ancestors);
+
+    let root_element = ancestors
+        .front()
+        .ok_or(Error::new(-1, "No root element found"))?
+        .clone();
+    let mut root_info = gather_tree(&root_element, &walker, &ancestors, 0)?;
+    root_info.drill_id = DrillId::Root;
+
+    update_drill_ids(root_info.children.as_mut(), &DrillId::Root);
+
+    let start_info = root_info
+        .get_descendents()
+        .into_iter()
+        .find(|info| Ok(&info.runtime_id) == start_element.get_runtime_id().as_ref())
+        .cloned();
+    let Some(start_info) = start_info else {
+        return Err(Error::new(
+            -1,
+            format!(
+                "Start element {:?} (id: {:?}) not found in tree: {:?}",
+                start_element,
+                start_element.get_runtime_id(),
+                root_info
+            )
+            .as_str(),
+        ));
+    };
+    // let start_info = start_info.unwrap_or_else(|| root_info.clone());
+
+    Ok(GatherUITreeOkResult {
+        ui_tree: root_info,
+        start_info,
+    })
+}
+
+fn collect_ancestors(
+    element: &UIElement,
+    walker: &UITreeWalker,
+) -> Result<VecDeque<UIElement>, Error> {
+    let mut ancestors = VecDeque::new();
+    let mut current_element = Some(element.clone());
+    while let Some(elem) = current_element {
+        ancestors.push_front(elem.clone());
+        current_element = walker.get_parent(&elem).ok();
+    }
+    Ok(ancestors)
+}
+
+fn gather_tree(
+    element: &UIElement,
+    walker: &UITreeWalker,
+    ancestors: &VecDeque<UIElement>,
+    depth: usize,
+) -> Result<ElementInfo, Error> {
+    let is_ancestor = |element: &UIElement| {
+        ancestors
+            .iter()
+            .any(|ancestor| ancestor.get_runtime_id() == element.get_runtime_id())
+    };
+    let on_ancestor = is_ancestor(element);
+    let mut element_info = gather_single_element_info(element)?;
+
+    if on_ancestor {
+        let children = element
+            .gather_children(
+                walker,
+                if depth == 0 {
+                    &StopBehaviour::RootEndEncountered
+                } else {
+                    &StopBehaviour::EndOfSiblings
+                },
+            )
+            .into_iter()
+            .enumerate()
+            .filter_map(|(i, child)| {
+                if is_ancestor(&child) {
+                    gather_tree(&child, walker, ancestors, depth + 1).ok()
+                } else {
+                    gather_single_element_info(&child).ok()
+                }
+                .map(|mut child_info| {
+                    child_info.drill_id = DrillId::Child(vec![i].into_iter().collect());
+                    child_info
+                })
+            })
+            .collect_vec();
+
+        element_info.children = Some(children);
+    }
+
+    Ok(element_info)
+}
+
+pub fn update_drill_ids(children: Option<&mut Vec<ElementInfo>>, ancestor_path: &DrillId) {
+    if let Some(children) = children {
+        for child_info in children.iter_mut() {
+            // Check if the child has a base drill_id set
+            if let DrillId::Child(base_drill_id) = &child_info.drill_id {
+                let mut new_path = ancestor_path.clone();
+                if let Some(&child_position) = base_drill_id.back() {
+                    new_path = match new_path {
+                        DrillId::Root | DrillId::Unknown => {
+                            DrillId::Child(vec![child_position].into())
+                        }
+                        DrillId::Child(ref mut path) => {
+                            let mut new_path = path.clone();
+                            new_path.push_back(child_position);
+                            DrillId::Child(new_path)
+                        }
+                    };
+
+                    // Update the child's drill_id by concatenating the ancestor_path with its own position
+                    child_info.drill_id = new_path.clone();
+                }
+
+                // Recursively update this child's children
+                update_drill_ids(child_info.children.as_mut(), &new_path);
+            }
+        }
+    }
+}
+
+pub fn gather_single_element_info(element: &UIElement) -> Result<ElementInfo, uiautomation::Error> {
+    let name = element.get_name()?;
+    let bb = element.get_bounding_rectangle()?;
+    let class_name = element.get_classname()?;
+    let control_type = element.get_control_type()?.into();
+    let localized_control_type = element.get_localized_control_type()?;
+    let automation_id = element.get_automation_id()?;
+    let runtime_id = element.get_runtime_id()?;
+
+    let info = ElementInfo {
+        name,
+        bounding_rect: Rect::new(
+            bb.get_left() as f32,
+            bb.get_top() as f32,
+            bb.get_right() as f32,
+            bb.get_bottom() as f32,
+        ),
+        control_type,
+        localized_control_type,
+        class_name,
+        automation_id,
+        runtime_id,
+        children: None,
+        drill_id: DrillId::Unknown,
+    };
+    Ok(info)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use uiautomation::UIAutomation;
+
+    /// Discord doesn't play nice with new UIAutomaion
+    ///
+    /// Element children aren't shown like they are in the MSAA tree
+    #[test]
+    fn test_gather_discord_element_info() {
+        let automation = UIAutomation::new().unwrap();
+        let walker = automation.create_tree_walker().unwrap();
+        let start = automation
+            .element_from_point(uiautomation::types::Point::new(2359, 959))
+            .unwrap();
+        println!("start {:#?}", start);
+        let info = gather_single_element_info(&start).unwrap();
+        println!("info {:#?}", info);
+
+        // let parent = walker.get_parent(&start).unwrap();
+        // let parent_info = gather_single_element_info(&parent).unwrap();
+        // println!("parent_info {:#?}", parent_info);
+
+        let ancestors = collect_ancestors(&start, &walker).unwrap();
+        println!("got {} ancestors", ancestors.len());
+        // println!("ancestors {:#?}", ancestors);
+        for ancestor in ancestors.iter().skip(1) {
+            print!(
+                "ancestor {:?} (runtimeid={:?})\t",
+                ancestor,
+                ancestor.get_runtime_id()
+            );
+            for behaviour in vec![
+                StopBehaviour::EndOfSiblings,
+                // StopBehaviour::LastChildEncountered,
+                // StopBehaviour::TaskbarEndEncountered,
+                // StopBehaviour::RootEndEncountered,
+            ] {
+                let children = ancestor
+                    .gather_children(&walker, &behaviour)
+                    .into_iter()
+                    .map(|child| gather_single_element_info(&child).unwrap())
+                    .collect::<Vec<_>>();
+                if children.is_empty() {
+                    eprintln!("No children found using {:?}", behaviour);
+                }
+                println!("children using {:?} {:#?}", behaviour, children.len());
+            }
+        }
+
+        let gathered = gather_incomplete_ui_tree_starting_deep(start).unwrap();
+        // println!("tree {:#?}", gathered.ui_tree);
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/gather_root_children.rs
+use std::collections::VecDeque;
+
+use uiautomation::UIAutomation;
+use uiautomation::UIElement;
+use uiautomation::UITreeWalker;
+
+use crate::gather_children::gather_children;
+use crate::gather_children::StopBehaviour;
+
+pub fn gather_root_children(
+    automation: &UIAutomation,
+    walker: &UITreeWalker,
+) -> Result<VecDeque<UIElement>, uiautomation::Error> {
+    let root = automation.get_root_element()?;
+    // println!("Boutta gather top level children");
+    let top_level_children = gather_children(walker, &root, &StopBehaviour::RootEndEncountered);
+    // let condition = &automation.create_true_condition()?;
+    // let found = root.find_all(TreeScope::Children, condition)?;
+    // println!("Found {} top level children", top_level_children.len());
+    Ok(top_level_children)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use uiautomation::UIAutomation;
+
+    #[test]
+    fn test_gather_root_children() {
+        let automation = UIAutomation::new().unwrap();
+        let walker = automation.create_tree_walker().unwrap();
+        for _ in 0..100 {
+            let start = std::time::Instant::now();
+            let children = gather_root_children(&automation, &walker).unwrap();
+            let end = std::time::Instant::now();
+            let elapsed = end - start;
+            println!("Gathered {} children in {:?}", children.len(), elapsed);
+            assert!(!children.is_empty());
+            assert!(elapsed.as_millis() < 1000);
+        }
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/lib.rs
+mod elements_at_point;
+mod formatting;
+mod gather_children;
+mod gather_element_info;
+mod gather_root_children;
+mod resolve_app;
+mod resolve_vscode;
+mod take_snapshot;
+mod taskbar;
+mod ui_automation_plugin;
+mod resolve_calculator;
+
+pub mod prelude {
+    pub use crate::elements_at_point::*;
+    pub use crate::formatting::*;
+    pub use crate::gather_element_info::*;
+    pub use crate::take_snapshot::*;
+    pub use crate::taskbar::*;
+    pub use crate::ui_automation_plugin::*;
+    pub use crate::gather_children::*;
+    pub use cursor_hero_ui_automation_types::prelude::*;
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/resolve_app.rs
+use cursor_hero_ui_automation_types::prelude::*;
+use uiautomation::controls::ControlType;
+use uiautomation::UIAutomation;
+use uiautomation::UIElement;
+
+use crate::resolve_calculator::resolve_calculator;
+use crate::resolve_vscode::resolve_vscode;
+
+pub(crate) fn resolve_app(
+    elem: &UIElement,
+    automation: &UIAutomation,
+    focused: bool,
+) -> Result<AppWindow, AppResolveError> {
+    match (
+        elem.get_name(),
+        elem.get_control_type(),
+        elem.get_classname(),
+    ) {
+        (Ok(name), Ok(ControlType::Pane), Ok(class_name))
+            if name.ends_with("Visual Studio Code") && class_name == "Chrome_WidgetWin_1" =>
+        {
+            resolve_vscode(elem, automation, focused)
+        }
+        (Ok(name), Ok(ControlType::Window), Ok(class_name))
+            if name == "Calculator" && class_name == "ApplicationFrameWindow" =>
+        {
+            resolve_calculator(elem, automation, focused)
+        }
+        _ => Err(AppResolveError::NoMatch),
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/resolve_calculator.rs
+use bevy::math::IVec2;
+use cursor_hero_ui_automation_types::prelude::*;
+use itertools::Itertools;
+use uiautomation::controls::ControlType;
+use uiautomation::patterns::UIExpandCollapsePattern;
+use uiautomation::types::ExpandCollapseState;
+use uiautomation::types::TreeScope;
+use uiautomation::types::UIProperty;
+use uiautomation::variants::Variant;
+use uiautomation::UIAutomation;
+use uiautomation::UIElement;
+use uiautomation::UITreeWalker;
+
+use crate::gather_children::gather_children;
+use crate::gather_children::GatherChildrenable;
+use crate::gather_children::StopBehaviour;
+
+pub(crate) fn resolve_calculator(
+    elem: &UIElement,
+    automation: &UIAutomation,
+    focused: bool,
+) -> Result<AppWindow, AppResolveError> {
+    // let walker = automation.create_tree_walker()?;
+    // let root = elem;
+
+    // let temp = root.drill(&walker, vec![0, 0, 0, 0, 0, 1])?;
+
+    // let body = temp.drill(&walker, vec![1, 0, 1])?;
+    // let body = resolve_body(&body, &walker)?;
+
+    Ok(AppWindow::Calculator(Calculator {
+        memory: CalculatorMemory { buffer: 0.0 },
+    }))
+}
+
+fn resolve_body(
+    body: &UIElement,
+    walker: &UITreeWalker,
+) -> Result<VSCodeWindowBody, AppResolveError> {
+    let state =
+        VSCodeCrawlState::try_from(gather_children(walker, body, &StopBehaviour::EndOfSiblings))?;
+
+    let side_nav = state
+        .get_side_nav_tabs_root_elem()?
+        .drill(walker, vec![0, 0])?
+        .gather_children(walker, &StopBehaviour::LastChildEncountered);
+    // println!("side_nav: {:?}", side_nav);
+    let side_nav = side_nav
+        .into_iter()
+        .filter(|elem| elem.get_control_type() == Ok(ControlType::TabItem))
+        .map(|elem| {
+            let name = elem.get_name()?;
+            let kind = SideTabKind::try_from(name)?;
+            let active = elem
+                .get_property_value(UIProperty::ExpandCollapseExpandCollapseState)
+                .map(|v| v.try_into() == Ok(ExpandCollapseState::Expanded as i32))
+                .unwrap_or_default();
+            if active {
+                let view = state
+                    .get_side_nav_view_root_elem()?
+                    .drill(walker, vec![1])?;
+                let view = match view.get_automation_id() {
+                    Ok(id)
+                        if Some(id.as_str()) == SideTabKind::Explorer.get_view_automation_id() =>
+                    {
+                        fn as_explorer_item(
+                            walker: &UITreeWalker,
+                            tree_item: UIElement,
+                        ) -> Result<ExplorerItem, AppResolveError> {
+                            let label = tree_item.get_name()?;
+                            let ui_position_in_set = tree_item
+                                .get_property_value(UIProperty::PositionInSet)?
+                                .try_into()?;
+                            let ui_size_of_set = tree_item
+                                .get_property_value(UIProperty::SizeOfSet)?
+                                .try_into()?;
+                            let ui_level = tree_item
+                                .get_property_value(UIProperty::Level)?
+                                .try_into()?;
+                            let bounds = tree_item.get_bounding_rectangle()?.to_bevy_irect();
+                            let kind = tree_item
+                                .get_pattern::<UIExpandCollapsePattern>()
+                                .ok()
+                                .map(|p| ExplorerItemKind::Directory {
+                                    expanded: p.get_state() == Ok(ExpandCollapseState::Expanded),
+                                })
+                                .unwrap_or(ExplorerItemKind::File);
+                            let path = tree_item
+                                .drill(
+                                    walker,
+                                    match kind {
+                                        ExplorerItemKind::File => vec![0, 1, 0],
+                                        ExplorerItemKind::Directory { .. } => {
+                                            vec![0, 2, 0]
+                                        }
+                                    },
+                                )?
+                                .get_name()?;
+                            Ok(ExplorerItem {
+                                label,
+                                path,
+                                ui_position_in_set,
+                                ui_size_of_set,
+                                ui_level,
+                                bounds,
+                                kind,
+                            })
+                        }
+                        let sticky = view
+                            .drill(walker, vec![0, 1, 0, 0, 1, 0, 3])?
+                            .gather_children(walker, &StopBehaviour::EndOfSiblings)
+                            .into_iter()
+                            .filter_map(|tree_item| as_explorer_item(walker, tree_item).ok())
+                            .collect();
+                        let items = view
+                            .drill(walker, vec![0, 1, 0, 0, 1, 0, 0])?
+                            .gather_children(walker, &StopBehaviour::EndOfSiblings)
+                            .into_iter()
+                            .filter_map(|tree_item| as_explorer_item(walker, tree_item).ok())
+                            .collect();
+                        View::Explorer { sticky, items }
+                    }
+                    _ => {
+                        View::Unknown {}
+                        // elem: view.into()
+                    }
+                };
+
+                Ok(SideTab::Open {
+                    kind,
+                    // button: elem.into(),
+                    view,
+                })
+            } else {
+                Ok(SideTab::Closed {
+                    kind,
+                    // button: elem.into(),
+                })
+            }
+        })
+        .filter_map(|res: Result<SideTab, AppResolveError>| res.ok())
+        .collect();
+
+    let editor_area_elem = state
+        .get_editor_root_elem()?
+        .drill(walker, vec![0, 1, 0, 0])?;
+    if editor_area_elem.get_automation_id()? != EditorArea::get_expected_automation_id() {
+        return Err(AppResolveError::BadVSCodeStructure(format!(
+            "Editor area has wrong automation id: {}",
+            editor_area_elem.get_automation_id()?
+        )));
+    }
+    let editor_groups = editor_area_elem
+        .drill(walker, vec![0, 0, 0, 1])?
+        .gather_children(walker, &StopBehaviour::EndOfSiblings)
+        .into_iter()
+        .map(|group_elem| {
+            let group_tabs_holder = group_elem.drill(walker, vec![0, 0, 0])?;
+            let selected: Option<String> = group_tabs_holder
+                .get_property_value(UIProperty::SelectionSelection)?
+                .try_into()
+                .ok();
+            let group_tabs = group_tabs_holder
+                .gather_children(walker, &StopBehaviour::EndOfSiblings)
+                .into_iter()
+                .map(|group_tab_elem| {
+                    let title = group_tab_elem.get_name()?;
+                    let active = selected == Some(title.clone());
+                    Ok(EditorTab { title, active })
+                })
+                .filter_map(|r: Result<EditorTab, AppResolveError>| r.ok())
+                .collect();
+            let content_elem = group_elem.drill(walker, vec![1, 0, 0, 1])?;
+            let content = content_elem
+                .get_property_value(UIProperty::LegacyIAccessibleValue)
+                .map(|variant| variant.to_string())
+                .map(|text_content| EditorContent {
+                    content: text_content,
+                })
+                .ok();
+
+            Ok(EditorGroup {
+                tabs: group_tabs,
+                content,
+            })
+        })
+        .filter_map(|r: Result<EditorGroup, AppResolveError>| r.ok())
+        .collect();
+    let editor_area = EditorArea {
+        groups: editor_groups,
+    };
+
+    Ok(VSCodeWindowBody {
+        editor_area,
+        side_nav,
+    })
+}
+
+fn resolve_footer(
+    footer: &UIElement,
+    automation: &UIAutomation,
+) -> Result<VSCodeWindowFooter, AppResolveError> {
+    let condition = automation.create_property_condition(
+        UIProperty::AutomationId,
+        Variant::from("status.editor.selection"),
+        None,
+    )?;
+    let cursor_position_elem = footer.find_first(TreeScope::Children, &condition)?;
+    let text = cursor_position_elem.get_name()?;
+    // "Ln 218, Col 5"
+    let cursor_position = text
+        .split(", ")
+        .map(|part| part.split(' ').last().and_then(|s| s.parse::<usize>().ok()))
+        .collect_vec();
+    let cursor_position = match cursor_position.as_slice() {
+        [Some(line), Some(column)] => IVec2::new(*column as i32, *line as i32),
+        _ => {
+            return Err(AppResolveError::BadVSCodeStructure(format!(
+                "Bad cursor position {:?}",
+                cursor_position
+            )))
+        }
+    };
+    Ok(VSCodeWindowFooter { cursor_position })
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/resolve_vscode.rs
+use bevy::math::IVec2;
+use cursor_hero_ui_automation_types::prelude::*;
+use itertools::Itertools;
+use uiautomation::controls::ControlType;
+use uiautomation::patterns::UIExpandCollapsePattern;
+use uiautomation::types::ExpandCollapseState;
+use uiautomation::types::TreeScope;
+use uiautomation::types::UIProperty;
+use uiautomation::variants::Variant;
+use uiautomation::UIAutomation;
+use uiautomation::UIElement;
+use uiautomation::UITreeWalker;
+
+use crate::gather_children::gather_children;
+use crate::gather_children::GatherChildrenable;
+use crate::gather_children::StopBehaviour;
+
+pub(crate) fn resolve_vscode(
+    elem: &UIElement,
+    automation: &UIAutomation,
+    focused: bool,
+) -> Result<AppWindow, AppResolveError> {
+    let walker = automation.create_tree_walker()?;
+    let root = elem;
+
+    let temp = root.drill(&walker, vec![0, 0, 0, 0, 0, 1])?;
+
+    let body = temp.drill(&walker, vec![1, 0, 1])?;
+    let body = resolve_body(&body, &walker)?;
+
+    let footer = temp.drill(&walker, vec![2, 0])?;
+    let footer = resolve_footer(&footer, automation)?;
+    drop(temp);
+
+    Ok(AppWindow::VSCode(VSCodeWindow {
+        focused,
+        header: VSCodeWindowHeader {},
+        body,
+        footer,
+    }))
+}
+
+fn resolve_body(
+    body: &UIElement,
+    walker: &UITreeWalker,
+) -> Result<VSCodeWindowBody, AppResolveError> {
+    let state =
+        VSCodeCrawlState::try_from(gather_children(walker, body, &StopBehaviour::EndOfSiblings))?;
+
+    let side_nav = state
+        .get_side_nav_tabs_root_elem()?
+        .drill(walker, vec![0, 0])?
+        .gather_children(walker, &StopBehaviour::LastChildEncountered);
+    // println!("side_nav: {:?}", side_nav);
+    let side_nav = side_nav
+        .into_iter()
+        .filter(|elem| elem.get_control_type() == Ok(ControlType::TabItem))
+        .map(|elem| {
+            let name = elem.get_name()?;
+            let kind = SideTabKind::try_from(name)?;
+            let active = elem
+                .get_property_value(UIProperty::ExpandCollapseExpandCollapseState)
+                .map(|v| v.try_into() == Ok(ExpandCollapseState::Expanded as i32))
+                .unwrap_or_default();
+            if active {
+                let view = state
+                    .get_side_nav_view_root_elem()?
+                    .drill(walker, vec![1])?;
+                let view = match view.get_automation_id() {
+                    Ok(id)
+                        if Some(id.as_str()) == SideTabKind::Explorer.get_view_automation_id() =>
+                    {
+                        fn as_explorer_item(
+                            walker: &UITreeWalker,
+                            tree_item: UIElement,
+                        ) -> Result<ExplorerItem, AppResolveError> {
+                            let label = tree_item.get_name()?;
+                            let ui_position_in_set = tree_item
+                                .get_property_value(UIProperty::PositionInSet)?
+                                .try_into()?;
+                            let ui_size_of_set = tree_item
+                                .get_property_value(UIProperty::SizeOfSet)?
+                                .try_into()?;
+                            let ui_level = tree_item
+                                .get_property_value(UIProperty::Level)?
+                                .try_into()?;
+                            let bounds = tree_item.get_bounding_rectangle()?.to_bevy_irect();
+                            let kind = tree_item
+                                .get_pattern::<UIExpandCollapsePattern>()
+                                .ok()
+                                .map(|p| ExplorerItemKind::Directory {
+                                    expanded: p.get_state() == Ok(ExpandCollapseState::Expanded),
+                                })
+                                .unwrap_or(ExplorerItemKind::File);
+                            let path = tree_item
+                                .drill(
+                                    walker,
+                                    match kind {
+                                        ExplorerItemKind::File => vec![0, 1, 0],
+                                        ExplorerItemKind::Directory { .. } => {
+                                            vec![0, 2, 0]
+                                        }
+                                    },
+                                )?
+                                .get_name()?;
+                            Ok(ExplorerItem {
+                                label,
+                                path,
+                                ui_position_in_set,
+                                ui_size_of_set,
+                                ui_level,
+                                bounds,
+                                kind,
+                            })
+                        }
+                        let sticky = view
+                            .drill(walker, vec![0, 1, 0, 0, 1, 0, 3])?
+                            .gather_children(walker, &StopBehaviour::EndOfSiblings)
+                            .into_iter()
+                            .filter_map(|tree_item| as_explorer_item(walker, tree_item).ok())
+                            .collect();
+                        let items = view
+                            .drill(walker, vec![0, 1, 0, 0, 1, 0, 0])?
+                            .gather_children(walker, &StopBehaviour::EndOfSiblings)
+                            .into_iter()
+                            .filter_map(|tree_item| as_explorer_item(walker, tree_item).ok())
+                            .collect();
+                        View::Explorer { sticky, items }
+                    }
+                    _ => {
+                        View::Unknown {}
+                        // elem: view.into()
+                    }
+                };
+
+                Ok(SideTab::Open {
+                    kind,
+                    // button: elem.into(),
+                    view,
+                })
+            } else {
+                Ok(SideTab::Closed {
+                    kind,
+                    // button: elem.into(),
+                })
+            }
+        })
+        .filter_map(|res: Result<SideTab, AppResolveError>| res.ok())
+        .collect();
+
+    let editor_area_elem = state
+        .get_editor_root_elem()?
+        .drill(walker, vec![0, 1, 0, 0])?;
+    if editor_area_elem.get_automation_id()? != EditorArea::get_expected_automation_id() {
+        return Err(AppResolveError::BadVSCodeStructure(format!(
+            "Editor area has wrong automation id: {}",
+            editor_area_elem.get_automation_id()?
+        )));
+    }
+    let editor_groups = editor_area_elem
+        .drill(walker, vec![0, 0, 0, 1])?
+        .gather_children(walker, &StopBehaviour::EndOfSiblings)
+        .into_iter()
+        .map(|group_elem| {
+            let group_tabs_holder = group_elem.drill(walker, vec![0, 0, 0])?;
+            let selected: Option<String> = group_tabs_holder
+                .get_property_value(UIProperty::SelectionSelection)?
+                .try_into()
+                .ok();
+            let group_tabs = group_tabs_holder
+                .gather_children(walker, &StopBehaviour::EndOfSiblings)
+                .into_iter()
+                .map(|group_tab_elem| {
+                    let title = group_tab_elem.get_name()?;
+                    let active = selected == Some(title.clone());
+                    Ok(EditorTab { title, active })
+                })
+                .filter_map(|r: Result<EditorTab, AppResolveError>| r.ok())
+                .collect();
+            let content_elem = group_elem.drill(walker, vec![1, 0, 0, 1])?;
+            let content = content_elem
+                .get_property_value(UIProperty::LegacyIAccessibleValue)
+                .map(|variant| variant.to_string())
+                .map(|text_content| EditorContent {
+                    content: text_content,
+                })
+                .ok();
+
+            Ok(EditorGroup {
+                tabs: group_tabs,
+                content,
+            })
+        })
+        .filter_map(|r: Result<EditorGroup, AppResolveError>| r.ok())
+        .collect();
+    let editor_area = EditorArea {
+        groups: editor_groups,
+    };
+
+    Ok(VSCodeWindowBody {
+        editor_area,
+        side_nav,
+    })
+}
+
+fn resolve_footer(
+    footer: &UIElement,
+    automation: &UIAutomation,
+) -> Result<VSCodeWindowFooter, AppResolveError> {
+    let condition = automation.create_property_condition(
+        UIProperty::AutomationId,
+        Variant::from("status.editor.selection"),
+        None,
+    )?;
+    let cursor_position_elem = footer.find_first(TreeScope::Children, &condition)?;
+    let text = cursor_position_elem.get_name()?;
+    // "Ln 218, Col 5"
+    let cursor_position = text
+        .split(", ")
+        .map(|part| part.split(' ').last().and_then(|s| s.parse::<usize>().ok()))
+        .collect_vec();
+    let cursor_position = match cursor_position.as_slice() {
+        [Some(line), Some(column)] => IVec2::new(*column as i32, *line as i32),
+        _ => {
+            return Err(AppResolveError::BadVSCodeStructure(format!(
+                "Bad cursor position {:?}",
+                cursor_position
+            )))
+        }
+    };
+    Ok(VSCodeWindowFooter { cursor_position })
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/take_snapshot.rs
+use crate::gather_root_children::gather_root_children;
+use crate::resolve_app::resolve_app;
+use cursor_hero_ui_automation_types::prelude::*;
+use itertools::Itertools;
+use uiautomation::UIAutomation;
+
+pub fn take_snapshot() -> Result<UISnapshot, GatherAppsError> {
+    let automation = UIAutomation::new()?;
+    let walker = automation.create_tree_walker()?;
+    // let walker = automation.get_raw_view_walker()?;
+    let top_level_children = gather_root_children(&automation, &walker)?;
+
+    let focused = automation.get_focused_element()?;
+    let focused_app = walker.normalize(&focused)?;
+
+    let mut apps = vec![];
+    let mut errors = vec![];
+    for elem in top_level_children {
+        let focused = elem.get_runtime_id() == focused_app.get_runtime_id();
+        match resolve_app(&elem, &automation, focused) {
+            Ok(app) => {
+                apps.push((elem, app));
+            }
+            Err(e) => errors.push(e),
+        }
+    }
+    let bad_errors = errors
+        .into_iter()
+        // NoMatch errors aren't enough to fail the whole snapshot
+        .filter(|e| !matches!(e, AppResolveError::NoMatch))
+        .filter(|e| !matches!(e, AppResolveError::BadVSCodeStructure(_)))
+        .collect_vec();
+    if !bad_errors.is_empty() {
+        return Err(GatherAppsError::ResolveFailed(bad_errors));
+    }
+
+    let snapshot = UISnapshot {
+        app_windows: apps.into_iter().map(|(_elem, app)| app).collect(),
+    };
+    Ok(snapshot)
+}
+
+#[cfg(test)]
+mod tests {
+    use windows::Win32::System::Com::CoInitializeEx;
+    use windows::Win32::System::Com::COINIT_MULTITHREADED;
+
+    use crate::prelude::take_snapshot;
+
+    #[test]
+    fn test_take_snapshot() {
+        //todo: put this in thread initialzed for COM like below
+        let snapshot = take_snapshot().unwrap();
+        assert!(snapshot.app_windows.len() > 0);
+    }
+
+    #[test]
+    fn test_take_snapshot_many() {
+        let handle = std::thread::spawn(move || -> windows::core::Result<()> {
+            unsafe {
+                // Initialize COM in MTA mode
+                // https://learn.microsoft.com/en-us/windows/win32/com/multithreaded-apartments
+                CoInitializeEx(None, COINIT_MULTITHREADED)?;
+
+                println!("COM initialized in MTA mode.");
+
+                for i in 0..100 {
+                    let start = std::time::Instant::now();
+                    let snapshot = take_snapshot().unwrap();
+                    assert!(snapshot.app_windows.len() > 0);
+                    if i == 0 {
+                        println!("{}", snapshot);
+                    }
+                    let end = std::time::Instant::now();
+                    println!("time: {:?}", end - start);
+                    assert!(end - start < std::time::Duration::from_secs(1));
+                }
+
+                Ok(())
+            }
+        });
+
+        // Wait for the thread to complete its tasks and handle any errors
+        let _ = handle.join().unwrap();
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/taskbar.rs
+use crate::gather_children::gather_children;
+use crate::gather_children::StopBehaviour;
+use crate::prelude::*;
+use uiautomation::controls::ControlType;
+use uiautomation::UIAutomation;
+
+pub fn get_taskbar() -> Result<Taskbar, uiautomation::Error> {
+    let automation = UIAutomation::new()?;
+    let root = automation.get_root_element()?;
+    let taskbar_matcher = automation
+        .create_matcher()
+        .from(root)
+        .classname("MSTaskListWClass")
+        .control_type(ControlType::ToolBar);
+    let taskbar = taskbar_matcher.find_first()?;
+    let taskbar_entry_walker = automation.create_tree_walker()?;
+    let taskbar_entries = gather_children(
+        &taskbar_entry_walker,
+        &taskbar,
+        &StopBehaviour::TaskbarEndEncountered,
+    );
+    let entries = taskbar_entries
+        .into_iter()
+        .map(|entry| TaskbarEntry {
+            name: entry.get_name().unwrap_or_default(),
+            bounds: entry
+                .get_bounding_rectangle()
+                .unwrap_or_default()
+                .to_bevy_irect(),
+        })
+        .collect();
+    Ok(Taskbar { entries })
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::prelude::get_taskbar;
+
+    #[test]
+    fn test_get_taskbar() {
+        let taskbar = get_taskbar().unwrap();
+        assert!(taskbar.entries.len() > 0);
+        // print the entries
+        for entry in taskbar.entries {
+            println!("entry: {:?}", entry);
+        }
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/ui_automation/src/ui_automation_plugin.rs
+use bevy::prelude::*;
+
+pub struct UiAutomationPlugin;
+
+impl Plugin for UiAutomationPlugin {
+    fn build(&self, _app: &mut App) {}
+}
+
+#ENDREGION
+
+
+#REGION crates/window_swap_tool/src/window_swap_tool_populate_plugin.rs
+use bevy::prelude::*;
+use cursor_hero_toolbelt_types::prelude::*;
+use cursor_hero_tools::tool_spawning::ToolSpawnConfig;
+use cursor_hero_window_swap_tool_types::prelude::*;
+
+pub struct WindowSwapToolPopulatePlugin;
+
+impl Plugin for WindowSwapToolPopulatePlugin {
+    fn build(&self, app: &mut App) {
+        app.add_systems(Update, handle_toolbelt_events);
+    }
+}
+
+fn handle_toolbelt_events(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    mut reader: EventReader<ToolbeltPopulateEvent>,
+) {
+    for event in reader.read() {
+        let ToolbeltPopulateEvent {
+            loadout: ToolbeltLoadout::WindowPosition,
+            ..
+        } = event
+        else {
+            continue;
+        };
+        ToolSpawnConfig::<_, WindowSwapToolAction>::new(WindowSwapTool, event.id, event)
+            .with_src_path(file!().into())
+            .guess_name(file!())
+            .guess_image(file!(), &asset_server, "webp")
+            .with_description("Swap the positions of windows.")
+            .spawn(&mut commands);
+    }
+}
+
+#ENDREGION
+
+
+#REGION crates/winutils/examples/app_icons_example.rs
+use std::rc::Rc;
+
+use bevy::utils::HashSet;
+use cursor_hero_winutils::win_errors::*;
+use cursor_hero_winutils::win_icons::get_images_from_exe;
+use cursor_hero_winutils::win_process::*;
+use windows::core::PWSTR;
+use windows::Win32::Foundation::E_ACCESSDENIED;
+
+fn main() -> Result<()> {
+    unsafe {
+        let process_iter = ProcessIterator::new()?;
+        let mut done = HashSet::new();
+        for mut process in process_iter {
+            let exe_name_pwstr = PWSTR(process.szExeFile.as_mut_ptr());
+            let exe_name = exe_name_pwstr.to_string()?;
+            let exe_path = match get_process_full_name(process.th32ProcessID) {
+                Ok(s) => s,
+                Err(e) => {
+                    if matches!(
+                        e,
+                        Error::Windows(ref e) if e.code() == E_ACCESSDENIED
+                    ) {
+                        continue;
+                    }
+                    eprintln!(
+                        "Failed to get full process name for PID {:05} ({}): {:?}",
+                        process.th32ProcessID, exe_name, e
+                    );
+                    continue;
+                }
+            };
+            if done.contains(&exe_path) {
+                continue;
+            }
+            done.insert(exe_path.clone());
+            let icons = get_images_from_exe(exe_path.as_str())?;
+            println!(
+                "Process ID: {:05}, name: {}, icon count: {}",
+                process.th32ProcessID,
+                exe_name,
+                icons.len()
+            );
+
+            if icons.is_empty() {
+                continue;
+            }
+
+            // write the image to target/app_icons/{exe_name}/{icon_index}.png
+            let mut path = std::path::PathBuf::from("target/app_icons");
+            path.push(exe_name);
+            std::fs::create_dir_all(&path).map_err(|e| Error::Other(Rc::new(e)))?;
+            for (i, icon) in icons.iter().enumerate() {
+                let mut icon_path = path.clone();
+                icon_path.push(format!("{}.png", i));
+                icon.save(icon_path).map_err(|e| Error::Other(Rc::new(e)))?;
+            }
+        }
+    }
+    Ok(())
+}
+
+#ENDREGION
+
+
+#REGION README.md
+# Cursor Hero
+
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=github.com%2FTeamDman%2FCursor-Hero&countColor=%23263759)](https://visitorbadge.io/status?path=github.com%2FTeamDman%2FCursor-Hero)
+
+## Video demo
+
+[![yt thumbnail](https://img.youtube.com/vi/t1PYks0UTL8/0.jpg)](https://youtu.be/t1PYks0UTL8)
+
+## Regarding DualShock controllers
+
+Try [DS4Windows](https://ds4windows.dev/).
+
+## Integrations
+
+- [TeamDman/voice2text: Local speech recognition](https://github.com/teamdman/voice2text)
+- [ollama/ollama: Local LLM inference](https://github.com/ollama/ollama)
+- [R2D2FISH/glados-tts: GLaDOS speech synthesis](https://github.com/TeamDman/glados-tts.git)
+
+## Project description
+
+Cursor Hero is a thing built using Rust and the Bevy game engine.
+
+Cursor Hero, when launched, presents you with a character that has a pointer. You can move the character and pointer independently using the mouse and keyboard, or using both sticks on a gamepad.
+
+In the game world, you can see a scale representation of your monitors. I have three monitors, so when I launch the game I see the left, center, and right monitor, usually containing VSCode, Discord, and the Cursor Hero window itself.
+
+Cursor Hero uses the `windows` crate to integrate tightly with the Windows operating system. It reads and writes the host cursor position, with integrations with the game to do things like position the host mouse "cursor" over the in-game "pointer", or updating the cursor so that it matches the game world position of the pointer, letting the player interact with the OS using the game representation of the screens.
+
+This includes integrating with Windows UI automation to grab the locations of UI elements, copying the texture of the screen onto bricks in the game world that are physics objects.
+
+UI information is attached to the bricks, using `bevy-egui` to render UI elements with screen coordinates updated to correspond with world-coordinates of the bricks.
+
+Using `egui`, the tree hierarchy of the UI is shown for the bricks created by clicking on UI elements in the screen texture. The tree could potentially grow to something like inspect.exe, where the properties of the UI element can be explored. Currently, the tree folding and selectable labels is working, but the properties panel on the right is not yet implemented.
+
+In addition to showing the host environment, a game environment is also constructed. The game environment contains a virtual agent and a mimicry of the host OS. The mimicry extends to include a copy of the desktop background, a taskbar that pulls the colour from the OS preferences, and a start menu button that toggles visibility of an empty panel.
+
+The virtual agent walks in circles. It has an observation buffer which other systems can publish events for something happening, and the buffer will conditionally append such events which are used in the construction of prompts for a local LLM ran using `ollama`.
+
+In response to player chat messages, or in response to a period of inactivity, the agent will prompt the LLM in a chat format. With the response, it publishes its own chat message, and it invokes the `glados-tts` to speak the response to the player.
+
+This agent behaviour, combined with integration to `voice2text`, allows the human to converse to the agent entirely locally using `whisper-x` to speak with the addition of a push-to-talk button and a toggle-active-listening button.
+
+Given that the host cursor is being updated by the game pointer when in gamepad input mode, the game takes care to listen for raw mouse input events to determine when the player is trying to use mouse and keyboard input mode, avoiding holding the pointer captive since traditional input detection is not suitable. After all, if the pointer is programmatically controlled by the game, "mouse moved events" become less reliable when aiming for physical movement detection.
+
+Again using the `windows` crate, the game is able to identify running processes and programmatically detect the exe path and extract the icons of the process from it.
+Opportunity exists to detect dynamic icons from process windows as well.
+
+The game has a radial menu for enabling/disabling "tools", some of which start disabled and upon enabling will clear and repopulate the tools in the toolbelt with a different loadout.
+
+The tool system has been used to show a radial menu of programs in the taskbar, using UI automation to grab the texture at the rect of each item to be displayed radially.
+
+There is a tool loadout that lets you snap the game window to any corner or fullscreen of any monitors detected.
+
+The default tool loadout starts you in click mode, letting you move your character and its pointer, with the ability to send click events to the OS, and to send click events to game objects using the ECS fundamentals. 
+
+The game has its own model system for the UI hierarchy, with support for detecting the details of running VSCode windows, including tabs on the left, open tab, contents of the explorer tab if open, editor groups open and involved tabs and file contents, current cursor line and position displayed in the bottom corner.
+
+## Where do we go from here
+
+I am continuously exploring many different trajectories for this project.
+
+See [`./todo.md`](./todo.md) for brainstorming on potential features to add.
+
+See [`./research_notes.md`](./research_notes.md) for links to internet resources that could be helpful.
+
+#ENDREGION
+
+
+#REGION templates/patterns/new_tool/crates/{{crate_name}}_tool/src/{{crate_name}}_tool_populate_plugin.rs
+use bevy::prelude::*;
+use cursor_hero_{{crate_name}}_tool_types::prelude::*;
+use cursor_hero_toolbelt_types::prelude::*;
+use cursor_hero_tools::tool_spawning::ToolSpawnConfig;
+
+pub struct {{crate_name_pascal}}ToolPopulatePlugin;
+
+impl Plugin for {{crate_name_pascal}}ToolPopulatePlugin {
+    fn build(&self, app: &mut App) {
+        app.add_systems(Update, handle_toolbelt_events);
+    }
+}
+
+fn handle_toolbelt_events(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    mut reader: EventReader<PopulateToolbeltEvent>,
+) {
+    for event in reader.read() {
+        let PopulateToolbeltEvent {
+            loadout: ToolbeltLoadout::WindowPosition,
+            ..
+        } = event
+        else {
+            continue;
+        };
+        ToolSpawnConfig::<_, {{crate_name_pascal}}ToolAction>::new(
+            {{crate_name_pascal}}Tool::default(),
+            event.id,
+            event,
+        )
+        .with_src_path(file!().into())
+        .guess_name(file!())
+        .guess_image(file!(), &asset_server, "webp")
+        .with_description("REPLACE THIS DESCRIPTION!!!")
+        .spawn(&mut commands);
+    }
+}
+
+#ENDREGION
+
+
+Above is the source code of some parts of the Cursor Hero project.
+I am working on the ui_hover_example thing right now
+
+cargo run -p cursor_hero_ui_automation --example ui_hover_example
+
+and now I want to create a calculator example that will use similar principals to enumerate the calculator windows
+and will update the calculator components in the ECS to match.
+
+Lets treat the sync operation as a clear-then-create type thing
+When we receive the snapshot containing calculators, we will despawn_recursive all Query<(Entity, &Calculator)> then
+use mut commands to spawn new ones with screens displaying the values according to the ones in the snapshot.
+For now, focus just on the number display and don't add any buttons yet.
+We will have a parent Calculator SpriteBundle that will act as the background,
+then the text will be created within as the NumberDisplayPanel component entity.
+
+The calculator spritebundle will have a set custom size, we will have fixed dimensions for the calculator
+this will be used to offset by width + margin when spawning multiple
+
+Propose the modifications to be made to calculator_example.rs to proceed.

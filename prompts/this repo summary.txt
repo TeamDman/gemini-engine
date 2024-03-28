@@ -1,0 +1,233 @@
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Create a prompt.ps1
+$promptName = Read-Host "Enter a name for the prompt (.txt gets appended)"
+$promptName += ".txt"
+# Open prompt file in editor
+hx prompts/$promptName
+# Update cached data
+$cachedPrompts += $promptName
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Interactive mode.ps1
+while ($true) {
+    $chosenFileName = $cachedFiles.Keys | fzf
+    if ([string]::IsNullOrEmpty($chosenFileName)) {
+        $file = [PSCustomObject]@{
+            url = $null
+            mimetype = $null
+        }
+    } else {
+        $file = $cachedFiles[$chosenFileName]
+    }
+    $prompt = Read-Host "Prompt"
+    if ([string]::IsNullOrWhiteSpace($prompt)) {
+        break
+    }
+    $payload = [pscustomobject]@{
+        prompt = $prompt
+        file_url = $file.url
+        file_mimetype = $file.mimetype
+    }
+    python inference.py $($payload | ConvertTo-Json)
+    pause
+}
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Execute a prompt inference.ps1
+# Select file and prompt using fzf
+$chosenFileName = $cachedFiles.Keys | fzf
+$file = $cachedFiles[$chosenFileName]
+Push-Location prompts
+$chosenPromptName = fzf
+Pop-Location
+# Read prompt content
+$prompt = Get-Content -Raw prompts\$chosenPromptName
+# Prepare payload and call Python script
+$payload = [pscustomobject]@{
+    prompt = $prompt
+    file_url = $file.url
+    file_mimetype = $file.mimetype
+}
+python inference.py $($payload | ConvertTo-Json)
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Copy file summary to clipboard.ps1
+$choices = Get-ChildItem -Recurse -File | Select-Object -ExpandProperty FullName
+
+$files = @()
+while ($true) {
+    $chosen = $choices | fzf --multi --bind "ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all" --header "Selection will repeat until Ctrl+C received"
+    if ($null -eq $chosen) {
+        break
+    }
+    $files += $chosen
+}
+$content = $files | ForEach-Object { 
+    $content = Get-Content $_ -Raw
+    return "
+#REGION $($_)
+$content
+#ENDREGION
+"
+}
+| Out-String
+$content | Set-Clipboard
+Write-Host "Copied $($files.Count) files to clipboard"
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Upload a file.ps1
+# Get user choice
+$filePath = Get-ChildItem -Path files `
+| ForEach-Object { $_.Name } `
+| fzf
+
+# Overwrite check
+if ($cachedFiles.ContainsKey($filePath)) {
+  $overwrite = Read-Host "$filePath already exists, overwrite? (y/n)"
+  if ($overwrite -ne "y") { continue }
+}
+
+# Get mimetype
+$fileMimetype = Get-Content .\mimetypes.txt | fzf
+
+# Upload file
+$fileUrl = python file_upload.py "files/$filePath" "$fileMimetype"
+if ($? -eq $false) {
+  Write-Warning "Failed to upload file."
+  continue
+}
+
+# Update cached data
+$cachedFiles[$filePath] = [PSCustomObject]@{
+  url = $fileUrl
+  mimetype = $fileMimetype
+}
+$cachedFiles | ConvertTo-Json | Set-Content -Path "files.json"
+
+# Inform the user
+Write-Host "Uploaded file and saved the url to the cache."
+
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Edit prompts.ps1
+$cachedPrompts | fzf | hx
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Manually set API key.ps1
+# Read the secure string
+Write-Host -NoNewLine "Enter the API key: "
+$secureString = Read-Host -AsSecureString
+
+# Convert SecureString to BSTR (Basic String) and then to a plain text string
+$ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureString)
+try {
+    $plainText = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr)
+} finally {
+    # Make sure to free the BSTR to prevent memory leaks
+    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr)
+}
+
+# Now you can use $plainText as a regular string
+# For example, setting it as an environment variable
+$ENV:GEMINI_API_KEY = $plainText
+
+# Use the environment variable
+Write-Host "Set the API key as an environment variable."
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Preview cached files.ps1
+$cachedfiles.Keys `
+    | ForEach-Object { 
+        $entry = $cachedfiles[$_]
+        $name = $_
+        $url = $entry.url
+        $mimetype = $entry.mimetype    
+        # format as %-20s %-20s %-20s
+        "{0,-20} {1,-20} {2,-64}" -f $name, $mimetype, $url
+    } `
+    | fzf
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Install python dependencies.ps1
+pip install -q google-api-python-client google-generativeai
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\actions\Load api key from 1password vault.ps1
+$env:GEMINI_API_KEY = op read "op://Private/Google AI Studio API key/credential"
+Write-Host "API Key loaded into GEMINI_API_KEY environment variable."
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\gemini.ps1
+# gemini.ps1
+
+# Load cached data
+if (Test-Path -Path .\files.json) {
+  $cachedFiles = Get-Content -Path "files.json" | ConvertFrom-Json -AsHashtable
+} else {
+  $cachedFiles = @{}
+}
+if (-not (Test-Path -Path .\prompts)) {
+  New-Item -ItemType Directory -Path .\prompts | Out-Null
+}
+$cachedPrompts = Get-ChildItem -Path "prompts/*.txt" | Select-Object -ExpandProperty Name
+
+while ($true) {
+  $action = Get-ChildItem -Path actions `
+    | Select-Object -ExpandProperty name `
+    | Sort-Object -Descending `
+    | fzf --prompt "Action: " --header "Select an action to run"
+  if ([string]::IsNullOrWhiteSpace($action)) {
+    break
+  }
+  . ".\actions\$action"
+  pause
+}
+
+#ENDREGION
+
+
+#REGION D:\Repos\ml\gemini-engine\README.md
+<div align="center">
+
+# Gemini Engine
+
+<img height=500 src="https://cards.scryfall.io/large/front/2/e/2e03e05b-011b-4695-950b-98dd7643b8a0.jpg?1562636055">
+
+Mine
+[![Discord](https://img.shields.io/discord/967118679370264627.svg?colorB=7289DA&logo=data:image/png)](https://discord.gg/5mbUY3mu6m)
+
+Google Developer Community
+[![Discord](https://img.shields.io/discord/1009525727504384150.svg?colorB=7289DA&logo=data:image/png)](https://discord.gg/google-dev-community)
+
+</div>
+
+A collection of scripts I'm using to interact with the Gemini 1.5 Pro API.
+
+## Leaking API keys
+
+The Google python APIs will include your API key in the error messages.
+
+Clear your cell outputs before committing notebooks to reduce risk of leaking your API key.
+
+## Mimetypes
+
+Sourced from https://www.iana.org/assignments/media-types/media-types.xhtml using
+
+```javascript
+copy(Array.from(document.querySelectorAll("td:nth-child(2)")).map(x => x.innerText).join("\n"))
+```
+#ENDREGION
+
+Propose an action ps1 file "View a response in VSCode.ps1" that will have the user pick a responses\n.json file and will extract the good part 
+$extracted | code -

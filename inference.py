@@ -56,5 +56,7 @@ def invoke_gemini(payload):
 
 
 if __name__ == "__main__":
-    payload = json.loads(sys.argv[1])
+    file = sys.argv[1]
+    with open(file, "r") as f:
+        payload = json.load(f)
     invoke_gemini(payload)
