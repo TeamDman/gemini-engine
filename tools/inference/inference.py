@@ -36,7 +36,7 @@ def invoke_gemini(payload):
 
     # Send request and print response
     model = "models/gemini-1.5-pro-latest"
-    resp = genai_service.models().generateContent(model=model, body=contents,timeout=60*5).execute()
+    resp = genai_service.models().generateContent(model=model, body=contents).execute()
 
     # Safe response to responses/n.json where n is the number of files in the responses directory
     if not os.path.exists("responses"):

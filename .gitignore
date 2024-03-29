@@ -1,4 +1,5 @@
 ignore/
 videos/
+video frames/
 audio/
 **/target/
