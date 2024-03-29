@@ -13,7 +13,7 @@ if ($cachedFiles.ContainsKey($filePath)) {
 $fileMimetype = Get-Content .\mimetypes.txt | fzf
 
 # Upload file
-$fileUrl = python file_upload.py "files/$filePath" "$fileMimetype"
+$fileUrl = python '.\tools\upload file\upload file.py' "files/$filePath" "$fileMimetype"
 if ($? -eq $false) {
   Write-Warning "Failed to upload file."
   continue

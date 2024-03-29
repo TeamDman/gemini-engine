@@ -6,7 +6,12 @@ if (-not (Test-Path Env:GEMINI_API_KEY)) {
 Push-Location prompts
 $env:SHELL="pwsh"
 $chosenPromptName = fzf --preview "bat {}" --prompt "Select prompt: " --header "Available Prompts"
+if ([string]::IsNullOrWhiteSpace(($chosenPromptName)) {
+    Write-Warning "No prompt selected. Exiting..."
+    return
+}
 Pop-Location
+
 # Read prompt content
 $prompt = Get-Content -Raw "prompts\$chosenPromptName"
 # Prepare payload and call Python script
@@ -18,7 +23,7 @@ $payload = [pscustomobject]@{
 $file = New-TemporaryFile
 $payload | ConvertTo-Json | Set-Content -Path $file.FullName
 try {
-    python inference.py "$($file.FullName)" | code -
+    python .\tools\inference\inference.py "$($file.FullName)" | code -
 } finally {
     Remove-Item -Path $file.FullName
 }

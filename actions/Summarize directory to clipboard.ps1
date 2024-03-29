@@ -6,7 +6,7 @@ if ([string]::IsNullOrWhiteSpace($starting_dir) -or -not (Test-Path $starting_di
 }
 
 # Check if the specified directory is a Git repository
-$choices = cargo run --manifest-path ".\tools\list_unignored_files\Cargo.toml" -- $starting_dir
+$choices = cargo run --manifest-path ".\tools\list unignored files\Cargo.toml" -- $starting_dir
 
 # There is opportunity for a submenu here to present the user the current extension list and allow them to modify it considering the extensions found in the directory
 $allowed_patterns = Get-Content .\summarizable_patterns.txt

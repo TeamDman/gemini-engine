@@ -21,7 +21,7 @@ $payload = [pscustomobject]@{
 $file = New-TemporaryFile
 $payload | ConvertTo-Json | Set-Content -Path $file.FullName
 try {
-    python inference.py "$($file.FullName)"
+    python .\tools\inference\inference.py "$($file.FullName)"
 } finally {
     Remove-Item -Path $file.FullName
 }
