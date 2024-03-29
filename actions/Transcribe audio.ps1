@@ -10,5 +10,8 @@ if (-not $audio) {
 Write-Host "You chose $audio"
 
 New-Item -ItemType Directory -Path transcriptions -ErrorAction SilentlyContinue | Out-Null
+$destFileName = [System.IO.Path]::ChangeExtension($audio, ".txt")
 
-python .\python\transcription\transcribe.py "$audio"
+python .\tools\transcription\transcribe.py ".\audio\$audio" > .\transcriptions\$destFileName
+
+Write-Host "Transcription saved to .\transcriptions\$destFileName"
