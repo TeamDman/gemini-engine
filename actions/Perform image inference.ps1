@@ -1,8 +1,14 @@
+if (-not (Test-Path Env:GEMINI_API_KEY)) {
+    Write-Warning "GEMINI_API_KEY environment variable not set."
+    return
+}
+
 # Select file and prompt using fzf
-$chosenFileName = $cachedFiles.Keys | fzf
+$chosenFileName = $cachedFiles.Keys | fzf --prompt "Select file: " --header "Cached Files"
 $file = $cachedFiles[$chosenFileName]
 Push-Location prompts
-$chosenPromptName = fzf
+$env:SHELL="pwsh"
+$chosenPromptName = fzf --preview "bat {}" --prompt "Select prompt: " --header "Available Prompts"
 Pop-Location
 # Read prompt content
 $prompt = Get-Content -Raw "prompts\$chosenPromptName"

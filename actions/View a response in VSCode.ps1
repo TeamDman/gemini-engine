@@ -1,7 +1,8 @@
 # Select response file
 $chosenResponseFile = Get-ChildItem -Path responses -Filter "*.json" `
     | Select-Object -ExpandProperty Name `
-    | fzf
+    | Sort-Object -Descending `
+    | fzf --no-sort
 
 # Check if file was selected
 if ([string]::IsNullOrEmpty($chosenResponseFile)) {

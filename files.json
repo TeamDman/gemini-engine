@@ -1,6 +1,6 @@
 {
   "frieren.png": {
-    "url": "https://generativelanguage.googleapis.com/v1beta/files/rnsj81u5nctn",
+    "url": "https://generativelanguage.googleapis.com/v1beta/files/fdmjs93wp61k",
     "mimetype": "image/png"
   },
   "Code_Ztxn9HsvNo.png": {
@@ -10,5 +10,13 @@
   "msedge_iCqFMKpgoy.png": {
     "url": "https://generativelanguage.googleapis.com/v1beta/files/oirbxatn4hbt",
     "mimetype": "image/png"
+  },
+  "summarize prompts vscode.png": {
+    "url": "https://generativelanguage.googleapis.com/v1beta/files/db4w6fgxivti",
+    "mimetype": "image/png"
+  },
+  "hit by bus.jpg": {
+    "url": "https://generativelanguage.googleapis.com/v1beta/files/6ghvlnso935g",
+    "mimetype": "video/JPEG"
   }
 }

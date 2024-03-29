@@ -1,0 +1,39 @@
+{
+    "response": {
+        "candidates": [
+            {
+                "content": {
+                    "parts": [
+                        {
+                            "text": "A young elf woman stands in front of a sign that lists the rules of the Continental Magic Association Facility. She is holding a glass of wine and a sandwich, and she has a cigarette in her mouth. The sign prohibits all of these things, but the elf woman doesn't seem to care. She is clearly a rebel who is not afraid to break the rules."
+                        }
+                    ],
+                    "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0,
+                "safetyRatings": [
+                    {
+                        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HATE_SPEECH",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HARASSMENT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                        "probability": "NEGLIGIBLE"
+                    }
+                ]
+            }
+        ]
+    },
+    "prompt": "\r\nDescribe the image with a creative description",
+    "file_url": "https://generativelanguage.googleapis.com/v1beta/files/fdmjs93wp61k",
+    "file_mimetype": "image/png"
+}

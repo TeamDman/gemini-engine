@@ -1,0 +1,39 @@
+{
+    "response": {
+        "candidates": [
+            {
+                "content": {
+                    "parts": [
+                        {
+                            "text": "In the heart of a bustling metropolis, where towering skyscrapers cast long shadows upon the teeming streets below, a solitary figure emerges from the urban labyrinth. A young woman, her piercing gaze fixed on the horizon, strides confidently through the concrete jungle. Her sleek, black attire and flowing hair create a striking contrast against the vibrant backdrop of city lights. With each step, she exudes an air of determination and purpose, as if she is on a mission to conquer the world. The city itself becomes a canvas for her dreams, its towering structures symbolizing the limitless possibilities that lie ahead.\n"
+                        }
+                    ],
+                    "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0,
+                "safetyRatings": [
+                    {
+                        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HATE_SPEECH",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HARASSMENT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                        "probability": "NEGLIGIBLE"
+                    }
+                ]
+            }
+        ]
+    },
+    "prompt": "\r\nDescribe the image with a creative description",
+    "file_url": null,
+    "file_mimetype": null
+}

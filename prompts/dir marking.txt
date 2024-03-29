@@ -1,4 +1,42 @@
 
+So, you just got access to the Gemini 1.5 Pro API. Congratulations!
+Make sure you select the correct cloud project for the API key or it won't work.
+You can do it through the console instead of the studio if you're having trouble.
+https://console.cloud.google.com/apis/credentials 
+
+Given that this is an API for a million-token context window LLM, there's some leg work to be done.
+We need a way to streamline the process of summarizing context.
+
+I've created my gemini-engine github repo to help with this.
+The repository contains powershell scripts that together compose a command line environment.
+
+One action that is included is a summary tool.
+It shows you the list of files in the project.
+You pick a few, and the summary gets written to your clipboard.
+
+Then you can use the create-a-prompt action to paste that summary into a prompt.
+
+Then you use the perform text-only inference action to get the response.
+
+Then you use the view-a-response action to extract the relevant parts from the json and opens it in vscode for viewing.
+
+Problem: the summary tool only works for the gemini engine repo, since that's where the action is ran.
+
+We need actions that help summarize other repos.
+
+This will involve:
+- getting a list of locations to summarize
+- storing subsets of files of those locations to help update summaries without having to redo the pick operation
+
+I have many git repos spread across my disk.
+By adding a command that marks the current directory, we can use normal terminal navigation to build the list of locations.
+
+So, we want an action that puts us in a subshell with a "mark" command that appends the current directory as a new line in locations.txt
+
+Here is a summary of the action system so far
+===
+
+
 #REGION D:\Repos\ml\gemini-engine\actions\Upload a file.ps1
 # Get user choice
 $filePath = Get-ChildItem -Path files `
@@ -351,3 +389,7 @@ Propose a new action.
 Provide an English summary of what it will do.
 Propose the file name ending with .ps1, spaces are preferred over other separators.
 Provide the implementation.
+
+===
+
+Please create the "Mark dirs of interest.ps1" script.

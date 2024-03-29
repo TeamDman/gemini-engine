@@ -41,7 +41,7 @@ def invoke_gemini(payload):
     # Safe response to responses/n.json where n is the number of files in the responses directory
     if not os.path.exists("responses"):
         os.makedirs("responses")
-    with open(f"responses/{len(os.listdir('responses'))}.json", "w") as f:
+    with open(f"responses/{len(os.listdir('responses'))}.json", "w", encoding="utf-8") as f:
         json.dump(
             {
                 "response": resp,
@@ -57,6 +57,6 @@ def invoke_gemini(payload):
 
 if __name__ == "__main__":
     file = sys.argv[1]
-    with open(file, "r") as f:
+    with open(file, "r", encoding="utf-8") as f:
         payload = json.load(f)
     invoke_gemini(payload)

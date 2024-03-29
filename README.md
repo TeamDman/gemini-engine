@@ -2,7 +2,7 @@
 
 # Gemini Engine
 
-<img height=500 src="https://cards.scryfall.io/large/front/2/e/2e03e05b-011b-4695-950b-98dd7643b8a0.jpg?1562636055">
+<img height=400 src="https://cards.scryfall.io/large/front/2/e/2e03e05b-011b-4695-950b-98dd7643b8a0.jpg?1562636055">
 
 Mine
 [![Discord](https://img.shields.io/discord/967118679370264627.svg?colorB=7289DA&logo=data:image/png)](https://discord.gg/5mbUY3mu6m)
@@ -14,11 +14,24 @@ Google Developer Community
 
 A collection of scripts I'm using to interact with the Gemini 1.5 Pro API.
 
+## Dependencies
+
+This project expects the following commands to be available for full functionality:
+
+- `pwsh`
+- `fzf`
+- `hx`
+- `sqlite3`
+- `zoxide`
+- `rg`
+- `eza`
+- `yt-dlp`
+
 ## Leaking API keys
 
 The Google python APIs will include your API key in the error messages.
 
-Clear your cell outputs before committing notebooks to reduce risk of leaking your API key.
+Clear your Jupyter notebook cell outputs before committing notebooks to reduce risk of leaking your API key.
 
 ## Mimetypes
 
