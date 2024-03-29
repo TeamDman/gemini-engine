@@ -6,20 +6,17 @@ if ([string]::IsNullOrWhiteSpace($starting_dir) -or -not (Test-Path $starting_di
 }
 
 # Check if the specified directory is a Git repository
-
-$choices = Get-ChildItem -Recurse -File -Path $starting_dir | Select-Object -ExpandProperty FullName
-$isGitDir = $(git -C $starting_dir rev-parse --is-inside-work-tree) -eq 'true'
-if ($isGitDir) {
-    $choices = $choices | Where-Object { -not (git -C $starting_dir check-ignore $_) }
-}
+$choices = cargo run --manifest-path ".\tools\list_unignored_files\Cargo.toml" -- $starting_dir
 
 # There is opportunity for a submenu here to present the user the current extension list and allow them to modify it considering the extensions found in the directory
-$allowed_extensions = Get-Content .\summarizable_extensions.txt
+$allowed_patterns = Get-Content .\summarizable_patterns.txt
 
 # Ensure that the user is only presented files with allowed extensions
 $choices = $choices | Where-Object { 
-    if ($_ -match "(\.[^\.\\/:*?""<>|\r\n]+)$") {
-        return $allowed_extensions -contains $matches[1] 
+    foreach ($pattern in $allowed_patterns) {
+        if ($_ -match $pattern) {
+            return $true
+        }
     }
     return $false
 }
@@ -32,6 +29,10 @@ while ($true) {
         break
     }
     $files += $chosen
+}
+if ($files.Count -eq 0) {
+    Write-Warning "No files picked, no action taken"
+    return
 }
 
 $lang_ext_lookup = Get-Content .\extension_to_markdown_fence.ini -Raw | ConvertFrom-StringData

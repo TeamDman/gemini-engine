@@ -26,12 +26,26 @@ This project expects the following commands to be available for full functionali
 - `rg`
 - `eza`
 - `yt-dlp`
+- `cargo`
+- `python`
 
-## Leaking API keys
+## Using Gemini
 
-The Google python APIs will include your API key in the error messages.
+[FAQ](https://docs.google.com/document/d/1WBVc5W6PZvgaHLV43UGSrtwHqUmofPT0K0oHuNd7GHA/edit#heading=h.j6pr32lsg1rf)
 
-Clear your Jupyter notebook cell outputs before committing notebooks to reduce risk of leaking your API key.
+[Docs](https://ai.google.dev/api/python/google/ai/generativelanguage/GenerativeServiceClient#generate_content)
+
+### Feedback
+
+Visit https://aistudio.google.com/app/prompts/new_chat and use the three dots in the top right to submit feedback to Google.
+
+### Examples
+
+https://github.com/google-gemini/gemini-api-cookbook/tree/main/quickstarts
+
+https://colab.research.google.com/github/google-gemini/gemini-api-cookbook/blob/main/preview/file-api/File_API.ipynb#scrollTo=IrPDYdQSKTg4
+
+https://colab.research.google.com/github/google-gemini/gemini-api-cookbook/blob/main/preview/file-api/File_API_Video.ipynb
 
 ## Mimetypes
 

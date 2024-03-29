@@ -1,0 +1,10 @@
+\.txt$
+\.md$
+\.rs$
+\.ps1$
+\.meta$
+\.ts$
+\.tsx$
+\.svg$
+package.json
+tsconfig.json
