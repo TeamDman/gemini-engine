@@ -1,0 +1,2193 @@
+{
+    "payload": {
+        "prompt": "Describe the image",
+        "files": [
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vnfb2ltvnpqd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/imjle3fvycz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/bda4ek9iqn0b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/onrvzg2ona4b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/256r8ymsz8l",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/swvlvxd4tac2",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/u8gev70qvk0o",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yhbbcenwan6e",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zxaf7qstee9i",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3ay6i4u73k89",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1pnon9uffp50",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/wzetcqftuwlh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/88e4gernagz6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/a3l67fc8wr78",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hpj4a5k3zh7n",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/wrkdfq4etord",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xkzkqwm55vpu",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/g5tqotg3a0vl",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/csngo54xfo8k",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/lj1un24ubmw8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/e82xf903v0zz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/oev8ni2srqa7",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qwx9lfzxhy9e",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6pqss1un7rts",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/320aocutgth0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gqq32ar5bxnl",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/h01mh9tgz0q1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6973vcuxrve6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/y7a0q0lolm9d",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2xkjhbtzj0ud",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/34n9ak7z2ovt",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/52tqueb1t1h8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9posyrb0mnld",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gcupfbpby4z3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hjmh8s7pxseg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/y7cow7vu3w6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/h87x8rslqm85",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/n8p1y594raw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/do9axeqp169f",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2l2c5ajqvxrg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/stwhuhqqkj4o",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/x4i9ffrjz2qv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9ewpwbeym9et",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/z2uvqhebpg6s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2x1btne9k0df",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/crxdbgeyzfyn",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/s8odltsx05ls",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/klwhfah00vo8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vqz4mljgd5sc",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6iie71q3b3wo",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yg4u7c69yegb",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/78zkswmvizv1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/n36hougp7r4f",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/d7s8gdywtjr4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zfcak4pdilsx",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2erivc0prrj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/u8v5t0kdxbb6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/bjlxjfqkj1mh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6uopmszw612s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fm4v71ipsfnk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/omkz29rq9puk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/kp5t0wwb8swa",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/59fswkj7btw4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8rxueeld1elv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tcr116n6nzhq",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/d5pz27brqgm4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/y0m6l07bv6j8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/rlz3px8lmi53",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6d5ibz20xu4o",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/z7kp9i2fn58e",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8jm1wa3bsbii",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4npkxpkbdvct",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2g1l322wl7d3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/m31d6nvk6svv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/euyfovw3o99s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/cokjs3wkt4dz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/t53c77cnlbu5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gnnkl0tsvzsz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/phq2y6ybw5y7",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/aalp9g748cgh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qrnpkh2s8rai",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6an3l8kr0enu",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hirzb1tsx7f9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gxhku4w29ryv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yisrar3yvoxw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6bf9uyrvrfm4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/e1wilxm6eafs",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5g71672z3kx6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gansuz7b9zyg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/c6trvou7h1fr",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1i3nrf92xb9e",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/wsrtt411k2ik",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/lh7j9ulc4s1d",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8w88smtx4841",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tr7d08jf5jyp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6pf3jqzzlggx",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/o9ragkv1kwrs",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fvpn76i64vyl",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/p6w4ekpx2cj0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qydeex0knsoj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8tp2p52v9lwv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/osix7u4ltjfm",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vz7gvw8q5yht",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tzfcmj1omk4z",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/jjackph44gd3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xew1tiyo2ntz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/shvr9lm8wsv1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/mg0oey0cxw7s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/mdyzm66mt27r",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2pm7rf37vb1x",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6j4ic5eqe9ae",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/7e4swawgxnuo",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/th6fo22dd3vh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vn0wvytq4qpm",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ctzo3vuyfsk2",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/jv6o3wl3pbxk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6kmpmv0zhm5w",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1ls4gl4j0ygu",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5713lmc0j67e",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/x7a6k0x01ojv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/cb3ttmrgtuai",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/k38g3srvqi7l",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gmwd7qpdbjfe",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/lcdwczy4nuzz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/g1igo39dpxvc",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vm27zmzmlrqk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/cfvtt2p2ebsb",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/kpjnr7vas8sf",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/72ethjsvo26w",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gzs9qlt1ra6v",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/jzm8mvae836f",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ocz4q9qwsyb3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4uwdmfavi0vc",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/pl4ukavwlw4t",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/z18jqvp096nr",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/g8xcwm0ffhe",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/blf7ekaygalb",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/mt84sr4w7ql3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/dcauf2sgwq0c",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4w2txo990vw6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/jj4gf5orbl31",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fzemnq03c8qq",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/nh8zyhsv9bw7",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tzabqjvt6t31",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qchbd43zgook",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tnm6y7pg4uot",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zhbo606yb7ar",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/r2y9aqlc9pnd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/k4o69ezubqwy",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/484crnk3ixof",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ivnlqwnp51mj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/m4qlx2tb4k3q",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1zhuty9bjfl1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gxesxnz3yy5a",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ppm275e0t8wh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/75aaj7vipe0x",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8iz0lzcmor5g",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zi1vk4ccomvc",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/n11cvzfw5rxy",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2ow1n2y570ho",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zam8cooud6qv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ot182458gitp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1chwhy29ehgg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6rbx987cuoc0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/sib4q9jid5o4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/i8iags9acqvy",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xoqqbwvkewmt",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/p5zb8k2mdsgx",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4kz6fg3ljh8d",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/nnyhxbqpj7qb",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5f0g2nsdudyv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ac3ajir7r31x",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/x6x6kcc65n2k",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8mjv30i28wmm",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8adduhntudo8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gzboa8c555bw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tser2bmyqs9s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/wlchwsqs7gcs",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/z2lk11b72c8q",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vqwz2ef5w2bs",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1jbl6vmou5x1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/wc0fafgwr7o9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/94gafahw4ctg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fpsjeq3bdmrn",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/unmqq3wzbirr",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qs2v2uhdjy3f",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/phbk84bwn2bm",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/oxai7jyq0hk9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xggebdod1h7h",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/strwk29mhako",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/j2l6wp9f9ssf",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/nwbqlfekaad",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/7g7pg89gyxac",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zgng829kwuy8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qjucx2ulujju",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/flfstdlxuit4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6akchmxltex7",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hg0524afgygj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/22304aho0t2e",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/emyrmbgajn3y",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ylror3virrgd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/oq3eupfdfc2t",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8iljnjryvvuc",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5vaflgvdkuf8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hlcd8gmzo3h5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gkv2n093g0nn",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/dmg7bsfhnjdo",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ax8uxiy8r07q",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/nzjbkaomn5qh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/otual0q5j0hn",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/au2k7i6ifs7i",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5yg9mndgsl74",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vojqjewxzf3s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/pmcqbwsp7p2x",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/d4306wnz5vsd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3qa9i6irrwhi",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qmq0df5wkeyt",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/s2d1xr6mzs4b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vmgr9m4908h3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/7h4kkcchtgc0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/z6hqq6c786w6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/brvwoazdbcyp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/l119igbxd25z",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hpw50tl6csqg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/eu9owkma72nu",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/w8knk3rz145c",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/q53pxjsm2ii5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9jo2hbe3etnp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/bc089ep59du0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/z40w1lt81f0p",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5h3a7tdn8wsr",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/a2mff3fqpe75",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/auis4b7n3zye",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/r5rc1nkhq2v1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/7qyztj83o78k",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/b31hz4sk5yqo",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tnp76mmp8gv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/o4iicxg2nymd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2mq9qtwuylzs",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/m3fzpuy1ss3p",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6yo56ebwawre",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/znkvfg3r0cpg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6dyu99twm8zt",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/49zbcwvy8cwk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8wie5ednkrzy",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ns2lbgu0fdfa",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/7haeutjem4i",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yqdj7z717ua7",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/a42aceh16q6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/734gsk96dood",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/u3u96x2fv71a",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/q3aqhp9ou8qe",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/sxegz17k30at",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/wbgdd66ad9ui",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6om6lz0u071w",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/sonwlx2wc075",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2l75wdb47ma",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5ut33utfiten",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3q15lsmwl2xw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xacxhh96ciyb",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fc2nz4cxv664",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fudufyzbirri",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/38n3g4f8nff3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ckf1qxk57tnd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8ghe1o3tgx4p",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hi9agqny9qmh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/a0hq57108kvj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/681cptpicgjw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/snodf704uj04",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/kgwaynkjs9o4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9f0ex85fdj72",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/a0y8pf519j77",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/j7qx7hvyloxz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/m4t9ohvw1iiv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3lkze4kwaz9u",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ioaom6mr4ibw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/c5n8ia4jxztj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/iqa1hq3vrwy1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/cda8i3z1kajd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/s5rtllv34cq6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/afwtidbyyg3k",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4co08lkpmn08",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qc35prjc2qnk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gyrwoyaq3htc",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qz2qyvgeo7qi",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/e8p3ufoymnsj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/q1b9ygq46uz0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3r8prilcfan3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ca3a09yy6tif",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/w6v9c8ydqpu4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9lot4hq3ye4q",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/32tl7ecsckjs",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/eowbt8k8qgit",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fdj1ifxz4ev1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qf61fmuw1gop",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/t1llqejgo4ln",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/whi1c2316ath",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/g189eh3bi3d1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vhyu2nth9hr3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4su2m7vnokcg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ch2k1pfxs6uw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/n85sdiygq1ng",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yv3sjljaay85",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/q9d1a5anwkax",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gexv10kywd5x",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/oegz0w2tk9xc",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2a8plf8e0sf3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ya3qpb6gws39",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/c73wzuontabz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3xf9qtmytpu8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/olqxtf6rnost",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/j4bw9lcrpra1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/w3610dffto9b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1bowldubzcoa",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/f9zkih59kcal",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/mwhthnuf5wet",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/otsl3yc9dl7a",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3csze612b1j5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/l08dxa4zkfl9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6ooyh0ecl5zn",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ij2sd57hsay",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/45pvhsizj9b5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/dfsii0bnkixy",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yio3pvrfvumh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/a9cjxuqopih5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xeomegha5hl",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/g2x2zckomksu",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vleydqjf6wy3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/scgj3ec4to7l",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/73uycrgwlyqj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vqlx1ovp2fe5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hxc20i1p7vcg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/46zjnvyngzyv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/suya9w0s3uuy",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ruvvr68hesec",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ff0t7tlaf9gv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ado8psaw7h82",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4rtk1irftilo",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/wb9l35cm8jwp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3d3r3hiirm2r",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8w90tsbkx9mq",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ysql2o5x2gis",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/imyug250ampt",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/sohj030rb76d",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9hhpmkjefgzm",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/bx28jtdzv40p",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/w3ebzpsa9d8r",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/bbh7e913itcw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/487wj92ppef5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/kw0usee3ymp4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9q600cfz3f8l",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vrkxcwezk360",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6g2j55wc70rx",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/pnzd0r6xu9kd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vt1m6o236xtm",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/dq5yuc1uqzyf",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qk4mnpbhhrb9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/lkiu0liqjssv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/k524yyz92veg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9xajbuob5eqw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5zdnu2q9uxto",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/u16opczr9bwq",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/d2dd8ruh4iw9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/kru9s7z23og0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fqyjchj1aao3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zvpb8d2o1i0s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/h0p96ltie5mp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/pb0uvgo51qj0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6ry3h7o1uzb1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/h4vgeu7bmecu",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xq5j0to4w39f",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qrijhpu2aftg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/102x8y3ws6dp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vcy8nslg0ynn",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/99mspkz5msz1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/71xkewr04m7y",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5ub618muwsb3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/55vzzslf27dd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qjxvmqozh97b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/p468fxstaapi",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3zjc9kwz2x2",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/jqqz2xbtw6rn",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/or0jx5wtjyhf",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9twlmlfehvdu",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/szlcj9626bt5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/sqlx2d9toqwd",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8p2r9drbdecg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qj6odq6cxa74",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4mddoqobq9b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/g5s1mu69d7yb",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1y710i1b5fx2",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xcv54q2g861r",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/mppbhmrrmv0x",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/kd56ac65vk4a",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zhkwfgkuvn9n",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/pza4e4cigxlk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/c56pc7tuk00t",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/iiwgh2qyfwba",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ope045ajbquv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/kjbje4wlmbvk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/p19u6q6iugjo",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/mny9nzkb2bbj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/w65fxvblmnnt",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/jtbiutmcqcst",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/a5mypn4i3x8l",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/94smudmgj37p",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/8cn5hnwv9kls",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/irllccixzdfz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/awd4mipdgcn2",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/a0j48epl378g",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/l6zcyl740oe2",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/eo5iaoj7dx1p",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ma9pmvr2pt5e",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/7v4azswzojjx",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hb8st8dtw26r",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/wnruf98a5nds",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/qo7ile6ed5no",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/z3s6pryx0dtr",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gi91sgkv79q",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yo8vfh2piwlr",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/llkvbjw6ds3s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5c3ekehv6vfn",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/odmamlgh8qo9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/sp8scshrc47b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/7c50qo9trfdq",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4rmvm1kj916k",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/mpsjh7649k2c",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4md0rrr084x9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/j7bgw7hp7f5k",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gotdxl9sg7dm",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fg6rn76vut72",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4bikp7el8kjp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tw6otvuwxycp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/inophlzmoojk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ouut1cgi71fz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gc09rpipk2k8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/nw4tddodzli9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/j6hs44xei5mm",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4qzrhy2jat6e",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ctu6897ev3wc",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vm8a84j3efgj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/3gnlizlubivb",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yrw3c8i7zbzo",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/47drvn98eena",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gum6c2f5c6dp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/7ib6ccurx4m2",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/b2r4h0cpcjap",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/o310t8ytn27a",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/mf8fnk2g1x02",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ij0x69wconv5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tohjmvbtnkyq",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/izgypndh9qlh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fovz94e313uz",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1m9nqo9jqd3b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/5boc8eg8gf1u",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/nfsgmbmfvaaa",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/omtog91zpd0y",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/87ju0bg92ea0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fbupsv398080",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vhxjwkfcv6k8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/shnoh2nqz9xx",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/290e7wk5m7es",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/1uheiek5lh7c",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/l5o422o7ga8g",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4qguuw4mhajy",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/7btt81b0dm44",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/lllgrk4x8sto",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/85y1el1ahe7b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/sf3vhhewlb4f",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/arkctaztcahx",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/35mg0gbtr5y3",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/s2rfqgrmom4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xoerwfly52pi",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/msvt43opt0sg",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ujehgsquo46h",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yp67xtd4awl5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/rx2u9rlyk8zl",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/uk331drlu7h8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6u1whzdvcddb",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/tjgypn647toe",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zkwzz60nenh9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/bzseukfu8gq4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xdwz5jvvkk3h",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zvqbikbdih4c",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ygao6uqytdct",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/919i56vmmmv0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/a1ese7svw6nt",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/22u2pyadgjtp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yslt6xy7ear9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/t7c014m3d4td",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fpjf4uu0h24n",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/6zynv4kwm3r9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/f0ys8dalxqvs",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/u199ls53gvxk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/zowgahnxfk36",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hz6nxwutznv9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/pezfixnz18me",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/e8nl8d1rpzfp",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/4bczssgri01u",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9zg6wa6zd8g7",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/xp7g7jzan4z4",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/57me6zkl5p9i",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/sz7x4z1a0mk5",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/rx53wmnnjfol",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/u05zpit1qrgj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/q4enzrfmbb97",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ul0g91nkr002",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/bz1jj8ja8w20",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/eazew6btdjxu",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/o3jlck3e1wwe",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/w5ty6peg35sj",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/sob3fpv0fcza",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/489c3bo553qh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/9elzbb11o8f9",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/cl195amjpwdh",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/we84u9x6ms27",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/576pmqg3infk",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/yeru0kj344gn",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/g1mu1wgyb2p1",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/nwd3gyuady3s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ojdiu111rpn6",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/2akdl17kpkbo",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/ofolh4kn4d4b",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/lqv903q764ne",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/jw5akntwf2zl",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/nehsc2oihnuw",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/vl6hlgrne5tb",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/iksnmxd4huol",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/gfzvx7qt2s0m",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/cmy5puvivuec",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/fwx0qovwp95s",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/hi4aechb3z7c",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/odcydxq846id",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/l4tcz7fxmur8",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/pf9bn7toggih",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/eqok5c7q0jq0",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/rrlfp1j6mwtl",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/at77o2egs27f",
+                "mimetype": "image/png"
+            }
+        ]
+    },
+    "response": {
+        "candidates": [
+            {
+                "content": {
+                    "parts": [
+                        {
+                            "text": "The image shows a screenshot of a game development environment. The left side of the screen shows the code for the game, while the right side shows the game itself. The game is a simple 2D platformer, and the code is written in Rust. The code is organized into several different files, including `state_machine.rs`, which contains the code for the game's state machine. The state machine is responsible for managing the different states of the game, such as the idle state, the walking state, and the falling state. The code also includes a `player_controller.rs` file, which contains the code for the player character's controller. The controller is responsible for handling the player's input and movement."
+                        }
+                    ],
+                    "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0,
+                "safetyRatings": [
+                    {
+                        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HATE_SPEECH",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HARASSMENT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                        "probability": "NEGLIGIBLE"
+                    }
+                ]
+            }
+        ]
+    }
+}

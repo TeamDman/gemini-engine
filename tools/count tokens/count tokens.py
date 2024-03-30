@@ -1,4 +1,3 @@
-# gemini_invoke.py
 import googleapiclient.discovery
 import requests
 import sys
@@ -22,12 +21,6 @@ class Payload:
     files: list[PayloadFile]
 
 
-def info(*args):
-    for arg in args:
-        sys.stderr.write(f"{arg} ")
-    sys.stderr.write("\n")
-
-
 def build_service(api_key):
     GENAI_DISCOVERY_URL = f"https://generativelanguage.googleapis.com/$discovery/rest?version=v1beta&key={api_key}"
     discovery_docs = requests.get(GENAI_DISCOVERY_URL)
@@ -37,7 +30,7 @@ def build_service(api_key):
     return genai_service.models()
 
 
-def invoke_gemini(models_api, payload: Payload):
+def count_tokens(models_api, payload: Payload) -> int:
     # Prepare request body
     params = {
         "model": "models/gemini-1.5-pro-latest",
@@ -54,33 +47,23 @@ def invoke_gemini(models_api, payload: Payload):
 
     # Include files in request
     if not payload.files:
-        info("No files detected in request")
+        print("No files detected in request")
     for file in payload.files:
         print(f"Including file {file.url} ({file.mimetype}) in request")
         params["body"]["contents"][0]["parts"].append(
             {"file_data": {"file_uri": file.url, "mime_type": file.mimetype}}
         )
 
-    # Send request and print response
-    resp = models_api.generateContent(**params).execute()
+    # Send request
+    request = models_api.countTokens(**params)
+    response = request.execute()
 
-    # Save response
-    if not os.path.exists("responses"):
-        os.makedirs("responses")
-    history_file = f"responses/{len(os.listdir('responses'))}.json"
-    history_entry = {
-        "payload": asdict(payload),
-        "response": resp,
-    }
-    with open(history_file, "w", encoding="utf-8") as f:
-        json.dump(history_entry, f, indent=4)
-
-    # Print response
-    print(resp["candidates"][0]["content"]["parts"][0]["text"])
+    # Return total tokens
+    return response["totalTokens"]
 
 
 if __name__ == "__main__":
-    # Build API service
+    # Load API key
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise Exception("GEMINI_API_KEY environment variable is not set.")
@@ -93,5 +76,5 @@ if __name__ == "__main__":
     payload = from_dict(data_class=Payload, data=payload)
     # info(payload)
 
-    # Invoke Gemini
-    invoke_gemini(models_api, payload)
+    # Perform count
+    print("Token count:", count_tokens(models_api, payload))

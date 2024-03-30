@@ -1,0 +1,49 @@
+{
+    "payload": {
+        "prompt": "describe the images",
+        "files": [
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/65hvg0fui0zv",
+                "mimetype": "image/png"
+            },
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/847fxgio5z3d",
+                "mimetype": "image/png"
+            }
+        ]
+    },
+    "response": {
+        "candidates": [
+            {
+                "content": {
+                    "parts": [
+                        {
+                            "text": "The first image is a cartoon of an elf girl standing in front of a sign that says \"Continental Magic Association Facility.\" The sign has four symbols on it: a person with a slash through it, a glass of wine with a slash through it, a cup of coffee with a slash through it, and a cigarette with a slash through it. The elf girl is holding a glass of wine and a hamburger.\n\nThe second image is a screenshot from a video game. The player is in a red and white room with a green platform in the center. There are two other players in the room, and the player is aiming their gun at one of them."
+                        }
+                    ],
+                    "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0,
+                "safetyRatings": [
+                    {
+                        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HATE_SPEECH",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HARASSMENT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                        "probability": "NEGLIGIBLE"
+                    }
+                ]
+            }
+        ]
+    }
+}

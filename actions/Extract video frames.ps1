@@ -1,7 +1,7 @@
 # Pick the video
 $video = Get-ChildItem .\videos\ `
 | Select-Object -ExpandProperty Name
-| fzf
+| fzf --header "Select a video"
 
 if (-not $video) {
     Write-Host "No video selected. Exiting..."

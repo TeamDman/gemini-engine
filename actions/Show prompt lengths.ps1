@@ -1,8 +1,8 @@
-$promptFiles = Get-ChildItem -Path "prompts" -Filter "*.txt"
+$prompts = Get-ChildItem -Path "prompts" -Filter "*.txt"
 
 # Loop through each file and calculate length
 $summary = @()
-foreach ($file in $promptFiles) {
+foreach ($file in $prompts) {
   $content = Get-Content -Path $file.FullName -Raw
   $length = $content.Length
   $summary += [PSCustomObject]@{

@@ -28,6 +28,7 @@ This project expects the following commands to be available for full functionali
 - `yt-dlp`
 - `cargo`
 - `python`
+- `code`
 
 ## Using Gemini
 

@@ -1,0 +1,45 @@
+{
+    "payload": {
+        "prompt": "Describe the image. It is similar to a common scene found in graphics programming.",
+        "files": [
+            {
+                "url": "https://generativelanguage.googleapis.com/v1beta/files/847fxgio5z3d",
+                "mimetype": "image/png"
+            }
+        ]
+    },
+    "response": {
+        "candidates": [
+            {
+                "content": {
+                    "parts": [
+                        {
+                            "text": "The image shows a first-person perspective of a video game. The player is standing on a platform and looking into a room with red and green walls. There are several objects in the room, including a sphere on a pedestal, a cube, and a sign that says \"PLATFORM.\" The player is holding a gun and there are several other players in the game, whose names are displayed on the left side of the screen."
+                        }
+                    ],
+                    "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0,
+                "safetyRatings": [
+                    {
+                        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HATE_SPEECH",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HARASSMENT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                        "probability": "NEGLIGIBLE"
+                    }
+                ]
+            }
+        ]
+    }
+}

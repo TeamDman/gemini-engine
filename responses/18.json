@@ -1,0 +1,40 @@
+{
+    "payload": {
+        "prompt": "describe",
+        "files": []
+    },
+    "response": {
+        "candidates": [
+            {
+                "content": {
+                    "parts": [
+                        {
+                            "text": "**Description**\n\nTo provide a comprehensive description, please provide me with the specific subject or topic you would like me to describe. \n\nHere are some tips for requesting a description:\n\n* **Be specific:** Clearly state the object, concept, or situation you want described.\n* **Provide context:** If relevant, include any background information or surrounding details that may be helpful.\n* **Specify desired level of detail:** Indicate whether you need a general overview or a more in-depth description.\n\nOnce you have provided the necessary information, I will be able to generate a detailed and informative description for you.\n"
+                        }
+                    ],
+                    "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0,
+                "safetyRatings": [
+                    {
+                        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HATE_SPEECH",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_HARASSMENT",
+                        "probability": "NEGLIGIBLE"
+                    },
+                    {
+                        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                        "probability": "NEGLIGIBLE"
+                    }
+                ]
+            }
+        ]
+    }
+}

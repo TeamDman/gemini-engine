@@ -1,17 +1,6 @@
-# gemini.ps1
-
-# Load cached data
-if (Test-Path -Path .\files.json) {
-  $cachedFiles = Get-Content -Path "files.json" | ConvertFrom-Json -AsHashtable
-} else {
-  $cachedFiles = @{}
-}
-if (-not (Test-Path -Path .\prompts)) {
-  New-Item -ItemType Directory -Path .\prompts | Out-Null
-}
-$cachedPrompts = Get-ChildItem -Path "prompts/*.txt" | Select-Object -ExpandProperty Name
-
+# Action loop
 while ($true) {
+  # Prompt user to select an action
   $action = Get-ChildItem -Path actions `
     | Select-Object -ExpandProperty name `
     | Sort-Object -Descending `
@@ -19,6 +8,11 @@ while ($true) {
   if ([string]::IsNullOrWhiteSpace($action)) {
     break
   }
+
+  # Run the selected action
   . ".\actions\$action"
+  
+  # Leave the action display on the screen for a moment
+  # (the action loop clears it with fzf)
   pause
 }

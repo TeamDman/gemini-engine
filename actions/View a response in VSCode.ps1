@@ -1,7 +1,7 @@
 # Select response file
 $chosenResponseFile = Get-ChildItem -Path responses -Filter "*.json" `
     | Select-Object -ExpandProperty Name `
-    | Sort-Object -Descending `
+    | Sort-Object -Property { [int][regex]::Match($_, '(\d+)\.json').Groups[1].Value } -Descending `
     | fzf --no-sort
 
 # Check if file was selected

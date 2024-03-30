@@ -18,6 +18,7 @@ $chosen_file_keys = $uploaded_files.Keys `
 --prompt "Select files: " `
 --bind "ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
 
+
 # Pick prompt
 Push-Location prompts
 $env:SHELL="pwsh"
@@ -45,7 +46,7 @@ $payload | ConvertTo-Json | Set-Content -Path $file.FullName
 
 # Invoke model followed by cleanup
 try {
-    python ".\tools\count tokens\count tokens.py" "$($file.FullName)"
+    python .\tools\inference\inference.py "$($file.FullName)" | code -
 } finally {
     Remove-Item -Path $file.FullName
 }
