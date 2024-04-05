@@ -23100,216 +23100,309 @@ export default makeProject({
 
 ````
 
+Additionally, here is the transcript from the video for the asset-code example
+```
+Transcribing file:  .\audio\Could This Asset Be Code [s1ZQnS_tOg0].mp3
+[0.00s -> 4.00s]  There's a common categorization in programming between code and data.
+[4.00s -> 8.00s]  Code being all the functions and procedures that instruct the computer what to do,
+[8.00s -> 13.00s]  and data being the actual values that we operate on, numbers, tracks, arrays, and so on.
+[13.00s -> 16.00s]  Of course, nowadays this distinction is purely conceptual.
+[16.00s -> 18.00s]  Everything on our computers is stored using bits.
+[18.00s -> 23.00s]  Whether machine code, or an image, it's all a matter of interpretation.
+[23.00s -> 27.00s]  Regardless, this distinction is still very useful.
+[27.00s -> 29.00s]  In game development, we often store our data in separate files.
+[29.00s -> 32.00s]  data in separate files, usually refer to as assets.
+[32.00s -> 34.00s]  Consider this mesh, for example.
+[34.00s -> 39.00s]  In its simplest form, it's just an array of faces, each defined by the positions of three vertices that make it up.
+[39.00s -> 45.00s]  We could define this data in our program as some sort of structure, and then reference it whenever we need it.
+[45.00s -> 52.00s]  After compilation, it would become a part of the executable file and would be loaded to memory with the rest of the program whenever the game is run.
+[52.00s -> 54.00s]  This is obviously less than ideal.
+[54.00s -> 58.00s]  Modern games can take up dozens, if not hundreds of gigabytes, much more than an average PC can fit in its memory.
+[58.00s -> 60.00s]  can fit in its memory.
+[60.00s -> 64.00s]  Staring data in standalone files allows us to load things only when we need them and then free up
+[64.00s -> 65.00s]  the space afterwards.
+[65.00s -> 69.00s]  This is fairly straightforward because our assets are just pure data.
+[69.00s -> 74.00s]  They don't contain any code that would have to be compiled and then somehow dynamically linked to the rest of the program.
+[74.00s -> 78.00s]  They are just files with some known data format that any application could read.
+[78.00s -> 81.00s]  As such, they are the backbone of any game development pipeline.
+[81.00s -> 83.00s]  Some tools that should create assets ergonomically.
+[83.00s -> 86.00s]  For example, you probably don't want to edit the vertices of your mesh
+[86.00s -> 89.00s]  by manually entering their positions in a text editor.
+[89.00s -> 93.24s]  Instead, you use something like Blender to model it visually.
+[93.24s -> 96.84s]  You then save the mesh as a standalone file which your game can load.
+[96.84s -> 100.40s]  With proper setup, you can even make your game watch for changes to this file and reload it
+[100.40s -> 106.22s]  automatically, or pass it through an asset processor that will optimize it for the GPU.
+[106.22s -> 107.10s]  But I digress.
+[107.10s -> 112.22s]  The point is, things like meshes, textures and audio files easily fit into this data category.
+[112.22s -> 115.88s]  But there are other assets that can make this line we drew a bit more blurry.
+[116.00s -> 118.74s]  Let's use this file as an example.
+[118.74s -> 121.58s]  It's written in YAML, but it could be any data format.
+[121.58s -> 123.10s]  It describes three different states.
+[123.10s -> 128.02s]  Each of them contains the animation file that should be played, as well as a list of possible transitions.
+[128.02s -> 131.52s]  If the defined criteria are met, we should switch to the target state.
+[131.52s -> 134.60s]  This is obviously a little state machine, but it cannot really run.
+[134.60s -> 138.56s]  We don't know which state we are in or what the values used by the criteria are.
+[138.56s -> 140.68s]  This is, after all, just a file.
+[140.68s -> 145.52s]  We can, however, write some actual code that will load this data and parse it into some data
+[145.52s -> 150.24s]  structure that also keeps track of the current state. Then each frame we can iterate over the
+[150.24s -> 156.40s]  transitions of that state, test them, and if any matches, transition accordingly. This example is
+[156.40s -> 161.36s]  really simple, but it demonstrates the general idea. Yes, this file is still only data, but now
+[161.36s -> 166.72s]  it encodes some actual logic that can influence the flow of our code. In its current form,
+[166.72s -> 172.08s]  this state machine is not very expressive. It can really only control animations. But what if we expand
+[172.08s -> 178.08s]  We could add the ability to set custom parameters and then use them to choose different transitions.
+[178.08s -> 182.08s]  We could even restructure the state machine into a flow graph invoked upon each update.
+[182.08s -> 187.08s]  This way we could do all sorts of things like playing music or modifying components
+[187.08s -> 191.08s]  or even triggering custom events that could invoke other flow graphs.
+[191.08s -> 194.08s]  You'll notice that the more expressive we want this thing to be,
+[194.08s -> 196.08s]  the more similar to code it becomes.
+[196.08s -> 200.08s]  Eventually, we may decide to drop this node-based file format
+[200.08s -> 203.20s]  and use a custom programming language to describe this logic.
+[203.20s -> 204.96s]  This is called an interpreted language.
+[204.96s -> 209.00s]  It's similar to a compiled language, but it retains all the characteristics of an asset.
+[209.00s -> 212.96s]  It doesn't require compilation and can be loaded and interpreted at runtime.
+[212.96s -> 216.32s]  All for the low-low cost of worse performance.
+[216.32s -> 220.64s]  Looking at our code data division through these new lenses, it starts to resemble more of a spectrum.
+[220.64s -> 225.84s]  With data pure of any logic on the left, inching closer to the right as it becomes more expressive.
+[225.84s -> 228.72s]  You can probably recognize a lot of game development tools here.
+[228.72s -> 233.72s]  Things like animation state machines, behavior trees, playmaker, blueprints, yarn spinner, and GD script,
+[233.72s -> 236.72s]  all lie somewhere on this spectrum.
+[236.72s -> 241.72s]  And just like the mesh we talked about before, most of these require the use of some visual editor.
+[241.72s -> 244.72s]  This is how an animation controller in Unity is stored,
+[244.72s -> 246.72s]  but you're not meant to edit this file.
+[246.72s -> 250.72s]  Instead, you use a tool that lets you create states, drag them around and connect them.
+[250.72s -> 254.72s]  If we take away this editor, we're left with a data format trying to express logic,
+[254.72s -> 256.72s]  which it wasn't really designed to do.
+[256.72s -> 260.08s]  Atering complete programming language will always be better at it.
+[260.08s -> 265.28s]  This is why it's only when we get to the level of interpreted language that we no longer need an editor.
+[265.28s -> 269.84s]  Unlike a mesh, here editing the raw text is the ergonomic approach.
+[269.84s -> 273.28s]  Now don't get me wrong, this is not a dig at visual scripting.
+[273.28s -> 276.96s]  These tools let people with no programming experience create amazing things,
+[276.96s -> 280.40s]  and I don't think that using them makes you any less of a game developer.
+[280.40s -> 281.84s]  But I love programming.
+[281.84s -> 284.24s]  I literally made this video using code.
+[284.24s -> 286.56s]  Look, here's the function that showed you this panel.
+[286.72s -> 288.72s]  and this function highlighted that code.
+[288.72s -> 292.72s]  And this function highlighted that function that highlighted that code.
+[292.72s -> 296.72s]  Anyway, using Bevy for these past few weeks made me reevaluate some things.
+[296.72s -> 299.22s]  Game engines like Unity are in a way asset-centric.
+[299.22s -> 302.72s]  There's an editor that produces assets and a runtime that consumes them.
+[302.72s -> 306.72s]  These are the scenes, prefabs, settings, and for the most part that's a great thing.
+[306.72s -> 308.72s]  But you can also define your own assets,
+[308.72s -> 312.22s]  and the engine will provide you with a visual editor for them,
+[312.22s -> 314.22s]  which in turn justifies their existence.
+[314.22s -> 316.22s]  Just like with the animation controller,
+[316.22s -> 320.14s]  even if the asset alone is awkwardly trying to describe some logic,
+[320.14s -> 322.86s]  the visual editor makes it feel okay.
+[322.86s -> 324.94s]  Most engines even let us customize it.
+[324.94s -> 327.42s]  We can spend time improving our editor,
+[327.42s -> 330.06s]  which only strengthens that justification.
+[330.06s -> 333.18s]  This is why assets used to be my go-to solution to all problems.
+[333.18s -> 335.66s]  I felt like that was the idiomatic thing to do.
+[336.62s -> 338.78s]  Now, Bevi doesn't have an editor.
+[338.78s -> 342.30s]  Assets are used almost exclusively for data produced by other software.
+[342.30s -> 345.82s]  That's of course not always great, but it really made me question my choices.
+[345.82s -> 352.22s]  Is having this thing as an asset the best solution, or am I just enjoying making a cool little editor for it?
+[353.58s -> 356.46s]  To give you a concrete example, let's take a look at Reanimator.
+[356.46s -> 361.10s]  It was a 2D animation controller I made for Unity that used a tree-like graph.
+[361.10s -> 366.14s]  Starting from the top, each node would use a value of some parameter to decide which path should be taken.
+[366.14s -> 369.58s]  Here we'd go right if a grounded parameter is set to 1.
+[369.58s -> 373.02s]  Upon reaching one of the leaf nodes, it would return an animation frame to display.
+[373.02s -> 376.42s]  Back then, I implemented this using assets.
+[376.42s -> 382.78s]  Each node was represented by a scriptable object with an array of possible branches and a string defining which parameter to use.
+[382.78s -> 385.48s]  The corresponding class implemented a resolve method.
+[385.48s -> 392.08s]  It would use the parameter name to retrieve its value from the current state, and use that to find a match in the branches array.
+[392.08s -> 396.86s]  The tree would then be traversed recursively by calling resolve on the matching branch.
+[396.86s -> 402.90s]  So once again, the logic here is encoded in this serialized data, while the resolve method serves as a simple interpreter.
+[403.02s -> 408.02s]  If we wanted to express the same logic using exclusively code, we could write it like this.
+[408.02s -> 414.02s]  If is grounded equals 0, resolve the error node, otherwise resolve the ground node.
+[414.02s -> 419.52s]  We can't really do that though, because all nodes are instances of this class, and will therefore share this resolve method,
+[419.52s -> 422.02s]  but this logic is specific to the root node.
+[422.02s -> 426.02s]  The ground node, for example, checks a different parameter and contains different branches.
+[426.02s -> 430.02s]  We'd have to define a separate class for every node in our tree.
+[430.02s -> 432.02s]  And at this point, these classes are practically stateless.
+[432.02s -> 440.02s]  The only data that we're using are references to other nodes, so we can make these classes static and get rid of scriptable objects entirely.
+[440.02s -> 443.02s]  In fact, these could just be functions.
+[443.02s -> 446.02s]  This is reanimator in its true form.
+[446.02s -> 453.02s]  Under all these layers of serialization and interpretation, it's just a function that takes the state and returns an animation frame.
+[453.02s -> 459.02s]  And when written like this, instead of implementing an editor, we can rely on an already existing IDE.
+[459.02s -> 462.02s]  For example, notice that these parameters must be set by something.
+[462.02s -> 466.82s]  Somewhere in our codebase, we check for the collision and set up this is-grounded parameter.
+[466.82s -> 469.86s]  And we use this string both when setting and retrieving it.
+[469.86s -> 474.02s]  It was necessary with assets because parameters were stored as serialized strings.
+[474.02s -> 475.86s]  But now it's no longer necessary.
+[475.86s -> 481.66s]  We can just replace the Param's dictionary with a properly typed tract, where each parameter is a field.
+[481.66s -> 483.92s]  And now we have the full power of static analysis.
+[483.92s -> 487.82s]  We can easily check where this property is set, list what other properties are available,
+[487.82s -> 490.62s]  and make sure we don't misspell anything.
+[490.62s -> 492.50s]  Hopefully this illustrates my point well.
+[492.50s -> 497.38s]  The actual data necessary to process this animator has always been here, in the parameters.
+[497.38s -> 501.54s]  All of the serialized strings and arrays and scriptable objects were only necessary to define
+[501.54s -> 506.50s]  the logic that could be expressed more clearly using code.
+[506.50s -> 508.38s]  But just to make sure I'm not misunderstood.
+[508.38s -> 510.86s]  I'm not advocating for writing everything from scratch.
+[510.86s -> 514.62s]  The animation controller for Assortion is really simple, so it didn't take long to make.
+[514.62s -> 518.22s]  I also don't think you should change your game engine to something without an editor.
+[518.22s -> 520.14s]  It's always a game of compromises.
+[520.14s -> 525.82s]  No, this video is directed to programmers like me, who find themselves spending way too much time writing custom editors.
+[525.82s -> 528.30s]  I mean, you're not going to trick me, I know you love to code.
+[528.30s -> 532.86s]  And maybe for your particular problem, code is all you need.
+[532.86s -> 537.02s]  Thanks so much to all my patrons. Thank you for watching, and until next time.
+```
 
-That is a summary of the motion-canvas repository.
-We will be creating a new entry in the examples\ folder.
-The example we will be creating is an animation of summarizing the contents of a folder
-
-Here is the code I use to summarize right now
+We are going to be working on a new example, `examples/teamy`
 
 # Summary
 
 
-## .\actions\Summarize directory to clipboard.ps1
+## D:\Repos\videos\motion-canvas-examples\examples\teamy\src\scenes\summarize.meta
 
-````powershell
-# Prompt user to enter the directory to summarize
-$starting_dir = Read-Host "Enter the directory to summarize"
-if ([string]::IsNullOrWhiteSpace($starting_dir) -or -not (Test-Path $starting_dir)) {
-    Write-Host "Invalid or no directory specified. Exiting..."
-    return
+````meta
+{
+  "version": 0,
+  "timeEvents": [],
+  "seed": 3540874559
 }
+````
 
-# Check if the specified directory is a Git repository
-$choices = cargo run --manifest-path ".\tools\list unignored files\Cargo.toml" -- $starting_dir
 
-# There is opportunity for a submenu here to present the user the current extension list and allow them to modify it considering the extensions found in the directory
-$allowed_patterns = Get-Content .\summarizable_patterns.txt
 
-# Ensure that the user is only presented files with allowed extensions
-$choices = $choices | Where-Object { 
-    foreach ($pattern in $allowed_patterns) {
-        if ($_ -match $pattern) {
-            return $true
-        }
+## D:\Repos\videos\motion-canvas-examples\examples\teamy\src\scenes\summarize.tsx
+
+````tsx
+import {Circle, makeScene2D} from '@motion-canvas/2d';
+import {createRef} from '@motion-canvas/core';
+
+export default makeScene2D(function* (view) {
+  // Create your animations here
+
+  const circle = createRef<Circle>();
+
+  view.add(<Circle ref={circle} size={320} fill={'lightseagreen'} />);
+
+  yield* circle().scale(2, 2).to(1, 2);
+});
+
+````
+
+
+
+## D:\Repos\videos\motion-canvas-examples\examples\teamy\src\motion-canvas.d.ts
+
+````ts
+/// <reference types="@motion-canvas/core/project" />
+
+````
+
+
+
+## D:\Repos\videos\motion-canvas-examples\examples\teamy\src\project.meta
+
+````meta
+{
+  "version": 0,
+  "shared": {
+    "background": null,
+    "range": [
+      0,
+      null
+    ],
+    "size": {
+      "x": 1920,
+      "y": 1080
+    },
+    "audioOffset": 0
+  },
+  "preview": {
+    "fps": 60,
+    "resolutionScale": 2
+  },
+  "rendering": {
+    "fps": 60,
+    "resolutionScale": 2,
+    "colorSpace": "srgb",
+    "exporter": {
+      "name": "@motion-canvas/core/image-sequence",
+      "options": {
+        "fileType": "image/png",
+        "quality": 100,
+        "groupByScene": false
+      }
     }
-    return $false
+  }
 }
+````
 
-# Prompt the user to select files to summarize
-$files = @()
-while ($true) {
-    $chosen = $choices | fzf --multi --bind "ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all" --header "Selection will repeat until Ctrl+C received"
-    if ($null -eq $chosen) {
-        break
-    }
-    $files += $chosen
-}
-if ($files.Count -eq 0) {
-    Write-Warning "No files picked, no action taken"
-    return
-}
 
-$lang_ext_lookup = Get-Content .\extension_to_markdown_fence.ini -Raw | ConvertFrom-StringData
 
-$content = $files | ForEach-Object { 
-    $path = $_
-    $content = Get-Content "$path" -Raw
-    $extension = [System.IO.Path]::GetExtension($path)
-    $lang = $lang_ext_lookup[$extension] ?? $extension.TrimStart('.')
-    return "
-## $path
+## D:\Repos\videos\motion-canvas-examples\examples\teamy\vite.config.ts
 
-$('`'*4)$lang
-$content
-$('`'*4)
+````ts
+import motionCanvas from '@motion-canvas/vite-plugin';
+import {defineConfig} from 'vite';
 
-"
-}
-| Out-String
-$content = "# Summary`n`n$content`n"
-$content | Set-Clipboard
-Write-Host "Copied $($files.Count) files to clipboard"
-
+export default defineConfig({
+  plugins: [motionCanvas()],
+});
 
 ````
 
 
 
-## .\summarizable_patterns.txt
+## D:\Repos\videos\motion-canvas-examples\examples\teamy\src\project.ts
 
-````txt
-\.txt$
-\.md$
-\.rs$
-\.ps1$
-\.meta$
-\.ts$
-\.tsx$
-\.svg$
-package.json
-tsconfig.json
+````ts
+import {makeProject} from '@motion-canvas/core';
+
+import summarize from './scenes/summarize?scene';
+
+export default makeProject({
+  experimentalFeatures: true,
+  scenes: [
+    summarize,
+  ],
+});
+
 ````
 
 
 
-## .\tools\list unignored files\src\main.rs
+## D:\Repos\videos\motion-canvas-examples\examples\teamy\tsconfig.json
 
-````rust
-use ignore::WalkBuilder;
-use std::path::PathBuf;
-use std::env;
-use std::process;
-
-fn main() {
-    // Get the first command line argument as a PathBuf
-    // defaulting to the current directory if none is provided
-    let args: Vec<String> = env::args().collect();
-    let path = args.get(1)
-        .map(PathBuf::from)
-        .unwrap_or_else(|| env::current_dir().unwrap_or_else(|err| {
-            eprintln!("Error getting current directory: {}", err);
-            process::exit(1);
-        }));
-
-    for result in WalkBuilder::new(path.clone()).build() {
-        if let Ok(entry) = result {
-            if entry.file_type().map_or(false, |ft| ft.is_file())
-            {
-                // let relative_path = entry.path().strip_prefix(&path).unwrap_or(entry.path());
-                println!("{}", entry.path().display());
-            }
-        }
-    }
+````json
+{
+  "extends": "@motion-canvas/2d/tsconfig.project.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "nodenext",
+    "baseUrl": "src"
+  }
 }
 
 ````
 
 
 
-Please create an animation that demonstrates the process the script uses to execute.
-I expect you to perform steps similar to the following in your response
-Let's think step by step
+## D:\Repos\videos\motion-canvas-examples\examples\teamy\package.json
 
-- Identify the core themes of the summarize powershell script
-  - ask the user for a path
-  - get a list of files in that path
-  - have the user refine the list of files
-  - build a string that encorporates the files in a markdown-like syntax
-
-
-Asking the user for a path is a plain text input, but I've also created a helper script that lets the user quickly put into their clipboard a path they have recently used
-
-
-# Summary
-
-
-## .\actions\Suggest directory path to clipboard.ps1
-
-````powershell
-$suggestions = @()
-if (Get-Command sqlite3) {
-    $suggestions += sqlite3 -json $Env:APPDATA\Code\User\globalStorage\state.vscdb "SELECT * FROM ItemTable WHERE key = 'history.recentlyOpenedPathsList';" .exit `
-        | ConvertFrom-Json `
-        | Select-Object -ExpandProperty value `
-        | ConvertFrom-Json `
-        | Select-Object -ExpandProperty entries `
-        | Where-Object { $_.folderUri?.StartsWith("file:///") } `
-        | Select-Object -ExpandProperty folderUri `
-        | ForEach-Object { [System.Uri]::UnescapeDataString($_) } `
-        | ForEach-Object { $_ -replace '^file:///', '' } `
-        | ForEach-Object { $_.Substring(0,1).ToUpper() + $_.Substring(1)}
-} else {
-    Write-Warning "sqlite3 wasn't detected"
+````json
+{
+  "name": "@examples/teamy",
+  "private": true,
+  "description": "Source code for the Could This Asset Be Code video",
+  "license": "MIT",
+  "scripts": {
+    "serve": "vite"
+  }
 }
 
-if (Get-Command zoxide) {
-    $suggestions += zoxide query -l
-} else {
-    Write-Warning "zoxide wasn't detected"
-}
-
-$psreadlinepath = "$Env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine"
-if ((Test-Path $psreadlinepath) -and (Get-Command rg)) {
-    $suggestions += rg "^cd [A-Za-z]:\\[^;]*" $psreadlinepath --only-matching --no-line-number --no-heading --no-filename
-} else {
-    Write-Warning "PSReadLine wasn't detected"
-}
-$old = $env:SHELL
-$env:SHELL="pwsh"
-try {
-    $chosen = $suggestions `
-        | ForEach-Object { $_ -replace '/', '\' } `
-        | Sort-Object -Unique `
-        | Where-Object { Test-Path $_ } `
-        | fzf --prompt "Select a directory: " --preview "eza -1 --icons=always {}"
-    $chosen | Set-Clipboard
-    Write-Host "Directory copied to clipboard: $chosen"
-} finally {
-    $env:SHELL = $old
-}
 ````
 
 
+Currently, the example is a simple circle.
 
-Some things I'd like to see in your animation
+Let's have the example continue by having three additional circles spawn from the original circle.
+The new circles should orbit the main circle, ramping in speed before slowing again and merging back into the main circle.
 
-- process diagram showing the steps
-  - user uses helper to set clipboard to path
-  - user runs summarizer script and pastes the path
-  - user picks the files to summarize
-  - user clipboard now contains the summary
-- file picking animation
-  - show a tree containing some files and directories (which also contain files and directories)
-  - some of the files are "selected", represented by a highlight operation such as a colour change or a temporary-grow like you'd find in a powerpoint animation
-  - the selected files are "kept" and the rest "discarded", they remain while the discards fly off the screen or something similar.
+Your response should be complete in its entirety.
 
-
-I want you to be creative in your approach.
-
-Please format your response as an instructional markdown document containing the code blocks for files we will create in our new folder in the examples/ directory.
-
-You must also propose a name for the example we are creating, using hyphen-naming.
-
-I look forward to your response!
-- Teamy
+Please format your response as an instructional markdown document containing the steps needed to modify the teamy example.
