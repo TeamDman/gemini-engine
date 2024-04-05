@@ -8,7 +8,7 @@ from googleapiclient.discovery import build
 import os
 from dataclasses import dataclass, asdict
 from dacite import from_dict
-
+import httplib2
 
 @dataclass(frozen=True)
 class PayloadFile:
@@ -32,7 +32,9 @@ def build_service(api_key):
     GENAI_DISCOVERY_URL = f"https://generativelanguage.googleapis.com/$discovery/rest?version=v1beta&key={api_key}"
     discovery_docs = requests.get(GENAI_DISCOVERY_URL)
     genai_service = googleapiclient.discovery.build_from_document(
-        discovery_docs.json(), developerKey=api_key
+        discovery_docs.json(),
+        developerKey=api_key,
+        http=httplib2.Http(timeout=60 * 5),
     )
     return genai_service.models()
 

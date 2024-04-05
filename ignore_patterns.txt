@@ -1,0 +1,6 @@
+^D:\\repos\\ml\\gemini-engine\\prompts\\.*$
+^D:\\Repos\\Games\\Cursor-Hero\\other\\.*$
+^D:\\Repos\\ml\\gemini-engine\\feedback\\.*$
+^D:\\Repos\\ml\\gemini-engine\\transcriptions\\.*$
+^D:\\Repos\\ml\\gemini-engine\\downloaded_videos.txt$
+^D:\\Repos\\ml\\gemini-engine\\mimetypes.txt$

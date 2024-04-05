@@ -8,6 +8,27 @@ if ([string]::IsNullOrWhiteSpace($starting_dir) -or -not (Test-Path $starting_di
 # Check if the specified directory is a Git repository
 $choices = cargo run --manifest-path ".\tools\list unignored files\Cargo.toml" -- $starting_dir
 
+# Load ignore patterns
+$ignore_patterns = Get-Content .\ignore_patterns.txt
+if ($? -eq $false) {
+    Write-Warning "No ignore patterns found. Continuing without any ignore patterns"
+    Pause
+    $ignore_patterns = @()
+}
+
+# Apply ignore patterns
+$choices = $choices | Where-Object { 
+    $file = $_
+    $ignore = $false
+    foreach ($pattern in $ignore_patterns) {
+        if ($file -match $pattern) {
+            $ignore = $true
+            break
+        }
+    }
+    -not $ignore
+}
+
 # There is opportunity for a submenu here to present the user the current extension list and allow them to modify it considering the extensions found in the directory
 $allowed_patterns = Get-Content .\summarizable_patterns.txt
 
@@ -39,7 +60,7 @@ $lang_ext_lookup = Get-Content .\extension_to_markdown_fence.ini -Raw | ConvertF
 
 $content = $files | ForEach-Object { 
     $path = $_
-    $content = Get-Content "$path" -Raw
+    $content = Get-Content -LiteralPath "$path" -Raw
     $extension = [System.IO.Path]::GetExtension($path)
     $lang = $lang_ext_lookup[$extension] ?? $extension.TrimStart('.')
     return "

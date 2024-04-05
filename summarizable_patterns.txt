@@ -7,5 +7,6 @@
 \.tsx$
 \.py$
 \.svg$
+Cargo.toml$
 package.json
 tsconfig.json

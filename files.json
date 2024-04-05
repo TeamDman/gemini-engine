@@ -3262,5 +3262,17 @@
     "url": "https://generativelanguage.googleapis.com/v1beta/files/otual0q5j0hn",
     "mimetype": "image/png",
     "displayname": "D:\\Repos\\ml\\gemini-engine\\video frames\\Could This Asset Be Code [s1ZQnS_tOg0]\\frame_0537.png"
+  },
+  ".\\images\\VSCode showing gemini.ps1 action selection.png": {
+    "path": ".\\images\\VSCode showing gemini.ps1 action selection.png",
+    "url": "https://generativelanguage.googleapis.com/v1beta/files/gaejup6grksk",
+    "mimetype": "image/png",
+    "displayname": ".\\images\\VSCode showing gemini.ps1 action selection.png"
+  },
+  ".\\images\\VSCode calculator ui errors.png": {
+    "path": ".\\images\\VSCode calculator ui errors.png",
+    "url": "https://generativelanguage.googleapis.com/v1beta/files/wuer2xrzcnuc",
+    "mimetype": "image/png",
+    "displayname": ".\\images\\VSCode calculator ui errors.png"
   }
 }
