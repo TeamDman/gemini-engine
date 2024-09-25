@@ -3274,5 +3274,11 @@
     "url": "https://generativelanguage.googleapis.com/v1beta/files/wuer2xrzcnuc",
     "mimetype": "image/png",
     "displayname": ".\\images\\VSCode calculator ui errors.png"
+  },
+  ".\\images\\cursor_hero_props_not_working.png": {
+    "path": ".\\images\\cursor_hero_props_not_working.png",
+    "url": "https://generativelanguage.googleapis.com/v1beta/files/s1t72a6xgg68",
+    "mimetype": "image/png",
+    "displayname": ".\\images\\cursor_hero_props_not_working.png"
   }
 }
