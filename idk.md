@@ -1,0 +1,3 @@
+- [RustAudio/dasp: The fundamentals for Digital Audio Signal Processing. Formerly \`sample\`. (github.com)](https://github.com/rustaudio/dasp)
+- [cookbook/quickstarts/Prompting.ipynb at main - google-gemini/cookbook (github.com)](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Prompting.ipynb)
+- [google.generativeai.GenerativeModel  |  Google AI for Developers  |  Google for Developers](https://ai.google.dev/api/python/google/generativeai/GenerativeModel)
