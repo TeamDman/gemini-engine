@@ -7,6 +7,13 @@
 \.tsx$
 \.py$
 \.svg$
+\.cpp$
+\.h$
+\.java$
+\.tf$
+\.yaml$
+\.yml$
+\.ipynb$
 Cargo.toml$
 package.json
 tsconfig.json
