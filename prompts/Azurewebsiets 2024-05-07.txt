@@ -1,0 +1,3281 @@
+
+# Summary
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cert-manager\uninstall.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl kustomize --enable-helm | kubectl delete -f -
+kubectl delete namespace cert-manager
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ingress-nginx\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ingress-nginx
+
+resources:
+- base/nginx-configuration.yaml
+# - https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/cloud/deploy.yaml
+
+helmCharts:
+- name: ingress-nginx
+  repo: https://kubernetes.github.io/ingress-nginx
+  version: 4.4.0
+  namespace: ingress-nginx
+  releaseName: ingress-nginx
+  includeCRDs: true
+  valuesMerge: merge
+  valuesInline:
+    ingress:
+      extra_args:
+        enable-ssl-passthrough: true
+    controller:
+      service:
+        annotations:
+          service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-cluster-secretstores.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-secretstores
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/cluster-secretstores
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-secrets
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\templates\deployment.yaml
+
+````yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: nginx
+  template:
+    metadata:
+      labels: 
+        app: nginx
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      containers:
+        - name: nginx
+          image: nginx:latest
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            # - mountPath: "/var/www/html"
+            - mountPath: "/usr/share/nginx/html"
+              name: persistent-storage
+      volumes:
+        # https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/deploy/example/e2e_usage.md
+        - name: persistent-storage
+          csi:
+            driver: blob.csi.azure.com
+            volumeAttributes:
+              containerName: "$web"
+              secretName: storage-account-connection
+              mountOptions: "-o allow_other --file-cache-timeout-in-seconds=120"
+
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cert-manager\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl create ns cert-manager
+kubectl kustomize --enable-helm | kubectl apply -f -
+Write-Host "Install complete, consider running verify.ps1" -ForegroundColor "Cyan"
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\external-secrets\uninstall.ps1
+
+````powershell
+kubectl kustomize --enable-helm | kubectl delete -f -
+kubectl delete ns external-secrets
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-cert-manager.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/cert-manager
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  ignoreDifferences:
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: cert-manager-webhook
+    jqPathExpressions:
+      - .webhooks[].namespaceSelector.matchExpressions[] | select(.key == "control-plane")
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\argocd\base\ingress.yaml
+
+````yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argo-cd-ui
+  annotations:
+    ingress.kubernetes.io/proxy-body-size: 100M
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/app-root: "/"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" 
+spec:
+  tls:
+  - hosts:
+    - argocd.teamdman.ca
+    secretName: argocd-secret
+  rules:
+  - host: argocd.teamdman.ca
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: argocd-server
+            port:
+              name: http
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\argocd\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+kubectl create ns argocd
+kubectl apply -k .
+
+Write-Host "Waiting for initial secret to become available" -ForegroundColor "Cyan"
+while ($true) {
+    $x = kubectl get secret -n argocd argocd-initial-admin-secret -o name --ignore-not-found
+    if ($x.Count -gt 0) {
+        break
+    }
+    Start-Sleep -Seconds 1
+}
+
+$pw = kubectl get secret -n argocd argocd-initial-admin-secret -o json | ConvertFrom-Json
+$pw = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($pw.data.password))
+Write-Host "ArgoCD admin password is `"${pw}`""
+
+Write-Host "Waiting for certificate request to be approved" -ForegroundColor "Cyan"
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cluster-issuers\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl kustomize --enable-helm | kubectl apply -f -
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\boilerplate.tf
+
+````terraform
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "Terraform"
+    storage_account_name = "terraform9201"
+    container_name       = "tfstate"
+    key                  = "ca.teamdman.tfstate"
+    # subscription_id = ""
+  }
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">=3.77.0"
+    }
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = ">=2.44.1"
+    }
+    github = {
+      source  = "integrations/github"
+      version = ">=5.40.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = ">=3.5.1"
+    }
+  }
+}
+
+locals {
+  dotenv = { for tuple in regexall("(.*)=(.*?)\\s*", file(".env")) : tuple[0] => tuple[1] }
+}
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  features {}
+}
+
+provider "github" {
+  owner = "teamdman-ca"
+  token = local.dotenv.github_token
+}
+
+data "azurerm_client_config" "current" {
+
+}
+
+data "azuread_client_config" "current" {
+
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\template\apply.ps1
+
+````powershell
+$subs = az account list | ConvertFrom-Json
+
+$active = $null;
+$desired = $null;
+$desired_name = "AAFC VSE Benefit"
+
+foreach($sub in $subs) {
+    if ($sub.isDefault) {
+        $active = $sub
+    }
+    if ($sub.name -eq $desired_name) {
+        $desired = $sub
+    }
+}
+
+Write-Host "Currently have $($active.name) selected"
+
+if ($active.id -ne $desired.id) {
+    Write-Host "Switching subscription to $($desired.name)"
+    az account set --subscription $desired.id
+} else {
+    Write-Host "Correct subscription already selected"
+}
+
+Write-Host "Currently on subscription $(az account show --query "name" -o tsv)"
+
+Write-Host "Beginning terraform apply" -ForegroundColor Cyan
+terraform apply
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\service principal.tf
+
+````terraform
+resource "azuread_application" "site_deployer" {
+  display_name = "github_cicd_pipeline"
+  owners       = [data.azuread_client_config.current.object_id]
+}
+
+resource "azuread_application_password" "site_deployer_password" {
+  application_object_id = azuread_application.site_deployer.object_id
+}
+
+resource "azuread_service_principal" "site_deployer" {
+  application_id = azuread_application.site_deployer.application_id
+  owners         = azuread_application.site_deployer.owners
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\gifts\boilerplate.tf
+
+````terraform
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "Terraform"
+    storage_account_name = "terraform9201"
+    container_name       = "tfstate"
+    key                  = "ca.teamdman.tfstate"
+    subscription_id      = "{{subscription_id}}"
+  }
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">=3.77.0"
+    }
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = ">=2.44.1"
+    }
+    github = {
+      source  = "integrations/github"
+      version = ">=5.40.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = ">=3.5.1"
+    }
+  }
+}
+
+locals {
+  dotenv = { for tuple in regexall("(.*)=(.*?)\\s*", file(".env")) : tuple[0] => tuple[1] }
+}
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  features {}
+}
+
+provider "github" {
+  owner = "teamdman-ca"
+  token = local.dotenv.github_token
+}
+
+data "azurerm_client_config" "current" {
+
+}
+
+data "azuread_client_config" "current" {
+
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-raddest-gifts\base\deployment-backend.yaml
+
+````yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gifts-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: gifts-backend
+  template:
+    metadata:
+      labels: 
+        app: gifts-backend
+        azure.workload.identity/use: "true"
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      serviceAccountName: gifts-sa
+      containers:
+        - name: gifts-backend
+          image: teamdman.azurecr.io/gifts-backend:latest
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+            - containerPort: 80
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cluster-issuers\base\clusterissuer-letsencrypt-prod.yaml
+
+````yaml
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    email: TeamDman9201@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      # Secret resource that will be used to store the account's private key.
+      name: cert-manager-issuer-account-key-prod
+    solvers:
+    - selector: {}
+      dns01:
+        azureDNS:
+          subscriptionID: 134ae9a1-7bc2-41f7-a2c7-a1e55f54ed04
+          resourceGroupName: ca.teamdman
+          hostedZoneName: teamdman.ca
+          environment: AzurePublicCloud
+          managedIdentity:
+            clientID: 860af6b9-4135-4814-bf81-16f3e8ebcbdd
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cluster-secretstores\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl kustomize --enable-helm | kubectl apply -f -
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cluster-secretstores\uninstall.ps1
+
+````powershell
+kubectl kustomize --enable-helm | kubectl delete -f -
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-external-dns-azurewebsiets.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns-azurewebsiets
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/external-dns-azurewebsiets
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-dns-azurewebsiets
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+
+resources:
+- base/core/project-core.yaml
+- base/core/app-argocd.yaml
+- base/core/app-app-of-apps.yaml
+- base/core/app-blob-csi-driver.yaml
+- base/core/app-cert-manager.yaml
+- base/core/app-cluster-issuers.yaml
+- base/core/app-cluster-secretstores.yaml
+- base/core/app-ingress-nginx.yaml
+- base/core/app-external-secrets.yaml
+- base/core/app-external-dns-teamdman.yaml
+- base/core/app-external-dns-azurewebsiets.yaml
+- base/core/app-workload-identity-webhook.yaml
+- base/teamdman/project-teamdman.yaml
+- base/teamdman/app-teamdman-www.yaml
+- base/teamdman/app-teamdman-gifts.yaml
+- base/azurewebsiets/project-azurewebsiets.yaml
+- base/azurewebsiets/app-azurewebsiets-www.yaml
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\argocd\overlays\argocd-cm.yaml
+
+````yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  server.insecure: "true"
+  # admin.enabled: "false"
+  statusbadge.enabled: "true"
+  users.anonymous.enabled: "false"
+  kustomize.buildOptions: --enable-helm
+  url: "https://argocd.teamdman.ca"
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\argocd\uninstall.ps1
+
+````powershell
+#!/usr/bin/pwsh
+kubectl delete -k .
+kubectl delete ns argocd
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\email-forwarder\install.ps1
+
+````powershell
+kubectl apply -f deploy.yaml
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\external-dns-azurewebsiets\uninstall.ps1
+
+````powershell
+kubectl kustomize --enable-helm | kubectl delete -f -
+kubectl delete ns external-dns-azurewebsiets
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\src\modules\cluster\aks.tf
+
+````terraform
+variable "cluster_name" {
+  type = string
+}
+variable "cluster_dns_prefix" {
+  type = string
+}
+resource "azurerm_kubernetes_cluster" "main" {
+  resource_group_name       = azurerm_resource_group.main.name
+  location                  = azurerm_resource_group.main.location
+  tags                      = azurerm_resource_group.main.tags
+  name                      = var.cluster_name
+  dns_prefix                = var.cluster_dns_prefix
+  sku_tier                  = "Free"
+  kubernetes_version        = "1.28"
+  oidc_issuer_enabled       = true
+  workload_identity_enabled = true
+  role_based_access_control_enabled = true
+
+  default_node_pool {
+    name       = "default"
+    node_count = 1
+    vm_size    = "standard_b2s"
+    upgrade_settings {
+      max_surge = "10%"
+    }
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  
+  network_profile {
+    network_plugin = "kubenet"
+  }
+
+
+  azure_active_directory_role_based_access_control {
+    # There is a deprecation warning here, we must continue to specify managed=true until it is removed
+    managed            = true
+    azure_rbac_enabled = true
+    admin_group_object_ids = [
+      azuread_group.admins.object_id
+    ]
+  }
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\keyvault.tf
+
+````terraform
+resource "azurerm_key_vault" "main" {
+  resource_group_name = azurerm_resource_group.main.name
+  location            = "canadaeast"
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  sku_name            = "standard"
+  name                = "ca-teamdman"
+}
+
+resource "azurerm_key_vault_secret" "main" {
+  for_each = {
+    "storage-account-name" = azurerm_storage_account.main.name
+    "storage-account-key"  = azurerm_storage_account.main.primary_access_key
+  }
+  key_vault_id = azurerm_key_vault.main.id
+  name         = each.key
+  value        = each.value
+  depends_on = [
+    azurerm_key_vault_access_policy.me
+  ]
+}
+
+resource "azurerm_key_vault_access_policy" "external-secrets-operator" {
+  key_vault_id       = azurerm_key_vault.main.id
+  secret_permissions = ["Get", "List"]
+  tenant_id          = azurerm_key_vault.main.tenant_id
+  object_id          = azurerm_kubernetes_cluster.main.kubelet_identity[0].object_id
+}
+
+###
+
+# this does not scale to team projects
+locals {
+  key_vault_reader_object_ids = [
+data.azurerm_client_config.current.object_id
+  ]
+}
+resource "azurerm_key_vault_access_policy" "me" {
+  for_each = local.key_vault_reader_object_ids
+  key_vault_id = azurerm_key_vault.main.id
+  secret_permissions = [
+    "Backup", "Delete", "Get", "List", "Purge", "Recover", "Restore", "Set"
+  ]
+  certificate_permissions = [
+    "Backup", "Create", "Delete", "DeleteIssuers", "Get", "GetIssuers", "Import", "List", "ListIssuers", "ManageContacts", "ManageIssuers", "Purge", "Recover", "Restore", "SetIssuers", "Update"
+  ]
+  key_permissions = [
+    "Backup", "Create", "Decrypt", "Delete", "Encrypt", "Get", "Import", "List", "Purge", "Recover", "Restore", "Sign", "UnwrapKey", "Update", "Verify", "WrapKey"
+  ]
+  tenant_id = azurerm_key_vault.main.tenant_id
+  object_id = each.value
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\README.md
+
+````markdown
+[Attach an ACR to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli) by running `az aks update -n teamdman-aks -g ca.teamdman --attach-acr teamdman`
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\outputs.tf
+
+````terraform
+# # output "service_principal_password" {
+# #   sensitive = true
+# #   value     = azuread_application_password.site_deployer_password.value
+# # }
+
+# # terraform intellisense only works at topmost level unfortunately
+# # https://github.com/hashicorp/vscode-terraform/issues/1246
+
+# output "external_secrets_operator_config" {
+#   value = {
+#     tenant_id           = data.azurerm_client_config.current.tenant_id
+#     subscription_id     = data.azurerm_client_config.current.subscription_id
+#     key_vault_uri       = azurerm_key_vault.main.vault_uri
+#     managed_identity_id = azurerm_kubernetes_cluster.main.kubelet_identity[0].client_id
+#     # managed_identity_id = data.azurerm_kubernetes_cluster.main.kubelet_identity[0].object_id
+#   }
+# }
+
+# output "letsencrypt_config" {
+#   value = {
+#     subscriptionID    = data.azurerm_client_config.current.subscription_id
+#     resourceGroupName = azurerm_resource_group.main.name
+#     hostedZoneName    = azurerm_dns_zone.main.name
+#     managedIdentity = {
+#       clientID = azurerm_kubernetes_cluster.main.kubelet_identity[0].client_id
+#     }
+#   }
+# }
+
+# output "external_dns_config" {
+#   value = {
+#     resourceGroup               = azurerm_resource_group.main.name
+#     tenandId                    = data.azurerm_client_config.current.tenant_id
+#     subscriptionId              = data.azurerm_client_config.current.subscription_id
+#     useManagedIdentityExtension = true
+#     userAssignedIdentityID      = azurerm_kubernetes_cluster.main.kubelet_identity[0].client_id
+#   }
+# }
+
+# output "gifts_workload_identity" {
+#   value = {
+#     clientId = azurerm_user_assigned_identity.gifts.client_id
+#   }
+# }
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-external-dns-teamdman.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns-teamdman
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/external-dns-teamdman
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-dns-teamdman
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\teamdman\project-teamdman.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: teamdman
+spec:
+  description: Core resources to the cluster
+
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+  - '*'
+
+  destinations:
+  - namespace: teamdman
+    server: https://kubernetes.default.svc
+  - namespace: teamdman-gifts
+    server: https://kubernetes.default.svc
+
+  # Deny all cluster-scoped resources from being created, except for Namespace
+  clusterResourceWhitelist:
+  - group: ''
+    kind: Namespace
+
+  # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
+  namespaceResourceBlacklist:
+  - group: ''
+    kind: ResourceQuota
+  - group: ''
+    kind: LimitRange
+  - group: ''
+    kind: NetworkPolicy
+
+  # # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
+  # namespaceResourceWhitelist:
+  # - group: 'apps'
+  #   kind: Deployment
+  # - group: 'apps'
+  #   kind: StatefulSet
+
+  # Enables namespace orphaned resource monitoring.
+  orphanedResources:
+    warn: false
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-app-of-apps.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/app-of-apps
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\Chart.yaml
+
+````yaml
+apiVersion: v2
+name: ca-teamdman
+description: Static site for teamdman.ca
+
+type: application
+
+version: "0.1.0"
+appVersion: "1.0.0"
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cluster-secretstores\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: external-secrets
+
+resources:
+- base/cluster-secret-store.yaml
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\external-dns-azurewebsiets\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl create ns external-dns-azurewebsiets
+# this will automatically create the charts/ directory
+kubectl kustomize --enable-helm | kubectl apply -f -
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\rg.tf
+
+````terraform
+resource "azurerm_resource_group" "main" {
+  name     = "MyKubernetes"
+  location = "canadaeast"
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\src\boilerplate.tf
+
+````terraform
+terraform {
+  backend "azurerm" {
+    subscription_id      = "6cb7032f-2437-4f5e-91e8-676cb67e5444"
+    resource_group_name  = "CACN-Terraform-PROD-RG"
+    storage_account_name = "terraformproddwvc87"
+    container_name       = "statefiles"
+    key                  = "teamdman.tfstate"
+  }
+}
+
+provider "azurerm" {
+  features {}
+  subscription_id = "6cb7032f-2437-4f5e-91e8-676cb67e5444"
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cluster-issuers\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+
+resources:
+  - base/clusterissuer-letsencrypt-prod.yaml
+  - base/clusterissuer-letsencrypt-staging.yaml
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\init\main.tf
+
+````terraform
+provider "azurerm" {
+  features {}
+  subscription_id = "6cb7032f-2437-4f5e-91e8-676cb67e5444"
+}
+
+resource "azurerm_resource_group" "main" {
+  name     = "CACN-Terraform-PROD-RG"
+  location = "canadacentral"
+  tags = {
+    environment = "Production"
+  }
+}
+
+resource "random_string" "suffix" {
+  special = false
+  upper   = false
+  length  = 6
+}
+
+data "http" "myip" {
+  url = "https://ipv4.icanhazip.com"
+}
+
+resource "azurerm_storage_account" "main" {
+  name                          = "terraformprod${random_string.suffix.result}"
+  resource_group_name           = azurerm_resource_group.main.name
+  location                      = azurerm_resource_group.main.location
+  account_tier                  = "Standard"
+  account_replication_type      = "LRS"
+  tags                          = azurerm_resource_group.main.tags
+  network_rules {
+    default_action = "Deny"
+    # bypass = [
+    #     "${chomp(data.http.myip.response_body)}/32"
+    # ]
+    ip_rules = [
+      "${chomp(sensitive(data.http.myip.response_body))}"
+    ]
+  }
+}
+
+resource "azurerm_storage_container" "main" {
+  name                 = "statefiles"
+  storage_account_name = azurerm_storage_account.main.name
+}
+
+output "storage_account_name" {
+  value = azurerm_storage_account.main.name
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\teamdman\app-teamdman-gifts.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: teamdman-gifts
+  namespace: argocd
+spec:
+  project: teamdman
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/ca-teamdman-gifts
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: teamdman-gifts
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\external-secrets\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: external-secrets
+
+helmCharts:
+- name: external-secrets
+  repo: https://charts.external-secrets.io
+  version: 0.6.1
+  releaseName: external-secrets
+  includeCRDs: true
+  namespace: external-secrets
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\storage accounts.tf
+
+````terraform
+resource "azurerm_storage_account" "main" {
+  resource_group_name      = azurerm_resource_group.main.name
+  location                 = "canadaeast"
+  name                     = "teamdman"
+  account_replication_type = "LRS"
+  account_tier             = "Standard"
+}
+
+resource "azurerm_storage_container" "web" {
+  storage_account_name = azurerm_storage_account.main.name
+  name                 = "$web"
+}
+
+resource "azurerm_role_assignment" "site_write" {
+  principal_id         = azuread_service_principal.site_deployer.object_id
+  scope                = azurerm_storage_account.main.id
+  role_definition_name = "Storage Blob Data Contributor"
+}
+
+
+resource "azurerm_storage_table" "gifts" {
+  name                 = "gifts"
+  storage_account_name = azurerm_storage_account.main.name
+}
+resource "azurerm_storage_table" "gifts_dev" {
+  name                 = "giftsdev"
+  storage_account_name = azurerm_storage_account.main.name
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+kubectl apply -k .
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ingress-nginx\base\nginx-configuration.yaml
+
+````yaml
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   labels:
+#     app: ingress-nginx
+#   name: nginx-configuration
+#   namespace: ingress-nginx
+# data:
+#   hsts: "false"
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\cdn.tf
+
+````terraform
+# resource "azurerm_cdn_profile" "main" {
+#   resource_group_name = azurerm_resource_group.main.name
+#   location            = "canadaeast"
+#   sku                 = "Standard_Microsoft"
+#   name                = "ca-teamdman"
+# }
+
+# locals {
+#   host_name = regex("^https://(.*)/$", azurerm_storage_account.main.primary_web_endpoint)[0]
+# }
+
+# resource "azurerm_cdn_endpoint" "root" {
+#   resource_group_name = azurerm_cdn_profile.main.resource_group_name
+#   profile_name        = azurerm_cdn_profile.main.name
+#   location            = "canadaeast"
+#   name                = "ca-teamdman"
+#   origin {
+#     name      = "origin1"
+#     host_name = local.host_name
+#   }
+#   origin_host_header = local.host_name
+
+#   delivery_rule {
+#     name  = "httpsredirect"
+#     order = 1
+
+#     request_scheme_condition {
+#       match_values = [
+#         "HTTP",
+#       ]
+#       negate_condition = false
+#       operator         = "Equal"
+#     }
+
+#     url_redirect_action {
+#       protocol      = "Https"
+#       redirect_type = "PermanentRedirect"
+#     }
+#   }
+
+#   lifecycle {
+#     ignore_changes = [origin, is_compression_enabled]
+#   }
+# }
+
+# resource "azurerm_cdn_endpoint_custom_domain" "root" {
+#   cdn_endpoint_id = azurerm_cdn_endpoint.root.id
+#   name            = "teamdman-ca"
+#   host_name       = "teamdman.ca"
+#   user_managed_https {
+#     key_vault_certificate_id = "https://ca-teamdman.vault.azure.net/certificates/teamdman-ca"
+#   }
+#   depends_on = [
+#     azurerm_dns_a_record.root
+#   ]
+# }
+
+# resource "azurerm_role_assignment" "cdn_purge" {
+#   principal_id         = azuread_service_principal.site_deployer.object_id
+#   scope                = azurerm_cdn_endpoint.root.id
+#   role_definition_name = "CDN Endpoint Contributor"
+# }
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\readme.md
+
+````markdown
+# Prerequisites
+
+Ensure blob-csi-driver is installed
+
+https://github.com/kubernetes-sigs/blob-csi-driver
+
+# Other
+
+https://gist.github.com/bigbrozer/07d10d1b9eb238d909a45ee9277e2f90
+
+https://github.com/kubernetes-sigs/blob-csi-driver/tree/master/charts
+
+kubectl create -f https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/master/deploy/example/storageclass-blobfuse.yaml
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\uninstall.ps1
+
+````powershell
+helm delete "teamdman" --namespace "teamdman"
+kubectl delete namespace "teamdman"
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\template\rg.tf
+
+````terraform
+resource "azurerm_resource_group" "main" {
+  name     = "MyKubernetes"
+  location = "canadaeast"
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\azurewebsiets\app-azurewebsiets-www.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: azurewebsiets-www
+  namespace: argocd
+spec:
+  project: azurewebsiets
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/azurewebsiets-net/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/net-azurewebsiets-www
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: azurewebsiets
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-cluster-issuers.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-issuers
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/cluster-issuers
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\argocd\base\certificate.yaml
+
+````yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argo-cd-cert
+spec:
+  secretName: argocd-secret
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+    # name: letsencrypt-staging
+    # name: selfsigned-issuer
+  commonName: argocd.teamdman.ca
+  dnsNames:
+  - argocd.teamdman.ca
+  - temp1.teamdman.ca
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-raddest-gifts\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: teamdman-gifts
+
+resources:
+- base/service-account.yaml
+- base/ingress.yaml
+- base/deployment-backend.yaml
+- base/deployment-frontend.yaml
+- base/service-backend.yaml
+- base/service-frontend.yaml
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\external-dns-teamdman\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl create ns external-dns-teamdman
+# this will automatically create the charts/ directory
+kubectl kustomize --enable-helm | kubectl apply -f -
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\src\modules\cluster\dns.tf
+
+````terraform
+resource "azurerm_dns_zone" "main" {
+  resource_group_name = azurerm_resource_group.main.name
+  name                = "azurewebsiets.net"
+}
+
+# resource "azurerm_role_assignment" "dns" {
+#   # principal_id         = data.azurerm_kubernetes_cluster.main.identity[0].principal_id
+#   principal_id         = azurerm_kubernetes_cluster.main.kubelet_identity[0].object_id
+#   scope                = azurerm_dns_zone.main.id
+#   role_definition_name = "DNS Zone Contributor"
+# }
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\teamdmanwebsite\github secrets.tf
+
+````terraform
+data "github_repository" "teamdman_content" {
+  full_name = "teamdman-ca/site-content"
+}
+
+locals {
+  secrets = {
+    service_principal_creds = jsonencode({
+      clientId                   = azuread_application.site_deployer.application_id
+      clientSecret               = azuread_application_password.site_deployer_password.value
+      tenantId                   = data.azuread_client_config.current.tenant_id
+      subscriptionId             = data.azurerm_client_config.current.subscription_id
+      resourceManagerEndpointUrl = "https://management.azure.com/"
+    })
+    storage_account_name   = azurerm_storage_account.main.name
+    storage_container_name = azurerm_storage_container.web.name
+  }
+}
+
+resource "github_actions_organization_secret" "cicd" {
+  for_each                = local.secrets
+  selected_repository_ids = [data.github_repository.teamdman_content.repo_id]
+  secret_name             = each.key
+  visibility              = "selected"
+  plaintext_value         = each.value
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\template\main.tf
+
+````terraform
+{{warning_header}}
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "Terraform"
+    storage_account_name = "terraform9201"
+    container_name       = "tfstate"
+    key                  = "mykubernetes.tfstate"
+    subscription_id      = "{{subscription_id}}"
+  }
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">=3.34.0"
+    }
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = ">=2.31.0"
+    }
+    github = {
+      source  = "integrations/github"
+      version = ">=4.26.1"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = ">=3.4.3"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+  subscription_id = "{{subscription_id}}"
+}
+
+data "azurerm_client_config" "current" {
+
+}
+
+data "azuread_client_config" "current" {
+
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-workload-identity-webhook.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: workload-identity-webhook
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/workload-identity-webhook
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: azure-workload-identity-system
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\project-core.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: core
+spec:
+  description: Core resources to the cluster
+
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+  - '*'
+
+  destinations:
+  - namespace: "*"
+    server: https://kubernetes.default.svc
+
+  # clusterResourceBlacklist: []
+  # namespaceResourceBlacklist: []
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  namespaceResourceWhitelist:
+    - group: "*" 
+      kind: "*"
+
+  # # Deny all cluster-scoped resources from being created, except for Namespace
+  # clusterResourceWhitelist:
+  # - group: ''
+  #   kind: Namespace
+
+  # # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
+  # namespaceResourceBlacklist:
+  # - group: ''
+  #   kind: ResourceQuota
+  # - group: ''
+  #   kind: LimitRange
+  # - group: ''
+  #   kind: NetworkPolicy
+
+  # # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
+  # namespaceResourceWhitelist:
+  # - group: 'apps'
+  #   kind: Deployment
+  # - group: 'apps'
+  #   kind: StatefulSet
+
+  # Enables namespace orphaned resource monitoring.
+  orphanedResources:
+    warn: false
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-raddest-gifts\base\ingress.yaml
+
+````yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gifts
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    # cert-manager.io/cluster-issuer: letsencrypt-staging
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # cert-manager.io/issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  # This section is only required if TLS is to be enabled for the Ingress
+  tls:
+    - hosts:
+        - gifts.raddest.ca
+      secretName: gifts-raddest-tls
+  rules:
+    - host: gifts.raddest.ca
+      http:
+        paths:
+          - path: /api/
+            pathType: Prefix
+            backend:
+              service:
+                name: gifts-backend
+                port:
+                  number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gifts-frontend
+                port:
+                  number: 80
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\values.yaml
+
+````yaml
+sub: subscription id
+rg: resource group name
+dns: dns name
+clientId: clientId
+storageAccountName: azurewebsiets
+storageAccountKey: abc
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cert-manager\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+## don't specify namespace
+## https://github.com/cert-manager/cert-manager/issues/5471
+# namespace: cert-manager
+
+# resources:
+# - https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.yaml
+# --cluster-issuer-ambient-credentials     
+# --issuer-ambient-credentials    
+
+helmCharts:
+- name: cert-manager
+  repo: https://charts.jetstack.io
+  version: v1.8.2
+  releaseName: cert-manager
+  valuesInline:
+    installCRDs: true
+    extraArgs:
+    - --cluster-issuer-ambient-credentials
+    - --issuer-ambient-credentials
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\external-dns-teamdman\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: external-dns-teamdman
+
+helmCharts:
+- name: external-dns
+  repo: https://charts.bitnami.com/bitnami
+  version: 6.12.1
+  releaseName: external-dns
+  namespace: external-dns-teamdman
+  valuesInline:
+    provider: azure
+    policy: sync
+    domainFilters:
+      - teamdman.ca # todo: merge external-dns namespaces into single one to manage all
+    azure:
+      resourceGroup: ca.teamdman
+      tenantId: 2e831e5f-9c6e-41a7-b295-50499684ba63
+      subscriptionId: 134ae9a1-7bc2-41f7-a2c7-a1e55f54ed04
+      useManagedIdentityExtension: true
+      userAssignedIdentityID: 860af6b9-4135-4814-bf81-16f3e8ebcbdd
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-ingress-nginx.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/ingress-nginx
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ingress-nginx
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-raddest-gifts\base\service-frontend.yaml
+
+````yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: gifts-frontend
+spec:
+  ports:
+    - port: 80
+      targetPort: 3000
+  selector: 
+    app: gifts-frontend
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\external-dns-teamdman\uninstall.ps1
+
+````powershell
+kubectl kustomize --enable-helm | kubectl delete -f -
+kubectl delete ns external-dns-teamdman
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\README.md
+
+````markdown
+# TeamDman Infrastructure as Code
+
+Ahoy!
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\acr.tf
+
+````terraform
+resource "azurerm_container_registry" "main" {
+  resource_group_name = azurerm_resource_group.main.name
+  name                = "teamdman"
+  sku                 = "Standard"
+  location            = "canadacentral"
+}
+
+resource "azurerm_role_assignment" "acrpull" {
+  scope                = azurerm_container_registry.main.id
+  role_definition_name = "AcrPull"
+  principal_id         = azurerm_kubernetes_cluster.main.kubelet_identity.0.object_id
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\aks.tf
+
+````terraform
+resource "azurerm_kubernetes_cluster" "main" {
+  resource_group_name       = azurerm_resource_group.main.name
+  location                  = "canadacentral"
+  name                      = "teamdman-aks"
+  sku_tier                  = "Free"
+  dns_prefix                = "sharedcluster"
+  kubernetes_version        = "1.24.6"
+  oidc_issuer_enabled       = true
+  workload_identity_enabled = true
+  default_node_pool {
+    name       = "default"
+    node_count = 1
+    vm_size    = "standard_b2s"
+  }
+
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\external-dns-azurewebsiets\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: external-dns-azurewebsiets
+
+helmCharts:
+- name: external-dns
+  repo: https://charts.bitnami.com/bitnami
+  version: 6.12.1
+  releaseName: external-dns
+  namespace: external-dns-azurewebsiets
+  valuesInline:
+    provider: azure
+    policy: sync
+    domainFilters:
+      - azurewebsiets.net # todo: merge external-dns namespaces into single one to manage all
+      - "*.azurewebsiets.net"
+    azure:
+      resourceGroup: net.azurewebsiets
+      tenantId: 2e831e5f-9c6e-41a7-b295-50499684ba63
+      subscriptionId: 134ae9a1-7bc2-41f7-a2c7-a1e55f54ed04
+      useManagedIdentityExtension: true
+      userAssignedIdentityID: 860af6b9-4135-4814-bf81-16f3e8ebcbdd
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\workload-identity-webhook\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+helmCharts:
+  - name: workload-identity-webhook
+    repo: https://azure.github.io/azure-workload-identity/charts
+    version: 0.14.0
+    valuesInline:
+      azureTenantID: 2e831e5f-9c6e-41a7-b295-50499684ba63
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+helm upgrade "teamdman" . `
+    --install `
+    --namespace "teamdman" `
+    --create-namespace 
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cert-manager\verify.ps1
+
+````powershell
+# https://cert-manager.io/docs/installation/verify/
+cmctl check api --wait=2m
+kubectl get pods --namespace cert-manager;
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\template\aks.tf
+
+````terraform
+# This can take several minutes.
+# A bug has been fixed that made it take hours.
+resource "azurerm_kubernetes_cluster" "main" {
+  resource_group_name       = azurerm_resource_group.main.name
+  location                  = "canadacentral"
+  name                      = "my-aks-cluster-1"
+  sku_tier                  = "Free"
+  dns_prefix                = "sharedcluster"
+  
+  # az aks get-versions -l canada-central --query "orchestrators[*].orchestratorVersion"
+  kubernetes_version        = "1.28.0"
+  
+  oidc_issuer_enabled       = true
+  workload_identity_enabled = true
+  default_node_pool {
+    name       = "default"
+    node_count = 1
+    vm_size    = "standard_b2s"
+  }
+
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\templates\service.yaml
+
+````yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: front
+spec:
+  ports:
+    - port: 80
+  selector: 
+    app: nginx
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\templates\ingress.yaml
+
+````yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: front
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    # cert-manager.io/issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  # This section is only required if TLS is to be enabled for the Ingress
+  tls:
+    - hosts:
+        - teamdman.ca
+      secretName: teamdman-tls
+  rules:
+    - host: teamdman.ca
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: front
+                port:
+                  number: 80
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\templates\secret.yaml
+
+````yaml
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: storage-account-connection
+spec:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: ca-teamdman
+  target:
+    name: storage-account-connection
+    template:
+      engineVersion: v2
+      data:
+        azurestorageaccountname: "{{ `{{ .storageaccountname }}` }}"
+        azurestorageaccountkey: "{{ `{{ .storageaccountkey }}` }}"
+  data:
+  - secretKey: storageaccountname
+    remoteRef:
+      key: storage-account-name
+  - secretKey: storageaccountkey
+    remoteRef:
+      key: storage-account-key
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\external-secrets\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl create ns external-secrets
+kubectl kustomize --enable-helm | kubectl apply -f -
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ingress-nginx\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+kubectl create ns ingress-nginx
+kubectl kustomize --enable-helm | kubectl apply -f -
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\dns.tf
+
+````terraform
+resource "azurerm_dns_zone" "main" {
+  resource_group_name = azurerm_resource_group.main.name
+  name                = "teamdman.ca"
+}
+
+# resource "azurerm_dns_a_record" "root" {
+#   resource_group_name = azurerm_resource_group.main.name
+#   zone_name           = azurerm_dns_zone.main.name
+#   name                = "@"
+#   ttl                 = 30
+#   target_resource_id  = azurerm_cdn_endpoint.root.id
+# }
+
+## this doesn't work because of https, need a gateway or cdn endpoint
+# locals {
+#   host_name = regex("^https://(.*)/$", azurerm_storage_account.main.primary_web_endpoint)[0]
+# }
+# resource "azurerm_dns_cname_record" "root" {
+#   resource_group_name = azurerm_resource_group.main.name
+#   zone_name           = azurerm_dns_zone.main.name
+#   name                = "@"
+#   ttl                 = 30
+#   # record              = azurerm_storage_account.main.primary_web_endpoint
+#   record              = local.host_name
+# }
+
+resource "azurerm_dns_cname_record" "awverify" {
+  resource_group_name = azurerm_resource_group.main.name
+  zone_name           = azurerm_dns_zone.main.name
+  name                = "awverify"
+  ttl                 = 30
+  record              = "awverify.teamdman.ca.azurewebsites.net"
+}
+resource "azurerm_dns_cname_record" "awverifywww" {
+  resource_group_name = azurerm_resource_group.main.name
+  zone_name           = azurerm_dns_zone.main.name
+  name                = "awverify.www"
+  ttl                 = 30
+  record              = "awverify.teamdman.ca.azurewebsites.net"
+}
+
+# resource "azurerm_dns_cname_record" "cdnverify" {
+#   resource_group_name = azurerm_resource_group.main.name
+#   zone_name           = azurerm_dns_zone.main.name
+#   name                = "cdnverify"
+#   ttl                 = 3600
+#   record              = "cdnverify.ca-teamdman.azureedge.net"
+# }
+
+resource "azurerm_dns_cname_record" "wwww" {
+  resource_group_name = azurerm_resource_group.main.name
+  zone_name           = azurerm_dns_zone.main.name
+  name                = "wwww"
+  ttl                 = 30
+  record              = "teamdman.ca.azurewebsites.net"
+}
+
+resource "azurerm_role_assignment" "dns" {
+  principal_id         = azurerm_kubernetes_cluster.main.kubelet_identity[0].object_id
+  scope                = azurerm_dns_zone.main.id
+  role_definition_name = "DNS Zone Contributor"
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\gifts\identities.tf
+
+````terraform
+resource "azurerm_user_assigned_identity" "gifts" {
+  resource_group_name = azurerm_resource_group.main.name
+  name                = "gifts"
+  location            = "canadacentral"
+}
+
+resource "azurerm_federated_identity_credential" "gifts" {
+  resource_group_name = azurerm_resource_group.main.name
+  parent_id           = azurerm_user_assigned_identity.gifts.id
+  name                = "gifts"
+  issuer              = azurerm_kubernetes_cluster.main.oidc_issuer_url
+  subject             = "system:serviceaccount:teamdman-gifts:gifts-sa"
+  audience            = ["api://AzureADTokenExchange"]
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-blob-csi-driver.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: blob-csi-driver
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/blob-csi-driver
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\uninstall.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+# something keeps adding the finalizers back and I don't know why
+# for now we can just hard remove them before nuking the resources
+kubectl patch app argocd -n argocd -p '{"metadata":{"finalizers":null}}' --type=merge
+kubectl patch app app-of-apps -n argocd -p '{"metadata":{"finalizers":null}}' --type=merge
+kubectl patch app blob-csi-driver -n argocd -p '{"metadata":{"finalizers":null}}' --type=merge
+kubectl patch app cert-manager -n argocd -p '{"metadata":{"finalizers":null}}' --type=merge
+kubectl patch app external-secrets -n argocd -p '{"metadata":{"finalizers":null}}' --type=merge
+kubectl patch app ingress-nginx -n argocd -p '{"metadata":{"finalizers":null}}' --type=merge
+kubectl patch appproject core -n argocd -p '{"metadata":{"finalizers":null}}' --type=merge
+
+kubectl delete -k .
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\argocd\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+
+resources:
+- base/certificate.yaml
+- base/ingress.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml
+
+patchesStrategicMerge:
+- overlays/argocd-cm.yaml
+# patchesStrategicMerge:
+# - overlays/production/argo-cd-cm.yaml
+# - overlays/production/argocd-server-service.yaml
+# - overlays/production/argocd-repo-server-deploy.yaml
+
+
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-raddest-gifts\base\deployment-frontend.yaml
+
+````yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gifts-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: gifts-frontend
+  template:
+    metadata:
+      labels: 
+        app: gifts-frontend
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      # serviceAccountName: gifts-sa # not needed for the frontend
+      containers:
+        - name: gifts-frontend
+          image: teamdman.azurecr.io/gifts-frontend:latest
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+            - containerPort: 3000
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\src\modules\cluster\security_groups.tf
+
+````terraform
+variable "azure_ad_admins_group_name" {
+  type = string
+}
+variable "azure_ad_admins_group_member_object_ids" {
+    type = set(string)
+}
+resource "azuread_group" "admins" {
+    display_name = var.azure_ad_admins_group_name
+    members = var.azure_ad_admins_group_member_object_ids
+    security_enabled = true
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ingress-nginx\uninstall.ps1
+
+````powershell
+kubectl kustomize --enable-helm | kubectl delete -f -
+kubectl delete ns ingress-nginx
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-external-secrets.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-secrets
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/external-secrets
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-secrets
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\blob-csi-driver\uninstall.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl kustomize --enable-helm | kubectl delete -f -
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cluster-secretstores\base\cluster-secret-store.yaml
+
+````yaml
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: ca-teamdman
+spec:
+  provider:
+    azurekv:
+      authType: ManagedIdentity
+      identityId: "860af6b9-4135-4814-bf81-16f3e8ebcbdd"
+      tenantId: "2e831e5f-9c6e-41a7-b295-50499684ba63"
+      vaultUrl: "https://ca-teamdman.vault.azure.net/"
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-raddest-gifts\base\pod.yaml
+
+````yaml
+# https://github.com/Azure/azure-workload-identity/blob/main/examples/msal-net/akvdotnet/Program.cs
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quick-start
+spec:
+  serviceAccountName: gifts-sa
+  containers:
+    - image: ghcr.io/azure/azure-workload-identity/msal-go
+      name: oidc
+      env:
+      - name: KEYVAULT_URL
+        value: https://ca-teamdman-gifts.vault.azure.net/
+      - name: SECRET_NAME
+        value: StorageTableName
+      # - name: AZURE_CLIENT_ID
+      #   value: edbcd52a-f602-43be-951c-16d6cf7c7146
+  nodeSelector:
+    kubernetes.io/os: linux
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\email-forwarder\deploy.yaml
+
+````yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-forwarder
+  labels:
+    app: email-forwarder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: email-forwarder
+  template:
+    metadata:
+      labels:
+        app: email-forwarder
+    spec:
+      containers:
+      - name: email-forwarder
+        image: zixia/simple-mail-forwarder:1.4
+        ports:
+        - containerPort: 25
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mail-forwarder
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: test
+            port:
+              number: 25
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\aks\get-env.ps1
+
+````powershell
+# $pat = op read "op://Private/Github terraform access token/password"
+$pat = gh auth token
+Set-Content ".env" "github_token=$pat"
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\teamdman\app-teamdman-www.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: teamdman-www
+  namespace: argocd
+spec:
+  project: teamdman
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/ca-teamdman-www
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: teamdman
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cluster-issuers\base\clusterissuer-letsencrypt-staging.yaml
+
+````yaml
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    email: TeamDman9201@gmail.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      # Secret resource that will be used to store the account's private key.
+      name: cert-manager-issuer-account-key-staging
+    solvers:
+    - dns01:
+        azureDNS:
+          subscriptionID: 134ae9a1-7bc2-41f7-a2c7-a1e55f54ed04
+          resourceGroupName: ca.teamdman
+          hostedZoneName: teamdman.ca
+          environment: AzurePublicCloud
+          managedIdentity:
+            clientID: 860af6b9-4135-4814-bf81-16f3e8ebcbdd
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\src\module_impls.tf
+
+````terraform
+data "azurerm_client_config" "main" {}
+
+module "benthic_cluster" {
+  source                                  = "./modules/cluster"
+  resource_group_name                     = "CACN-Cluster-Benthic-PROD-RG"
+  resource_group_location                 = "canadacentral"
+  tag_environment                         = "Production"
+  cluster_name                            = "Benthic-PROD-AKS"
+  cluster_dns_prefix                      = "benthic-prod"
+  azure_ad_admins_group_name              = "Benthic-PROD-Admins"
+  azure_ad_admins_group_member_object_ids = [data.azurerm_client_config.main.object_id]
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-raddest-gifts\base\service-backend.yaml
+
+````yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: gifts-backend
+spec:
+  ports:
+    - port: 80
+  selector: 
+    app: gifts-backend
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\gifts\keyvault.tf
+
+````terraform
+resource "azurerm_key_vault" "main" {
+  resource_group_name = azurerm_resource_group.main.name
+  location            = "canadaeast"
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  sku_name            = "standard"
+  name                = "ca-teamdman"
+}
+
+resource "azurerm_key_vault_secret" "main" {
+  for_each = {
+    "storage-account-name" = azurerm_storage_account.main.name
+    "storage-account-key"  = azurerm_storage_account.main.primary_access_key
+  }
+  key_vault_id = azurerm_key_vault.main.id
+  name         = each.key
+  value        = each.value
+  depends_on = [
+    azurerm_key_vault_access_policy.me
+  ]
+}
+
+resource "azurerm_key_vault_access_policy" "external-secrets-operator" {
+  key_vault_id       = azurerm_key_vault.main.id
+  secret_permissions = ["Get", "List"]
+  tenant_id          = azurerm_key_vault.main.tenant_id
+  object_id          = azurerm_kubernetes_cluster.main.kubelet_identity[0].object_id
+}
+
+###
+
+resource "azurerm_key_vault" "gifts" {
+  resource_group_name = azurerm_resource_group.main.name
+  location            = "canadaeast"
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  sku_name            = "standard"
+  name                = "ca-teamdman-gifts"
+}
+
+resource "random_password" "jwt_key" {
+  length  = 256
+  special = true
+}
+resource "azurerm_key_vault_secret" "gifts" {
+  for_each = {
+    "StorageConnectionString" = azurerm_storage_account.main.primary_connection_string
+    "JwtKey"                  = random_password.jwt_key.result
+    "JwtIssuer"               = "https://gifts.teamdman.ca/"
+    "JwtAudience"             = "https://gifts.teamdman.ca/"
+    # "storage-account-name" = azurerm_storage_account.main.name
+    # "storage-account-key"  = azurerm_storage_account.main.primary_access_key
+    # "storage-account-table" = azurerm_storage_table.gifts.name
+  }
+  key_vault_id = azurerm_key_vault.gifts.id
+  name         = each.key
+  value        = each.value
+  depends_on = [
+    azurerm_key_vault_access_policy.me
+  ]
+}
+
+
+# resource "azurerm_key_vault_access_policy" "gifts" {
+#   key_vault_id       = azurerm_key_vault.gifts.id
+#   tenant_id          = azurerm_key_vault.gifts.tenant_id
+#   object_id = azurerm_user_assigned_identity.gifts.principal_id
+#   secret_permissions = ["Get", "List"]
+# }
+
+###
+
+# this does not scale to team projects
+resource "azurerm_key_vault_access_policy" "me" {
+  for_each = {
+    "main"  = azurerm_key_vault.main.id
+    "gifts" = azurerm_key_vault.gifts.id
+  }
+  key_vault_id = each.value
+  secret_permissions = [
+    "Backup", "Delete", "Get", "List", "Purge", "Recover", "Restore", "Set"
+  ]
+  certificate_permissions = [
+    "Backup", "Create", "Delete", "DeleteIssuers", "Get", "GetIssuers", "Import", "List", "ListIssuers", "ManageContacts", "ManageIssuers", "Purge", "Recover", "Restore", "SetIssuers", "Update"
+  ]
+  key_permissions = [
+    "Backup", "Create", "Decrypt", "Delete", "Encrypt", "Get", "Import", "List", "Purge", "Recover", "Restore", "Sign", "UnwrapKey", "Update", "Verify", "WrapKey"
+  ]
+  tenant_id = azurerm_key_vault.main.tenant_id
+  object_id = data.azurerm_client_config.current.object_id
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\core\app-argocd.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  project: core
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/teamdman-ca/infrastructure-as-code.git
+    targetRevision: HEAD
+    path: kubernetes/argocd
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
+  # Sync policy
+  syncPolicy:
+    # automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+    #   prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+    #   selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    #   allowEmpty: true # Allows deleting all application resources during automatic syncing ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+    - Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+    # The retry feature is available since v1.7
+    retry:
+      limit: 0 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+
+  # # Will ignore differences between live and desired states during the diff. Note that these configurations are not
+  # # used during the sync process.
+  # ignoreDifferences:
+  # # for the specified json pointers
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # # for the specified managedFields managers
+  # - group: "*"
+  #   kind: "*"
+  #   managedFieldsManagers:
+  #   - kube-controller-manager
+
+  # RevisionHistoryLimit limits the number of items kept in the application's revision history, which is used for
+  # informational purposes as well as for rollbacks to previous versions. This should only be changed in exceptional
+  # circumstances. Setting to zero will store no history. This will reduce storage used. Increasing will increase the
+  # space used to store the history, so we do not recommend increasing it.
+  revisionHistoryLimit: 10
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\blob-csi-driver\kustomization.yaml
+
+````yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+helmCharts:
+- name: blob-csi-driver
+  repo: https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/master/charts
+  version: v1.18.0
+  namespace: kube-system
+  releaseName: blob-csi-driver
+  valuesInline:
+    controller:
+      replicas: 1
+    node.enableBlobfuseProxy: true
+    cloud: AzureStackCloud
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-raddest-gifts\base\service-account.yaml
+
+````yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gifts-sa
+  annotations:
+    azure.workload.identity/client-id: edbcd52a-f602-43be-951c-16d6cf7c7146
+  labels:
+    azure.workload.identity/use: "true"
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\src\modules\cluster\resource_group.tf
+
+````terraform
+variable "resource_group_name" {
+  type = string
+}
+variable "resource_group_location" {
+  type = string
+}
+variable "tag_environment" {
+  type = string
+}
+resource "azurerm_resource_group" "main" {
+  name     = var.resource_group_name
+  location = var.resource_group_location
+  tags = {
+    environment = var.tag_environment
+  }
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\ca-teamdman-www\get-cert-status.ps1
+
+````powershell
+Write-Host "Certificates" -ForegroundColor Cyan
+kubectl get certificate -n azurewebsiets -o wide
+
+Write-Host "`nCertificate Requests" -ForegroundColor Cyan
+kubectl get certificaterequest -n azurewebsiets -o wide
+
+Write-Host "`nOrders" -ForegroundColor Cyan
+kubectl get order -n azurewebsiets -o wide
+
+Write-Host "`nChallenges" -ForegroundColor Cyan
+kubectl get challenge -n azurewebsiets -o wide
+
+$decision = $Host.UI.PromptForChoice("Describe resources","Describe a resource?", @("&Cert","&Request", "&Order", "Cha&llenge"), 0)
+if ($decision -eq 0)
+{
+    $name = kubectl get certificate -n azurewebsiets -o name
+    kubectl describe -n azurewebsiets $name
+}
+elseif ($decision -eq 1)
+{
+    $name = kubectl get certificaterequest -n azurewebsiets -o name
+    kubectl describe -n azurewebsiets $name
+}
+elseif ($decision -eq 2)
+{
+    $name = kubectl get order -n azurewebsiets -o name
+    kubectl describe -n azurewebsiets $name
+}
+elseif ($decision -eq 3)
+{
+    $name = kubectl get challenge -n azurewebsiets -o name
+    kubectl describe -n azurewebsiets $name
+}
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cert-manager\list.ps1
+
+````powershell
+kubectl get Issuers,ClusterIssuers,Certificates,CertificateRequests,Orders,Challenges --all-namespaces
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\cluster-issuers\uninstall.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl kustomize --enable-helm | kubectl delete -f -
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\namecheap\main.tf
+
+````terraform
+provider "namecheap" {
+  user_name   = "TeamDman"
+  api_user    = "user"
+  api_key     = "key"
+  client_ip   = "123.123.123.123"
+  use_sandbox = true
+}
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\app-of-apps\base\azurewebsiets\project-azurewebsiets.yaml
+
+````yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: azurewebsiets
+spec:
+  description: Core resources to the cluster
+
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+  - '*'
+
+  destinations:
+  - namespace: azurewebsiets
+    server: https://kubernetes.default.svc
+  - namespace: external-dns-azurewebsiets
+    server: https://kubernetes.default.svc
+
+  # Deny all cluster-scoped resources from being created, except for Namespace
+  clusterResourceWhitelist:
+  - group: ''
+    kind: Namespace
+
+  # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
+  namespaceResourceBlacklist:
+  - group: ''
+    kind: ResourceQuota
+  - group: ''
+    kind: LimitRange
+  - group: ''
+    kind: NetworkPolicy
+
+  # # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
+  # namespaceResourceWhitelist:
+  # - group: 'apps'
+  #   kind: Deployment
+  # - group: 'apps'
+  #   kind: StatefulSet
+
+  # Enables namespace orphaned resource monitoring.
+  orphanedResources:
+    warn: false
+
+````
+
+
+
+## D:\Repos\Azure\ca.teamdman.iac\old\old\kubernetes\blob-csi-driver\install.ps1
+
+````powershell
+#!/usr/bin/pwsh
+
+kubectl kustomize --enable-helm | kubectl apply -f -
+# helm install blob-csi-driver blob-csi-driver/blob-csi-driver --set node.enableBlobfuseProxy=true --namespace kube-system --set cloud=AzureStackCloud
+````
+
+
+
+This is the current state my of azurewebsiets repository.
+Since the "old" version, I have deleted everything in my test tenant to start over.
+In the init folder, we create the storage account to hold state files.
+In src, we use that storage account as the backend bucket for the state file, and we deploy the cluster.
+The old version was primed to be used with ArgoCD, but instead we are using Terraform to manage all aspects of the cluster.
+The current goal is to get nginx running and accessible from a public IP.
+To do this, we have
+- azurerm_kubernetes_cluster which uses an azuread_security_group to hold the list of admins, which is populated with azurerm_client_config to get the identity of the user running the script.
+- azurerm_dnz_zone to hold the DNS entries for our site, which is an intentional typo of "azurewebsites.net".
+- A commented out role assignment for the cluter to do DNS
+
+Instead of using techniques like mounting a storage account using blob-csi-driver, and instead of creating dns entries using external-dns, I am interested in a scenario where it is all controlled with terraform.
+That is, instead of writing yaml to link everything together, we want to use the strong typing that terraform has.
+
+We will need a namespace for the nginx hello world pod to run.
+This namespace needs to be created after the creation of the cluster.
+Propose a new module that will accept the necessary parameters as variables, such as cluster name and connection strings, and will create the namespace.
+We will need to modify the cluster module to add outputs for relevant information.
+
+Propose an overall plan, then 
+give step by step instructions for what modifications need to be made where to successfully perform the state transition to the end of the plan.
+

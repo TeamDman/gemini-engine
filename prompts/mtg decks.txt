@@ -1,0 +1,9610 @@
+
+# Summary
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Wulfgar.txt
+
+````txt
+1 Aggravated Assault
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Beast Within
+1 Beastmaster Ascension
+1 Blade of Selves
+1 Blasphemous Act
+1 Blossoming Bogbeast
+1 Captain Lannery Storm
+1 Castle Garenbrig
+1 Chaos Warp
+1 Cinder Glade
+1 Command Tower
+1 Concordant Crossroads
+1 Cursed Mirror
+1 Defense of the Heart
+1 Den of the Bugbear
+1 Drakuseth, Maw of Flames
+1 Druids' Repository
+1 Elder Gargaroth
+1 Elvish Mystic
+1 Etali, Primal Storm
+1 Fabled Passage
+1 Finale of Devastation
+1 Fire-Lit Thicket
+1 Fires of Yavimaya
+1 Force of Vigor
+9 Forest
+1 Garruk's Uprising
+1 Goblin Anarchomancer
+1 Goreclaw, Terror of Qal Sisma
+1 Grand Warlord Radha
+1 Gruul Turf
+1 Hans Eriksson
+1 Hanweir Battlements
+1 Hanweir Garrison
+1 Hellrider
+1 Heroic Intervention
+1 Hull Breach
+1 Ilharg, the Raze-Boar
+1 Inferno Titan
+1 Jeska's Will
+1 Kalonian Hydra
+1 Kessig Wolf Run
+1 Khalni Ambush // Khalni Territory
+1 Klauth's Will
+1 Klauth, Unrivaled Ancient
+1 Kogla, the Titan Ape
+1 Krenko, Tin Street Kingpin
+1 Lightning Greaves
+1 Mana Geyser
+1 Mass Hysteria
+1 Moraug, Fury of Akoum
+11 Mountain
+1 Nature's Lore
+1 Pathbreaker Ibex
+1 Raging Ravine
+1 Rampant Growth
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Rhythm of the Wild
+1 Rishkar's Expertise
+1 Rootbound Crag
+1 Savage Beating
+1 Savage Ventmaw
+1 Scourge of the Throne
+1 Skarrg, the Rage Pits
+1 Sneak Attack
+1 Sol Ring
+1 Spire Garden
+1 Stomping Ground
+1 Swiftfoot Boots
+1 Sword of the Animist
+1 Tectonic Giant
+1 The Great Henge
+1 Three Visits
+1 Toski, Bearer of Secrets
+1 Ulamog, the Infinite Gyre
+1 Unnatural Growth
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Wooded Foothills
+1 Wrap in Vigor
+1 Wulfgar of Icewind Dale
+1 Yavimaya, Cradle of Growth
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Toxic.txt
+
+````txt
+1 Ashnod's Altar
+1 Black Market
+1 Blade of the Bloodchief
+1 Blood Artist
+1 Bloodchief Ascension
+1 Bojuka Bog
+1 Bubbling Muck
+1 Cabal Coffers
+1 Caged Sun
+1 Crypt Ghast
+1 Cut of the Profits
+1 Dark Ritual
+1 Demonic Tutor
+1 Dictate of Erebos
+1 Erebos, Bleak-Hearted
+1 Erebos, God of the Dead
+1 Expedition Map
+1 Exsanguinate
+1 Feed the Swarm
+1 Jet Medallion
+1 K'rrik, Son of Yawgmoth
+1 Kaya's Ghostform
+1 Lightning Greaves
+1 Murderous Rider // Swift End
+1 Painful Quandary
+1 Phyrexian Altar
+1 Shadows of the Past
+1 Stinging Study
+1 Strip Mine
+30 Swamp
+1 Swiftfoot Boots
+1 Syr Konrad, the Grim
+1 Toxrill, the Corrosive
+1 Urborg, Tomb of Yawgmoth
+1 Wasteland
+1 Whip of Erebos
+1 Witch's Clinic
+1 Yawgmoth, Thran Physician
+1 Zulaport Cutthroat
+
+Maybeboard
+1 Commander's Plate
+1 Mana Vault
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Iron Woman.txt
+
+````txt
+1 Abrade
+1 Ancient Tomb
+1 Arcane Signet
+1 Azor's Gateway // Sanctum of the Sun
+1 Basalt Monolith
+1 Blasphemous Act
+1 Blood Moon
+1 Buried Ruin
+1 Burning Inquiry
+1 Cathartic Pyre
+1 Cathartic Reunion
+1 Chaos Warp
+1 Codex Shredder
+1 Command Beacon
+1 Command Tower
+1 Containment Construct
+1 Cursed Mirror
+1 Daretti, Scrap Savant
+1 Darksteel Citadel
+1 Deflecting Swat
+1 Dockside Extortionist
+1 Doubling Cube
+1 Faithless Looting
+1 Feldon of the Third Path
+1 Fellwar Stone
+1 Gamble
+1 Gilded Lotus
+1 Goblin Engineer
+1 Goblin Welder
+1 Great Furnace
+1 Grim Monolith
+1 Ichor Wellspring
+1 Inventors' Fair
+1 Jeska's Will
+1 Jeweled Lotus
+1 Junk Diver
+1 Karn's Bastion
+1 Krark-Clan Ironworks
+1 Lightning Bolt
+1 Liquimetal Torque
+1 Lithoform Engine
+1 Lodestone Golem
+1 Loyal Apprentice
+1 Magus of the Moon
+1 Mana Crypt
+1 Mana Geyser
+1 Mana Vault
+1 Manifold Key
+1 Merchant of the Vale // Haggle
+1 Metalworker
+1 Mind Stone
+1 Mindslaver
+1 Moonsilver Key
+20 Mountain
+1 Mycosynth Wellspring
+1 Myr Retriever
+1 Nykthos, Shrine to Nyx
+1 Prototype Portal
+1 Pyroblast
+1 Quicksmith Genius
+1 Red Elemental Blast
+1 Rings of Brighthearth
+1 Sanctum of Ugin
+1 Scavenger Grounds
+1 Scrap Mastery
+1 Scrap Trawler
+1 Sculpting Steel
+1 Semblance Anvil
+1 Shimmer Myr
+1 Slobad, Goblin Tinkerer
+1 Sol Ring
+1 Solemn Simulacrum
+1 Staff of Domination
+1 Steel Hellkite
+1 Strionic Resonator
+1 Strip Mine
+1 Thought Vessel
+1 Thran Dynamo
+1 Thrill of Possibility
+1 Tibalt's Trickery
+1 Trash for Treasure
+1 Treasure Nabber
+1 Triplicate Titan
+1 Ugin's Nexus
+1 Urza's Saga
+1 Voltaic Key
+1 Walking Ballista
+1 War Room
+1 Wasteland
+1 Wayfarer's Bauble
+1 Wurmcoil Engine
+1 You Find Some Prisoners
+
+Maybeboard
+1 All Is Dust
+1 Argentum Armor
+1 Audacious Reshapers
+1 Automated Artificer
+1 Bosh, Iron Golem
+1 Burnished Hart
+1 Caged Sun
+1 Cathodion
+1 Change of Fortune
+1 Chromatic Orrery
+1 Clock of Omens
+1 Cloud Key
+1 Coveted Jewel
+1 Darksteel Forge
+1 Dross Scorpion
+1 Duplicant
+1 Filigree Familiar
+1 Forsaken Monument
+1 Foundry Inspector
+1 Galvanic Key
+1 Goblin Cannon
+1 Goldspan Dragon
+1 Hellkite Tyrant
+1 Helvault
+1 Inspiring Statuary
+1 Isochron Scepter
+1 Jhoira's Familiar
+1 Kuldotha Forgemaster
+1 Kurkesh, Onakke Ancient
+1 Lightning Greaves
+1 Lotus Petal
+1 Meteor Golem
+1 Mimic Vat
+1 Mirage Mirror
+1 Mirrorworks
+1 Mycosynth Golem
+1 Mycosynth Lattice
+1 Mystic Forge
+1 Network Terminal
+1 Nevinyrral's Disk
+1 Nyx Lotus
+1 Oblivion Stone
+1 Pia and Kiran Nalaar
+1 Planar Bridge
+1 Predator, Flagship
+1 Purphoros, Bronze-Blooded
+1 Quicksmith Rebel
+1 Ring of Three Wishes
+1 Ruby Medallion
+1 Saheeli's Directive
+1 Scarecrone
+1 Scrap Welder
+1 Sleeper Dart
+1 Spine of Ish Sah
+1 Staff of Nin
+1 Steel Overseer
+1 Su-Chi
+1 Swiftfoot Boots
+1 Sword of the Animist
+1 That Which Was Taken
+1 The Celestus
+1 The Deck of Many Things
+1 The Immortal Sun
+1 Thran Temporal Gateway
+1 Tome of Legends
+1 Tyrant's Familiar
+1 Ugin, the Ineffable
+1 Ugin, the Spirit Dragon
+1 Unwinding Clock
+1 Valakut, the Molten Pinnacle
+1 Vedalken Orrery
+1 Visions of Ruin
+1 Voltaic Servant
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Prosper.txt
+
+````txt
+1 Academy Manufactor
+1 Arcane Signet
+1 Atsushi, the Blazing Sky
+1 Bedevil
+1 Big Score
+1 Birgi, God of Storytelling // Harnfel, Horn of Bounty
+1 Black Market Connections
+1 Blasphemous Act
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Bolas's Citadel
+1 Brainstealer Dragon
+1 Brass's Bounty
+1 Castle Locthwain
+1 Chandra, Torch of Defiance
+1 Chaos Warp
+1 Command Tower
+1 Commune with Lava
+1 Cursed Mirror
+1 Dauthi Voidwalker
+1 Deflecting Swat
+1 Delayed Blast Fireball
+1 Dire Fleet Daredevil
+1 Disciple of the Vault
+1 Dockside Extortionist
+1 Dragonskull Summit
+1 Dream Devourer
+1 Etali, Primal Storm
+1 Fellwar Stone
+1 Goldspan Dragon
+1 Gonti, Lord of Luxury
+1 Graven Cairns
+1 Ignite the Future
+1 Inspiring Statuary
+1 Jeska's Will
+1 Laelia, the Blade Reforged
+1 Light Up the Stage
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Luxury Suite
+1 Malakir Rebirth // Malakir Mire
+1 March of Reckless Joy
+1 Marionette Master
+1 Mayhem Devil
+10 Mountain
+1 Murderous Rider // Swift End
+1 Myriad Landscape
+1 Night's Whisper
+1 Opposition Agent
+1 Outpost Siege
+1 Praetor's Grasp
+1 Professional Face-Breaker
+1 Prosper, Tome-Bound
+1 Rain of Riches
+1 Rakdos Carnarium
+1 Rakdos Signet
+1 Reckless Fireweaver
+1 Reckless Impulse
+1 Revel in Riches
+1 Shadowblood Ridge
+1 Smoldering Marsh
+1 Sol Ring
+1 Stolen Strategy
+1 Sulfurous Springs
+9 Swamp
+1 Tainted Peak
+1 Talisman of Indulgence
+1 Torment of Hailfire
+1 Toxic Deluge
+1 Treasure Vault
+1 Uba Mask
+1 Urabrask, Heretic Praetor
+1 Urborg, Tomb of Yawgmoth
+1 Valakut Awakening // Valakut Stoneforge
+1 Valakut Exploration
+1 Valki, God of Lies // Tibalt, Cosmic Impostor
+1 Vandalblast
+1 Wasteland
+1 Wayfarer's Bauble
+1 Wild-Magic Sorcerer
+1 Xorn
+1 You Find Some Prisoners
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\in n out.txt
+
+````txt
+1 Abdel Adrian, Gorion's Ward
+1 Adeline, Resplendent Cathar
+1 Ambitious Farmhand // Seasoned Cathar
+1 Ancient Tomb
+1 Angelic Gift
+1 Arcane Signet
+1 Archaeomancer's Map
+1 Arcum's Astrolabe
+1 Bastion Protector
+1 Cataclysm
+1 Cathars' Crusade
+1 Cavalier of Dawn
+1 Charming Prince
+1 Chosen by Heliod
+1 Conclave Phalanx
+1 Conclave Tribunal
+1 Curse of Silence
+1 Dawnbringer Cleric
+1 Drannith Magistrate
+1 Elesh Norn, Grand Cenobite
+1 Esper Sentinel
+1 Exclusion Ritual
+1 Far Traveler
+1 Farewell
+1 Felidar Guardian
+1 Flaming Fist
+1 Flawless Maneuver
+1 Generous Gift
+1 Gilded Pinions
+1 Guardian of Faith
+1 Hall of Heliod's Generosity
+1 Heliod's Intervention
+1 High-Speed Hoverbike
+1 Highcliff Felidar
+1 Ichor Wellspring
+1 Journey to Nowhere
+1 Land Tax
+1 Lumbering Battlement
+1 Meteor Golem
+1 Mycosynth Wellspring
+1 Oblivion Ring
+1 Pearl Medallion
+1 Portcullis
+1 Priest of Ancient Lore
+1 Prized Statue
+1 Rabble Rousing
+1 Rambunctious Mutt
+1 Reliquary Tower
+1 Restoration Angel
+1 Rune of Sustenance
+1 Scavenger Grounds
+1 Settle the Wreckage
+1 Skullclamp
+1 Slash the Ranks
+1 Smothering Tithe
+1 Smuggler's Copter
+1 Smuggler's Share
+29 Snow-Covered Plains
+1 Sol Ring
+1 Solemn Simulacrum
+1 Solitude
+1 Spirited Companion
+1 Springleaf Drum
+1 Stonehorn Dignitary
+1 Sun Titan
+1 Swiftfoot Boots
+1 Swords to Plowshares
+1 Teferi's Protection
+1 Thought Vessel
+1 Timely Ward
+1 Tome of Legends
+1 Unlicensed Hearse
+1 Unquestioned Authority
+1 Wall of Omens
+1 War Room
+1 Windbrisk Heights
+
+Maybeboard
+1 Akroma's Will
+1 Conjurer's Closet
+1 Due Respect
+1 Emeria Angel
+1 Felidar Retreat
+1 Flickerwisp
+1 Glimmerpoint Stag
+1 Glorious Anthem
+1 Hallowed Moonlight
+1 Honor of the Pure
+1 Inspiring Leader
+1 Intangible Virtue
+1 Keeper of the Accord
+1 Keleth, Sunmane Familiar
+1 Lunarch Veteran // Luminous Phantom
+1 Mind Stone
+1 Noble Heritage
+1 Paladin Class
+1 Potion of Healing
+1 Prophetic Prism
+1 Rally the Ranks
+1 Retreat to Emeria
+1 Shameless Charlatan
+1 Shared Triumph
+1 Sleeper Dart
+1 Smuggler's Buggy
+1 Soul Warden
+1 Spear of Heliod
+1 Stonebinder's Familiar
+1 Suture Priest
+1 Swift Reconfiguration
+1 Teleportation Circle
+1 Veteran Soldier
+1 Welcoming Vampire
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom cube\thopterWUG.txt
+
+````txt
+Deck
+1 The Mycosynth Gardens (ONE) 256
+1 Gemstone Mine (TSB) 119
+1 Swamp (ODY) 342
+1 Plains (ODY) 331
+1 Mountain (ODY) 344
+1 Elixir of Immortality (M14) 209
+1 Goblin Welder (ULG) 80
+1 Hope of Ghirapur (AER) 154
+1 Hushbringer (ELD) 18
+1 Goblin Engineer (MH1) 128
+1 Aegis of the Gods (JOU) 1
+1 Containment Priest (TSR) 292
+1 Animate Dead (EMA) 78
+1 Lurrus of the Dream-Den (IKO) 355
+1 Sevinne's Reclamation (C19) 5
+
+Sideboard
+1 Elvish Spirit Guide (ALL) 89
+1 Foil (PCY) 34
+1 Force of Will (ALL) 28
+1 Force of Despair (MH1) 92
+1 Force of Negation (H1R) 9
+1 Feldon's Cane (TSB) 109
+1 Steel Sabotage (MBS) 33
+1 Veil of Summer (M20) 198
+1 Seal of Removal (NEM) 42
+1 Remorseful Cleric (M19) 33
+1 Ancient Grudge (TSP) 143
+1 Dauthi Voidwalker (MH2) 397
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Mizzix.txt
+
+````txt
+1 Aetherflux Reservoir
+1 All Is Dust
+1 Ancient Tomb
+1 Arcane Denial
+1 Arcane Signet
+1 Arid Mesa
+1 Blasphemous Act
+1 Bloodstained Mire
+1 Bonus Round
+1 Capsize
+1 Cascade Bluffs
+1 Comet Storm
+1 Command Tower
+1 Counterflux
+1 Counterlash
+1 Curse of the Swine
+1 Cyclonic Rift
+1 Dig Through Time
+1 Dire Fleet Daredevil
+1 Disallow
+1 Discontinuity
+1 Dockside Extortionist
+1 Electrodominance
+1 Epic Experiment
+1 Expansion // Explosion
+1 Expropriate
+1 Fact or Fiction
+1 Faithless Looting
+1 Fierce Guardianship
+1 Fiery Islet
+1 Finale of Promise
+1 Finale of Revelation
+1 Flooded Strand
+1 Force of Will
+1 Frantic Search
+1 Goblin Electromancer
+1 High Tide
+10 Island
+1 Izzet Signet
+1 Jeska's Will
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Mana Geyser
+1 Mind Stone
+1 Misty Rainforest
+1 Mizzix of the Izmagnus
+1 Mizzix's Mastery
+1 Mnemonic Deluge
+9 Mountain
+1 Mystic Confluence
+1 Nivix, Aerie of the Firemind
+1 Past in Flames
+1 Polluted Delta
+1 Prismatic Vista
+1 Recurring Insight
+1 Reiterate
+1 Reliquary Tower
+1 Rhystic Study
+1 Riptide Laboratory
+1 Ruby Medallion
+1 Saheeli's Artistry
+1 Sapphire Medallion
+1 Scalding Tarn
+1 Sea Gate Restoration // Sea Gate, Reborn
+1 Shivan Reef
+1 Sol Ring
+1 Spelljack
+1 Spellshift
+1 Spelltwine
+1 Steam Vents
+1 Storm King's Thunder
+1 Sublime Epiphany
+1 Sulfur Falls
+1 Swiftfoot Boots
+1 Talent of the Telepath
+1 Talisman of Creativity
+1 Thassa's Oracle
+1 Thought Vessel
+1 Thousand-Year Storm
+1 Torrential Gearhulk
+1 Treasure Cruise
+1 Turnabout
+1 Underworld Breach
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Wayfarer's Bauble
+1 Windfall
+1 Wooded Foothills
+
+Maybeboard
+1 Aetherize
+1 Alhammarret's Archive
+1 Baral, Chief of Compliance
+1 Burnished Hart
+1 Clever Impersonator
+1 Confounding Conundrum
+1 Consecrated Sphinx
+1 Copy Artifact
+1 Curse of Echoes
+1 Dack's Duplicate
+1 Desolate Lighthouse
+1 Diluvian Primordial
+1 Double Vision
+1 Doublecast
+1 Dual Casting
+1 Dualcaster Mage
+1 Efreet Flamepainter
+1 Eternal Dominion
+1 Fire Diamond
+1 Fork
+1 Increasing Vengeance
+1 Izzet Chemister
+1 Jace's Archivist
+1 Jace, the Mind Sculptor
+1 Jhoira of the Ghitu
+1 Laboratory Maniac
+1 Leadership Vacuum
+1 Mind's Dilation
+1 Mirage Mirror
+1 Mitotic Manipulation
+1 Mystic Retrieval
+1 Mystic Speculation
+1 Narset's Reversal
+1 Palinchron
+1 Phyrexian Metamorph
+1 Plea for Power
+1 Portcullis
+1 Primal Amulet // Primal Wellspring
+1 Pyromancer's Goggles
+1 Ral, Storm Conduit
+1 Reverberate
+1 Rhystic Study
+1 Runechanter's Pike
+1 Sky Diamond
+1 Star of Extinction
+1 Tamiyo, the Moon Sage
+1 Teferi's Ageless Insight
+1 Teferi's Time Twist
+1 Thran Dynamo
+1 Thrill of Possibility
+1 Twincast
+1 Unsubstantiate
+1 Valakut Exploration
+1 Veyran, Voice of Duality
+1 Wanderer's Twig
+1 Wheel of Fortune
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Cat.txt
+
+````txt
+1 Abandon Hope
+1 Acrobatic Maneuver
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Altar's Reap
+1 Ancient Tomb
+1 Animate Dead
+1 Anvil of Bogardan
+1 Arid Mesa
+1 Ash Barrens
+1 Ashen Rider
+1 Ashnod's Altar
+1 Aura Shards
+1 Avacyn, Angel of Hope
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bazaar of Baghdad
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Boseiju, Who Endures
+1 Brightclimb Pathway // Grimclimb Pathway
+1 Buried Alive
+1 Canopy Vista
+1 Caustic Caterpillar
+1 Charming Prince
+1 Cloudshift
+1 Command Tower
+1 Command the Dreadhorde
+1 Costly Plunder
+1 Damnation
+1 Dance of the Dead
+1 Dark Deal
+1 Darkbore Pathway // Slitherbore Pathway
+1 Deadly Dispute
+1 Deathcap Glade
+1 Demonic Tutor
+1 Diregraf Rebirth
+1 Doomed Necromancer
+1 Dread Return
+1 Eerie Interlude
+1 Eerie Ultimatum
+1 Egon, God of Death // Throne of Death
+1 Elesh Norn, Grand Cenobite
+1 Elvish Visionary
+1 Entomb
+1 Ephemerate
+1 Fabled Passage
+1 Farhaven Elf
+1 Flicker of Fate
+1 Flickerwisp
+1 Flooded Strand
+4 Forest
+1 Geier Reach Sanitarium
+1 Ghostway
+1 Godless Shrine
+1 Gonti, Lord of Luxury
+1 Gravebreaker Lamia
+1 Hermit Druid
+1 Heroic Intervention
+1 Ill-Gotten Gains
+1 Indatha Triome
+1 Jarad's Orders
+1 Journey to Eternity // Atzal, Cave of Eternity
+1 Karador, Ghost Chieftain
+1 Karmic Guide
+1 Life's Legacy
+1 Living Death
+1 Luminous Broodmoth
+1 Lurrus of the Dream-Den
+1 Malakir Rebirth // Malakir Mire
+1 Massacre Wurm
+1 Meren of Clan Nel Toth
+1 Mesmeric Orb
+1 Nethroi, Apex of Death
+1 Night's Whisper
+1 Old Gnawbone
+1 Old Stickfingers
+1 Overgrown Tomb
+1 Path to Exile
+1 Phyrexian Altar
+1 Phyrexian Tower
+1 Plaguecrafter
+3 Plains
+1 Plumb the Forbidden
+1 Praetor's Grasp
+1 Priest of Fell Rites
+1 Putrid Imp
+1 Ravenous Chupacabra
+1 Reanimate
+1 Reckoner's Bargain
+1 Reclamation Sage
+1 Reveillark
+1 Sakura-Tribe Elder
+1 Scourge of the Skyclaves
+1 Sheoldred, Whispering One
+1 Sign in Blood
+1 Sol Ring
+1 Solemn Simulacrum
+1 Spirited Companion
+1 Springbloom Druid
+1 Stinging Study
+1 Stitcher's Supplier
+1 Sun Titan
+5 Swamp
+1 Swords to Plowshares
+1 Takenuma, Abandoned Mire
+1 Teferi's Protection
+1 Temple Garden
+1 Tireless Tribe
+1 Toxic Deluge
+1 Unburial Rites
+1 Underrealm Lich
+1 Urborg, Tomb of Yawgmoth
+1 Vampiric Tutor
+1 Victimize
+1 Vile Entomber
+1 Village Rites
+1 Viscera Seer
+1 Wall of Blossoms
+1 Wall of Omens
+1 War Room
+1 Windgrace Acolyte
+1 Wood Elves
+1 Woodfall Primus
+1 World Shaper
+1 Worst Fears
+1 Wrath of God
+1 Yavimaya Granger
+1 Yavimaya, Cradle of Growth
+
+Maybeboard
+1 Acidic Slime
+1 Alms Collector
+1 Arcane Signet
+1 Asceticism
+1 Beast Whisperer
+1 Beast Within
+1 Black Market
+1 Bone Shredder
+1 Conjurer's Closet
+1 Cosmic Intervention
+1 Crypt of Agadeem
+1 Despark
+1 Diamond Lion
+1 Earthcraft
+1 Eternal Witness
+1 Farewell
+1 Felidar Guardian
+1 Feral Prowler
+1 Foundation Breaker
+1 Generous Gift
+1 Hammer of Nazahn
+1 Harmonic Sliver
+1 Harrow
+1 Highcliff Felidar
+1 Knight of Autumn
+1 Leonin Arbiter
+1 Leonin Relic-Warder
+1 Lightning Greaves
+1 Lion Sash
+1 Necropanther
+1 Outland Liberator // Frenzied Trapbreaker
+1 Pitiless Plunderer
+1 Prowling Serpopard
+1 Qasali Pridemage
+1 Rakshasa Debaser
+1 Rally the Ancestors
+1 Reconnaissance
+1 Semester's End
+1 Sepulchral Primordial
+1 Shriekmaw
+1 Sign in Blood
+1 Skulltap
+1 Swiftfoot Boots
+1 Sylvan Library
+1 Teleportation Circle
+1 Temur Sabertooth
+1 Urborg
+1 Whitemane Lion
+1 Word of Command
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\slug.txt
+
+````txt
+1 Arcane Denial
+1 Arcane Lighthouse
+1 Arcane Signet
+1 Buried Ruin
+1 Cabal Coffers
+1 Cabal Stronghold
+1 Contagion Clasp
+1 Contagion Engine
+1 Contentious Plan
+1 Copy Artifact
+1 Cyclonic Rift
+1 Deepglow Skate
+1 Dimir Signet
+1 Dramatic Reversal
+1 Everflowing Chalice
+1 Expedition Map
+1 Feed the Swarm
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Flux Channeler
+1 Fuel for the Cause
+1 Grim Affliction
+1 Guildpact Informant
+1 Inexorable Tide
+11 Island
+1 Jet Medallion
+1 Karn Liberated
+1 Karn's Bastion
+1 Kaya's Ghostform
+1 Lighthouse Chronologist
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Lithoform Engine
+1 Malakir Rebirth // Malakir Mire
+1 Maze of Ith
+1 Midnight Clock
+1 Mind Stone
+1 Mirage Mirror
+1 Narset's Reversal
+1 Night's Whisper
+1 Otawara, Soaring City
+1 Pitiless Plunderer
+1 Plumb the Forbidden
+1 Polluted Delta
+1 Pongify
+1 Prismatic Lens
+1 Pyramid of the Pantheon
+1 Rapid Hybridization
+1 Replicating Ring
+1 Sakashima of a Thousand Faces
+1 Sapphire Medallion
+1 Skullclamp
+1 Skyclave Relic
+1 Sludge Monster
+1 Sol Ring
+1 Solemn Simulacrum
+1 Spark Double
+1 Steady Progress
+1 Sudden Spoiling
+11 Swamp
+1 Sword of Truth and Justice
+1 Takenuma, Abandoned Mire
+1 Talisman of Dominance
+1 Tezzeret's Gambit
+1 Thespian's Stage
+1 Thought Vessel
+1 Thran Dynamo
+1 Thrummingbird
+1 Toxic Deluge
+1 Toxrill, the Corrosive
+1 Ugin, the Ineffable
+1 Ugin, the Spirit Dragon
+1 Urborg, Tomb of Yawgmoth
+1 Urza's Saga
+1 Vesuva
+1 Viral Drake
+1 Watery Grave
+1 Wayfarer's Bauble
+1 Worn Powerstone
+1 Yawgmoth, Thran Physician
+
+Maybeboard
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Altar of Shadows
+1 Apprentice Wizard
+1 Black Sun's Zenith
+1 Blighted Agent
+1 Blowfly Infestation
+1 Caged Sun
+1 Captain N'ghathrod
+1 Charcoal Diamond
+1 Chromatic Lantern
+1 Coalition Relic
+1 Commander's Sphere
+1 Contamination
+1 Core Prowler
+1 Crowded Crypt
+1 Crumbling Ashes
+1 Cryptolith Fragment // Aurora of Emrakul
+1 Damnation
+1 Darksteel Ingot
+1 Decanter of Endless Water
+1 Dimir Cluestone
+1 Doubling Cube
+1 Drake-Skull Cameo
+1 Dramatist's Puppet
+1 Dungeon Map
+1 Ebony Fly
+1 Eye of Ramos
+1 Foreboding Statue // Forsaken Thresher
+1 Forsaken Monument
+1 Guardian Idol
+1 Hedron Crawler
+1 Heraldic Banner
+1 Hierophant's Chalice
+1 Honor-Worn Shaku
+1 Honored Heirloom
+1 Imprisoned in the Moon
+1 In Too Deep
+1 Insidious Will
+1 Karn's Temporal Sundering
+1 Kiora's Dambreaker
+1 Lantern of Revealing
+1 Leaden Myr
+1 Letter of Acceptance
+1 Liliana of the Dark Realms
+1 Lithoform Blight
+1 Magnifying Glass
+1 Magosi, the Waterveil
+1 Mana Geode
+1 Mana Prism
+1 Manakin
+1 Manalith
+1 Masterful Replication
+1 Midnight Banshee
+1 Mistvein Borderpost
+1 Murderous Rider // Swift End
+1 Necroskitter
+1 Nest of Scarabs
+1 Network Terminal
+1 Obsidian Obelisk
+1 Opaline Unicorn
+1 Orazca Relic
+1 Ornithopter of Paradise
+1 Palladium Myr
+1 Patriar's Seal
+1 Pillar of Origins
+1 Plague Myr
+1 Pristine Talisman
+1 Psionic Ritual
+1 Read the Bones
+1 Relic of Legends
+1 Sakashima the Impostor
+1 Sakashima's Will
+1 Sea Scryer
+1 Seer's Lantern
+1 Serrated Arrows
+1 Serum Powder
+1 Silver Myr
+1 Six-Sided Die
+1 Skithiryx, the Blight Dragon
+1 Skull of Ramos
+1 Sky Diamond
+1 Skyship Plunderer
+1 Sol Grail
+1 Sol Talisman
+1 Spread the Sickness
+1 Star Compass
+1 Storm of Forms
+1 Strionic Resonator
+1 Swiftfoot Boots
+1 Tevesh Szat, Doom of Fools
+1 Thawing Glaciers
+1 The Celestus
+1 The Mightstone and Weakstone
+1 Throne of Geth
+1 True Polymorph
+1 Twincast
+1 Unstable Obelisk
+1 Vexing Puzzlebox
+1 Winged Boots
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Death's Shadow.txt
+
+````txt
+1 Bloodstained Mire
+4 Brainstorm
+1 Brazen Borrower // Petty Theft
+4 Daze
+4 Death's Shadow
+4 Delver of Secrets // Insectile Aberration
+3 Ethereal Forager
+2 Fatal Push
+4 Flooded Strand
+2 Force of Negation
+4 Force of Will
+4 Polluted Delta
+4 Ponder
+2 Snuff Out
+4 Street Wraith
+4 Thoughtseize
+2 Underground Sea
+4 Wasteland
+3 Watery Grave
+
+Sideboard
+1 Fatal Push
+1 Grafdigger's Cage
+2 Hymn to Tourach
+1 Karakas
+2 Liliana, the Last Hope
+2 Plague Engineer
+2 Ratchet Bomb
+3 Surgical Extraction
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Yoshi.txt
+
+````txt
+1 Anguished Unmaking
+1 Arcane Signet
+1 Assassin's Trophy
+1 Azusa, Lost but Seeking
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bane of Progress
+1 Beast Within
+1 Blackblade Reforged
+1 Bojuka Bog
+1 Bolas's Citadel
+1 Boseiju, Who Endures
+1 Breena, the Demagogue
+1 Canopy Vista
+1 Captain Sisay
+1 Command Tower
+1 Damn
+1 Deathcap Glade
+1 Doubling Season
+1 Drana, Liberator of Malakir
+1 Eerie Ultimatum
+1 Eiganjo Castle
+1 Eiganjo, Seat of the Empire
+1 Elesh Norn, Grand Cenobite
+1 Exotic Orchard
+1 Fabled Passage
+1 Farewell
+1 Farseek
+1 Felidar Retreat
+1 Field of the Dead
+1 Flagstones of Trokair
+1 Flawless Maneuver
+3 Forest
+1 Gavony Township
+1 Godless Shrine
+1 Golgari Rot Farm
+1 Hamza, Guardian of Arashin
+1 Hardened Scales
+1 Helm of the Host
+1 Heroic Intervention
+1 Indatha Triome
+1 Inkshield
+1 Inspiring Call
+1 Journey to Eternity // Atzal, Cave of Eternity
+1 Kethis, the Hidden Hand
+1 Kodama of the East Tree
+1 Kodama of the West Tree
+1 Lae'zel, Vlaakith's Champion
+1 Luxior, Giada's Gift
+1 Malakir Rebirth // Malakir Mire
+1 Marsh Flats
+1 Mox Amber
+1 Nature's Lore
+1 Nethroi, Apex of Death
+1 Night's Whisper
+1 Nikara, Lair Scavenger
+1 Okina, Temple to the Grandfathers
+1 Ondu Inversion // Ondu Skyruins
+1 Orzhov Basilica
+1 Overgrown Farmland
+1 Overgrown Tomb
+1 Painful Truths
+1 Phyrexian Tower
+2 Plains
+1 Rampant Growth
+1 Reki, the History of Kamigawa
+1 Return of the Wildspeaker
+1 Reyhan, Last of the Abzan
+1 Rishkar's Expertise
+1 Rishkar, Peema Renegade
+1 Selesnya Sanctuary
+1 Shadowspear
+1 Shattered Sanctum
+1 Shizo, Death's Storehouse
+1 Smothering Tithe
+1 Sol Ring
+2 Swamp
+1 Swiftfoot Boots
+1 Sword of the Animist
+1 Swords to Plowshares
+1 Takenuma, Abandoned Mire
+1 Temple Garden
+1 Teshar, Ancestor's Apostle
+1 The Great Henge
+1 The Meathook Massacre
+1 The Ozolith
+1 Three Visits
+1 Time of Need
+1 Toski, Bearer of Secrets
+1 Toxic Deluge
+1 Umezawa's Jitte
+1 Urborg, Tomb of Yawgmoth
+1 Urza's Ruinous Blast
+1 Verdant Catacombs
+1 Vorinclex, Monstrous Raider
+1 Windswept Heath
+1 Yahenni, Undying Partisan
+1 Yannik, Scavenging Sentinel
+1 Yavimaya, Cradle of Growth
+1 Yawgmoth, Thran Physician
+1 Yoshimaru, Ever Faithful
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Greven.txt
+
+````txt
+1 Act of Aggression
+1 Anger
+1 Arcane Signet
+1 Bedevil
+1 Blasphemous Act
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bloodsworn Steward
+1 Bojuka Bog
+1 Bolas's Citadel
+1 Buried Ruin
+1 Chandra's Ignition
+1 Chaos Warp
+1 City of Brass
+1 Combat Celebrant
+1 Command Beacon
+1 Command Tower
+1 Command the Dreadhorde
+1 Cursed Mirror
+1 Damnation
+1 Deflecting Swat
+1 Doom Whisperer
+1 Dragonskull Summit
+1 Essence Harvest
+1 Exsanguinate
+1 Feed the Swarm
+1 Fire Covenant
+1 Gray Merchant of Asphodel
+1 Greven, Predator Captain
+1 Hall of the Bandit Lord
+1 Hatred
+1 Hellkite Courser
+1 Imp's Mischief
+1 Infernal Grasp
+1 Jeska's Will
+1 K'rrik, Son of Yawgmoth
+1 Kardur, Doomscourge
+1 Kazuul's Fury // Kazuul's Cliffs
+1 Kediss, Emberclaw Familiar
+1 Kokusho, the Evening Star
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Lupine Prototype
+1 Luxury Suite
+1 Malakir Rebirth // Malakir Mire
+1 Mana Confluence
+1 Mindslicer
+1 Moltensteel Dragon
+6 Mountain
+1 Myriad Landscape
+1 Necropotence
+1 Night's Whisper
+1 Obsidian Battle-Axe
+1 Phyrexian Soulgorger
+1 Rakdos Signet
+1 Read the Bones
+1 Reanimate
+1 Relic Golem
+1 Rotting Regisaur
+1 Rush of Vitality
+1 Shadowblood Ridge
+1 Shadowspear
+1 Shizo, Death's Storehouse
+1 Sign in Blood
+1 Silent Arbiter
+1 Smoldering Marsh
+1 Sol Ring
+1 Soul Channeling
+1 Stinging Study
+1 Sulfurous Springs
+10 Swamp
+1 Swiftfoot Boots
+1 Tainted Peak
+1 Tainted Strike
+1 Talisman of Indulgence
+1 Temur Battle Rage
+1 Thought Vessel
+1 Toxic Deluge
+1 Treasonous Ogre
+1 Urborg, Tomb of Yawgmoth
+1 Valakut Awakening // Valakut Stoneforge
+1 Vampiric Tutor
+1 Vandalblast
+1 Vilis, Broker of Blood
+1 Vorrac Battlehorns
+1 Wall of Blood
+1 Wasteland
+1 Wayfarer's Bauble
+1 Whip of Erebos
+1 Witch's Clinic
+1 Zealous Conscripts
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\I can't count.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Umezawa.txt
+
+````txt
+1 Access Tunnel
+1 Agent of Treachery
+1 Animate Dead
+1 Arcane Adaptation
+1 Arcane Denial
+1 Arcane Signet
+1 Archon of Cruelty
+1 Baleful Strix
+1 Blightsteel Colossus
+1 Bojuka Bog
+1 Changeling Outcast
+1 Command Tower
+1 Consecrated Sphinx
+1 Counterspell
+1 Creeping Tar Pit
+1 Crypt Ghast
+1 Cyclonic Rift
+1 Dark Ritual
+1 Dauthi Voidwalker
+1 Dimir Infiltrator
+1 Dimir Signet
+1 Drowned Catacomb
+1 Exotic Orchard
+1 Faerie Seer
+1 Fallen Shinobi
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Gingerbrute
+1 Grave Titan
+1 Grazilaxx, Illithid Scholar
+1 Gudul Lurker
+1 Higure, the Still Wind
+1 Ingenious Infiltrator
+1 Ink-Eyes, Servant of Oni
+1 Invisible Stalker
+12 Island
+1 It That Betrays
+1 Jin-Gitaxias, Core Augur
+1 Kaito Shizuki
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Malakir Rebirth // Malakir Mire
+1 Maskwood Nexus
+1 Mind Stone
+1 Mist-Syndicate Naga
+1 Morphic Pool
+1 Mystic Sanctuary
+1 Mystical Tutor
+1 Night's Whisper
+1 Ninja of the Deep Hours
+1 Path of Ancestry
+1 Polluted Delta
+1 Ponder
+1 Pongify
+1 Razaketh, the Foulblooded
+1 Read the Bones
+1 Reality Shift
+1 Reanimate
+1 Reconnaissance Mission
+1 Reliquary Tower
+1 Rhystic Study
+1 Sakashima's Student
+1 Satoru Umezawa
+1 Scheming Symmetry
+1 Shipwreck Marsh
+1 Shizo, Death's Storehouse
+1 Silent-Blade Oni
+1 Slither Blade
+1 Sol Ring
+1 Sunken Hollow
+1 Sunken Ruins
+7 Swamp
+1 Swiftfoot Boots
+1 Tainted Isle
+1 Talisman of Dominance
+1 Tetsuko Umezawa, Fugitive
+1 Thought Vessel
+1 Toxic Deluge
+1 Toxrill, the Corrosive
+1 Triton Shorestalker
+1 Urborg, Tomb of Yawgmoth
+1 Varragoth, Bloodsky Sire
+1 Void Winnower
+1 Watery Grave
+1 Wayfarer's Bauble
+1 Windfall
+1 Yuriko, the Tiger's Shadow
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\The Big One.txt
+
+````txt
+1 Ancestral Anger
+1 Ancient Tomb
+1 Anger of the Gods
+1 Angrath's Marauders
+1 Arcane Signet
+1 Balduvian Rage
+1 Bitter Feud
+1 Blasphemous Act
+1 Blood Moon
+1 Captain Ripley Vance
+1 Crash Through
+1 Crimson Wisps
+1 Curse of Bloodletting
+1 Deflecting Swat
+1 Desperate Gambit
+1 Dictate of the Twin Gods
+1 Dockside Extortionist
+1 Dragon Mantle
+1 Dragon's Rage Channeler
+1 Efreet Flamepainter
+1 Expedite
+1 Experimental Synthesizer
+1 Fellwar Stone
+1 Fiendish Duo
+1 Fiendlash
+1 Fiery Emancipation
+1 Fists of Flame
+1 Furnace of Rath
+1 Goblin Sharpshooter
+1 Grapeshot
+1 Gratuitous Violence
+1 Gravitic Punch
+1 Infuriate
+1 Inquisitor's Flail
+1 Insult // Injury
+1 Jeska's Will
+1 Jeweled Lotus
+1 Lithoform Engine
+1 Lizard Blades
+1 Magus of the Moon
+1 Mana Crypt
+1 Mana Geyser
+1 Mana Vault
+1 Mind Stone
+28 Mountain
+1 Neheb, the Eternal
+1 Overblaze
+1 Overmaster
+1 Panic Spellbomb
+1 Prophetic Ravings
+1 Pyrite Spellbomb
+1 Pyrokinesis
+1 Quest for Pure Flame
+1 Reinforced Ronin
+1 Renegade Tactics
+1 Rile
+1 Ruby Medallion
+1 Runaway Steam-Kin
+1 Scavenger Grounds
+1 Shatterskull Smashing // Shatterskull, the Hammer Pass
+1 Solemn Simulacrum
+1 Soul's Fire
+1 Storm-Kiln Artist
+1 Strionic Resonator
+1 Swiftfoot Boots
+1 Tempered in Solitude
+1 Thought Vessel
+1 Tibalt's Trickery
+1 Tower of the Magistrate
+1 Umezawa's Jitte
+1 Unleash Fury
+1 War Room
+1 Warlord's Fury
+1 Wayfarer's Bauble
+
+Maybeboard
+1 Impulsive Maneuvers
+1 Primal Amulet // Primal Wellspring
+1 Pyromancer's Goggles
+1 Stranglehold
+1 Sulfuric Vortex
+1 Tibalt, Rakish Instigator
+1 Torbran, Thane of Red Fell
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Anhelo.txt
+
+````txt
+1 Ancient Tomb
+1 Anhelo, the Painter
+1 Arcane Denial
+1 Arcane Signet
+1 Archmage Emeritus
+1 Birgi, God of Storytelling // Harnfel, Horn of Bounty
+1 Blasphemous Act
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Chaos Warp
+1 Command Tower
+1 Consider
+1 Curse of Disturbance
+1 Cyclonic Rift
+1 Dark Petition
+1 Dark Ritual
+1 Deekah, Fractal Theorist
+1 Demonic Tutor
+1 Den of the Bugbear
+1 Dictate of Erebos
+1 Dig Through Time
+1 Dimir Signet
+1 Docent of Perfection // Final Iteration
+1 Dockside Extortionist
+1 Dragonskull Summit
+1 Drowned Catacomb
+1 Exotic Orchard
+1 Expressive Iteration
+1 Expropriate
+1 Fact or Fiction
+1 Faithless Looting
+1 Fierce Guardianship
+1 Fiery Islet
+1 Frantic Search
+1 Guttersnipe
+1 Haunted Ridge
+1 Heraldic Banner
+6 Island
+1 Izzet Signet
+1 Jadar, Ghoulcaller of Nephalia
+1 Jeska's Will
+1 Kess, Dissident Mage
+1 Krark, the Thumbless
+1 Liliana, Dreadhorde General
+1 Maestros Ascendancy
+1 Mana Drain
+1 Mana Geyser
+1 Metallurgic Summonings
+1 Mizzix's Mastery
+1 Mnemonic Deluge
+4 Mountain
+1 Mystic Confluence
+1 Mystic Sanctuary
+1 Narset's Reversal
+1 Otawara, Soaring City
+1 Pitiless Plunderer
+1 Plumb the Forbidden
+1 Polluted Delta
+1 Ponder
+1 Pongify
+1 Poppet Stitcher // Poppet Factory
+1 Preordain
+1 Rakdos Signet
+1 Ral, Storm Conduit
+1 Reverberate
+1 Rhystic Study
+1 Scalding Tarn
+1 Sea Gate Restoration // Sea Gate, Reborn
+1 Sedgemoor Witch
+1 Shark Typhoon
+1 Shipwreck Marsh
+1 Smoldering Marsh
+1 Snapcaster Mage
+1 Sol Ring
+1 Steam Vents
+1 Storm-Kiln Artist
+1 Stormcarved Coast
+1 Sudden Substitution
+1 Sulfur Falls
+1 Sunken Hollow
+1 Surge to Victory
+2 Swamp
+1 Takenuma, Abandoned Mire
+1 Talisman of Creativity
+1 Talisman of Dominance
+1 Talrand, Sky Summoner
+1 The Meathook Massacre
+1 Time Warp
+1 Torment of Hailfire
+1 Toxic Deluge
+1 Training Center
+1 Underworld Breach
+1 Urborg, Tomb of Yawgmoth
+1 Urza's Saga
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Vesuva
+1 Veyran, Voice of Duality
+1 Watery Grave
+1 Xander's Lounge
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Rion.txt
+
+````txt
+1 Abrade
+1 Accelerate
+1 Act of Aggression
+1 Act of Treason
+1 Akoum Battlesinger
+1 Ancient Tomb
+1 Arcane Bombardment
+1 Arcane Signet
+1 Atsushi, the Blazing Sky
+1 Ball Lightning
+1 Blasphemous Act
+1 Blood Moon
+1 Burning Inquiry
+1 Cathartic Pyre
+1 Cathartic Reunion
+1 Chaos Warp
+1 Claim the Firstborn
+1 Coercive Recruiter
+1 Collective Defiance
+1 Crash Through
+1 Crimson Wisps
+1 Cursed Mirror
+1 Deflecting Swat
+1 Dong Zhou, the Tyrant
+1 Electrodominance
+1 Enthralling Victor
+1 Expedite
+1 Faithless Looting
+1 Fellwar Stone
+1 Fists of Flame
+1 Forgeborn Oreads
+1 Goldspan Dragon
+1 Gorilla War Cry
+1 Jeska's Will
+1 Kari Zev's Expertise
+1 Kazuul Warlord
+1 Lightning Bolt
+1 Lightning Greaves
+1 Mana Geyser
+1 Markov Enforcer
+1 Meteor Golem
+1 Mind Stone
+34 Mountain
+1 Murasa Pyromancer
+1 Overmaster
+1 Panic
+1 Pashalik Mons
+1 Patron of the Arts
+1 Reckless Barbarian
+1 Recoup
+1 Renegade Tactics
+1 Rile
+1 Rionya, Fire Dancer
+1 Ruby Medallion
+1 Scavenger Grounds
+1 Scourge of Valkas
+1 Sol Ring
+1 Solemn Simulacrum
+1 Swiftfoot Boots
+1 Terror of the Peaks
+1 Thrill of Possibility
+1 Tormenting Voice
+1 Tower of the Magistrate
+1 Tuktuk Scrapper
+1 Twinferno
+1 Unexpected Windfall
+1 Valakut Awakening // Valakut Stoneforge
+1 Warlord's Fury
+1 Warstorm Surge
+1 Wayfarer's Bauble
+
+Maybeboard
+1 Impetuous Devils
+1 Jeska, Thrice Reborn
+1 Mana Flare
+1 Reroute
+1 Scion of Opulence
+1 Taurean Mauler
+1 Temur Battle Rage
+1 Winter Sky
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Zirda Aggro.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Isshin.txt
+
+````txt
+1 Aggravated Assault
+1 Ancient Tomb
+1 Anger
+1 Anguished Unmaking
+1 Arcane Signet
+1 Archon of Cruelty
+1 Arid Mesa
+1 Aurelia, the Warleader
+1 Blade of Selves
+1 Blasphemous Act
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Bolt Hound
+1 Boros Signet
+1 Breena, the Demagogue
+1 Brimaz, King of Oreskos
+1 Brutal Hordechief
+1 Captain Lannery Storm
+1 Clifftop Retreat
+1 Command Tower
+1 Curse of Hospitality
+1 Curse of Opulence
+1 Cursed Mirror
+1 Damn
+1 Deflecting Swat
+1 Den of the Bugbear
+1 Despark
+1 Dragonskull Summit
+1 Etali, Primal Storm
+1 Exotic Orchard
+1 Fable of the Mirror-Breaker // Reflection of Kiki-Jiki
+1 Fabled Passage
+1 Farewell
+1 Fellwar Stone
+1 Fervor
+1 Flawless Maneuver
+1 Generous Gift
+1 Godless Shrine
+1 Goldspan Dragon
+1 Grave Titan
+1 Hammer of Purphoros
+1 Hanweir Battlements
+1 Hanweir Garrison
+1 Haunted Ridge
+1 Hellrider
+1 Hero of Bladehold
+1 Hive of the Eye Tyrant
+1 Inkshield
+1 Iroas, God of Victory
+1 Isolated Chapel
+1 Isshin, Two Heavens as One
+1 Jeska's Will
+1 Kazuul, Tyrant of the Cliffs
+1 Krenko, Tin Street Kingpin
+1 Kroxa, Titan of Death's Hunger
+1 Laelia, the Blade Reforged
+1 Launch the Fleet
+1 Lightning Greaves
+1 Malakir Rebirth // Malakir Mire
+1 Marsh Flats
+1 Mass Hysteria
+4 Mountain
+1 Night's Whisper
+1 Olivia, Crimson Bride
+1 Ondu Inversion // Ondu Skyruins
+1 Orzhov Signet
+1 Painful Truths
+3 Plains
+1 Rakdos Signet
+1 Read the Bones
+1 Reconnaissance
+1 Ruinous Ultimatum
+1 Sacred Foundry
+1 Savai Triome
+1 Sejiri Shelter // Sejiri Glacier
+1 Shinka, the Bloodsoaked Keep
+1 Slayers' Stronghold
+1 Smoldering Marsh
+1 Smothering Tithe
+1 Smuggler's Copter
+1 Sneak Attack
+1 Sol Ring
+1 Spectator Seating
+1 Sun Titan
+2 Swamp
+1 Swiftfoot Boots
+1 Sword of Feast and Famine
+1 Sword of the Animist
+1 Takenuma, Abandoned Mire
+1 Teferi's Protection
+1 Tome of Legends
+1 Urborg, Tomb of Yawgmoth
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Vanquish the Horde
+1 Vault of Champions
+1 Wayfarer's Bauble
+1 Wear // Tear
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Xanathar.txt
+
+````txt
+1 Aetherspouts
+1 Arcane Denial
+1 Arcane Signet
+1 Ashiok, Nightmare Weaver
+1 Baleful Mastery
+1 Blatant Thievery
+1 Bojuka Bog
+1 Bribery
+1 Cabal Coffers
+1 Coalition Relic
+1 Codex Shredder
+1 Command Tower
+1 Command the Dreadhorde
+1 Commit // Memory
+1 Counterspell
+1 Crypt Ghast
+1 Cunning Rhetoric
+1 Cyclonic Rift
+1 Damnation
+1 Dimir Signet
+1 Dragonlord Silumgar
+1 Drowned Catacomb
+1 Duskmantle, House of Shadow
+1 Everflowing Chalice
+1 Expedition Map
+1 Expel from Orazca
+1 Fabled Passage
+1 Feed the Swarm
+1 Geier Reach Sanitarium
+1 Gonti, Lord of Luxury
+1 Hostage Taker
+1 Intellectual Offering
+12 Island
+1 Jace Beleren
+1 Lantern of Insight
+1 Leyline of Anticipation
+1 Lightning Greaves
+1 Malakir Rebirth // Malakir Mire
+1 Memory Lapse
+1 Memory Plunder
+1 Mind's Dilation
+1 Mirage Mirror
+1 Morphic Pool
+1 Mystic Confluence
+1 Mystic Sanctuary
+1 Necromantic Selection
+1 Night's Whisper
+1 Opposition Agent
+1 Paradox Haze
+1 Polluted Delta
+1 Ponder
+1 Pongify
+1 Praetor's Grasp
+1 Read the Bones
+1 Resculpt
+1 Scheming Symmetry
+1 Sol Ring
+1 Spark Double
+1 Spelltwine
+1 Sphinx of the Second Sun
+1 Stinging Study
+1 Stubborn Denial
+1 Sublime Epiphany
+1 Submerge
+1 Sunken Hollow
+1 Sunken Ruins
+10 Swamp
+1 Syr Konrad, the Grim
+1 Tainted Isle
+1 Talisman of Dominance
+1 Thieving Skydiver
+1 Thought Scour
+1 Thought Vessel
+1 Toxic Deluge
+1 Urborg, Tomb of Yawgmoth
+1 Wandering Archaic // Explore the Vastlands
+1 Watery Grave
+1 Wayfarer's Bauble
+1 Worn Powerstone
+1 Xanathar, Guild Kingpin
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Bruvac.txt
+
+````txt
+1 Ancient Tomb
+1 Arcane Signet
+1 Archive Trap
+1 Archmage Emeritus
+1 Bond of Insight
+1 Brain Freeze
+1 Bruvac the Grandiloquent
+1 Caged Sun
+1 Command Beacon
+1 Consecrated Sphinx
+1 Counterspell
+1 Court of Cunning
+1 Cryptic Command
+1 Curse of the Swine
+1 Cyclonic Rift
+1 Dreamborn Muse
+1 Drown in Dreams
+1 Drowned Secrets
+1 Extraplanar Lens
+1 Fierce Guardianship
+1 Fleet Swallower
+1 Fractured Sanity
+1 Fraying Sanity
+1 Grindstone
+1 High Tide
+1 Imprisoned in the Moon
+1 Increasing Confusion
+1 Into the Story
+1 Ipnu Rivulet
+1 Jin-Gitaxias, Progress Tyrant
+1 Leyline of Anticipation
+1 Lier, Disciple of the Drowned
+1 Lightning Greaves
+1 Maddening Cacophony
+1 Manic Scribe
+1 Memory Erosion
+1 Mesmeric Orb
+1 Midnight Clock
+1 Mind Stone
+1 Mindcrank
+1 Myriad Landscape
+1 Mystic Sanctuary
+1 Mystical Tutor
+1 Narset's Reversal
+1 Nykthos, Shrine to Nyx
+1 Otawara, Soaring City
+1 Ponder
+1 Pongify
+1 Propaganda
+1 Psychic Corrosion
+1 Psychic Spiral
+1 Rapid Hybridization
+1 Reality Shift
+1 Relic of Progenitus
+1 Reliquary Tower
+1 Rhystic Study
+1 Ruin Crab
+1 Sakashima of a Thousand Faces
+1 Sapphire Medallion
+1 Scavenger Grounds
+1 Sea Gate Restoration // Sea Gate, Reborn
+1 Shadow Kin
+1 Snapcaster Mage
+29 Snow-Covered Island
+1 Sol Ring
+1 Solemn Simulacrum
+1 Solve the Equation
+1 Soul-Guide Lantern
+1 Spectral Deluge
+1 Sphinx's Tutelage
+1 Sublime Epiphany
+1 Tasha's Hideous Laughter
+1 Teferi's Ageless Insight
+1 Teferi's Tutelage
+1 Thought Scour
+1 Thought Vessel
+1 Traumatize
+1 Treasure Cruise
+1 Visions of Beyond
+1 War Room
+1 Wayfarer's Bauble
+1 Windfall
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Karador.txt
+
+````txt
+1 Acidic Slime
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Altar of Dementia
+1 Animate Dead
+1 Ashen Rider
+1 Austere Command
+1 Bane of Progress
+1 Beast Whisperer
+1 Beast Within
+1 Birds of Paradise
+1 Bojuka Bog
+1 Bountiful Promenade
+1 Buried Alive
+1 Canopy Vista
+1 Caustic Caterpillar
+1 Cleansing Nova
+1 Command Tower
+1 Command the Dreadhorde
+1 Crypt of Agadeem
+1 Damn
+1 Disciple of Bolas
+1 Eerie Ultimatum
+1 Eldritch Evolution
+1 Elesh Norn, Grand Cenobite
+1 Entomb
+1 Eternal Witness
+1 Exotic Orchard
+1 Fabled Passage
+1 Farseek
+3 Forest
+1 Foundation Breaker
+1 Godless Shrine
+1 Grisly Salvage
+1 Hermit Druid
+1 Heroic Intervention
+1 High Market
+1 Indatha Triome
+1 Isolated Chapel
+1 Journey to Eternity // Atzal, Cave of Eternity
+1 Karador, Ghost Chieftain
+1 Karmic Guide
+1 Lightning Greaves
+1 Living Death
+1 Marsh Flats
+1 Massacre Wurm
+1 Meren of Clan Nel Toth
+1 Mythos of Nethroi
+1 Nethroi, Apex of Death
+1 Night's Whisper
+1 Nurturing Peatland
+1 Nyxbloom Ancient
+1 Old Stickfingers
+1 Overgrown Tomb
+1 Phyrexian Tower
+1 Plaguecrafter
+2 Plains
+1 Plumb the Forbidden
+1 Rampant Growth
+1 Ravenous Chupacabra
+1 Read the Bones
+1 Reanimate
+1 Return of the Wildspeaker
+1 Riftstone Portal
+1 Sakura-Tribe Elder
+1 Sandsteppe Citadel
+1 Satyr Wayfinder
+1 Sheoldred, Whispering One
+1 Shriekmaw
+1 Silent Clearing
+1 Skull Prophet
+1 Sol Ring
+1 Spore Frog
+1 Stinging Study
+1 Stitcher's Supplier
+1 Strip Mine
+1 Sunpetal Grove
+2 Swamp
+1 Swords to Plowshares
+1 Syr Konrad, the Grim
+1 Tainted Wood
+1 Temple Garden
+1 Three Visits
+1 Toxic Deluge
+1 Undergrowth Stadium
+1 Underrealm Lich
+1 Urborg, Tomb of Yawgmoth
+1 Vault of Champions
+1 Verdant Catacombs
+1 Victimize
+1 Village Rites
+1 Winding Way
+1 Windswept Heath
+1 Wood Elves
+1 Woodland Cemetery
+1 World Shaper
+1 Yavimaya, Cradle of Growth
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Estrid.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Wilhelt.txt
+
+````txt
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Arcane Signet
+1 Bladestitched Skaab
+1 Bojuka Bog
+1 Cabal Coffers
+1 Castle Locthwain
+1 Cavern of Souls
+1 Cleaver Skaab
+1 Command Tower
+1 Command the Dreadhorde
+1 Counterspell
+1 Crypt of Agadeem
+1 Cryptbreaker
+1 Cyclonic Rift
+1 Death Baron
+1 Dimir Signet
+1 Diregraf Captain
+1 Diregraf Colossus
+1 Distant Melody
+1 Dreadhorde Invasion
+1 Drowned Catacomb
+1 Empty the Laboratory
+1 Exotic Orchard
+1 Fabled Passage
+1 Fellwar Stone
+1 Field of the Dead
+1 Fierce Guardianship
+1 Fleshbag Marauder
+1 Ghoulcaller Gisa
+1 God-Eternal Bontu
+1 Grave Titan
+1 Graveborn Muse
+1 Gravecrawler
+1 Gray Merchant of Asphodel
+1 Haunted One
+1 Headless Rider
+1 Heraldic Banner
+2 Island
+1 Jet Medallion
+1 Kindred Discovery
+1 Lazotep Plating
+1 Lightning Greaves
+1 Lord of the Undead
+1 Malakir Rebirth // Malakir Mire
+1 Midnight Reaper
+1 Morphic Pool
+1 Murderous Rider // Swift End
+1 Necroduality
+1 Necromantic Selection
+1 Night's Whisper
+1 Noosegraf Mob
+1 Noxious Ghoul
+1 Nykthos, Shrine to Nyx
+1 Otawara, Soaring City
+1 Pact of the Serpent
+1 Path of Ancestry
+1 Phyrexian Altar
+1 Phyrexian Tower
+1 Plumb the Forbidden
+1 Polluted Delta
+1 Pongify
+1 Pyre of Heroes
+1 Rapid Hybridization
+1 Read the Bones
+1 Reality Shift
+1 Relentless Dead
+1 Rooftop Storm
+1 Shipwreck Marsh
+1 Sidisi, Undead Vizier
+1 Snow-Covered Island
+2 Snow-Covered Swamp
+1 Sol Ring
+1 Species Specialist
+1 Sunken Hollow
+1 Sunken Ruins
+3 Swamp
+1 Tainted Isle
+1 Takenuma, Abandoned Mire
+1 Talisman of Dominance
+1 The Meathook Massacre
+1 The Scarab God
+1 Tombstone Stairwell
+1 Toxic Deluge
+1 Undead Augur
+1 Undead Warchief
+1 Underground River
+1 Unholy Grotto
+1 Urborg, Tomb of Yawgmoth
+1 Vengeful Dead
+1 Vesuva
+1 Victimize
+1 Wasteland
+1 Watery Grave
+1 Wayfarer's Bauble
+1 Wilhelt, the Rotcleaver
+1 Zombie Apocalypse
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Adrix and Nev.txt
+
+````txt
+1 Adrix and Nev, Twincasters
+1 Amphin Mutineer
+1 Arcane Signet
+1 Avenger of Zendikar
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Beast Within
+1 Beastmaster Ascension
+1 Body of Research
+1 Bramble Sovereign
+1 Breeding Pool
+1 Cackling Counterpart
+1 Clone Legion
+1 Command Tower
+1 Counterspell
+1 Craterhoof Behemoth
+1 Cultivate
+1 Cyclonic Rift
+1 Deep Forest Hermit
+1 Double Major
+1 Doubling Season
+1 Esix, Fractal Bloom
+1 Eternal Witness
+1 Ezuri's Predation
+1 Fabled Passage
+1 Farseek
+15 Forest
+1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun
+1 Helm of the Host
+1 Heroic Intervention
+1 High Market
+1 Hinterland Harbor
+1 Hornet Queen
+13 Island
+1 Kodama's Reach
+1 Koma, Cosmos Serpent
+1 Master of Waves
+1 Mimic Vat
+1 Mirage Mirror
+1 Misty Rainforest
+1 Mitotic Slime
+1 Mulldrifter
+1 Mystic Reflection
+1 Mystic Sanctuary
+1 Nature's Lore
+1 Oversimplify
+1 Parallel Lives
+1 Perplexing Test
+1 Pongify
+1 Progenitor Mimic
+1 Rampaging Baloths
+1 Rampant Growth
+1 Reality Shift
+1 Reef Worm
+1 Rejuvenating Springs
+1 Replication Technique
+1 Repudiate // Replicate
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Rite of Replication
+1 Saheeli's Artistry
+1 Sakashima of a Thousand Faces
+1 Scute Swarm
+1 Second Harvest
+1 Shamanic Revelation
+1 Simic Signet
+1 Sol Ring
+1 Spell Swindle
+1 Sublime Epiphany
+1 Tendershoot Dryad
+1 Theoretical Duplication
+1 Three Visits
+1 Tireless Tracker
+1 Wurmcoil Engine
+1 Yavimaya Coast
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\abilitays.txt
+
+````txt
+1 Abrupt Decay
+1 Altar's Reap
+1 Arcane Denial
+1 Assassin's Trophy
+1 Baleful Strix
+1 Banehound
+1 Beast Within
+1 Beastcaller Savant
+1 Berserk
+1 Birds of Paradise
+1 Bloom Tender
+1 Bontu the Glorified
+1 Breeding Pool
+1 Command Tower
+1 Costly Plunder
+1 Culling Ritual
+1 Cyclonic Rift
+1 Damnation
+1 Darksteel Myr
+1 Deadly Dispute
+1 Drowned Catacomb
+1 Eldritch Evolution
+1 Elvish Visionary
+1 Eyetwitch
+1 Farseek
+1 Fierce Guardianship
+1 Finale of Devastation
+1 Force of Despair
+5 Forest
+1 Gilded Goose
+1 Gladecover Scout
+1 Grim Backwoods
+1 Heroic Intervention
+1 High Market
+1 Hinterland Harbor
+1 Hypnotic Siren
+1 Infernal Grasp
+6 Island
+1 Kefnet the Mindful
+1 Leyline Prowler
+1 Life's Legacy
+1 Llanowar Wastes
+1 Mistcutter Hydra
+1 Misty Rainforest
+1 Mulldrifter
+1 Mystic Confluence
+1 Nevinyrral's Disk
+1 Nighthawk Scavenger
+1 Ochre Jelly
+1 Overgrown Tomb
+1 Pariah's Shield
+1 Phyrexian Tower
+1 Plumb the Forbidden
+1 Polluted Delta
+1 Putrefy
+1 Questing Beast
+1 Rampant Growth
+1 Rancor
+1 Rayami, First of the Fallen
+1 Rejuvenating Springs
+1 Reliquary Tower
+1 Rhonas the Indomitable
+1 Rogue's Passage
+1 Sakura-Tribe Elder
+1 Search for Tomorrow
+1 Slippery Bogle
+1 Sol Ring
+1 Somberwald Sage
+1 Spreading Plague
+1 Stonecoil Serpent
+1 Sunken Hollow
+4 Swamp
+1 Sword of the Animist
+1 Sylvan Caryatid
+1 Sylvan Library
+1 Three Visits
+1 Undergrowth Stadium
+1 Urborg, Tomb of Yawgmoth
+1 Valentin, Dean of the Vein // Lisette, Dean of the Root
+1 Vampire Nighthawk
+1 Vampire of the Dire Moon
+1 Village Rites
+1 Viscera Seer
+1 Watery Grave
+1 Windfall
+1 Wood Elves
+1 Woodland Cemetery
+1 Worldslayer
+1 Yavimaya Coast
+1 Zagoth Triome
+
+Maybeboard
+1 Acidic Slime
+1 Altar of Dementia
+1 Anvilwrought Raptor
+1 Arcane Signet
+1 Ashnod's Altar
+1 Assault Suit
+1 Aven Fleetwing
+1 Banehound
+1 Bankrupt in Blood
+1 Bassara Tower Archer
+1 Bassara Tower Archer
+1 Beast Within
+1 Beastcaller Savant
+1 Birthing Pod
+1 Black Knight
+1 Blood Divination
+1 Bone Splinters
+1 Bonesplitter
+1 Brainstorm
+1 Carrion
+1 Cast Down
+1 Chromatic Lantern
+1 Coast Watcher
+1 Commander's Sphere
+1 Counterspell
+1 Creepy Doll
+1 Cryptic Command
+1 Culling the Weak
+1 Cultivate
+1 Dark Ritual
+1 Darksteel Myr
+1 Darksteel Myr
+1 Darksteel Sentinel
+1 Deadly Rollick
+1 Deathsprout
+1 Deathsprout
+1 Dimir Aqueduct
+1 Dimir Signet
+1 Elder Gargaroth
+1 Elvish Mystic
+1 Endless Scream
+1 Eradicator Valkyrie
+1 Evolutionary Leap
+1 Evolving Wilds
+1 Farseek
+1 Fecundity
+1 Fellwar Stone
+1 Fyndhorn Elves
+1 Fynn, the Fangbearer
+1 Garruk's Harbinger
+1 Gaze of Granite
+1 Gemrazer
+1 Gladecover Scout
+1 Golgari Rot Farm
+1 Golgari Signet
+1 Great Sable Stag
+1 Growth Spiral
+1 Guardian Augmenter
+1 Gurmag Swiftwing
+1 Harbinger of Spring
+1 Harrow
+1 Haunted Guardian
+1 Hero's Downfall
+1 Hovermyr
+1 Ilysian Caryatid
+1 Inquisitor's Flail
+1 Invisible Stalker
+1 Iron Bully
+1 Jaspera Sentinel
+1 Jungle Hollow
+1 Knight of Malice
+1 Kodama's Reach
+1 Krosan Grip
+1 Languish
+1 Lazav, Dimir Mastermind
+1 Leadership Vacuum
+1 Leyline of Anticipation
+1 Lightning Greaves
+1 Llanowar Elves
+1 Loxodon Warhammer
+1 Malakir Rebirth // Malakir Mire
+1 Maraleaf Pixie
+1 Mirri the Cursed
+1 Mwonvuli Beast Tracker
+1 Nature's Claim
+1 Neoform
+1 Nightveil Predator
+1 Noxious Gearhulk
+1 Ornithopter
+1 Perplexing Test
+1 Phylactery Lich
+1 Phyrexian Altar
+1 Plaguecrafter
+1 Ponder
+1 Pongify
+1 Predator Ooze
+1 Preordain
+1 Priest of Forgotten Gods
+1 Primal Growth
+1 Prime Speaker Vannifar
+1 Putrefax
+1 Pygmy Hippo
+1 Rampant Growth
+1 Ramunap Hydra
+1 Rancor
+1 Rapid Hybridization
+1 Rhystic Study
+1 Ritual of the Machine
+1 Rush of Vitality
+1 Sacrifice
+1 Sagu Mauler
+1 Sawtusk Demolisher
+1 Severed Strands
+1 Silent Arbiter
+1 Silhana Ledgewalker
+1 Silhana Ledgewalker
+1 Silumgar, the Drifting Death
+1 Simic Growth Chamber
+1 Simic Signet
+1 Skullclamp
+1 Skulltap
+1 Slippery Bogbonder
+1 Slippery Bogle
+1 Spark Harvest
+1 Spectral Sailor
+1 Stonecoil Serpent
+1 Stuffy Doll
+1 Sultai Charm
+1 Swiftfoot Boots
+1 Sword of Light and Shadow
+1 Sword of Truth and Justice
+1 Sword of the Chosen
+1 Talisman of Curiosity
+1 Talisman of Resilience
+1 Teferi's Veil
+1 Temple of Deceit
+1 Temple of Malady
+1 Temple of Mystery
+1 Tendrils of Despair
+1 Terramorphic Expanse
+1 Thornwood Falls
+1 Thunderfoot Baloth
+1 Tidehollow Strix
+1 Tomebound Lich
+1 Tormented Thoughts
+1 Torpor Orb
+1 Toski, Bearer of Secrets
+1 Toxic Deluge
+1 Tragic Slip
+1 Troll Ascetic
+1 True-Name Nemesis
+1 Tsabo's Decree
+1 Uktabi Drake
+1 Ulvenwald Tracker
+1 Untamed Kavu
+1 Utopia Tree
+1 Vampire of the Dire Moon
+1 Vampire of the Dire Moon
+1 Vault Skirge
+1 Villainous Wealth
+1 Vorpal Sword
+1 Weathered Runestone
+1 Wicked Reward
+1 Wretched Confluence
+1 Wurmcoil Engine
+1 Yahenni, Undying Partisan
+1 Yotian Soldier
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom cube\storm.txt
+
+````txt
+Deck
+1 Gaea's Cradle (USG) 321
+1 Underground Sea (30A) 578
+2 Swamp (UNH) 138
+5 Mountain (UNH) 139
+4 Island (UNH) 137
+1 Volcanic Island (30A) 579
+1 Forest (UNH) 140
+1 Copperline Gorge (SOM) 225
+1 Blood Crypt (SLD) 125
+1 Ignoble Hierarch (MH2) 166
+1 Krark, the Thumbless (CMR) 189
+1 Snapcaster Mage (ISD) 78
+1 Sea Gate Stormcaller (PZNR) 77p
+1 Baral, Chief of Compliance (AER) 28
+1 Sedgemoor Witch (STX) 86
+1 Birgi, God of Storytelling (KHM) 311
+1 Lotus Petal (TMP) 294
+1 Lightning Bolt (PF19) 1
+1 Lava Dart (MH1) 134
+1 Thoughtseize (IMA) 110
+1 Magma Jet (5DN) 73
+1 Ancient Grudge (MM3) 88
+1 Brain Freeze (SCG) 29
+1 Manamorphose (MMA) 191
+1 Gruul Signet (SLD) 288
+1 Incinerate (DD2) 51
+1 Bonus Round (BBD) 56
+1 Seething Song (C21) 179
+1 Heartbeat of Spring (CHK) 212
+1 Past in Flames (TSR) 350
+1 Turnabout (USG) 105
+1 Tendrils of Agony (SCG) 75
+
+Sideboard
+1 Forest (UNH) 140
+3 Mountain (UNH) 139
+1 Birds of Paradise (RAV) 153
+1 Carrion Feeder (SCG) 59
+1 Relic of Progenitus (ALA) 218
+1 Bloodsoaked Champion (PKTK) 66s
+1 Chart a Course (JMP) 142
+1 Mercurial Spelldancer (ONE) 61
+1 Magmatic Channeler (ZNR) 148
+1 Smuggler's Copter (KLD) 235
+1 Bitterblossom (MOR) 58
+1 Vraan, Executioner Thane (ONE) 309
+1 Master of Death (MH2) 205
+1 Emry, Lurker of the Loch (ELD) 43
+1 Collected Company (DTK) 177
+1 Tasigur, the Golden Fang (TSR) 333
+1 Dragonlord Atarka (DTK) 216
+1 Ugin, the Spirit Dragon (M21) 1
+1 Bedlam Reveler (TSR) 340
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Fuck You.txt
+
+````txt
+1 Ancient Tomb
+1 Animate Dead
+1 Arcane Signet
+1 Archfiend of Depravity
+1 Awaken the Erstwhile
+1 Barren Moor
+1 Bitterblossom
+1 Bloodchief Ascension
+1 Bojuka Bog
+1 Bolas's Citadel
+1 Bone Miser
+1 Bottomless Pit
+1 Cabal Coffers
+1 Castle Locthwain
+1 Command Beacon
+1 Command the Dreadhorde
+1 Crypt Ghast
+1 Damnation
+1 Dark Deal
+1 Dark Ritual
+1 Deadly Rollick
+1 Death Cloud
+1 Demonic Tutor
+1 Deserted Temple
+1 Desolation
+1 Dictate of Erebos
+1 Dread Presence
+1 Elderfang Disciple
+1 Expedition Map
+1 Fellwar Stone
+1 Fraying Omnipotence
+1 Geier Reach Sanitarium
+1 Geth's Grimoire
+1 Gray Merchant of Asphodel
+1 Hellish Rebuke
+1 Imp's Mischief
+1 Jet Medallion
+1 Jeweled Lotus
+1 K'rrik, Son of Yawgmoth
+1 Lightning Greaves
+1 Liliana of the Veil
+1 Liliana's Caress
+1 Liliana's Triumph
+1 Living Death
+1 Malakir Rebirth // Malakir Mire
+1 Mana Crypt
+1 Merciless Executioner
+1 Mind Rake
+1 Myriad Landscape
+1 Necrogen Mists
+1 Necrogoyf
+1 Night's Whisper
+1 Nykthos, Shrine to Nyx
+1 Oppression
+1 Painful Quandary
+1 Phyrexian Arena
+1 Phyrexian Obliterator
+1 Phyrexian Tower
+1 Plaguecrafter
+1 Pox
+1 Rankle, Master of Pranks
+1 Read the Bones
+1 Reanimate
+1 Reliquary Tower
+1 Sangromancer
+1 Sheoldred, Whispering One
+1 Sign in Blood
+1 Smallpox
+1 Snow-Covered Swamp
+1 Sol Ring
+1 Soul Shatter
+1 Stinging Study
+20 Swamp
+1 Swiftfoot Boots
+1 Syphon Mind
+1 Tergrid, God of Fright // Tergrid's Lantern
+1 The Eldest Reborn
+1 The Meathook Massacre
+1 Thought Vessel
+1 Tinybones, Trinket Thief
+1 Torment of Hailfire
+1 Tourach, Dread Cantor
+1 Toxic Deluge
+1 Urborg, Tomb of Yawgmoth
+1 Virtus's Maneuver
+1 Vona's Hunger
+1 War Room
+1 Waste Not
+1 Witch's Cottage
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Dragon Tribal.txt
+
+````txt
+1 Anguished Unmaking
+1 Arcane Denial
+1 Arcane Signet
+1 Arid Mesa
+1 Atarka, World Render
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Balefire Dragon
+1 Beast Within
+1 Beledros Witherbloom
+1 Bladewing the Risen
+1 Blood Crypt
+1 Bloodstained Mire
+1 Breeding Pool
+1 Chromatic Lantern
+1 Command Tower
+1 Crib Swap
+1 Crux of Fate
+1 Cultivate
+1 Cursed Mirror
+1 Cyclonic Rift
+1 Damn
+1 Despark
+1 Dragon Broodmother
+1 Dragon Tempest
+1 Dragon's Hoard
+1 Dragonlord Dromoka
+1 Dragonlord Silumgar
+1 Dragonspeaker Shaman
+1 Dromoka, the Eternal
+1 Eerie Ultimatum
+1 Exotic Orchard
+1 Fabled Passage
+1 Farseek
+1 Fellwar Stone
+1 Flooded Strand
+3 Forest
+1 Frontier Bivouac
+1 Generous Gift
+1 Godless Shrine
+1 Goldspan Dragon
+1 Hallowed Fountain
+1 Haven of the Spirit Dragon
+1 Hellkite Charger
+1 Hellkite Courser
+1 Herald's Horn
+1 Indatha Triome
+1 Inferno of the Star Mounts
+1 Island
+1 Karrthus, Tyrant of Jund
+1 Ketria Triome
+1 Kindred Discovery
+1 Kindred Dominance
+1 Kodama's Reach
+1 Lathliss, Dragon Queen
+1 Morophon, the Boundless
+4 Mountain
+1 Nature's Lore
+1 Old Gnawbone
+1 Overgrown Tomb
+1 Painful Truths
+1 Path of Ancestry
+1 Patriarch's Bidding
+2 Plains
+1 Polluted Delta
+1 Rampant Growth
+1 Return of the Wildspeaker
+1 Rhythm of the Wild
+1 Rishkar's Expertise
+1 Sacred Foundry
+1 Sarkhan's Triumph
+1 Scalelord Reckoner
+1 Scion of Draco
+1 Scion of the Ur-Dragon
+1 Silumgar, the Drifting Death
+1 Sol Ring
+1 Steam Vents
+1 Steel Hellkite
+1 Stinging Study
+1 Stomping Ground
+2 Swamp
+1 Swan Song
+1 Swords to Plowshares
+1 Sylvia Brightspear
+1 Temple Garden
+1 Temur Ascendancy
+1 Teneb, the Harvester
+1 Terror of the Peaks
+1 The Ur-Dragon
+1 The World Tree
+1 Three Visits
+1 Tiamat
+1 Unclaimed Territory
+1 Utvara Hellkite
+1 Valakut Awakening // Valakut Stoneforge
+1 Watery Grave
+1 Windswept Heath
+1 Wooded Foothills
+1 Zagoth Triome
+1 Zendikar Resurgent
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\don't complain.txt
+
+````txt
+1 Alhammarret's Archive
+1 Arcane Signet
+1 Archaeomancer's Map
+1 Archon of Absolution
+1 Arid Mesa
+1 Avacyn, Angel of Hope
+1 Azor's Gateway // Sanctum of the Sun
+1 Azorius Signet
+1 Baird, Steward of Argive
+1 Bitterblossom
+1 Blazing Archon
+1 Blood Reckoning
+1 Bloodstained Mire
+1 Collective Restraint
+1 Comeuppance
+1 Condemn
+1 Crested Sunmare
+1 Curse of Echoes
+1 Curse of Unbinding
+1 Dimir Signet
+1 Dread
+1 Fact or Fiction
+1 Farewell
+1 Felidar Sovereign
+1 Flooded Strand
+1 Ghostly Prison
+1 Gilded Lotus
+1 Godless Shrine
+1 Hall of Heliod's Generosity
+1 Hallowed Fountain
+1 Hissing Miasma
+1 Illusionist's Gambit
+5 Island
+1 Isperia, Supreme Judge
+1 Karmic Justice
+1 Keeper of the Accord
+1 Koskun Falls
+1 Land Tax
+1 Lavinia of the Tenth
+1 Loyal Warhound
+1 Luminarch Ascension
+1 Marchesa's Decree
+1 Marsh Flats
+1 Maze of Ith
+1 Misty Rainforest
+1 Mystic Remora
+1 Nadir Kraken
+1 Nezahal, Primal Tide
+1 Norn's Annex
+1 Oloro, Ageless Ascetic
+1 Orzhov Signet
+1 Paradox Haze
+8 Plains
+1 Polluted Delta
+1 Prairie Stream
+1 Pristine Talisman
+1 Promise of Loyalty
+1 Propaganda
+1 Purity
+1 Raffine's Tower
+1 Rayne, Academy Chancellor
+1 Reliquary Tower
+1 Revenge of Ravens
+1 Reverence
+1 Rhystic Study
+1 Riot Control
+1 Scalding Tarn
+1 Scavenger Grounds
+1 Secret Rendezvous
+1 Serra's Emissary
+1 Show and Tell
+1 Silent Arbiter
+1 Smothering Tithe
+1 Sol Ring
+1 Solemn Simulacrum
+1 Sphere of Safety
+1 Sunken Hollow
+5 Swamp
+1 Teferi's Protection
+1 Teysa, Envoy of Ghosts
+1 Thought Vessel
+1 Verdant Catacombs
+1 Verge Rangers
+1 Watery Grave
+1 Wayfarer's Bauble
+1 Well of Lost Dreams
+1 Windborn Muse
+1 Windswept Heath
+
+Maybeboard
+1 Brainstorm
+1 Bribery
+1 Chalice of Life // Chalice of Death
+1 Conqueror's Flail
+1 Consecrated Sphinx
+1 Curse of the Swine
+1 Elixir of Immortality
+1 Esper Sentinel
+1 Exquisite Blood
+1 Fierce Guardianship
+1 Forbidding Spirit
+1 Grand Abolisher
+1 Howling Mine
+1 Jace's Archivist
+1 Kambal, Consul of Allocation
+1 Lighthouse Chronologist
+1 Path to Exile
+1 Pongify
+1 Rapid Hybridization
+1 Rhox Faithmender
+1 Sangromancer
+1 Sanguine Bond
+1 Spectral Searchlight
+1 Swords to Plowshares
+1 Talisman of Dominance
+1 Talisman of Hierarchy
+1 Talisman of Progress
+1 Toothy, Imaginary Friend
+1 True-Name Nemesis
+1 Venser's Journal
+1 Web of Inertia
+1 Worst Fears
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Friends.txt
+
+````txt
+1 Mila, Crafty Companion // Lukka, Wayward Bonder
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\stealy v2.txt
+
+````txt
+1 Acquire
+1 Arcane Signet
+1 Battlemage's Bracers
+1 Blood Crypt
+1 Bloodstained Mire
+1 Boomerang
+1 Bribery
+1 Cabal Coffers
+1 Clone Legion
+1 Consecrated Sphinx
+1 Cruel Ultimatum
+1 Cursed Mirror
+1 Cyclonic Rift
+1 Dauthi Voidwalker
+1 Deadly Rollick
+1 Dimir Signet
+1 Etali, Primal Storm
+1 Eternal Dominion
+1 Exhaustion
+1 Expansion // Explosion
+1 Expedition Map
+1 Fallen Shinobi
+1 Heat Shimmer
+1 Illusionist's Bracers
+9 Island
+1 Izzet Signet
+1 Jeleva, Nephalia's Scourge
+1 Jeska's Will
+1 Kefnet's Last Word
+1 Lightning Greaves
+1 Lithoform Engine
+1 Mana Vapors
+1 Memory Plunder
+1 Mirage Mirror
+8 Mountain
+1 Murderous Rider // Swift End
+1 Mystic Remora
+1 Nascent Metamorph
+1 Nashi, Moon Sage's Scion
+1 Perplexing Chimera
+1 Polluted Delta
+1 Praetor's Grasp
+1 Rakdos Signet
+1 Reliquary Tower
+1 Reversal of Fortune
+1 Rhystic Study
+1 Rings of Brighthearth
+1 Rite of Replication
+1 Saheeli's Artistry
+1 Sakashima's Will
+1 Scalding Tarn
+1 Smoldering Marsh
+1 Snap
+1 Spelltwine
+1 Stinging Study
+1 Strionic Resonator
+1 Sublime Epiphany
+1 Sunken Hollow
+9 Swamp
+1 Swiftfoot Boots
+1 Talent of the Telepath
+1 Talisman of Creativity
+1 Talisman of Dominance
+1 Talisman of Indulgence
+1 Thief of Sanity
+1 Thought Vessel
+1 Tidal Bore
+1 Treachery
+1 True Polymorph
+1 Turnabout
+1 Unwind
+1 Urborg, Tomb of Yawgmoth
+1 Watery Grave
+1 Word of Command
+1 Worst Fears
+1 Xander's Lounge
+1 Zevlor, Elturel Exile
+
+Maybeboard
+1 Cut of the Profits
+1 Fact or Fiction
+1 Fork
+1 Solemn Simulacrum
+1 Twitch
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Ayara.txt
+
+````txt
+1 Abhorrent Overlord
+1 Arcane Signet
+1 Ayara, First of Locthwain
+1 Blood Artist
+1 Bloodghast
+1 Bojuka Bog
+1 Bolas's Citadel
+1 Bontu's Monument
+1 Cabal Coffers
+1 Cabal Stronghold
+1 Caged Sun
+1 Castle Locthwain
+1 Charcoal Diamond
+1 Chittering Witch
+1 Command the Dreadhorde
+1 Crypt Ghast
+1 Crypt of Agadeem
+1 Curtains' Call
+1 Damnation
+1 Dark Prophecy
+1 Dark Ritual
+1 Deadly Rollick
+1 Defile
+1 Demonic Tutor
+1 Dread Presence
+1 Dream Devourer
+1 Endrek Sahr, Master Breeder
+1 Expedition Map
+1 Feed the Swarm
+1 God-Eternal Bontu
+1 Grave Pact
+1 Grave Titan
+1 Gray Merchant of Asphodel
+1 Grim Haruspex
+1 Heraldic Banner
+1 High Market
+1 Jet Medallion
+1 Living Death
+1 Malakir Rebirth // Malakir Mire
+1 Manascape Refractor
+1 Massacre Girl
+1 Massacre Wurm
+1 Midnight Reaper
+1 Murderous Rider // Swift End
+1 Mutilate
+1 Myriad Landscape
+1 Night's Whisper
+1 Nykthos, Shrine to Nyx
+1 Oblivion Stone
+1 Ogre Slumlord
+1 Panharmonicon
+1 Petrified Field
+1 Phyrexian Altar
+1 Phyrexian Tower
+1 Pitiless Plunderer
+1 Plague of Vermin
+1 Plaguecrafter
+1 Plumb the Forbidden
+1 Ravenous Chupacabra
+1 Read the Bones
+1 Rise of the Dark Realms
+1 Rise of the Dread Marn
+1 Sengir Autocrat
+1 Shriekmaw
+1 Sign in Blood
+1 Sol Ring
+22 Swamp
+1 Syr Konrad, the Grim
+1 Szat's Will
+1 The Meathook Massacre
+1 Torment of Hailfire
+1 Urborg, Tomb of Yawgmoth
+1 Varragoth, Bloodsky Sire
+1 Victimize
+1 Village Rites
+1 Viscera Seer
+1 Wasteland
+1 Wayfarer's Bauble
+1 Witch of the Moors
+1 Witch's Cottage
+1 Yahenni, Undying Partisan
+1 Zulaport Cutthroat
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Lynde.txt
+
+````txt
+1 Ancient Tomb
+1 Arcane Denial
+1 Arcane Signet
+1 Blasphemous Act
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Callaphe, Beloved of the Sea
+1 Captive Audience
+1 Chaos Warp
+1 Claws of Gix
+1 Clever Impersonator
+1 Cloud Key
+1 Command Tower
+1 Cruel Reality
+1 Crystal Chimes
+1 Curse of Bloodletting
+1 Curse of Chaos
+1 Curse of Disturbance
+1 Curse of Echoes
+1 Curse of Fool's Wisdom
+1 Curse of Hospitality
+1 Curse of Misfortunes
+1 Curse of Obsession
+1 Curse of Opulence
+1 Curse of Shaken Faith
+1 Curse of Stalked Prey
+1 Curse of Surveillance
+1 Curse of Thirst
+1 Curse of Unbinding
+1 Curse of Vengeance
+1 Curse of Verbosity
+1 Curse of the Restless Dead
+1 Cursed Mirror
+1 Cyclonic Rift
+1 Decree of Pain
+1 Demonic Tutor
+1 Dimir Signet
+1 Disrupt Decorum
+1 Dockside Extortionist
+1 Doomwake Giant
+1 Dragonskull Summit
+1 Drowned Catacomb
+1 Estrid's Invocation
+1 Fabled Passage
+1 Fact or Fiction
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Grim Guardian
+1 Haunted Ridge
+1 Imprisoned in the Moon
+6 Island
+1 Izzet Signet
+1 Jeska's Will
+1 Leyline of Anticipation
+1 Lightning Greaves
+1 Lithoform Engine
+1 Lynde, Cheerful Tormentor
+1 Maddening Hex
+1 Malakir Rebirth // Malakir Mire
+1 Mirrormade
+1 Mogis, God of Slaughter
+6 Mountain
+1 Night's Whisper
+1 Nightscape Familiar
+1 Otawara, Soaring City
+1 Painful Truths
+1 Paradox Haze
+1 Polluted Delta
+1 Pongify
+1 Propaganda
+1 Protean Thaumaturge
+1 Rakdos Signet
+1 Read the Bones
+1 Reality Shift
+1 Rhystic Study
+1 Scalding Tarn
+1 Shipwreck Marsh
+1 Smoldering Marsh
+1 Sokenzan, Crucible of Defiance
+1 Sol Ring
+1 Solemn Simulacrum
+1 Steam Vents
+1 Stormcarved Coast
+1 Sulfur Falls
+1 Sunken Hollow
+6 Swamp
+1 Takenuma, Abandoned Mire
+1 Thoughtrender Lamia
+1 Torment of Scarabs
+1 Toxic Deluge
+1 Urborg, Tomb of Yawgmoth
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Watery Grave
+1 Xantcha, Sleeper Agent
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Ognis.txt
+
+````txt
+1 Academy Manufactor
+1 Amulet of Vigor
+1 Arcane Signet
+1 Assassin's Trophy
+1 Bane of Progress
+1 Beast Whisperer
+1 Beast Within
+1 Beastcaller Savant
+1 Blasphemous Act
+1 Blood Crypt
+1 Bloodbraid Elf
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Boseiju, Who Endures
+1 Captain Lannery Storm
+1 Cinder Glade
+1 Command Tower
+1 Craterhoof Behemoth
+1 Cursed Mirror
+1 Deathcap Glade
+1 Decree of Pain
+1 Dockside Extortionist
+1 Doubling Season
+1 Dragonskull Summit
+1 Eternal Witness
+1 Fabled Passage
+1 Fervor
+4 Forest
+1 Garna, the Bloodflame
+1 Goblin Rabblemaster
+1 Goldspan Dragon
+1 Grand Warlord Radha
+1 Hanweir Battlements
+1 Harvest Season
+1 Haunted Ridge
+1 Hellkite Charger
+1 Hellrider
+1 Hero of Oxid Ridge
+1 Heroic Intervention
+1 Ignoble Hierarch
+1 Insurrection
+1 Jeska's Will
+1 Kiki-Jiki, Mirror Breaker
+1 Klauth, Unrivaled Ancient
+1 Korvold, Fae-Cursed King
+1 Laelia, the Blade Reforged
+1 Lightning Greaves
+1 Malakir Rebirth // Malakir Mire
+1 Marionette Master
+4 Mountain
+1 Nature's Lore
+1 Night's Whisper
+1 Obscuring Haze
+1 Ognis, the Dragon's Lash
+1 Overgrown Tomb
+1 Painful Truths
+1 Prismatic Vista
+1 Professional Face-Breaker
+1 Questing Beast
+1 Rampant Growth
+1 Reanimate
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Revel in Riches
+1 Rhythm of the Wild
+1 Rockfall Vale
+1 Rootbound Crag
+1 Sakura-Tribe Elder
+1 Smoldering Marsh
+1 Sokenzan, Crucible of Defiance
+1 Sol Ring
+1 Stomping Ground
+2 Swamp
+1 Swiftfoot Boots
+1 Takenuma, Abandoned Mire
+1 Tempt with Vengeance
+1 The Great Henge
+1 Three Visits
+1 Tombstone Stairwell
+1 Toski, Bearer of Secrets
+1 Toxic Deluge
+1 Urborg, Tomb of Yawgmoth
+1 Valakut Awakening // Valakut Stoneforge
+1 Verdant Catacombs
+1 Wasteland
+1 Windgrace's Judgment
+1 Wooded Foothills
+1 Woodland Cemetery
+1 Wulfgar of Icewind Dale
+1 Xorn
+1 Yahenni, Undying Partisan
+1 Yavimaya, Cradle of Growth
+1 Zealous Conscripts
+1 Ziatora's Proving Ground
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Uro's Sushi Dinner.txt
+
+````txt
+1 Aetherize
+1 Alchemist's Refuge
+1 Arcane Signet
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bane of Progress
+1 Bant Panorama
+1 Beast Within
+1 Bond of Insight
+1 Brainstorm
+1 Breeding Pool
+1 Codex Shredder
+1 Command Tower
+1 Copy Artifact
+1 Counterspell
+1 Crop Sigil
+1 Crucible of Worlds
+1 Cultivate
+1 Curse of the Swine
+1 Cyclonic Rift
+1 Discontinuity
+1 Epiphany at the Drownyard
+1 Esper Panorama
+1 Evolution Charm
+1 Evolving Wilds
+1 Exploration
+1 Farseek
+1 Fierce Guardianship
+1 Finale of Devastation
+1 Flood of Recollection
+1 Flooded Grove
+1 Flooded Strand
+6 Forest
+1 Fraying Sanity
+1 Grapple with the Past
+1 Greater Good
+1 Growth Spiral
+1 Harrow
+1 Hedron Crab
+1 Hermit Druid
+1 Heroic Intervention
+1 Hinterland Harbor
+1 Imprisoned in the Moon
+5 Island
+1 Jace's Erasure
+1 Jund Panorama
+1 Laboratory Maniac
+1 Life's Legacy
+1 Lotus Cobra
+1 Mana Drain
+1 Mesmeric Orb
+1 Minamo, School at Water's Edge
+1 Mission Briefing
+1 Misty Rainforest
+1 Naya Panorama
+1 Nostalgic Dreams
+1 Noxious Revival
+1 Oko, Thief of Crowns
+1 Perpetual Timepiece
+1 Phyrexian Metamorph
+1 Polluted Delta
+1 Ponder
+1 Pongify
+1 Prismatic Vista
+1 Psychic Spiral
+1 Ramunap Excavator
+1 Rapid Hybridization
+1 Reality Shift
+1 Regrowth
+1 Return to Nature
+1 Scalding Tarn
+1 Search for Azcanta // Azcanta, the Sunken Ruin
+1 Seedborn Muse
+1 Shelldock Isle
+1 Simic Growth Chamber
+1 Sol Ring
+1 Song of the Dryads
+1 Strip Mine
+1 Tatyova, Benthic Druid
+1 Terramorphic Expanse
+1 Thassa's Oracle
+1 Three Visits
+1 Traumatize
+1 Uro, Titan of Nature's Wrath
+1 Urza's Saga
+1 Verdant Catacombs
+1 Wand of Vertebrae
+1 Wasteland
+1 Waterlogged Grove
+1 Windfall
+1 Windswept Heath
+1 Wooded Foothills
+
+Maybeboard
+1 Aetherspouts
+1 Alhammarret's Archive
+1 Anvil of Bogardan
+1 Arcane Denial
+1 Arcane Laboratory
+1 Avoid Fate
+1 Bad River
+1 Bane of Progress
+1 Bind
+1 Botanical Sanctum
+1 Burgeoning
+1 Circuitous Route
+1 Coalition Relic
+1 Command Beacon
+1 Commander's Sphere
+1 Court of Cunning
+1 Cryptic Command
+1 Deranged Assistant
+1 Desert of the Mindful
+1 Disallow
+1 Displacement Wave
+1 Ensnare
+1 Eternal Witness
+1 Explosive Vegetation
+1 Fact or Fiction
+1 Fellwar Stone
+1 Flood Plain
+1 Frantic Search
+1 Ghost Town
+1 Grasslands
+1 Grixis Panorama
+1 Heartbeat of Spring
+1 Insidious Will
+1 Keening Stone
+1 Kodama's Reach
+1 Krosan Grip
+1 Krosan Verge
+1 Life from the Loam
+1 Maze of Ith
+1 Millikin
+1 Mind Stone
+1 Mirrorpool
+1 Momentous Fall
+1 Mountain Valley
+1 Muddle the Mixture
+1 Mulch
+1 Mystic Confluence
+1 Mystical Tutor
+1 Nature's Lore
+1 Nissa's Pilgrimage
+1 Panharmonicon
+1 Paradigm Shift
+1 Paradox Haze
+1 Pedantic Learning
+1 Pendrell Mists
+1 Pieces of the Puzzle
+1 Plasm Capture
+1 Pull from Tomorrow
+1 Rampant Growth
+1 Ranger's Path
+1 Repudiate // Replicate
+1 Return of the Wildspeaker
+1 Rishkar's Expertise
+1 Sakura-Tribe Scout
+1 Satyr Wayfinder
+1 Scavenger Grounds
+1 Seasons Past
+1 Sensei's Divining Top
+1 Simic Charm
+1 Simic Signet
+1 Sinister Sabotage
+1 Skyshroud Claim
+1 Snap
+1 Spell Swindle
+1 Splendid Reclamation
+1 Stifle
+1 Strionic Resonator
+1 Swan Song
+1 Taigam's Scheming
+1 Teferi's Ageless Insight
+1 Telemin Performance
+1 Temple of Mystery
+1 Terminal Moraine
+1 Thaumatic Compass // Spires of Orazca
+1 Thawing Glaciers
+1 Think Tank
+1 Thornwood Falls
+1 Thought Vessel
+1 Three Wishes
+1 Traverse the Outlands
+1 Turnabout
+1 Vedalken Orrery
+1 Veil of Summer
+1 Walking Atlas
+1 Warped Landscape
+1 Wayfarer's Bauble
+1 Wilderness Reclamation
+1 Winding Way
+1 Yavimaya Coast
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\sike.txt
+
+````txt
+1 Alhammarret's Archive
+1 Anvil of Bogardan
+1 Arcane Denial
+1 Arcane Signet
+1 Archmage Emeritus
+1 Archmage's Charm
+1 Azor's Gateway // Sanctum of the Sun
+1 Bonders' Enclave
+1 Brainstorm
+1 Confound
+1 Confounding Conundrum
+1 Consecrated Sphinx
+1 Consider
+1 Cyclonic Rift
+1 Dakra Mystic
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Geier Reach Sanitarium
+1 Ghostly Pilferer
+1 High Market
+1 In Too Deep
+28 Island
+1 Jace's Archivist
+1 Jace's Projection
+1 Jace, Wielder of Mysteries
+1 Jace, the Mind Sculptor
+1 Jeweled Lotus
+1 Jin-Gitaxias, Progress Tyrant
+1 Keep Safe
+1 Laboratory Maniac
+1 Lat-Nam's Legacy
+1 Leyline of Anticipation
+1 Lightning Greaves
+1 Mikokoro, Center of the Sea
+1 Mind Stone
+1 Minn, Wily Illusionist
+1 Mission Briefing
+1 Mulldrifter
+1 Mystic Confluence
+1 Mystic Remora
+1 Nezahal, Primal Tide
+1 Ominous Seas
+1 Opt
+1 Phantasmal Image
+1 Proteus Staff
+1 Psychosis Crawler
+1 Read the Runes
+1 Reliquary Tower
+1 Rhystic Study
+1 Sakashima the Impostor
+1 Sapphire Charm
+1 Sapphire Medallion
+1 Sea Gate Restoration // Sea Gate, Reborn
+1 Sensei's Divining Top
+1 Skullclamp
+1 Snapcaster Mage
+1 Sol Ring
+1 Spark Double
+1 Teferi's Ageless Insight
+1 Teferi, Master of Time
+1 Temple Bell
+1 Thassa's Oracle
+1 Thought Vessel
+1 Tolarian Winds
+1 Toothy, Imaginary Friend
+1 Treasure Cruise
+1 Urza's Saga
+1 Verity Circle
+1 Visions of Beyond
+1 War Room
+1 Wayfarer's Bauble
+1 Windfall
+1 Wizard Class
+
+Maybeboard
+1 Aetherize
+1 Arcane Adaptation
+1 Archetype of Imagination
+1 Archmage Ascension
+1 Ashnod's Altar
+1 Back to Basics
+1 Baral's Expertise
+1 Baral, Chief of Compliance
+1 Behold the Multiverse
+1 Bident of Thassa
+1 Bond of Insight
+1 Chemister's Insight
+1 Coastal Piracy
+1 Commander's Insight
+1 Counterspell
+1 Cryptic Command
+1 Curate
+1 Curious Homunculus // Voracious Reader
+1 Deep Analysis
+1 Deliberate
+1 Dictate of Kruphix
+1 Dig Through Time
+1 Disallow
+1 Disrupt
+1 Drawn from Dreams
+1 Fact or Fiction
+1 Fact or Fiction
+1 Fatespinner
+1 Font of Mythos
+1 Force Away
+1 Gilded Lotus
+1 Gitaxian Probe
+1 Glimpse of Freedom
+1 High Tide
+1 Howling Mine
+1 Illusionary Wall
+1 Illusory Ambusher
+1 Imprisoned in the Moon
+1 Ingenious Mastery
+1 Inscription of Insight
+1 Interdict
+1 Into the Story
+1 Isochron Scepter
+1 Jace Beleren
+1 Jace's Mindseeker
+1 Jace, Arcane Strategist
+1 Jace, Cunning Castaway
+1 Jace, Mirror Mage
+1 Jace, Vryn's Prodigy // Jace, Telepath Unbound
+1 Jin-Gitaxias, Core Augur
+1 Kami of the Crescent Moon
+1 Kindred Discovery
+1 Lithoform Engine
+1 Mana Drain
+1 Manifold Insights
+1 Mass Polymorph
+1 Memory Deluge
+1 Merfolk Looter
+1 Mind Over Matter
+1 Mind Spring
+1 Mnemonic Deluge
+1 Mystic Reflection
+1 Narset's Reversal
+1 Narset, Parter of Veils
+1 Nezahal, Primal Tide
+1 Ominous Seas
+1 Omniscience
+1 Palinchron
+1 Perilous Research
+1 Petals of Insight
+1 Phantasmal Abomination
+1 Phantasmal Dragon
+1 Phantasmal Dreadmaw
+1 Phantasmal Form
+1 Phantom Steed
+1 Phyrexian Altar
+1 Plagiarize
+1 Polymorph
+1 Ponder
+1 Pongify
+1 Preordain
+1 Psychic Possession
+1 Pull from Tomorrow
+1 Quicken
+1 Radical Idea
+1 Rapid Hybridization
+1 Reality Ripple
+1 Reality Shift
+1 Recurring Insight
+1 Remand
+1 Research the Deep
+1 Rod of Absorption
+1 Runechanter's Pike
+1 Scour the Laboratory
+1 Scroll Rack
+1 Search for Azcanta // Azcanta, the Sunken Ruin
+1 Siren's Ruse
+1 Solemn Simulacrum
+1 Spatial Contortion
+1 Spawning Pit
+1 Spelltwine
+1 Spellweaver Volute
+1 Sphinx of the Second Sun
+1 Sphinx-Bone Wand
+1 Standardize
+1 Strionic Resonator
+1 Stroke of Genius
+1 Sublime Epiphany
+1 Sudden Insight
+1 Sudden Substitution
+1 Swiftfoot Boots
+1 Talent of the Telepath
+1 Teferi's Puzzle Box
+1 Teferi's Realm
+1 Teferi's Time Twist
+1 Teferi's Time Twist
+1 Terrain Generator
+1 Thassa's Intervention
+1 Thassa's Oracle
+1 The Immortal Sun
+1 The Magic Mirror
+1 The Mirari Conjecture
+1 Think Twice
+1 Torrential Gearhulk
+1 Trade Routes
+1 Treasure Cruise
+1 Triskaidekaphile
+1 Ugin's Insight
+1 Umezawa's Jitte
+1 Wavebreak Hippocamp
+1 Well of Ideas
+1 Well of Knowledge
+1 Winged Boots
+1 Wonder
+1 You Come to a River
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\valley.txt
+
+````txt
+1 Valduk, Keeper of the Flame
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Edrik v2.txt
+
+````txt
+1 Aetherize
+1 Arbor Elf
+1 Arcane Denial
+1 Arcane Signet
+1 Artificer's Assistant
+1 Beast Within
+1 Beastmaster Ascension
+1 Birds of Paradise
+1 Breeding Pool
+1 Cloud Pirates
+1 Cloud Sprite
+1 Cloud of Faeries
+1 Cyclonic Rift
+1 Dolmen Gate
+1 Edric, Spymaster of Trest
+1 Elvish Mystic
+1 Faerie Vandal
+1 Farseek
+1 Fierce Guardianship
+1 Flooded Strand
+1 Flying Men
+14 Forest
+1 Fyndhorn Elves
+1 Heritage Druid
+1 Heroic Intervention
+15 Island
+1 Ixidron
+1 Joraga Treespeaker
+1 Lightning Greaves
+1 Llanowar Elves
+1 Meekstone
+1 Misty Rainforest
+1 Mystic Confluence
+1 Opposition
+1 Polluted Delta
+1 Pongify
+1 Predator Ooze
+1 Rapid Hybridization
+1 Sakura-Tribe Elder
+1 Scalding Tarn
+1 Search for Tomorrow
+1 Simic Signet
+1 Sol Ring
+1 Solemn Simulacrum
+1 Sublime Epiphany
+1 Swiftfoot Boots
+1 Three Visits
+1 True-Name Nemesis
+1 Verdant Catacombs
+1 Windswept Heath
+1 Wood Elves
+1 Wooded Foothills
+
+Maybeboard
+1 Blossoming Bogbeast
+1 Elder Gargaroth
+1 Nyxbloom Ancient
+1 Questing Beast
+1 Vigor
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\X.txt
+
+````txt
+1 Animate Dead
+1 Arcane Signet
+1 Ashiok, Nightmare Weaver
+1 Barren Moor
+1 Blatant Thievery
+1 Bojuka Bog
+1 Bribery
+1 Capsize
+1 Chromatic Lantern
+1 Clever Impersonator
+1 Coalition Relic
+1 Commander's Sphere
+1 Corrupted Conscience
+1 Counterspell
+1 Crypt Ghast
+1 Cryptic Command
+1 Cyclonic Rift
+1 Damnation
+1 Demonic Tutor
+1 Dig Through Time
+1 Dimir Aqueduct
+1 Dimir Signet
+1 Dismal Backwater
+1 Domineering Will
+1 Doom Blade
+1 Drowned Catacomb
+1 Eternal Dominion
+1 Everflowing Chalice
+1 Evil Twin
+1 Evolving Wilds
+1 Expedition Map
+1 Fetid Pools
+1 Ghost Quarter
+1 Gilded Lotus
+1 Gitaxian Probe
+1 Gonti, Lord of Luxury
+1 Havengul Lich
+1 Hero's Downfall
+1 Hostage Taker
+1 Intellectual Offering
+10 Island
+1 Jace Beleren
+1 Jwar Isle Refuge
+1 Lazav, Dimir Mastermind
+1 Leyline of Anticipation
+1 Lightning Greaves
+1 Lonely Sandbar
+1 Memory Plunder
+1 Minds Aglow
+1 Mirage Mirror
+1 Mnemonic Betrayal
+1 Morphic Pool
+1 Myriad Landscape
+1 Narset's Reversal
+1 Necromancy
+1 Necromantic Selection
+1 Polluted Delta
+1 Ponder
+1 Praetor's Grasp
+1 Price of Fame
+1 Reliquary Tower
+1 Remand
+1 Rings of Brighthearth
+1 Rise of the Dark Realms
+1 Scheming Symmetry
+1 Silent-Blade Oni
+1 Sol Ring
+1 Spelltwine
+1 Sunken Hollow
+1 Supplant Form
+6 Swamp
+1 Tainted Isle
+1 Talent of the Telepath
+1 Talisman of Dominance
+1 Telepathy
+1 Temple of Deceit
+1 Temple of the False God
+1 Terramorphic Expanse
+1 Thespian's Stage
+1 Thought Vessel
+1 Thran Dynamo
+1 Toxic Deluge
+1 Watery Grave
+1 Wrexial, the Risen Deep
+1 X
+1 Zur's Weirding
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Rograkh and Ardenn.txt
+
+````txt
+1 Akiri, Fearless Voyager
+1 Ancient Tomb
+1 Arcane Signet
+1 Ardenn, Intrepid Archaeologist
+1 Arid Mesa
+1 Austere Command
+1 Battlefield Forge
+1 Blackblade Reforged
+1 Blasphemous Act
+1 Blinkmoth Nexus
+1 Bloodforged Battle-Axe
+1 Bludgeon Brawl
+1 Boros Charm
+1 Boros Signet
+1 Bruenor Battlehammer
+1 Buried Ruin
+1 Champion's Helm
+1 Chaos Warp
+1 Clifftop Retreat
+1 Colossus Hammer
+1 Command Tower
+1 Commander's Plate
+1 Deflecting Swat
+1 Dowsing Dagger // Lost Vale
+1 Enlightened Tutor
+1 Esper Sentinel
+1 Fabled Passage
+1 Fighter Class
+1 Fireshrieker
+1 Flawless Maneuver
+1 Generous Gift
+1 Golem-Skin Gauntlets
+1 Halvar, God of Battle // Sword of the Realms
+1 Hammer of Nazahn
+1 Inkmoth Nexus
+1 Inquisitor's Flail
+1 Inspiring Statuary
+1 Inspiring Vantage
+1 Jeska's Will
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Mask of Memory
+1 Masterwork of Ingenuity
+1 Mind Stone
+5 Mountain
+1 Mox Amber
+1 Mutavault
+1 Needleverge Pathway // Pillarverge Pathway
+1 Nettlecyst
+1 Obsidian Battle-Axe
+1 Ogre's Cleaver
+1 Ondu Inversion // Ondu Skyruins
+1 Open the Armory
+1 Path to Exile
+6 Plains
+1 Prismatic Vista
+1 Puresteel Paladin
+1 Reckless Impulse
+1 Rograkh, Son of Rohgahh
+1 Sacred Foundry
+1 Seize the Day
+1 Sejiri Shelter // Sejiri Glacier
+1 Settle the Wreckage
+1 Sevinne's Reclamation
+1 Shadowspear
+1 Showdown of the Skalds
+1 Sigarda's Aid
+1 Slash the Ranks
+1 Slayers' Stronghold
+1 Smothering Tithe
+1 Sol Ring
+1 Spectator Seating
+1 Sram, Senior Edificer
+1 Steelshaper's Gift
+1 Stoneforge Mystic
+1 Sunbaked Canyon
+1 Sundown Pass
+1 Sunforger
+1 Sunhome, Fortress of the Legion
+1 Swiftfoot Boots
+1 Sword of Feast and Famine
+1 Sword of Fire and Ice
+1 Sword of the Animist
+1 Swords to Plowshares
+1 Talisman of Conviction
+1 Tome of Legends
+1 Valakut Awakening // Valakut Stoneforge
+1 War Room
+1 Wasteland
+1 Wayfarer's Bauble
+1 Wear // Tear
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Cascade.txt
+
+````txt
+1 Aetherize
+1 Alchemist's Refuge
+1 Ancient Tomb
+1 Annoyed Altisaur
+1 Apex Devastator
+1 Arcane Signet
+1 Arid Mesa
+1 Aurora Phoenix
+1 Averna, the Chaos Bloom
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bane of Progress
+1 Barkchannel Pathway // Tidechannel Pathway
+1 Beast Whisperer
+1 Bident of Thassa
+1 Blasphemous Act
+1 Blighted Woodland
+1 Bloodbraid Elf
+1 Bloodbraid Marauder
+1 Boseiju, Who Endures
+1 Brainstorm
+1 Breeding Pool
+1 Brutalizer Exarch
+1 Cinder Glade
+1 Command Tower
+1 Cragcrown Pathway // Timbercrown Pathway
+1 Crystal Shard
+1 Cyclonic Rift
+1 Elemental Bond
+1 Emergence Zone
+1 Etherium-Horn Sorcerer
+1 Fabled Passage
+1 Farseek
+1 Fierce Guardianship
+1 Fiery Islet
+1 Forceful Denial
+5 Forest
+1 Growth Spiral
+1 Gruul Signet
+1 Hunter's Insight
+1 Imoti, Celebrant of Bounty
+1 Ingenuity Engine
+4 Island
+1 Izzet Signet
+1 Ketria Triome
+1 Laelia, the Blade Reforged
+1 Lithoform Engine
+1 Maelstrom Wanderer
+1 Marsh Flats
+1 Misty Rainforest
+1 Momir Vig, Simic Visionary
+4 Mountain
+1 Mystic Confluence
+1 Natural Reclamation
+1 Pongify
+1 Primal Command
+1 Prismatic Vista
+1 Rampant Growth
+1 Rapid Hybridization
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Rishkar's Expertise
+1 Sakashima's Protege
+1 Sakura-Tribe Elder
+1 Scalding Tarn
+1 Scroll Rack
+1 Shardless Agent
+1 Simic Signet
+1 Sol Ring
+1 Song of Creation
+1 Sphinx of the Second Sun
+1 Strionic Resonator
+1 Sweet-Gum Recluse
+1 Sylvan Library
+1 Sylvan Tutor
+1 Talisman of Creativity
+1 Talisman of Curiosity
+1 Talisman of Impulse
+1 Teferi's Time Twist
+1 Three Visits
+1 Throes of Chaos
+1 Ulvenwald Tracker
+1 Valakut Awakening // Valakut Stoneforge
+1 Verdant Catacombs
+1 Violent Outburst
+1 Vivien, Monsters' Advocate
+1 Volcanic Torrent
+1 War Room
+1 Wild-Magic Sorcerer
+1 Wooded Foothills
+1 Worldly Tutor
+
+Maybeboard
+1 Bloodstained Mire
+1 Boarding Party
+1 Botanical Sanctum
+1 Castle Garenbrig
+1 Copperline Gorge
+1 Cultivate
+1 Dreamroot Cascade
+1 Exotic Orchard
+1 Flamekin Herald
+1 Flooded Strand
+1 Frantic Search
+1 Frontier Bivouac
+1 Garruk, Caller of Beasts
+1 Harmonize
+1 Hunter's Prowess
+1 Kodama's Reach
+1 Koma, Cosmos Serpent
+1 Laboratory Maniac
+1 Leyline of Anticipation
+1 Meteoric Mace
+1 Myriad Landscape
+1 Niv-Mizzet, the Firemind
+1 Polluted Delta
+1 Psychosis Crawler
+1 Riku of Two Reflections
+1 Search for Azcanta // Azcanta, the Sunken Ruin
+1 Seedborn Muse
+1 Thassa's Oracle
+1 Thousand-Year Storm
+1 Turnabout
+1 Windswept Heath
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Flames of Redemption.txt
+
+````txt
+1 Aetherflux Reservoir
+1 Akroma's Vengeance
+1 Ancient Tomb
+1 Arcane Signet
+1 Archaeomancer's Map
+1 Arid Mesa
+1 Aurelia's Fury
+1 Austere Command
+1 Battlefield Forge
+1 Beaming Defiance
+1 Blasphemous Act
+1 Bloodstained Mire
+1 Boros Charm
+1 Boros Signet
+1 Cataclysmic Gearhulk
+1 Chaos Warp
+1 Clifftop Retreat
+1 Collective Defiance
+1 Command Tower
+1 Cursed Totem
+1 Dawn Charm
+1 Debt of Loyalty
+1 Eerie Interlude
+1 Electrostatic Field
+1 Emerge Unscathed
+1 Emergence Zone
+1 Feather, the Redeemed
+1 Fiendish Duo
+1 Fiery Emancipation
+1 Fiery Encore
+1 Fiery Gambit
+1 Fire Servant
+1 Fireball
+1 Firebrand Archer
+1 Flooded Strand
+1 Generous Gift
+1 Gisela, Blade of Goldnight
+1 Gods Willing
+1 Grapeshot
+1 Guttersnipe
+1 Heartless Hidetsugu
+1 Hour of Revelation
+1 Impact Resonance
+1 Jaya's Immolating Inferno
+1 Jeska's Will
+1 Kari Zev's Expertise
+1 Land Tax
+1 Liberate
+1 Long Road Home
+1 Mana Geyser
+1 Marsh Flats
+1 Maze of Ith
+1 Meteor Shower
+1 Meteor Swarm
+5 Mountain
+1 Myriad Landscape
+1 Neheb, the Eternal
+1 Otherworldly Journey
+1 Past in Flames
+1 Path to Exile
+1 Pearl Medallion
+5 Plains
+1 Primal Amulet // Primal Wellspring
+1 Prismatic Vista
+1 Pyrokinesis
+1 Pyromancer's Goggles
+1 Reliquary Tower
+1 Remedy
+1 Rogue's Passage
+1 Rolling Thunder
+1 Ruby Medallion
+1 Rugged Prairie
+1 Sacred Foundry
+1 Scalding Tarn
+1 Scavenger Grounds
+1 Scroll Rack
+1 Sejiri Shelter // Sejiri Glacier
+1 Sentinel Tower
+1 Shatterskull Smashing // Shatterskull, the Hammer Pass
+1 Shelter
+1 Shinka, the Bloodsoaked Keep
+1 Shower of Sparks
+1 Slayers' Stronghold
+1 Smothering Tithe
+1 Sol Ring
+1 Solemn Simulacrum
+1 Spark of Creativity
+1 Sphinx-Bone Wand
+1 Storm-Kiln Artist
+1 Sunbaked Canyon
+1 Sunforger
+1 Sunhome, Fortress of the Legion
+1 Swiftfoot Boots
+1 Swords to Plowshares
+1 Talisman of Conviction
+1 Teferi's Protection
+1 Thought Vessel
+1 Toralf, God of Fury // Toralf's Hammer
+1 Torbran, Thane of Red Fell
+1 Underworld Breach
+1 Urza's Ruinous Blast
+1 Valorous Stance
+1 Veilstone Amulet
+1 Violent Eruption
+1 Wayfarer's Bauble
+1 Wheel of Fortune
+1 Wheel of Misfortune
+1 Windswept Heath
+1 Wooded Foothills
+1 Wrath of God
+
+Maybeboard
+1 Acrobatic Maneuver
+1 Act of Heroism
+1 Adamant Will
+1 Ajani's Presence
+1 Alhammarret's Archive
+1 Ancestral Anger
+1 Angelfire Ignition
+1 Angelic Accord
+1 Arcbond
+1 Assault Strobe
+1 Astral Steel
+1 Auriok Champion
+1 Authority of the Consuls
+1 Baffling Defenses
+1 Battlefield Promotion
+1 Bishop of Wings
+1 Blazing Shoal
+1 Blessed Alliance
+1 Blessed Breath
+1 Blessed Defiance
+1 Blessed Sanctuary
+1 Blinding Flare
+1 Blood Lust
+1 Borrowed Hostility
+1 Braid of Fire
+1 Brute Force
+1 Cathars' Crusade
+1 Cloudshift
+1 Commander's Sphere
+1 Commando Raid
+1 Conflagrate
+1 Conjurer's Closet
+1 Court of Grace
+1 Crimson Wisps
+1 Critical Hit
+1 Crowd's Favor
+1 Dazzling Reflection
+1 Defiant Stand
+1 Defiant Strike
+1 Desperate Stand
+1 Distemper of the Blood
+1 Divine Visitation
+1 Djeru's Resolve
+1 Double Cleave
+1 Electropotence
+1 Empyrial Storm
+1 Enrage
+1 Entreat the Angels
+1 Ephemeral Shields
+1 Ephemerate
+1 Evangel of Heliod
+1 Expanded Anatomy
+1 Expedite
+1 Fall of the Hammer
+1 Feat of Resistance
+1 Fellwar Stone
+1 Finale of Glory
+1 Fire Prophecy
+1 First Day of Class
+1 Fists of Flame
+1 Fists of the Anvil
+1 Fit of Rage
+1 Flicker of Fate
+1 Formation
+1 Fury Charm
+1 Genesis Chamber
+1 Ghired's Belligerence
+1 Gird for Battle
+1 Glimpse the Sun God
+1 Go for Blood
+1 Graceful Reprieve
+1 Guided Strike
+1 Guiding Voice
+1 Hamletback Goliath
+1 Homestead Courage
+1 Hope and Glory
+1 Impact Tremors
+1 Isochron Scepter
+1 Justiciar's Portal
+1 Kaya's Onslaught
+1 Launch the Fleet
+1 Light of Hope
+1 Lightning Blow
+1 Loxodon Warhammer
+1 Luminarch Ascension
+1 Lunar Frenzy
+1 Magnetic Theft
+1 Mana Echoes
+1 Martial Glory
+1 Moonsilver Spear
+1 Niveous Wisps
+1 Norin the Wary
+1 Outlaws' Merriment
+1 Pandemonium
+1 Panharmonicon
+1 Panic
+1 Parhelion II
+1 Psychosis Crawler
+1 Purphoros, God of the Forge
+1 Pyrotechnics
+1 Quest for Pure Flame
+1 Ragavan, Nimble Pilferer
+1 Reconnaissance
+1 Redeem
+1 Renegade Tactics
+1 Rile
+1 Runechanter's Pike
+1 Rush of Blood
+1 Saltskitter
+1 Scattershot
+1 Screaming Fury
+1 Scroll of the Masters
+1 Semester's End
+1 Sheltering Light
+1 Shielded Passage
+1 Show of Confidence
+1 Silent Arbiter
+1 Soul Parry
+1 Soul's Grace
+1 Soulfire Eruption
+1 Speaker of the Heavens
+1 Spirit Bonds
+1 Spiritualize
+1 Staff of Nin
+1 Stave Off
+1 Sudden Breakthrough
+1 Survive the Night
+1 Suture Priest
+1 Swift Justice
+1 Sword of Feast and Famine
+1 Sword of War and Peace
+1 Sword of the Animist
+1 Tail Slash
+1 Teferi's Puzzle Box
+1 Temur Battle Rage
+1 Terror of the Peaks
+1 Test of Faith
+1 The Book of Exalted Deeds
+1 The Countdown Is at One
+1 The Immortal Sun
+1 Unbounded Potential
+1 Uncaged Fury
+1 Unleash Fury
+1 Unwinding Clock
+1 Valkyrie Harbinger
+1 Vedalken Orrery
+1 Warstorm Surge
+1 Weapon Surge
+1 You're Ambushed on the Road
+1 Zealous Strike
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Hofri.txt
+
+````txt
+1 Akroma's Will
+1 Altar of Dementia
+1 Anointed Procession
+1 Arcane Signet
+1 Archaeomancer's Map
+1 Arid Mesa
+1 Ashnod's Altar
+1 Austere Command
+1 Battlefield Forge
+1 Blasphemous Act
+1 Blasting Station
+1 Boros Charm
+1 Boros Signet
+1 Captivating Crew
+1 Cavalier of Dawn
+1 Chaos Warp
+1 Cleansing Nova
+1 Clifftop Retreat
+1 Coercive Recruiter
+1 Combustible Gearhulk
+1 Command Tower
+1 Commander's Sphere
+1 Cursed Mirror
+1 Desecrated Tomb
+1 Dockside Extortionist
+1 Emeria, the Sky Ruin
+1 Fabled Passage
+1 Faithless Looting
+1 Fanatical Devotion
+1 Generous Gift
+1 Goblin Bombardment
+1 Hallowed Spiritkeeper
+1 High Market
+1 Hofri Ghostforge
+1 Impact Tremors
+1 Ingot Chewer
+1 Jeska's Will
+1 Karmic Guide
+1 Kazuul's Fury // Kazuul's Cliffs
+1 Keeper of the Accord
+1 Laelia, the Blade Reforged
+1 Lightning Greaves
+1 Magus of the Wheel
+1 Mind Stone
+1 Mob Rule
+1 Molten Primordial
+12 Mountain
+1 Myriad Landscape
+1 Panharmonicon
+1 Path to Exile
+12 Plains
+1 Quintorius, Field Historian
+1 Remorseful Cleric
+1 Reveillark
+1 Rugged Prairie
+1 Sacred Foundry
+1 Sejiri Shelter // Sejiri Glacier
+1 Selfless Spirit
+1 Sevinne's Reclamation
+1 Skullclamp
+1 Sol Ring
+1 Solemn Simulacrum
+1 Song-Mad Treachery // Song-Mad Ruins
+1 Spectator Seating
+1 Sun Titan
+1 Sunbaked Canyon
+1 Swords to Plowshares
+1 Talisman of Conviction
+1 Terror of the Peaks
+1 Thrilling Discovery
+1 Underworld Breach
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Venerable Warsinger
+1 War Room
+1 Wayfarer's Bauble
+1 Wurmcoil Engine
+1 Zealous Conscripts
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Ghyrson Starn.txt
+
+````txt
+1 Arcane Denial
+1 Arcane Signet
+1 Archmage Emeritus
+1 Basilisk Collar
+1 Blazing Volley
+1 Brainstorm
+1 Burning Earth
+1 Caltrops
+1 Cascade Bluffs
+1 Chandra's Incinerator
+1 Chaos Warp
+1 Cinder Pyromancer
+1 Circle of Flame
+1 Command Tower
+1 Cunning Sparkmage
+1 Curiosity
+1 Cyclonic Rift
+1 Dramatic Reversal
+1 Electrickery
+1 Electrolyze
+1 Electrostatic Field
+1 End the Festivities
+1 Exalted Flamer of Tzeentch
+1 Exotic Orchard
+1 Fabled Passage
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Fiery Islet
+1 Firebrand Archer
+1 Flame Fusillade
+1 Gelectrode
+1 Ghyrson Starn, Kelermorph
+1 Goblin Chainwhirler
+1 Goblin Sharpshooter
+1 Gorgon's Head
+1 Grapeshot
+1 Gut Shot
+1 Immolation Shaman
+1 Impact Tremors
+8 Island
+1 Izzet Signet
+1 Jeska's Will
+1 Kessig Flamebreather
+1 Lightning Greaves
+1 Manabarbs
+1 Midnight Clock
+1 Mind Stone
+1 Mizzix's Mastery
+11 Mountain
+1 Mystic Sanctuary
+1 Narset's Reversal
+1 Needle Drop
+1 Neurok Stealthsuit
+1 Niv-Mizzet, Parun
+1 Niv-Mizzet, the Firemind
+1 Ophidian Eye
+1 Otawara, Soaring City
+1 Ponder
+1 Preordain
+1 Ral, Storm Conduit
+1 Razorfin Hunter
+1 Reality Shift
+1 Reliquary Tower
+1 Rhystic Study
+1 Riverglide Pathway // Lavaglide Pathway
+1 Scalding Tarn
+1 Shivan Gorge
+1 Sigil of Sleep
+1 Smash to Dust
+1 Sol Ring
+1 Spikefield Hazard // Spikefield Cave
+1 Steam Vents
+1 Storm-Kiln Artist
+1 Stormcarved Coast
+1 Sulfur Falls
+1 Swiftfoot Boots
+1 Talisman of Creativity
+1 Tandem Lookout
+1 Temple of Epiphany
+1 Thermo-Alchemist
+1 Underworld Breach
+1 Valakut Awakening // Valakut Stoneforge
+1 Windfall
+1 Young Pyromancer
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Beledros.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Baba Lysaga.txt
+
+````txt
+1 Abundant Growth
+1 Agent of the Iron Throne
+1 Animate Dead
+1 Arcane Signet
+1 Ashaya, Soul of the Wild
+1 Aspect of Mongoose
+1 Assassin's Trophy
+1 Baba Lysaga, Night Witch
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bastion of Remembrance
+1 Beast Within
+1 Biotransference
+1 Black Market Connections
+1 Blinkmoth Nexus
+1 Bojuka Bog
+1 Bolas's Citadel
+1 Boseiju, Who Endures
+1 Command Tower
+1 Crucible of Worlds
+1 Damnation
+1 Darkmoss Bridge
+1 Darksteel Citadel
+1 Deathcap Glade
+1 Decree of Pain
+1 Dryad Arbor
+1 Dryad of the Ilysian Grove
+1 Dunes of the Dead
+1 Eternal Witness
+1 Exploration
+1 Fabled Passage
+1 Field of the Dead
+4 Forest
+1 Foundation Breaker
+1 Gilded Goose
+1 Gingerbread Cabin
+1 Gloomshrieker
+1 Gods' Eye, Gate to the Reikai
+1 Grist, the Hunger Tide
+1 Heroic Intervention
+1 Ichor Wellspring
+1 Instill Energy
+1 Journey to Eternity // Atzal, Cave of Eternity
+1 Kaya's Ghostform
+1 Khalni Garden
+1 Kokusho, the Evening Star
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Living Death
+1 Marionette Master
+1 Mazirek, Kraul Death Priest
+1 Memnite
+1 Meren of Clan Nel Toth
+1 Mishra's Factory
+1 Mishra's Foundry
+1 Necromancy
+1 Ordeal of Nylea
+1 Ornithopter
+1 Overgrown Tomb
+1 Patriar's Seal
+1 Pharika, God of Affliction
+1 Pitiless Plunderer
+1 Prized Statue
+1 Ramunap Excavator
+1 Rancor
+1 Reliquary Tower
+1 Sakura-Tribe Elder
+1 Sanctum Weaver
+1 Skullclamp
+1 Sol Ring
+1 Solemn Simulacrum
+1 Splendid Reclamation
+4 Swamp
+1 Swiftfoot Boots
+1 Tainted Wood
+1 Tear Asunder
+1 The Gitrog Monster
+1 The Meathook Massacre
+1 Thousand-Year Elixir
+1 Tireless Provisioner
+1 Titania, Protector of Argoth
+1 Toxic Deluge
+1 Treasure Vault
+1 Tree of Tales
+1 Twilight Mire
+1 Ugin's Nexus
+1 Undergrowth Stadium
+1 Urborg, Tomb of Yawgmoth
+1 Urza's Saga
+1 Utopia Sprawl
+1 Vault of Whispers
+1 Verdant Catacombs
+1 Viridian Emissary
+1 Wild Growth
+1 Woodland Cemetery
+1 World Shaper
+1 Yavimaya, Cradle of Growth
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Modern Death's Shadow.txt
+
+````txt
+4 Blood Crypt
+4 Bloodstained Mire
+3 Dauthi Voidwalker
+4 Death's Shadow
+1 Dismember
+4 Dragon's Rage Channeler
+4 Fatal Push
+2 Inquisition of Kozilek
+1 Kolaghan's Command
+1 Kroxa, Titan of Death's Hunger
+4 Lightning Bolt
+4 Mishra's Bauble
+1 Mountain
+2 Nurturing Peatland
+4 Polluted Delta
+3 Ragavan, Nimble Pilferer
+4 Scourge of the Skyclaves
+1 Swamp
+2 Temur Battle Rage
+4 Thoughtseize
+3 Wooded Foothills
+
+Sideboard
+1 Dismember
+2 Engineered Explosives
+1 Kolaghan's Command
+1 Kroxa, Titan of Death's Hunger
+1 Lurrus of the Dream-Den
+2 Necromentia
+1 Pyrite Spellbomb
+2 Shattering Spree
+2 Surgical Extraction
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Copy of - Lyra Dawnbringer.txt
+
+````txt
+1 Aetherflux Reservoir
+1 Akroma's Vengeance
+1 Alhammarret's Archive
+1 Angel of Destiny
+1 Angel of Finality
+1 Angel of Jubilation
+1 Angel of Serenity
+1 Angel of the Dire Hour
+1 Angelic Accord
+1 Angelic Renewal
+1 Arcane Signet
+1 Archaeomancer's Map
+1 Archangel of Thune
+1 Austere Command
+1 Avacyn, Angel of Hope
+1 Baneslayer Angel
+1 Brought Back
+1 Bruna, the Fading Light
+1 Buried Ruin
+1 Cleansing Nova
+1 Dawn of Hope
+1 Dawnbreak Reclaimer
+1 Descend upon the Sinful
+1 Dismantling Wave
+1 Elesh Norn, Grand Cenobite
+1 Elspeth Conquers Death
+1 Emeria Shepherd
+1 Emeria, the Sky Ruin
+1 Enlightened Tutor
+1 Esper Sentinel
+1 Farewell
+1 Flawless Maneuver
+1 Geier Reach Sanitarium
+1 Generous Gift
+1 Giada, Font of Hope
+1 Gisela, the Broken Blade
+1 Hall of Heliod's Generosity
+1 Heliod's Intervention
+1 High Market
+1 Hour of Revelation
+1 Karmic Guide
+1 Keeper of the Accord
+1 Land Tax
+1 Lightning Greaves
+1 Linvala, Keeper of Silence
+1 Lyra Dawnbringer
+1 Mangara, the Diplomat
+1 Marshal's Anthem
+1 Miraculous Recovery
+1 Palace Jailer
+1 Path to Exile
+1 Pearl Medallion
+26 Plains
+1 Resplendent Angel
+1 Restoration Specialist
+1 Return to Dust
+1 Scavenger Grounds
+1 Secret Rendezvous
+1 Selfless Spirit
+1 Seraph Sanctuary
+1 Serra's Emissary
+1 Skullclamp
+1 Smuggler's Share
+1 Sol Ring
+1 Solemn Simulacrum
+1 Sun Titan
+1 Swiftfoot Boots
+1 Sword of the Animist
+1 Swords to Plowshares
+1 Throne of the High City
+1 Tome of Legends
+1 War Room
+1 Well of Lost Dreams
+1 Wrath of God
+1 Zhalfirin Void
+
+Maybeboard
+1 Ajani, Strength of the Pride
+1 Bishop of Wings
+1 Burnished Hart
+1 Desert of the True
+1 Endless Atlas
+1 Fumigate
+1 Ghost Quarter
+1 Heliod, Sun-Crowned
+1 Mask of Memory
+1 Mikokoro, Center of the Sea
+1 New Benalia
+1 Nykthos Paragon
+1 Oketra's Monument
+1 Refurbish
+1 Reveillark
+1 Secluded Steppe
+1 Seraph
+1 Serra Ascendant
+1 Silverblade Paladin
+1 Soul Snare
+1 Stoneforge Mystic
+1 Sunbond
+1 Sword of Fire and Ice
+1 Tectonic Edge
+1 The Immortal Sun
+1 Treasure Map // Treasure Cove
+1 Ugin, the Ineffable
+1 Verge Rangers
+1 Wedding Announcement // Wedding Festivity
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Volo.txt
+
+````txt
+1 Acidic Slime
+1 Aetherize
+1 Alchemist's Refuge
+1 Amphin Mutineer
+1 Ancient Tomb
+1 Arcane Denial
+1 Arcane Signet
+1 Avenger of Zendikar
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Beast Whisperer
+1 Beast Within
+1 Birds of Paradise
+1 Breeding Pool
+1 Castle Garenbrig
+1 Cloud of Faeries
+1 Command Tower
+1 Consecrated Sphinx
+1 Craterhoof Behemoth
+1 Cultivate
+1 Curse of the Swine
+1 Cyclonic Rift
+1 Dryad of the Ilysian Grove
+1 Fabled Passage
+1 Farseek
+1 Fierce Guardianship
+1 Finale of Devastation
+1 Flooded Grove
+1 Garruk's Uprising
+1 God-Eternal Rhonas
+1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun
+1 Heroic Intervention
+1 High Market
+1 Hinterland Harbor
+1 Ice-Fang Coatl
+1 It That Betrays
+1 Koma, Cosmos Serpent
+1 Leyline of Anticipation
+1 Lightning Greaves
+1 Lotus Cobra
+1 Misty Rainforest
+1 Mulldrifter
+1 Murkfiend Liege
+1 Mystic Confluence
+1 Mystic Reflection
+1 Mystic Sanctuary
+1 Narset's Reversal
+1 Nature's Lore
+1 Nyxbloom Ancient
+1 Panharmonicon
+1 Peregrine Drake
+1 Pongify
+1 Rampaging Baloths
+1 Rampant Growth
+1 Rapid Hybridization
+1 Reality Shift
+1 Reclamation Sage
+1 Rejuvenating Springs
+1 Reliquary Tower
+1 Return of the Wildspeaker
+1 Rhystic Study
+1 Rimewood Falls
+1 Rishkar's Expertise
+1 Rite of Replication
+1 Sakashima of a Thousand Faces
+1 Sakura-Tribe Elder
+1 Scavenger Grounds
+1 Scute Swarm
+1 Search for Tomorrow
+1 Simic Growth Chamber
+11 Snow-Covered Forest
+9 Snow-Covered Island
+1 Sol Ring
+1 Swiftfoot Boots
+1 Temur Sabertooth
+1 The Great Henge
+1 Three Visits
+1 Tireless Provisioner
+1 Twinning Staff
+1 Uro, Titan of Nature's Wrath
+1 Volo, Guide to Monsters
+1 Wandering Archaic // Explore the Vastlands
+1 Yavimaya, Cradle of Growth
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\legacy burn.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\red.txt
+
+````txt
+1 Act on Impulse
+1 Ancient Tomb
+1 Arcane Signet
+1 Bag of Holding
+1 Blasphemous Act
+1 Blazing Shoal
+1 Bloodthirsty Adversary
+1 Cathartic Pyre
+1 Chandra, Torch of Defiance
+1 Chaos Harlequin
+1 Chaos Warp
+1 Commander's Plate
+1 Commune with Lava
+1 Crook of Condemnation
+1 Curse of Hospitality
+1 Cursed Mirror
+1 Deflecting Swat
+1 Dire Fleet Daredevil
+1 Dockside Extortionist
+1 Etali, Primal Storm
+1 Faithless Looting
+1 Fellwar Stone
+1 Furious Rise
+1 Fury Charm
+1 Grim Lavamancer
+1 Harvest Pyre
+1 Ignite the Future
+1 Jeska's Will
+1 Jeweled Lotus
+1 Kazuul's Fury // Kazuul's Cliffs
+1 Laelia, the Blade Reforged
+1 Light Up the Stage
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Lithoform Engine
+1 Magmatic Channeler
+1 Magmatic Sinkhole
+1 Mana Geyser
+1 March of Reckless Joy
+1 Mimic Vat
+1 Mizzix's Mastery
+29 Mountain
+1 Neheb, the Eternal
+1 Omen Machine
+1 Outpost Siege
+1 Possibility Storm
+1 Reckless Impulse
+1 Relic of Progenitus
+1 Ruby Medallion
+1 Scavenger Grounds
+1 Shadowspear
+1 Sol Ring
+1 Spark of Creativity
+1 Spinerock Knoll
+1 Strionic Resonator
+1 Surge to Victory
+1 Swiftfoot Boots
+1 Sword of the Animist
+1 Tempered in Solitude
+1 Temur Battle Rage
+1 Thought Vessel
+1 Thrill of Possibility
+1 Tibalt's Trickery
+1 Tome of Legends
+1 Tower of the Magistrate
+1 Underworld Breach
+1 Valakut Awakening // Valakut Stoneforge
+1 Valakut Exploration
+1 Valakut, the Molten Pinnacle
+1 Vandalblast
+1 Wayfarer's Bauble
+1 Wild-Magic Sorcerer
+1 You Find Some Prisoners
+
+Maybeboard
+1 Abbot of Keral Keep
+1 Abrade
+1 Apex of Power
+1 Ardent Dustspeaker
+1 Atsushi, the Blazing Sky
+1 Bestial Fury
+1 Birgi, God of Storytelling // Harnfel, Horn of Bounty
+1 Bloodforged Battle-Axe
+1 Breya's Apprentice
+1 Burn Away
+1 Burn from Within
+1 Cemetery Gatekeeper
+1 Champion's Helm
+1 Chandra, Heart of Fire
+1 Chandra, Pyromaster
+1 Chaos Wand
+1 Chariot of Victory
+1 Conspiracy Theorist
+1 Conversion Chamber
+1 Creative Technique
+1 Dermotaxi
+1 Dollhouse of Horrors
+4 Dragon's Approach
+1 Dreadhorde Arcanist
+1 Dream Pillager
+1 Electrostatic Blast
+1 Elkin Bottle
+1 Elkin Lair
+1 Embereth Shieldbreaker // Battle Display
+1 Escape Velocity
+1 Expedition Map
+1 Faithless Salvaging
+1 Ferocity of the Wilds
+1 Fire Giant's Fury
+1 Fireflux Squad
+1 Flameskull
+1 Footfall Crater
+1 Forebear's Blade
+1 God-Pharaoh's Gift
+1 Graveyard Shovel
+1 Harsh Mentor
+1 Haunted Cloak
+1 Hazoret's Undying Fury
+1 Honored Heirloom
+1 Immolation Shaman
+1 Impulsive Pilferer
+1 Izzet Chemister
+1 Jack-o'-Lantern
+1 Jaya Ballard
+1 Jester's Scepter
+1 Kessig Wolfrider
+1 Knowledge Pool
+1 Lantern of the Lost
+1 Latulla's Orders
+1 Lightning Spear
+1 Loxodon Warhammer
+1 Loyal Apprentice
+1 Lukka, Coppercoat Outcast
+1 Magus of the Wheel
+1 Merchant of the Vale // Haggle
+1 Meteoric Mace
+1 Mob Mentality
+1 Mourner's Shield
+1 O-Naginata
+1 Oracle's Vault
+1 Ox of Agonas
+1 Phoenix of Ash
+1 Phyrexian Furnace
+1 Phyrexian Grimoire
+1 Power Matrix
+1 Prismatic Lens
+1 Pyromancer's Goggles
+1 Reforge the Soul
+1 Rousing Refrain
+1 Ruin Grinder
+1 Runehorn Hellkite
+1 Satyr's Cunning
+1 Scrabbling Claws
+1 Search for Survivors
+1 Seasoned Pyromancer
+1 Seize the Storm
+1 Shattering Pulse
+1 Shatterstorm
+1 Shenanigans
+1 Soul Separator
+1 Soul of New Phyrexia
+1 Soul of Shandalar
+1 Soul-Guide Lantern
+1 Stromkirk Occultist
+1 Sword of Vengeance
+1 Tectonic Giant
+1 Tenza, Godo's Maul
+1 Tome Shredder
+1 Tyrant's Familiar
+1 Ugin, the Spirit Dragon
+1 Underworld Rage-Hound
+1 Urza's Tome
+1 Vault Robber
+1 Vorrac Battlehorns
+1 Wheel of Fortune
+1 Wheel of Misfortune
+1 Whipflare
+1 Wildfire Devils
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Jinnie Fay.txt
+
+````txt
+1 Adeline, Resplendent Cathar
+1 Ancient Tomb
+1 Arid Mesa
+1 Avenger of Zendikar
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Beast Within
+1 Beastmaster Ascension
+1 Bennie Bracks, Zoologist
+1 Blasphemous Act
+1 Bloodstained Mire
+1 Boseiju, Who Endures
+1 Bountiful Promenade
+1 Brass's Bounty
+1 Call the Coppercoats
+1 Canopy Vista
+1 Cathars' Crusade
+1 Cinder Glade
+1 Command Tower
+1 Craterhoof Behemoth
+1 Cultivate
+1 Curse of Opulence
+1 Dockside Extortionist
+1 Doubling Season
+1 Dragon Broodmother
+1 Elemental Bond
+1 Elspeth, Sun's Champion
+1 Fabled Passage
+1 Farewell
+1 Farseek
+1 Felidar Retreat
+1 Flawless Maneuver
+5 Forest
+1 Gavony Township
+1 Generous Gift
+1 Goblin Rabblemaster
+1 Goldspan Dragon
+1 Grand Crescendo
+1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun
+1 Harvest Season
+1 Heraldic Banner
+1 Hero of Bladehold
+1 Heroic Intervention
+1 Huatli, Radiant Champion
+1 Jeska's Will
+1 Jetmir's Garden
+1 Jetmir, Nexus of Revels
+1 Jinnie Fay, Jetmir's Second
+1 Lightning Greaves
+1 Misty Rainforest
+1 Mountain
+1 Mycoloth
+1 Obscuring Haze
+1 Ohran Frostfang
+1 Old Gnawbone
+1 Ondu Inversion // Ondu Skyruins
+1 Overgrown Farmland
+1 Parallel Lives
+1 Path to Exile
+4 Plains
+1 Prismatic Vista
+1 Purphoros, God of the Forge
+1 Rabble Rousing
+1 Rampant Growth
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Rockfall Vale
+1 Rootbound Crag
+1 Sacred Foundry
+1 Secure the Wastes
+1 Selesnya Sanctuary
+1 Shamanic Revelation
+1 Smothering Tithe
+1 Smuggler's Share
+1 Sokenzan, Crucible of Defiance
+1 Sol Ring
+1 Song of the Dryads
+1 Stomping Ground
+1 Sunpetal Grove
+1 Swords to Plowshares
+1 Teferi's Protection
+1 Temple Garden
+1 Tendershoot Dryad
+1 Three Visits
+1 Tireless Provisioner
+1 Tireless Tracker
+1 Toski, Bearer of Secrets
+1 Valakut Awakening // Valakut Stoneforge
+1 Visions of Glory
+1 Wasteland
+1 Wild Growth
+1 Windswept Heath
+1 Wooded Foothills
+1 Yavimaya, Cradle of Growth
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Light-Paws.txt
+
+````txt
+1 All That Glitters
+1 Ancient Tomb
+1 Angelic Destiny
+1 Angelic Gift
+1 Arcane Signet
+1 Archaeomancer's Map
+1 Armored Ascension
+1 Austere Command
+1 Battle Mastery
+1 Benevolent Blessing
+1 Cage of Hands
+1 Command Beacon
+1 Crush Contraband
+1 Darksteel Mutation
+1 Daybreak Coronet
+1 Dowsing Dagger // Lost Vale
+1 Eidolon of Countless Battles
+1 Eiganjo, Seat of the Empire
+1 Emeria, the Sky Ruin
+1 Enlightened Tutor
+1 Esper Sentinel
+1 Ethereal Armor
+1 Faith Unbroken
+1 Flawless Maneuver
+1 Flickerform
+1 Flickering Ward
+1 Generous Gift
+1 Guardian of Faith
+1 Hall of Heliod's Generosity
+1 Hyena Umbra
+1 Kor Spiritdancer
+1 Land Tax
+1 Light-Paws, Emperor's Voice
+1 Lotus Field
+1 Loyal Warhound
+1 Mantle of the Ancients
+1 Mesa Enchantress
+1 Mind Stone
+1 Nykthos, Shrine to Nyx
+1 On Thin Ice
+1 Ondu Inversion // Ondu Skyruins
+1 Open the Armory
+1 Path to Exile
+1 Pearl Medallion
+1 Rebuff the Wicked
+1 Retether
+1 Robe of Stars
+1 Rune of Sustenance
+1 Sage's Reverie
+1 Scarab of the Unseen
+1 Secret Rendezvous
+1 Sejiri Shelter // Sejiri Glacier
+1 Sentinel's Eyes
+1 Sevinne's Reclamation
+1 Smothering Tithe
+1 Smuggler's Share
+28 Snow-Covered Plains
+1 Sol Ring
+1 Solemn Simulacrum
+1 Spirit Loop
+1 Spirit Mantle
+1 Sram, Senior Edificer
+1 Sun Titan
+1 Swiftfoot Boots
+1 Sword of the Animist
+1 Swords to Plowshares
+1 Teferi's Protection
+1 Three Dreams
+1 Timely Ward
+1 Tome of Legends
+1 Umbra Mystic
+1 Unquestioned Authority
+1 Urza's Saga
+1 Vanquish the Horde
+1 Vesuva
+1 War Room
+1 Wayfarer's Bauble
+1 Winds of Rath
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Simpleton.txt
+
+````txt
+1 Academy Rector
+1 Akroma's Will
+1 Ancient Tomb
+1 Anointed Procession
+1 Archaeomancer's Map
+1 Argivian Find
+1 Aura of Silence
+1 Benevolent Offering
+1 Blind Obedience
+1 Bloodforged Battle-Axe
+1 Call the Coppercoats
+1 Cathars' Crusade
+1 Commander's Insignia
+1 Darksteel Mutation
+1 Desert
+1 Dolmen Gate
+1 Drannith Magistrate
+1 Elspeth, Knight-Errant
+1 Elspeth, Sun's Champion
+1 Emeria's Call // Emeria, Shattered Skyclave
+1 Enlightened Tutor
+1 Esper Sentinel
+1 Farewell
+1 Flawless Maneuver
+1 Flicker of Fate
+1 Generous Gift
+1 Glorious Anthem
+1 Greater Auramancy
+1 Hall of Heliod's Generosity
+1 Heliod's Intervention
+1 Hour of Reckoning
+1 Hour of Revelation
+1 Humility
+1 Idyllic Tutor
+1 Increasing Devotion
+1 Intangible Virtue
+1 Isamaru, Hound of Konda
+1 Keeper of the Accord
+1 Land Tax
+1 Lost Auramancers
+1 Luminarch Ascension
+1 Martial Coup
+1 Mentor of the Meek
+1 Mobilization
+1 Monologue Tax
+1 Moon-Blessed Cleric
+1 Nahiri, the Lithomancer
+1 Oath of Lieges
+1 Opal Palace
+1 Path to Exile
+1 Pearl Medallion
+28 Plains
+1 Plea for Guidance
+1 Pull from Eternity
+1 Rebuff the Wicked
+1 Reconnaissance
+1 Reduce to Memory
+1 Release the Dogs
+1 Release to Memory
+1 Rest in Peace
+1 Rumor Gatherer
+1 Scavenger Grounds
+1 Scholarship Sponsor
+1 Secure the Wastes
+1 Settle the Wreckage
+1 Skullclamp
+1 Smothering Tithe
+1 Spear of Heliod
+1 Staff of Nin
+1 Stony Silence
+1 Strip Mine
+1 Sword of the Animist
+1 Swords to Plowshares
+1 Teferi's Protection
+1 Tome of Legends
+1 Triumphant Reckoning
+1 Visions of Glory
+1 War Room
+1 Wasteland
+1 Welcoming Vampire
+
+Maybeboard
+1 Akroma's Vengeance
+1 Angelic Field Marshal
+1 Authority of the Consuls
+1 Basri Ket
+1 Bastion Protector
+1 Benalish Commander
+1 Boreas Charger
+1 Cartographer's Hawk
+1 Comeuppance
+1 Commander's Plate
+1 Cosmic Intervention
+1 Cursed Totem
+1 Divine Intervention
+1 Divine Visitation
+1 Elesh Norn, Grand Cenobite
+1 Elspeth Resplendent
+1 Elspeth Tirel
+1 Elspeth, Undaunted Hero
+1 Emeria, the Sky Ruin
+1 Empyrial Storm
+1 Ensnaring Bridge
+1 Fell the Mighty
+1 Fellwar Stone
+1 Finale of Glory
+1 Gideon's Intervention
+1 Gilded Lotus
+1 Guardian of Faith
+1 Imposing Sovereign
+1 Karmic Justice
+1 Kismet
+1 Knight of the White Orchid
+1 Leyline of the Meek
+1 Loxodon Gatekeeper
+1 Loyal Unicorn
+1 Loyal Warhound
+1 Make a Stand
+1 Mask of Memory
+1 Maze of Ith
+1 Meekstone
+1 Myojin of Blooming Dawn
+1 Nevermore
+1 Out of Time
+1 Reidane, God of the Worthy // Valkmira, Protector's Shield
+1 Retribution of the Meek
+1 Secret Rendezvous
+1 Silence
+1 Stoic Farmer
+1 Swift Reconfiguration
+1 Thalia's Lieutenant
+1 Thalia, Heretic Cathar
+1 Torpor Orb
+1 Vanquish the Horde
+1 Verge Rangers
+1 Wayfarer's Bauble
+1 Wrath of God
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Yuriko.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\toppy.txt
+
+````txt
+1 Abrade
+1 Aminatou's Augury
+1 Ancient Tomb
+1 Arcane Signet
+1 Artisan of Kozilek
+1 Aurora Phoenix
+1 Blasphemous Act
+1 Brainstorm
+1 Chromatic Orrery
+1 Command Tower
+1 Consecrated Sphinx
+1 Dire Fleet Daredevil
+1 Dive Down
+1 Dockside Extortionist
+1 Double Vision
+1 Dragon's Rage Channeler
+1 Eldrazi Conscription
+1 Emrakul, the Promised End
+1 Etherium-Horn Sorcerer
+1 Expropriate
+1 Fellwar Stone
+1 Flamekin Herald
+1 Goldspan Dragon
+1 High Tide
+14 Island
+1 Izzet Signet
+1 Jeska's Will
+1 Jin-Gitaxias, Progress Tyrant
+1 Leyline of Anticipation
+1 Lightning Bolt
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Mana Geyser
+1 Mind Stone
+1 Mindmoil
+1 Mizzium Skin
+14 Mountain
+1 Mystic Confluence
+1 Neera, Wild Mage
+1 Nezahal, Primal Tide
+1 Omniscience
+1 Otawara, Soaring City
+1 Quicken
+1 Rain of Riches
+1 Reality Ripple
+1 Rhystic Study
+1 Ruby Medallion
+1 Sakashima's Protege
+1 Sapphire Charm
+1 Sapphire Medallion
+1 Scalding Tarn
+1 Scavenger Grounds
+1 Scroll Rack
+1 Sea Gate Restoration // Sea Gate, Reborn
+1 Shell Shield
+1 Show and Tell
+1 Slip Out the Back
+1 Sol Ring
+1 Solemn Simulacrum
+1 Soulfire Eruption
+1 Sphinx of the Second Sun
+1 Steam Vents
+1 Stolen Strategy
+1 Swiftfoot Boots
+1 Talent of the Telepath
+1 Talisman of Creativity
+1 Thought Vessel
+1 Throes of Chaos
+1 Ulamog, the Ceaseless Hunger
+1 Ulamog, the Infinite Gyre
+1 Wayfarer's Bauble
+1 Wildfire Devils
+1 Word of Seizing
+1 You See a Guard Approach
+
+Maybeboard
+1 Braids, Conjurer Adept
+1 Clone Legion
+1 Commandeer
+1 Dig Through Time
+1 Faithless Looting
+1 Goblin Electromancer
+1 Insurrection
+1 Mizzix of the Izmagnus
+1 Mizzix's Mastery
+1 Mnemonic Sphere
+1 Reality Shift
+1 Recurring Insight
+1 Rite of the Raging Storm
+1 Sneak Attack
+1 Sublime Epiphany
+1 The Reality Chip
+1 Through the Breach
+1 Vedalken Orrery
+1 Windfall
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\drahscard.txt
+
+````txt
+1 Ancient Tomb
+1 Arcane Signet
+1 Archmage Emeritus
+1 Baral's Expertise
+1 Bond of Insight
+1 Command Tower
+1 Commander's Insight
+1 Commit // Memory
+1 Consecrated Sphinx
+1 Curse of the Swine
+1 Cyclonic Rift
+1 Deadeye Navigator
+1 Dig Through Time
+1 Diluvian Primordial
+1 Expropriate
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Finale of Revelation
+1 Flood of Recollection
+1 Flood of Tears
+1 Frantic Search
+1 Great Whale
+1 High Tide
+1 Imprisoned in the Moon
+1 In Too Deep
+29 Island
+1 Jace's Archivist
+1 Jace, Vryn's Prodigy // Jace, Telepath Unbound
+1 Jace, Wielder of Mysteries
+1 Jace, the Mind Sculptor
+1 Kefnet's Last Word
+1 Kira, Great Glass-Spinner
+1 Laboratory Maniac
+1 Lier, Disciple of the Drowned
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Mind Stone
+1 Mission Briefing
+1 Nezahal, Primal Tide
+1 Palinchron
+1 Peregrine Drake
+1 Perplexing Chimera
+1 Phyrexian Metamorph
+1 Pongify
+1 Rapid Hybridization
+1 Rewind
+1 Rhystic Study
+1 Sapphire Medallion
+1 Scavenger Grounds
+1 Sea Gate Restoration // Sea Gate, Reborn
+1 Sol Ring
+1 Spellskite
+1 Spelltwine
+1 Strip Mine
+1 Sudden Substitution
+1 Swiftfoot Boots
+1 Take Possession
+1 Teferi's Ageless Insight
+1 Thassa's Oracle
+1 The Magic Mirror
+1 Thought Reflection
+1 Thought Vessel
+1 Time Spiral
+1 Toothy, Imaginary Friend
+1 Treasure Cruise
+1 True-Name Nemesis
+1 Turnabout
+1 Unwind
+1 War Room
+1 Wasteland
+1 Wayfarer's Bauble
+1 Windfall
+1 Wipe Away
+
+Maybeboard
+1 Azor's Gateway // Sanctum of the Sun
+1 Birgi, God of Storytelling // Harnfel, Horn of Bounty
+1 Blasphemous Act
+1 Brallin, Skyshark Rider
+1 Change of Fortune
+1 Channeled Force
+1 Chaos Warp
+1 Containment Construct
+1 Dack Fayden
+1 Deflecting Swat
+1 Desperate Ravings
+1 Faithless Looting
+1 Fists of Flame
+1 Harmonic Prodigy
+1 Izzet Charm
+1 Jeska's Will
+1 Kazuul's Fury // Kazuul's Cliffs
+1 Lightning Bolt
+1 Lithoform Engine
+1 Mana Geyser
+1 Mizzix of the Izmagnus
+1 Mizzix's Mastery
+15 Mountain
+1 Past in Flames
+1 Psychosis Crawler
+1 Recoup
+1 Rielle, the Everwise
+1 Ruby Medallion
+1 Runechanter's Pike
+1 Search for Azcanta // Azcanta, the Sunken Ruin
+1 Soul's Fire
+1 Spark Double
+1 Strionic Resonator
+1 Structural Assault
+1 Stunt Double
+1 Surly Badgersaur
+1 Temur Battle Rage
+1 The Reality Chip
+1 Thousand-Year Storm
+1 Tome of Legends
+1 Wheel of Fortune
+1 Wheel of Misfortune
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Copy of - Ratadrabik spirits .txt
+
+````txt
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Altar of Bhaal // Bone Offering
+1 Anafenza, Kin-Tree Spirit
+1 Animate Dead
+1 Ao, the Dawn Sky
+1 Arcane Signet
+1 Ashnod's Altar
+1 Ashnod's Intervention
+1 Ayara, First of Locthwain
+1 Cabal Coffers
+1 Cabal Ritual
+1 Cabal Stronghold
+1 Castle Locthwain
+1 Command the Dreadhorde
+1 Crypt of Agadeem
+1 Crystal Dragon // Rob the Hoard
+1 Dark Ritual
+1 Darksteel Mutation
+1 Eiganjo, Seat of the Empire
+1 Erebos, Bleak-Hearted
+1 Expedition Map
+1 Feign Death
+1 Flawless Maneuver
+1 God-Eternal Bontu
+1 Goryo's Vengeance
+1 Grim Haruspex
+1 Harvester of Souls
+1 He Who Hungers
+1 High Market
+1 Honor-Worn Shaku
+1 Illuminor Szeras
+1 Infernal Kirin
+1 Jet Medallion
+1 Junji, the Midnight Sky
+1 Kataki, War's Wage
+1 Katilda, Dawnhart Martyr // Katilda's Rising Dawn
+1 Kaya the Inexorable
+1 Kaya's Ghostform
+1 Kiyomaro, First to Stand
+1 Kokusho, the Evening Star
+1 Kuro, Pitlord
+1 Kyoki, Sanity's Eclipse
+1 Life Insurance
+1 Loran of the Third Path
+1 Malakir Rebirth // Malakir Mire
+1 Massacre Girl
+1 Midnight Reaper
+1 Mimic Vat
+1 Mirage Mirror
+1 Moira, Urborg Haunt
+1 Murderous Rider // Swift End
+1 Necromancy
+1 Nim Deathmantle
+1 Obzedat, Ghost Council
+1 On Serra's Wings
+1 Orzhov Signet
+1 Oyobi, Who Split the Heavens
+1 Path to Exile
+1 Phyrexian Altar
+1 Phyrexian Tower
+1 Pitiless Plunderer
+15 Plains
+1 Primevals' Glorious Rebirth
+1 Ratadrabik of Urborg
+1 Reanimate
+1 Seizan, Perverter of Truth
+1 Soldevi Adnate
+1 Soul Foundry
+1 Species Specialist
+12 Swamp
+1 Swords to Plowshares
+1 Takenuma, Abandoned Mire
+1 Talisman of Hierarchy
+1 The Golden Throne
+1 Undead Augur
+1 Undying Malice
+1 Untaidake, the Cloud Keeper
+1 Urborg, Tomb of Yawgmoth
+1 Urza's Ruinous Blast
+1 Yargle, Glutton of Urborg
+1 Yosei, the Morning Star
+
+Maybeboard
+1 Aron, Benalia's Ruin
+1 Arvinox, the Mind Flail
+1 Ashen Rider
+1 Athreos, God of Passage
+1 Athreos, Shroud-Veiled
+1 Avacyn's Memorial
+1 Breena, the Demagogue
+1 Call to the Grave
+1 Celestine, the Living Saint
+1 Commissar Severina Raine
+1 Darien, King of Kjeldor
+1 Dermotaxi
+1 Dollhouse of Horrors
+1 Drana, Liberator of Malakir
+1 Drana, the Last Bloodchief
+1 Ebondeath, Dracolich
+1 Edgar, Charmed Groom // Edgar Markov's Coffin
+1 Elas il-Kor, Sadistic Pilgrim
+1 Elenda, the Dusk Rose
+1 Elesh Norn, Grand Cenobite
+1 Ever After
+1 Firja, Judge of Valor
+1 Gerrard Capashen
+1 Geth, Lord of the Vault
+1 Ghoulcaller Gisa
+1 Gix, Yawgmoth Praetor
+1 God-Eternal Oketra
+1 God-Pharaoh's Gift
+1 Gonti, Lord of Luxury
+1 Grave Betrayal
+1 Graveborn Muse
+1 Helm of the Host
+1 Henrika Domnathi // Henrika, Infernal Seer
+1 Heroes' Podium
+1 Ink-Eyes, Servant of Oni
+1 Kambal, Consul of Allocation
+1 Liesa, Forgotten Archangel
+1 Lychguard
+1 Mikaeus, the Unhallowed
+1 Necromantic Selection
+1 Nightmare Shepherd
+1 Pearl Medallion
+1 Sheoldred, Whispering One
+1 Soul Separator
+1 Syr Konrad, the Grim
+1 Teysa Karlov
+1 Thalia's Lancers
+1 The Peregrine Dynamo
+1 Vindicate
+1 Yahenni, Undying Partisan
+1 Yomiji, Who Bars the Way
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\No.txt
+
+````txt
+1 Aetherize
+1 Agent of Treachery
+1 Agent of Treachery
+1 Akroma's Vengeance
+1 Amphin Mutineer
+1 Arcane Signet
+1 Archaeomancer's Map
+1 Austere Command
+1 Azorius Signet
+1 Body Double
+1 Brago, King Eternal
+1 Clever Impersonator
+1 Clone
+1 Cloudblazer
+1 Command Tower
+1 Commander's Sphere
+1 Confounding Conundrum
+1 Conjurer's Closet
+1 Copy Artifact
+1 Crystal Shard
+1 Cursed Totem
+1 Cyclonic Rift
+1 Eerie Interlude
+1 Eldrazi Displacer
+1 Ephemerate
+1 Esper Panorama
+1 Esper Sentinel
+1 Farewell
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Flawless Maneuver
+1 Flooded Strand
+1 Ghost Quarter
+1 Ghostly Flicker
+1 Gigantoplasm
+1 Gilded Lotus
+1 Glacial Fortress
+1 Glasspool Mimic // Glasspool Shore
+1 Grixis Panorama
+1 Hallowed Fountain
+1 Karmic Guide
+1 Keeper of the Accord
+1 Land Tax
+1 Lavinia of the Tenth
+1 Mirrormade
+1 Mistmeadow Witch
+1 Mulldrifter
+1 Myriad Landscape
+1 Mystic Gate
+1 Naya Panorama
+1 Nimbus Maze
+1 Null Rod
+1 Path to Exile
+1 Peregrine Drake
+1 Phyrexian Metamorph
+1 Port Town
+1 Prairie Stream
+1 Reflector Mage
+1 Reliquary Tower
+1 Reveillark
+1 Sakashima of a Thousand Faces
+1 Sakashima's Protege
+1 Scavenger Grounds
+1 Sculpting Steel
+1 Sea of Clouds
+1 Semester's End
+1 Smothering Tithe
+9 Snow-Covered Island
+11 Snow-Covered Plains
+1 Sol Ring
+1 Solemn Simulacrum
+1 Soulherder
+1 Spirited Companion
+1 Stolen Identity
+1 Stunt Double
+1 Sublime Epiphany
+1 Sun Titan
+1 Swords to Plowshares
+1 Teferi's Protection
+1 Teferi's Time Twist
+1 Teleportation Circle
+1 Thassa, Deep-Dwelling
+1 Thought Vessel
+1 Verge Rangers
+1 Wall of Omens
+1 Wall of Stolen Identity
+1 Watcher for Tomorrow
+1 Wayfarer's Bauble
+1 Wrath of God
+
+Maybeboard
+1 Arcane Denial
+1 Archaeomancer
+1 Armillary Sphere
+1 Ashiok's Erasure
+1 Azor, the Lawbringer
+1 Azorius Chancery
+1 Bant Panorama
+1 Blade of Selves
+1 Boomerang
+1 Boreas Charger
+1 Caged Sun
+1 Charming Prince
+1 Chronatog
+1 Cleansing Nova
+1 Cleansing Nova
+1 Cloudshift
+1 Cloudstone Curio
+1 Counterspell
+1 Crush Contraband
+1 Crystal Shard
+1 Cursed Totem
+1 Damping Sphere
+1 Deadeye Navigator
+1 Diluvian Primordial
+1 Dismantling Wave
+1 Dramatic Reversal
+1 Echo of Eons
+1 Elite Guardmage
+1 Ephara, God of the Polis
+1 Erratic Portal
+1 Essence Flux
+1 Evolving Wilds
+1 Felidar Guardian
+1 Fiend Hunter
+1 Flickerwisp
+1 Gigantoplasm
+1 Grafdigger's Cage
+1 Halimar Depths
+1 Helm of the Host
+1 High Tide
+1 Hullbreacher
+1 Irrigated Farmland
+1 Isochron Scepter
+1 Knight of the White Orchid
+1 Kor Cartographer
+1 Lithoform Engine
+1 Lumbering Battlement
+1 Mercurial Pretender
+1 Mercurial Pretender
+1 Mind Stone
+1 Minion Reflector
+1 Mirror Gallery
+1 Mirror Image
+1 Mirror Image
+1 Mirrorworks
+1 Momentary Blink
+1 Niambi, Esteemed Speaker
+1 Palinchron
+1 Phantasmal Image
+1 Portal of Sanctuary
+1 Prototype Portal
+1 Quicken
+1 Reflections of Littjara
+1 Render Silent
+1 Rest in Peace
+1 Restoration Angel
+1 Rhystic Study
+1 Sakashima the Impostor
+1 Scout's Warning
+1 Sea Gate Stormcaller
+1 Silence
+1 Soul Foundry
+1 Spark Double
+1 Spelltwine
+1 Stonehorn Dignitary
+1 Strionic Resonator
+1 Talent of the Telepath
+1 Venser, Shaper Savant
+1 Vesuvan Doppelganger
+1 Vesuvan Doppelganger
+1 Vesuvan Shapeshifter
+1 Vizier of Many Faces
+1 Vizier of Many Faces
+1 Wall of Stolen Identity
+1 Weathered Runestone
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Saccy.txt
+
+````txt
+1 Ancient Tomb
+1 Arcane Signet
+1 Archetype of Aggression
+1 Ashnod's Altar
+1 Assassin's Trophy
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bane of Progress
+1 Bastion of Remembrance
+1 Beast Within
+1 Bitterblossom
+1 Black Market Connections
+1 Blightstep Pathway // Searstep Pathway
+1 Blood Artist
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Boseiju, Who Endures
+1 Bow of Nylea
+1 Chatterfang, Squirrel General
+1 Cinder Glade
+1 Command Beacon
+1 Command Tower
+1 Command the Dreadhorde
+1 Cragcrown Pathway // Timbercrown Pathway
+1 Craterhoof Behemoth
+1 Darkbore Pathway // Slitherbore Pathway
+1 Deflecting Swat
+1 Dictate of Erebos
+1 Dockside Extortionist
+1 Doubling Season
+1 Dreadhorde Invasion
+1 Earthcraft
+1 Farseek
+4 Forest
+1 Gift of Doom
+1 Goblin Bombardment
+1 Goblin Sharpshooter
+1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun
+1 Harvest Season
+1 Hatred
+1 Helm of the Host
+1 Heroic Intervention
+1 Impact Tremors
+1 Indomitable Might
+1 Jeska's Will
+1 Journey to Eternity // Atzal, Cave of Eternity
+1 Kaya's Ghostform
+1 Kessig Wolf Run
+1 Korvold, Fae-Cursed King
+1 Loyal Apprentice
+1 Malakir Rebirth // Malakir Mire
+1 Mana Echoes
+1 Massacre Girl
+1 Mayhem Devil
+1 Might of the Masses
+3 Mountain
+1 Ohran Frostfang
+1 Ophiomancer
+1 Overgrown Tomb
+1 Parallel Lives
+1 Phyrexian Altar
+1 Phyrexian Tower
+1 Pitiless Plunderer
+1 Plumb the Forbidden
+1 Purphoros, God of the Forge
+1 Rampant Growth
+1 Sakura-Tribe Elder
+1 Saproling Symbiosis
+1 Search for Tomorrow
+1 Skullclamp
+1 Smoldering Marsh
+1 Smothering Abomination
+1 Sokenzan, Crucible of Defiance
+1 Sol Ring
+1 Species Specialist
+1 Spidersilk Armor
+1 Stomping Ground
+4 Swamp
+1 Syr Konrad, the Grim
+1 Takenuma, Abandoned Mire
+1 Tana, the Bloodsower
+1 Tear Asunder
+1 Tendershoot Dryad
+1 Tevesh Szat, Doom of Fools
+1 The Meathook Massacre
+1 Three Visits
+1 Tombstone Stairwell
+1 Urborg, Tomb of Yawgmoth
+1 Verdant Catacombs
+1 Victimize
+1 Wooded Foothills
+1 Yavimaya, Cradle of Growth
+1 Yawgmoth, Thran Physician
+1 Ziatora's Proving Ground
+1 Zulaport Cutthroat
+
+Maybeboard
+1 Access Tunnel
+1 Arguel's Blood Fast // Temple of Aclazotz
+1 Awakening Zone
+1 Battle Hymn
+1 Beast Whisperer
+1 Beastmaster Ascension
+1 Blasphemous Act
+1 Blighted Woodland
+1 Blood Mist
+1 Bloodspore Thrinax
+1 Burnt Offering
+1 Butcher of Malakir
+1 Cabal Coffers
+1 Camouflage
+1 Castle Locthwain
+1 Cavalcade of Calamity
+1 Chaos Warp
+1 Chaosphere
+1 Chitterspitter
+1 Circle of Dreams Druid
+1 City of Shadows
+1 Collective Unconscious
+1 Curse of Hospitality
+1 Deadly Rollick
+1 Deathbringer Thoctar
+1 Dolmen Gate
+1 Dowsing Dagger // Lost Vale
+1 Dragonlair Spider
+1 Druid's Call
+1 Efreet Flamepainter
+1 Embercleave
+1 Fabled Passage
+1 Fecundity
+1 Grismold, the Dreadsower
+1 Harrow
+1 Helm of Chatzuk
+1 High Market
+1 Hissing Iguanar
+1 Jeweled Lotus
+1 Khalni Garden
+1 Kher Keep
+1 King Harald's Revenge
+1 Koskun Falls
+1 Krosan Grip
+1 Lathril, Blade of the Elves
+1 Liege of the Hollows
+1 Lithoform Engine
+1 Lizard Blades
+1 Loyal Guardian
+1 Meren of Clan Nel Toth
+1 Okina, Temple to the Grandfathers
+1 Pattern of Rebirth
+1 Pattern of Rebirth
+1 Pennon Blade
+1 Phyrexian Arena
+1 Planewide Celebration
+1 Proud Wildbonder
+1 Putrefy
+1 Rancor
+1 Reassembling Skeleton
+1 Return of the Wildspeaker
+1 Rings of Brighthearth
+1 Rishkar's Expertise
+1 Rogue's Passage
+1 Savra, Queen of the Golgari
+1 Scavenger Grounds
+1 Shamanic Revelation
+1 Shared Animosity
+1 Shinka, the Bloodsoaked Keep
+1 Shizo, Death's Storehouse
+1 Siege Behemoth
+1 Skarrg, the Rage Pits
+1 Strionic Resonator
+1 Surge to Victory
+1 Sword of the Animist
+1 Sylvan Library
+1 Szat's Will
+1 Thunderfoot Baloth
+1 Toski, Bearer of Secrets
+1 Treacherous Blessing
+1 Turntimber Symbiosis // Turntimber, Serpentine Wood
+1 Urza's Saga
+1 Verdant Command
+1 Worst Fears
+1 Ziatora's Proving Ground
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Perrie.txt
+
+````txt
+1 Arcane Signet
+1 As Foretold
+1 Azor's Elocutors
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bane of Progress
+1 Beast Within
+1 Beastmaster Ascension
+1 Blast Zone
+1 Boseiju, Who Endures
+1 Breeding Pool
+1 Calciform Pools
+1 Canopy Vista
+1 Chronozoa
+1 Clockwork Steed
+1 Coalition Relic
+1 Command Tower
+1 Coral Reef
+1 Crescendo of War
+1 Crystalline Giant
+1 Damning Verdict
+1 Dark Depths
+1 Decree of Silence
+1 Deserted Beach
+1 Devoted Druid
+1 Doubling Season
+1 Elspeth Conquers Death
+1 Elspeth Resplendent
+1 Exotic Orchard
+1 Falco Spara, Pactweaver
+1 Farewell
+1 Felidar Retreat
+1 Flawless Maneuver
+1 Flooded Strand
+5 Forest
+1 Forgotten Ancient
+1 Gemstone Caverns
+1 Gemstone Mine
+1 Generous Gift
+1 Hadana's Climb // Winged Temple of Orazca
+1 Hallowed Fountain
+1 Helix Pinnacle
+1 Heroic Intervention
+3 Island
+1 Joraga Treespeaker
+1 Karn's Bastion
+1 Lighthouse Chronologist
+1 Lightning Greaves
+1 Midnight Clock
+1 Misty Rainforest
+1 Momentum
+1 Myojin of Towering Might
+1 Mystic Remora
+1 Myth Realized
+1 Oblivion Stone
+1 Ominous Seas
+1 Opal Palace
+1 Otawara, Soaring City
+1 Overgrown Farmland
+1 Perrie, the Pulverizer
+1 Pir, Imaginative Rascal
+3 Plains
+1 Rampant Growth
+1 Rasputin Dreamweaver
+1 Resourceful Defense
+1 Return of the Wildspeaker
+1 Rishkar's Expertise
+1 Saltcrusted Steppe
+1 Serrated Arrows
+1 Silkguard
+1 Simic Ascendancy
+1 Slip Out the Back
+1 Slippery Bogbonder
+1 Sol Ring
+1 Spara's Headquarters
+1 Strixhaven Stadium
+1 Swiftfoot Boots
+1 Swords to Plowshares
+1 Temple Garden
+1 The Great Henge
+1 The Ozolith
+1 Thespian's Stage
+1 Three Visits
+1 Tome of Legends
+1 Toothy, Imaginary Friend
+1 Treasure Map // Treasure Cove
+1 Vanquish the Horde
+1 Vigor
+1 Vivid Creek
+1 Vivid Grove
+1 Vivien, Monsters' Advocate
+1 Wall of Roots
+1 Windswept Heath
+1 Yavimaya, Cradle of Growth
+1 Yisan, the Wanderer Bard
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Dragons, but your enemies are already on fire.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom cube\UR.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Zirda Factory.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Rohgahh.txt
+
+````txt
+1 Ancient Copper Dragon
+1 Arcane Signet
+1 Bedevil
+1 Black Market Connections
+1 Blades of Velis Vel
+1 Bladewing the Risen
+1 Bladewing, Deathless Tyrant
+1 Blasphemous Act
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Changeling Outcast
+1 Chaos Warp
+1 Coat of Arms
+1 Command Tower
+1 Crux of Fate
+1 Damnation
+1 Deadly Dispute
+1 Deflecting Swat
+1 Dragon Tempest
+1 Dragon's Hoard
+1 Dragonskull Summit
+1 Dragonspeaker Shaman
+1 Ebondeath, Dracolich
+1 Fabled Passage
+1 Feed the Swarm
+1 Fellwar Stone
+1 Ganax, Astral Hunter
+1 Goldspan Dragon
+1 Haunted Ridge
+1 Heraldic Banner
+1 Jeska's Will
+1 Kobold Drill Sergeant
+1 Kobold Overlord
+1 Kobold Taskmaster
+1 Kolaghan, the Storm's Fury
+1 Lathliss, Dragon Queen
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Living Death
+1 Malakir Rebirth // Malakir Mire
+1 Maskwood Nexus
+1 Minion of the Mighty
+13 Mountain
+1 Night's Whisper
+1 Nogi, Draco-Zealot
+1 Pact of the Serpent
+1 Rakdos Charm
+1 Rakdos Signet
+1 Reanimate
+1 Reckless Barbarian
+1 Rivaz of the Claw
+1 Rograkh, Son of Rohgahh
+1 Rohgahh, Kher Keep Overlord
+1 Rosnakht, Heir of Rohgahh
+1 Scourge of Valkas
+1 Skullclamp
+1 Smoldering Marsh
+1 Sol Ring
+1 Stinging Study
+11 Swamp
+1 Sword of the Animist
+1 Tainted Peak
+1 Takenuma, Abandoned Mire
+1 Talisman of Indulgence
+1 Taunting Kobold
+1 Taurean Mauler
+1 Terror of the Peaks
+1 Toxic Deluge
+1 Universal Automaton
+1 Urborg, Tomb of Yawgmoth
+1 Utvara Hellkite
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Victimize
+1 Village Rites
+1 Wayfarer's Bauble
+1 Wrathful Red Dragon
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Changeling Tribal.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Rebama.txt
+
+````txt
+1 Ancient Den
+1 Arcane Signet
+1 Archaeomancer's Map
+1 Arid Mesa
+1 Ashnod's Transmogrant
+1 Aura Shards
+1 Austere Command
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bastion Protector
+1 Beast Within
+1 Biowaste Blob
+1 Blacksmith's Skill
+1 Blinkmoth Urn
+1 Branchloft Pathway // Boulderloft Pathway
+1 Bronze Guardian
+1 Brushland
+1 Canopy Vista
+1 Cloud Key
+1 Command Tower
+1 Cultivate
+1 Darksteel Citadel
+1 Darksteel Juggernaut
+1 Darksteel Mutation
+1 Defense of the Heart
+1 Dollhouse of Horrors
+1 Drannith Magistrate
+1 Eldritch Evolution
+1 Esper Sentinel
+1 Ethersworn Canonist
+1 Flawless Maneuver
+1 Flooded Strand
+6 Forest
+1 Fortified Village
+1 Foundry Inspector
+1 Generous Gift
+1 Gilded Lotus
+1 Guardian Augmenter
+1 Harmonize
+1 Heroic Intervention
+1 Horizon Canopy
+1 Hour of Revelation
+1 Inspiring Statuary
+1 Jeweled Lotus
+1 Kodama of the East Tree
+1 Kodama's Reach
+1 Land Tax
+1 Lightning Greaves
+1 Liquimetal Torque
+1 Lotus Bloom
+1 Marsh Flats
+1 Metalworker
+1 Misty Rainforest
+1 Mycosynth Lattice
+1 Ornithopter of Paradise
+1 Overgrown Farmland
+1 Path to Exile
+5 Plains
+1 Prototype Portal
+1 Rebbec, Architect of Ascension
+1 Reidane, God of the Worthy // Valkmira, Protector's Shield
+1 Return of the Wildspeaker
+1 Rishkar's Expertise
+1 Scavenger Grounds
+1 Scroll Rack
+1 Sculpting Steel
+1 Sejiri Shelter // Sejiri Glacier
+1 Selesnya Signet
+1 Semblance Anvil
+1 Slash the Ranks
+1 Smothering Tithe
+1 Sol Ring
+1 Solemn Simulacrum
+1 Soul Foundry
+1 Sungrass Prairie
+1 Sunpetal Grove
+1 Swiftfoot Boots
+1 Swords to Plowshares
+1 Sylvan Library
+1 Talisman of Unity
+1 Teferi's Protection
+1 Temple Garden
+1 The Great Henge
+1 Thornglint Bridge
+1 Transmogrifying Licid
+1 Tree of Tales
+1 Triplicate Titan
+1 Verdant Catacombs
+1 Windswept Heath
+1 Wooded Bastion
+1 Wooded Foothills
+1 Wurmcoil Engine
+
+Maybeboard
+1 Ancient Stone Idol
+1 Asceticism
+1 Birthing Pod
+1 Blind Obedience
+1 Cemetery Prowler
+1 Congregation at Dawn
+1 Curious Herd
+1 Darksteel Forge
+1 Darksteel Ingot
+1 Darksteel Plate
+1 Do-It-Yourself Seraph
+1 Eladamri's Call
+1 Farseek
+1 Garruk's Uprising
+1 Genesis Hydra
+1 Genesis Storm
+1 Geode Golem
+1 Ghalta, Primal Hunger
+1 Godsend
+1 Grand Abolisher
+1 Hunting Grounds
+1 Jhoira's Familiar
+1 Knight of the Kitchen Sink
+1 Krosan Drover
+1 Lifecrafter's Bestiary
+1 Liquimetal Coating
+1 Losheel, Clockwork Scholar
+1 Loyal Unicorn
+1 Maul of the Skyclaves
+1 Mirage Mirror
+1 Mishra's Self-Replicator
+1 Natural Order
+1 Norn's Annex
+1 Noxious Revival
+1 Omen Machine
+1 Orbs of Warding
+1 Panharmonicon
+1 Pattern of Rebirth
+1 Phyrexian Rebirth
+1 Polyraptor
+1 Porcelain Legionnaire
+1 Portable Hole
+1 Privileged Position
+1 Pyramid of the Pantheon
+1 Rampant Growth
+1 Return to Dust
+1 Return to Nature
+1 Road of Return
+1 Sakura-Tribe Elder
+1 Scute Swarm
+1 Search for Tomorrow
+1 Shambling Suit
+1 Somberwald Sage
+1 Soulscour
+1 Spawnwrithe
+1 Spear of Heliod
+1 Spirit of the Labyrinth
+1 Sprouting Phytohydra
+1 Staff of Domination
+1 Starnheim Courser
+1 Stave Off
+1 Strionic Resonator
+1 The Immortal Sun
+1 Three Visits
+1 Thundering Tanadon
+1 Treasure Keeper
+1 Vedalken Orrery
+1 Vivien's Arkbow
+1 Wedding Ring
+1 Witchbane Orb
+1 Wrath of God
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom cube\BRG.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom cube\UBRG.txt
+
+````txt
+Deck
+1 Swamp (UNH) 138
+7 Mountain (UNH) 139
+7 Island (UNH) 137
+1 Krark, the Thumbless (CMR) 189
+1 Thassa's Oracle (THB) 308
+1 Young Pyromancer (TSR) 353
+1 Imperial Recruiter (MH2) 314
+1 Lotus Petal (TMP) 294
+1 Blood Crypt (SLD) 125
+1 Copperline Gorge (SOM) 225
+1 Brainstorm (MMQ) 61
+1 Faithless Looting (STA) 38
+1 Consider (MID) 388
+1 Dark Ritual (LEB) 99
+1 Opt (PDOM) 60
+1 Ancient Grudge (MM3) 88
+1 Simic Signet (SLD) 295
+1 Brain Freeze (SCG) 29
+1 Gruul Signet (SLD) 288
+1 Frantic Search (ULG) 32
+1 Bonus Round (BBD) 56
+1 Kolaghan's Command (DTK) 224
+1 Chandra, Acolyte of Flame (M20) 126
+1 Seething Song (C21) 179
+1 Past in Flames (TSR) 350
+1 Tendrils of Agony (SCG) 75
+1 Echo of Eons (MH1) 46
+1 Expansion // Explosion (GRN) 224
+
+Sideboard
+1 Stonecoil Serpent (ELD) 235
+1 Hangarback Walker (ORI) 229
+1 Dauntless Bodyguard (DOM) 14
+1 Hard Evidence (MH2) 46
+1 Thought Scour (DDM) 21
+1 Pest Infestation (C21) 65
+1 Skullclamp (C14) 268
+1 Terrarion (RAV) 273
+1 Crop Rotation (ULG) 98
+1 Seal of Fire (NEM) 98
+1 Chatterstorm (MH2) 411
+1 Guardian of New Benalia (DMU) 19
+1 Khenra Spellspear (MOM) 151
+1 Coiling Oracle (DIS) 107
+1 Embereth Shieldbreaker (ELD) 122
+1 Rakdos Signet (SLD) 289
+1 Life from the Loam (RAV) 172
+1 Mayhem Devil (WAR) 204
+1 Soulherder (KHC) 93
+1 Endurance (MH2) 157
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Myrkul.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\atk.txt
+
+````txt
+1 Arcane Signet
+1 Arid Mesa
+1 Asceticism
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bloom Tender
+1 Breeding Pool
+1 Chromatic Orrery
+1 Command Tower
+1 Conqueror's Flail
+1 Corrupted Conscience
+1 Crystal Quarry
+1 Daxos of Meletis
+1 Dolmen Gate
+1 Druids' Repository
+1 Esika, God of the Tree // The Prismatic Bridge
+1 Etali, Primal Storm
+1 Faeburrow Elder
+1 Fallen Shinobi
+1 Farewell
+1 Farseek
+1 Fires of Yavimaya
+1 Flooded Strand
+2 Forest
+1 Fraying Omnipotence
+1 Fynn, the Fangbearer
+1 Gemstone Array
+1 Godless Shrine
+1 Goldspan Dragon
+1 Grand Warlord Radha
+1 Hallowed Fountain
+1 Hatred
+1 Havoc Festival
+1 Intet, the Dreamer
+3 Island
+1 Isshin, Two Heavens as One
+1 Jegantha, the Wellspring
+1 Jeska's Will
+1 Kenrith, the Returned King
+1 Klauth, Unrivaled Ancient
+1 Laelia, the Blade Reforged
+1 Lightning Greaves
+1 Lithoform Engine
+1 Magister Sphinx
+1 Marsh Flats
+1 Master of Cruelties
+1 Misty Rainforest
+3 Mountain
+1 Mythos of Snapdax
+1 Najeela, the Blade-Blossom
+1 Nashi, Moon Sage's Scion
+1 Overgrown Tomb
+3 Plains
+1 Polluted Delta
+1 Privileged Position
+1 Professional Face-Breaker
+1 Questing Beast
+1 Quietus Spike
+1 Ragavan, Nimble Pilferer
+1 Rampant Growth
+1 Raving Dead
+1 Reconnaissance
+1 Revival // Revenge
+1 Rhythm of the Wild
+1 Sacred Foundry
+1 Savage Ventmaw
+1 Scalding Tarn
+1 Skithiryx, the Blight Dragon
+1 Smothering Tithe
+1 Snapdax, Apex of the Hunt
+1 Sol Ring
+1 Standstill
+1 Steam Vents
+1 Stomping Ground
+1 Strionic Resonator
+2 Swamp
+1 Swiftfoot Boots
+1 Tainted Strike
+1 Teferi's Protection
+1 Teferi's Veil
+1 Temple Garden
+1 Three Visits
+1 Tome of Legends
+1 Triumph of the Hordes
+1 True-Name Nemesis
+1 Urborg, Tomb of Yawgmoth
+1 Verdant Catacombs
+1 Watery Grave
+1 Windswept Heath
+1 Wooded Foothills
+1 Wulfgar of Icewind Dale
+1 Yavimaya, Cradle of Growth
+
+Maybeboard
+1 Battlemage's Bracers
+1 Bojuka Bog
+1 Illusionist's Bracers
+1 Sorin Markov
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Osgir.txt
+
+````txt
+1 Ancient Den
+1 Anointed Procession
+1 Arcane Signet
+1 Arcbound Ravager
+1 Archaeomancer's Map
+1 Arid Mesa
+1 Austere Command
+1 Basalt Monolith
+1 Battlemage's Bracers
+1 Big Score
+1 Blasphemous Act
+1 Blinkmoth Urn
+1 Boros Charm
+1 Boros Signet
+1 Buried Ruin
+1 Caged Sun
+1 Chaos Warp
+1 Clifftop Retreat
+1 Command Tower
+1 Coveted Jewel
+1 Cursed Mirror
+1 Daretti, Scrap Savant
+1 Darksteel Citadel
+1 Darksteel Forge
+1 Esper Sentinel
+1 Fabled Passage
+1 Faithless Looting
+1 Generous Gift
+1 Goblin Engineer
+1 Goblin Welder
+1 Great Furnace
+1 Grinding Station
+1 Ichor Wellspring
+1 Inventors' Fair
+1 Jeska's Will
+1 Karn, the Great Creator
+1 Krark-Clan Ironworks
+1 Liquimetal Torque
+1 Lodestone Golem
+1 Lotus Bloom
+1 Lotus Petal
+1 Mesmeric Orb
+1 Meteor Golem
+1 Mirage Mirror
+1 Mishra's Bauble
+12 Mountain
+1 Myr Battlesphere
+1 Oblivion Stone
+1 Osgir, the Reconstructor
+1 Oswald Fiddlebender
+1 Path to Exile
+1 Phyrexian Triniform
+10 Plains
+1 Rings of Brighthearth
+1 Sacred Foundry
+1 Saheeli's Directive
+1 Scrap Mastery
+1 Seize the Spoils
+1 Sol Ring
+1 Solemn Simulacrum
+1 Soul-Guide Lantern
+1 Spectator Seating
+1 Staff of Domination
+1 Sunbaked Canyon
+1 Swiftfoot Boots
+1 Swords to Plowshares
+1 Talisman of Conviction
+1 Thousand-Year Elixir
+1 Thran Dynamo
+1 Thrill of Possibility
+1 Thrilling Discovery
+1 Trash for Treasure
+1 Triplicate Titan
+1 Ugin's Nexus
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Wake the Past
+1 War Room
+1 Wasteland
+1 Wayfarer's Bauble
+1 Wear // Tear
+1 Wurmcoil Engine
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Thalisse.txt
+
+````txt
+1 Adeline, Resplendent Cathar
+1 Ancient Tomb
+1 Anguished Unmaking
+1 Anointed Procession
+1 Arcane Signet
+1 Blood Artist
+1 Bojuka Bog
+1 Brightclimb Pathway // Grimclimb Pathway
+1 Call the Coppercoats
+1 Castle Ardenvale
+1 Cathars' Crusade
+1 Caves of Koilos
+1 Command Beacon
+1 Command Tower
+1 Coveted Jewel
+1 Deadly Dispute
+1 Divine Visitation
+1 Elenda, the Dusk Rose
+1 Elesh Norn, Grand Cenobite
+1 Elspeth, Sun's Champion
+1 Endrek Sahr, Master Breeder
+1 Fabled Passage
+1 Farewell
+1 Felidar Retreat
+1 Fetid Heath
+1 Field of the Dead
+1 Flawless Maneuver
+1 Flooded Strand
+1 Generous Gift
+1 Godless Shrine
+1 Grand Crescendo
+1 Grave Titan
+1 Grim Hireling
+1 Heraldic Banner
+1 Increasing Devotion
+1 Inkshield
+1 Isolated Chapel
+1 Jazal Goldmane
+1 Krav, the Unredeemed
+1 Land Tax
+1 Life Insurance
+1 Lingering Souls
+1 Liquimetal Torque
+1 Luminarch Ascension
+1 Marsh Flats
+1 Martial Coup
+1 Maw of the Obzedat
+1 Mirror Entity
+1 Monologue Tax
+1 Myojin of Blooming Dawn
+1 Myriad Landscape
+1 Necrotic Hex
+1 Night's Whisper
+1 Noosegraf Mob
+1 Orzhov Basilica
+1 Orzhov Signet
+1 Pact of the Serpent
+1 Path to Exile
+1 Phyrexian Arena
+1 Pitiless Plunderer
+3 Plains
+1 Plumb the Forbidden
+1 Pointed Discussion
+1 Polluted Delta
+1 Read the Bones
+1 Regna, the Redeemer
+1 Release the Dogs
+1 Release to Memory
+1 Roadside Reliquary
+1 Scavenger Grounds
+1 Secure the Wastes
+1 Sejiri Shelter // Sejiri Glacier
+1 Shattered Sanctum
+1 Silent Clearing
+1 Skullclamp
+1 Smothering Tithe
+1 Smuggler's Share
+3 Snow-Covered Plains
+3 Snow-Covered Swamp
+1 Sol Ring
+1 Stinging Study
+3 Swamp
+1 Swords to Plowshares
+1 Syr Konrad, the Grim
+1 Szat's Will
+1 Talisman of Hierarchy
+1 Teferi's Protection
+1 Tevesh Szat, Doom of Fools
+1 Thalisse, Reverent Medium
+1 Tombstone Stairwell
+1 Urborg, Tomb of Yawgmoth
+1 Vanquish the Horde
+1 Vault of Champions
+1 Vault of the Archangel
+1 Windbrisk Heights
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Korvold Goblins.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\moon.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Prosshu.txt
+
+````txt
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Ancient Grudge
+1 Arcane Signet
+1 Ashnod's Altar
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bane of Progress
+1 Bastion of Remembrance
+1 Beast Within
+1 Beastmaster Ascension
+1 Blasphemous Act
+1 Blightstep Pathway // Searstep Pathway
+1 Blood Artist
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Cabal Coffers
+1 Castle Locthwain
+1 Cinder Glade
+1 Coat of Arms
+1 Command Tower
+1 Cragcrown Pathway // Timbercrown Pathway
+1 Cultivate
+1 Curse of Opulence
+1 Damnation
+1 Darkbore Pathway // Slitherbore Pathway
+1 Deadly Dispute
+1 Deathbringer Thoctar
+1 Dragonskull Summit
+1 Earthcraft
+1 Farseek
+1 Fecundity
+1 Feed the Swarm
+1 Fires of Yavimaya
+3 Forest
+1 Garruk, Cursed Huntsman
+1 Goblin Bombardment
+1 Goblin Sharpshooter
+1 Golgari Signet
+1 Gruul Signet
+1 Harrow
+1 Heat Stroke
+1 Heroic Intervention
+1 Jeska's Will
+1 Karplusan Forest
+1 Kessig Wolf Run
+1 Kher Keep
+1 Kodama's Reach
+1 Korvold, Fae-Cursed King
+1 Leyline of the Void
+1 Lightning Greaves
+1 Llanowar Wastes
+1 Malakir Rebirth // Malakir Mire
+1 Massacre Wurm
+3 Mountain
+1 Murderous Rider // Swift End
+1 Mycoloth
+1 Night's Whisper
+1 Noxious Gearhulk
+1 Overgrown Tomb
+1 Phyrexian Altar
+1 Phyrexian Tower
+1 Plumb the Forbidden
+1 Prossh, Skyraider of Kher
+1 Rakdos Signet
+1 Rampant Growth
+1 Reliquary Tower
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Rishkar's Expertise
+1 Rite of the Raging Storm
+1 Rootbound Crag
+1 Sakura-Tribe Elder
+1 Scavenger Grounds
+1 Shared Animosity
+1 Sign in Blood
+1 Skullclamp
+1 Smoke
+1 Smoldering Marsh
+1 Sol Ring
+1 Solemn Simulacrum
+1 Stomping Ground
+2 Swamp
+1 Swiftfoot Boots
+1 The Meathook Massacre
+1 Three Visits
+1 Toxic Deluge
+1 Urborg, Tomb of Yawgmoth
+1 Vandalblast
+1 Verdant Catacombs
+1 Village Rites
+1 Westvale Abbey // Ormendahl, Profane Prince
+1 Wood Elves
+1 Wooded Foothills
+1 Woodland Cemetery
+1 Zulaport Cutthroat
+
+Maybeboard
+1 Abrade
+1 Cabal Stronghold
+1 Faithless Looting
+1 Graven Cairns
+1 In Garruk's Wake
+1 Invasion Plans
+1 Lucille
+1 Netherborn Altar
+1 Skullmulcher
+1 Sphere of Annihilation
+1 Vorpal Sword
+1 Wurmcoil Engine
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\EDH landstorm.txt
+
+````txt
+1 Abrade
+1 Amulet of Vigor
+1 Ancient Greenwarden
+1 Ancient Tomb
+1 Arcane Signet
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Banefire
+1 Beast Within
+1 Blasphemous Act
+1 Blighted Woodland
+1 Bonus Round
+1 Boseiju, Who Endures
+1 Cinder Glade
+1 Comet Storm
+1 Crop Rotation
+1 Cultivate
+1 Deflecting Swat
+1 Dualcaster Mage
+1 Early Harvest
+1 Earthcraft
+1 Emerald Medallion
+1 Explosive Vegetation
+1 Fabled Passage
+1 Fling
+13 Forest
+1 Fork
+1 Fury Storm
+1 Harmonize
+1 Harrow
+1 Harvest Season
+1 Heroic Intervention
+1 Howl of the Horde
+1 Increasing Vengeance
+1 Invigorating Surge
+1 Jeska's Will
+1 Jeweled Lotus
+1 Kazuul's Fury // Kazuul's Cliffs
+1 Kodama of the West Tree
+1 Kodama's Reach
+1 Life's Legacy
+1 Lotus Cobra
+1 Mana Geyser
+1 Migration Path
+1 Momentous Fall
+13 Mountain
+1 Nature's Lore
+1 Nissa's Expedition
+1 Past in Flames
+1 Phylath, World Sculptor
+1 Rampant Growth
+1 Recoup
+1 Regrowth
+1 Reiterate
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Reverberate
+1 Rishkar's Expertise
+1 Ruby Medallion
+1 Sakura-Tribe Elder
+1 Scapeshift
+1 Search for Tomorrow
+1 Sol Ring
+1 Stomping Ground
+1 Storm-Kiln Artist
+1 Surge to Victory
+1 Three Visits
+1 Thud
+1 Tireless Provisioner
+1 Traverse the Outlands
+1 Underworld Breach
+1 Urza's Saga
+1 Valakut Awakening // Valakut Stoneforge
+1 Valakut Exploration
+1 Valakut, the Molten Pinnacle
+1 Vandalblast
+1 Wooded Foothills
+
+Maybeboard
+1 Chaos Warp
+1 Circuitous Route
+1 Clear the Land
+1 Dire Fleet Daredevil
+1 Eternal Witness
+1 Kari Zev's Expertise
+1 March of Reckless Joy
+1 Nissa's Renewal
+1 Omnath, Locus of Rage
+1 Primal Growth
+1 Pyromancer's Goggles
+1 Repeated Reverberation
+1 Roiling Regrowth
+1 Sculpting Steel
+1 Shatterskull Smashing // Shatterskull, the Hammer Pass
+1 Storm's Wrath
+1 Thrill of Possibility
+1 Twinning Staff
+1 Wild Ricochet
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom cube\U.txt
+
+````txt
+Deck
+10 Island (UNH) 137
+1 Walking Ballista (AER) 181
+2 Swamp (UNH) 138
+3 Mountain (UNH) 139
+1 Baleful Strix (E01) 80
+1 Thieving Skydiver (ZNR) 85
+1 Thief of Sanity (GRN) 205
+1 Metalworker (UDS) 135
+1 Emry, Lurker of the Loch (ELD) 43
+1 Daretti, Scrap Savant (C14) 33
+1 Phyrexian Metamorph (NPH) 42
+1 Lodestone Golem (MM2) 219
+1 Wurmcoil Engine (SOM) 223
+1 Mishra's Bauble (2XM) 274
+1 Engineered Explosives (5DN) 118
+1 Darkslick Shores (SOM) 226
+1 Mana Confluence (JOU) 163
+1 Chrome Mox (MRD) 152
+1 Hard Evidence (MH2) 46
+1 Chromatic Sphere (INV) 299
+1 Brainstorm (MMQ) 61
+1 Sol Ring (3ED) 274
+1 Chromatic Star (TSP) 251
+1 Coalition Relic (DDE) 54
+1 Tinker (ULG) 45
+1 Thirst for Knowledge (F08) 9
+1 Thran Dynamo (WC00) jf139b
+1 Tezzeret the Seeker (ALA) 60
+
+Sideboard
+1 Swamp (UNH) 138
+3 Island (UNH) 137
+1 Inquisition of Kozilek (ROE) 115
+1 Thought Scour (DDM) 21
+1 Gutterbones (RNA) 76
+1 Valki, God of Lies (KHM) 308
+1 Plumb the Forbidden (STX) 81
+1 Dauthi Voidwalker (MH2) 397
+1 Fiend Artisan (IKO) 220
+1 Mercurial Spelldancer (ONE) 61
+1 Porcelain Legionnaire (NPH) 19
+1 Deceiver Exarch (NPH) 33
+1 Beast Within (NPH) 103
+1 Tendrils of Agony (SCG) 75
+1 Garruk Relentless (ISD) 181
+1 Aetherflux Reservoir (KLD) 192
+1 Zealous Conscripts (AVR) 166
+1 Kiki-Jiki, Mirror Breaker (MM2) 121
+1 Korvold, Fae-Cursed King (ELD) 329
+1 Murktide Regent (MH2) 52
+1 Karn Liberated (UMA) 5
+1 Archon of Cruelty (MH2) 75
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Araumi.txt
+
+````txt
+1 Agent of Treachery
+1 Altar of Dementia
+1 Ancient Excavation
+1 Araumi of the Dead Tide
+1 Arcane Denial
+1 Arcane Signet
+1 Archaeomancer
+1 Ash Barrens
+1 Ashiok, Dream Render
+1 Baleful Strix
+1 Bojuka Bog
+1 Buried Alive
+1 Careful Study
+1 Chart a Course
+1 Clearwater Pathway // Murkwater Pathway
+1 Cloud of Faeries
+1 Command Tower
+1 Counterspell
+1 Curtains' Call
+1 Cyclonic Rift
+1 Damnation
+1 Darkwater Catacombs
+1 Deranged Assistant
+1 Dimir Aqueduct
+1 Dimir Signet
+1 Discontinuity
+1 Dread Return
+1 Drowned Catacomb
+1 Fact or Fiction
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Floating-Dream Zubera
+1 Frantic Search
+1 Grave Titan
+1 Gray Merchant of Asphodel
+1 Guildless Commons
+12 Island
+1 Lightning Greaves
+1 Malakir Rebirth // Malakir Mire
+1 Massacre Wurm
+1 Mesmeric Orb
+1 Millikin
+1 Mulldrifter
+1 Myriad Landscape
+1 Mystic Confluence
+1 Mystic Sanctuary
+1 Necromantic Selection
+1 Nephalia Drownyard
+1 Notion Rain
+1 Panharmonicon
+1 Peregrine Drake
+1 Perpetual Timepiece
+1 Plaguecrafter
+1 Polluted Delta
+1 Ravenous Chupacabra
+1 Reality Shift
+1 Sepulchral Primordial
+1 Sol Ring
+1 Solemn Simulacrum
+1 Sower of Discord
+1 Stitcher's Supplier
+1 Sundial of the Infinite
+1 Sunken Hollow
+11 Swamp
+1 Swiftfoot Boots
+1 Talisman of Dominance
+1 Teferi's Veil
+1 Thief of Sanity
+1 Thirst for Knowledge
+1 Thirst for Meaning
+1 Thought Scour
+1 Thousand-Year Elixir
+1 Toxic Deluge
+1 Tribute Mage
+1 Victimize
+1 Vindictive Lich
+1 Watery Grave
+1 Wayfarer's Bauble
+1 Windfall
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Veyran.txt
+
+````txt
+1 Accelerate
+1 Aetherflux Reservoir
+1 Arcane Lighthouse
+1 Arcane Signet
+1 Archmage Emeritus
+1 Beamsplitter Mage
+1 Birgi, God of Storytelling // Harnfel, Horn of Bounty
+1 Blasphemous Act
+1 Bonus Round
+1 Brainstorm
+1 Cascade Bluffs
+1 Chaos Warp
+1 Command Tower
+1 Counterspell
+1 Crash Through
+1 Crimson Wisps
+1 Cyclonic Rift
+1 Deflecting Swat
+1 Dig Through Time
+1 Docent of Perfection // Final Iteration
+1 Electrodominance
+1 Expedite
+1 Fabled Passage
+1 Fierce Guardianship
+1 Fists of Flame
+1 Frantic Search
+1 Gitaxian Probe
+1 Guttersnipe
+1 Harmonic Prodigy
+1 Immolating Gyre
+11 Island
+1 Izzet Signet
+1 Jeska's Will
+1 Krark, the Thumbless
+1 Mana Geyser
+1 Manaform Hellkite
+1 Mizzix's Mastery
+11 Mountain
+1 Myriad Landscape
+1 Mystic Confluence
+1 Mystic Sanctuary
+1 Mystical Tutor
+1 Narset's Reversal
+1 Opt
+1 Overmaster
+1 Past in Flames
+1 Ponder
+1 Pongify
+1 Preordain
+1 Primal Amulet // Primal Wellspring
+1 Radiant Performer
+1 Ral, Storm Conduit
+1 Reality Shift
+1 Reliquary Tower
+1 Renegade Tactics
+1 Reverberate
+1 Riptide Laboratory
+1 Riverglide Pathway // Lavaglide Pathway
+1 Scalding Tarn
+1 Sol Ring
+1 Steam Vents
+1 Storm-Kiln Artist
+1 Stubborn Denial
+1 Sulfur Falls
+1 Surge to Victory
+1 Swiftfoot Boots
+1 Talisman of Creativity
+1 Talrand, Sky Summoner
+1 Teferi's Ageless Insight
+1 Temur Battle Rage
+1 Thought Vessel
+1 Thousand-Year Storm
+1 Training Center
+1 Underworld Breach
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Veyran, Voice of Duality
+1 Windfall
+1 Young Pyromancer
+1 Zada, Hedron Grinder
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Grismold.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Grixis Shadow.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Timmy.txt
+
+````txt
+1 Brokkos, Apex of Forever
+1 Elder Gargaroth
+1 Harmonize
+1 Mythos of Brokkos
+1 Questing Beast
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Ratadrabik.txt
+
+````txt
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Ancient Tomb
+1 Ao, the Dawn Sky
+1 Arcane Signet
+1 Aron, Benalia's Ruin
+1 Ashnod's Altar
+1 Athreos, God of Passage
+1 Athreos, Shroud-Veiled
+1 Ayara, First of Locthwain
+1 Basal Thrull
+1 Breathkeeper Seraph
+1 Breena, the Demagogue
+1 Cabal Coffers
+1 Cabal Ritual
+1 Cabal Stronghold
+1 Castle Locthwain
+1 Celestine, the Living Saint
+1 Clattering Augur
+1 Commissar Severina Raine
+1 Crypt of Agadeem
+1 Culling the Weak
+1 Darien, King of Kjeldor
+1 Dark Ritual
+1 Darksteel Mutation
+1 Doom Weaver
+1 Drana, Liberator of Malakir
+1 Dusk Legion Zealot
+1 Ebondeath, Dracolich
+1 Eiganjo, Seat of the Empire
+1 Elas il-Kor, Sadistic Pilgrim
+1 Elesh Norn, Grand Cenobite
+1 Expedition Map
+1 Fellwar Stone
+1 Flawless Maneuver
+1 Gix, Yawgmoth Praetor
+1 God-Eternal Bontu
+1 God-Eternal Oketra
+1 Gonti, Lord of Luxury
+1 Henrika Domnathi // Henrika, Infernal Seer
+1 High Market
+1 Honor-Worn Shaku
+1 Illuminor Szeras
+1 Jet Medallion
+1 Jeweled Lotus
+1 Junji, the Midnight Sky
+1 K'rrik, Son of Yawgmoth
+1 Kambal, Consul of Allocation
+1 Kaya's Ghostform
+1 Kokusho, the Evening Star
+1 Land Tax
+1 Liesa, Forgotten Archangel
+1 Loran of the Third Path
+1 Malakir Rebirth // Malakir Mire
+1 Massacre Girl
+1 Mikaeus, the Unhallowed
+1 Mimic Vat
+1 Mind Stone
+1 Murderous Rider // Swift End
+1 Nightmare Shepherd
+1 Nim Deathmantle
+1 Orzhov Signet
+1 Path to Exile
+1 Pearl Medallion
+1 Phyrexian Altar
+1 Phyrexian Tower
+12 Plains
+1 Prismatic Lens
+1 Ratadrabik of Urborg
+1 Sheoldred, Whispering One
+1 Skullclamp
+1 Smothering Tithe
+1 Smuggler's Share
+1 Sol Ring
+1 Soldevi Adnate
+1 Solemn Simulacrum
+1 Soul Foundry
+1 Spirited Companion
+12 Swamp
+1 Swords to Plowshares
+1 Syr Konrad, the Grim
+1 Takenuma, Abandoned Mire
+1 Talisman of Hierarchy
+1 The Golden Throne
+1 Thought Vessel
+1 Undead Augur
+1 Untaidake, the Cloud Keeper
+1 Urborg, Tomb of Yawgmoth
+1 Urza's Ruinous Blast
+1 Wall of Omens
+1 Wayfarer's Bauble
+1 Yahenni, Undying Partisan
+1 Yosei, the Morning Star
+
+Maybeboard
+1 Altar of Bhaal // Bone Offering
+1 Animate Dead
+1 Arvinox, the Mind Flail
+1 Ashen Rider
+1 Ashnod's Intervention
+1 Avacyn's Memorial
+1 Call to the Grave
+1 Command the Dreadhorde
+1 Crystal Dragon // Rob the Hoard
+1 Dermotaxi
+1 Dollhouse of Horrors
+1 Drana, the Last Bloodchief
+1 Edgar, Charmed Groom // Edgar Markov's Coffin
+1 Elenda, the Dusk Rose
+1 Erebos, Bleak-Hearted
+1 Ever After
+1 Feign Death
+1 Firja, Judge of Valor
+1 Gerrard Capashen
+1 Geth, Lord of the Vault
+1 Ghoulcaller Gisa
+1 God-Pharaoh's Gift
+1 Goryo's Vengeance
+1 Grave Betrayal
+1 Graveborn Muse
+1 Grim Haruspex
+1 Harvester of Souls
+1 Helm of the Host
+1 Heroes' Podium
+1 Ink-Eyes, Servant of Oni
+1 Kaya the Inexorable
+1 Life Insurance
+1 Lychguard
+1 Midnight Reaper
+1 Mirage Mirror
+1 Necromancy
+1 Necromantic Selection
+1 On Serra's Wings
+1 Pitiless Plunderer
+1 Primevals' Glorious Rebirth
+1 Reanimate
+1 Soul Separator
+1 Species Specialist
+1 Teysa Karlov
+1 Thalia's Lancers
+1 The Peregrine Dynamo
+1 Undying Malice
+1 Vindicate
+1 Yomiji, Who Bars the Way
+1 Yoshimaru, Ever Faithful
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Cormela, Glamour Thief Combo.txt
+
+````txt
+1 Ad Nauseam
+1 Altar of Dementia
+1 An Offer You Can't Refuse
+1 Ancient Tomb
+1 Arcane Denial
+1 Arcane Signet
+1 Archmage Emeritus
+1 Arid Mesa
+1 Ashnod's Altar
+1 Blasphemous Act
+1 Blood Artist
+1 Blood Crypt
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Burnt Offering
+1 Cabal Coffers
+1 Command Tower
+1 Cormela, Glamour Thief
+1 Corpse Dance
+1 Cyclonic Rift
+1 Damnation
+1 Dark Ritual
+1 Deflecting Swat
+1 Demonic Tutor
+1 Dimir Machinations
+1 Dimir Signet
+1 Dispel
+1 Dockside Extortionist
+1 Exhume
+1 Expedition Map
+1 Expropriate
+1 Exsanguinate
+1 Fierce Guardianship
+1 Flooded Strand
+1 Footsteps of the Goryo
+1 Force of Will
+1 Goryo's Vengeance
+1 Grapeshot
+1 Grim Return
+1 Grim Tutor
+1 Impact Tremors
+1 Imperial Seal
+4 Island
+1 Izzet Signet
+1 Jeska's Will
+1 Marsh Flats
+1 Mental Misstep
+1 Mind's Desire
+1 Misty Rainforest
+5 Mountain
+1 Mystical Tutor
+1 Otawara, Soaring City
+1 Past in Flames
+1 Personal Tutor
+1 Phyrexian Altar
+1 Phyrexian Tower
+1 Pitiless Plunderer
+1 Polluted Delta
+1 Praetor's Grasp
+1 Rakdos Signet
+1 Reanimate
+1 Sacrifice
+1 Scalding Tarn
+1 Sea Gate Restoration // Sea Gate, Reborn
+1 Shallow Grave
+1 Simian Spirit Guide
+1 Snapcaster Mage
+1 Sol Ring
+1 Spellseeker
+1 Steam Vents
+1 Stifle
+1 Storm-Kiln Artist
+1 Strionic Resonator
+6 Swamp
+1 Swan Song
+1 Talisman of Creativity
+1 Talisman of Dominance
+1 Talisman of Indulgence
+1 Teysa Karlov
+1 Torment of Hailfire
+1 Transmute Artifact
+1 Trophy Mage
+1 Turn Aside
+1 Underworld Breach
+1 Urborg, Tomb of Yawgmoth
+1 Valakut Awakening // Valakut Stoneforge
+1 Vampiric Tutor
+1 Verdant Catacombs
+1 Viscera Seer
+1 Watery Grave
+1 Worst Fears
+1 Xander's Lounge
+1 Zulaport Cutthroat
+
+Maybeboard
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Arcane Bombardment
+1 Army of the Damned
+1 Blasting Station
+1 Brain Freeze
+1 Brainstorm
+1 Buried Alive
+1 Call of the Death-Dweller
+1 Crosis's Charm
+1 Deadly Rollick
+1 Entomb
+1 Evelyn, the Covetous
+1 Goblin Bombardment
+1 Grave Titan
+1 Gruesome Encore
+1 Izzet Charm
+1 Jeleva, Nephalia's Scourge
+1 Jin-Gitaxias, Core Augur
+1 Jin-Gitaxias, Progress Tyrant
+1 Kess, Dissident Mage
+1 Lightning Bolt
+1 Lord Xander, the Collector
+1 Maestros Charm
+1 Malakir Rebirth // Malakir Mire
+1 Mana Geyser
+1 Marchesa, the Black Rose
+1 Mirrored Lotus
+1 Mizzix of the Izmagnus
+1 Mulldrifter
+1 Persist
+1 Ponder
+1 Profane Tutor
+1 Rain of Filth
+1 Rakdos Charm
+1 Reshape
+1 Spawning Pit
+1 Stitch Together
+1 Taigam's Scheming
+1 Teferi's Time Twist
+1 Teferi, Master of Time
+1 Thousand-Year Storm
+1 Twilight Prophet
+1 Vampire Nighthawk
+1 Vandalblast
+1 Vile Entomber
+1 Wake the Dead
+1 Wayfarer's Bauble
+1 Windswept Heath
+1 Wooded Foothills
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Rigo.txt
+
+````txt
+1 Adanto Vanguard
+1 Adeline, Resplendent Cathar
+1 Austere Command
+1 Avacyn's Pilgrim
+1 Azusa, Lost but Seeking
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Beast Within
+1 Birds of Paradise
+1 Bloom Tender
+1 Boseiju, Who Endures
+1 Breeding Pool
+1 Call the Coppercoats
+1 Canopy Vista
+1 Caustic Caterpillar
+1 Command Tower
+1 Craterhoof Behemoth
+1 Deranged Hermit
+1 Deserted Beach
+1 Dowsing Dagger // Lost Vale
+1 Dreamroot Cascade
+1 Dusk // Dawn
+1 Edric, Spymaster of Trest
+1 Elspeth, Sun's Champion
+1 Elvish Mystic
+1 Elvish Visionary
+1 Esper Sentinel
+1 Exotic Orchard
+1 Fabled Passage
+1 Farewell
+1 Fblthp, the Lost
+1 Fierce Guardianship
+1 Flooded Strand
+4 Forest
+1 Generous Gift
+1 Giver of Runes
+1 Grand Crescendo
+1 Gudul Lurker
+1 Hallowed Fountain
+1 Heroic Intervention
+1 Hope of Ghirapur
+1 Hypnotic Siren
+1 Invisible Stalker
+4 Island
+1 Jolrael, Mwonvuli Recluse
+1 Judge's Familiar
+1 Lightning Greaves
+1 Looter il-Kor
+1 Masked Vandal
+1 Minn, Wily Illusionist
+1 Mirror Entity
+1 Misty Rainforest
+1 Mother of Runes
+1 Nature's Lore
+1 Noble Hierarch
+1 Ondu Inversion // Ondu Skyruins
+1 Otawara, Soaring City
+1 Overgrown Farmland
+6 Plains
+1 Prairie Stream
+1 Protect the Negotiators
+1 Queen Allenal of Ruadach
+1 Rabble Rousing
+1 Reconnaissance Mission
+1 Recruiter of the Guard
+1 Reliquary Tower
+1 Return of the Wildspeaker
+1 Rigo, Streetwise Mentor
+1 Sakura-Tribe Elder
+1 Scute Swarm
+1 Sidar Kondo of Jamuraa
+1 Siren Stormtamer
+1 Skullwinder
+1 Slither Blade
+1 Sol Ring
+1 Somberwald Sage
+1 Spara's Headquarters
+1 Spectral Sailor
+1 Spirited Companion
+1 Sun Titan
+1 Swiftfoot Boots
+1 Swords to Plowshares
+1 Teferi's Ageless Insight
+1 Teferi's Veil
+1 Temple Garden
+1 Tetsuko Umezawa, Fugitive
+1 Three Visits
+1 Toski, Bearer of Secrets
+1 Triton Shorestalker
+1 Vesuva
+1 Windswept Heath
+1 Yavimaya, Cradle of Growth
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom cube\flashU.txt
+
+````txt
+Deck
+1 Volcanic Island (LEB) 287
+2 Island (ODY) 337
+1 Elixir of Immortality (M14) 209
+1 Flash (A25) 57
+1 Time Walk (OVNT) 2018NA
+1 Disrupting Shoal (BOK) 33
+1 Dress Down (MH2) 334
+1 Seal of Removal (NEM) 42
+1 An Offer You Can't Refuse (SNC) 464
+1 Sphinx of Foresight (RNA) 55
+1 Karn, the Great Creator (SLD) 501
+1 Chancellor of the Annex (NPH) 6
+1 Worldspine Wurm (RTR) 140
+1 Triplicate Titan (C21) 406
+
+Sideboard
+1 Island (ODY) 337
+3 Mountain (ODY) 344
+1 Sol Ring (3ED) 274
+1 Dreams of Steel and Oil (BRO) 92
+1 Hushbringer (ELD) 18
+1 Izzet Charm (F13) 6
+1 Null Rod (WTH) 154
+1 Agonizing Remorse (THB) 83
+1 Cathartic Pyre (MID) 133
+1 Ancient Grudge (TSP) 143
+1 Leonin Relic-Warder (MBS) 10
+1 Stubborn Denial (KTK) 56
+1 Emry, Lurker of the Loch (ELD) 342
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Tovolar.txt
+
+````txt
+1 Afflicted Deserter // Werewolf Ransacker
+1 Arcane Signet
+1 Arlinn, the Pack's Hope // Arlinn, the Moon's Fury
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Beast Within
+1 Beastmaster Ascension
+1 Blasphemous Act
+1 Cavern of Souls
+1 Chaos Warp
+1 Cinder Glade
+1 Command Tower
+1 Cragcrown Pathway // Timbercrown Pathway
+1 Cult of the Waxing Moon
+1 Daybreak Ranger // Nightfall Predator
+1 Deflecting Swat
+1 Door of Destinies
+1 Duskwatch Recruiter // Krallenhorde Howler
+1 Farseek
+1 Fire-Lit Thicket
+11 Forest
+1 Full Moon's Rise
+1 Geier Reach Bandit // Vildin-Pack Alpha
+1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun
+1 Gruul Turf
+1 Guardian Project
+1 Heroic Intervention
+1 Howlpack Resurgence
+1 Hull Breach
+1 Huntmaster of the Fells // Ravager of the Fells
+1 Immerwolf
+1 Instigator Gang // Wildblood Pack
+1 Jeska's Will
+1 Kessig Cagebreakers
+1 Kessig Naturalist // Lord of the Ulvenwald
+1 Kessig Wolf Run
+1 Khalni Ambush // Khalni Territory
+1 Klauth's Will
+1 Kruin Outlaw // Terror of Kruin Pass
+1 Lightning Greaves
+1 Master of the Wild Hunt
+1 Mayor of Avabruck // Howlpack Alpha
+1 Moonlight Hunt
+1 Moonmist
+7 Mountain
+1 Nature's Lore
+1 Neyith of the Dire Hunt
+1 Nightpack Ambusher
+1 Overwhelming Stampede
+1 Path of Ancestry
+1 Primal Adversary
+1 Pyreheart Wolf
+1 Rampant Growth
+1 Realmwalker
+1 Reckless Stormseeker // Storm-Charged Slasher
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Rhythm of the Wild
+1 Rishkar's Expertise
+1 Rockfall Vale
+1 Rootbound Crag
+1 Savage Beating
+1 Scavenger Grounds
+1 Scorned Villager // Moonscarred Werewolf
+1 Shamanic Revelation
+1 Silverfur Partisan
+1 Skarrg, the Rage Pits
+1 Sol Ring
+1 Spire Garden
+1 Spirit of the Hunt
+1 Stomping Ground
+1 Swiftfoot Boots
+1 The Celestus
+1 The Great Henge
+1 Three Visits
+1 Tovolar's Huntmaster // Tovolar's Packleader
+1 Tovolar, Dire Overlord // Tovolar, the Midnight Scourge
+1 Ulrich of the Krallenhorde // Ulrich, Uncontested Alpha
+1 Unnatural Growth
+1 Utopia Sprawl
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Vedalken Orrery
+1 Village Watch // Village Reavers
+1 Wasteland
+1 Wild Growth
+1 Wooded Foothills
+1 Yavimaya, Cradle of Growth
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Atla Palani.txt
+
+````txt
+1 Altar of Dementia
+1 Anointed Procession
+1 Apex Altisaur
+1 Arid Mesa
+1 Ashnod's Altar
+1 Atla Palani, Nest Tender
+1 Austere Command
+1 Avacyn, Angel of Hope
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Beast Within
+1 Blasphemous Act
+1 Blasting Station
+1 Boseiju, Who Endures
+1 Bountiful Promenade
+1 Canopy Vista
+1 Chaos Warp
+1 Cinder Glade
+1 Clifftop Retreat
+1 Command Tower
+1 Congregation at Dawn
+1 Cultivate
+1 Defense of the Heart
+1 Elesh Norn, Grand Cenobite
+1 Fabled Passage
+1 Farseek
+1 Flawless Maneuver
+6 Forest
+1 Generous Gift
+1 Gisela, Blade of Goldnight
+1 Goblin Bombardment
+1 Harmonize
+1 Heroic Intervention
+1 High Market
+1 It That Betrays
+1 Jeska's Will
+1 Jungle Shrine
+1 Kamahl, Heart of Krosa
+1 Kodama of the East Tree
+1 Lightning Greaves
+1 Maskwood Nexus
+1 Mass Hysteria
+1 Mirari's Wake
+1 Mirror Entity
+2 Mountain
+1 Mutavault
+1 Nature's Lore
+1 Nesting Dragon
+1 Noxious Revival
+1 Nyxbloom Ancient
+1 Ondu Inversion // Ondu Skyruins
+1 Overgrown Farmland
+1 Path to Exile
+2 Plains
+1 Rampant Growth
+1 Reality Scramble
+1 Return of the Wildspeaker
+1 Rhythm of the Wild
+1 Rishkar's Expertise
+1 Rockfall Vale
+1 Rootbound Crag
+1 Sacred Foundry
+1 Samut, Voice of Dissent
+1 Scavenger Grounds
+1 Scroll Rack
+1 Search for Tomorrow
+1 Seedborn Muse
+1 Shields of Velis Vel
+1 Skullclamp
+1 Slayers' Stronghold
+1 Sneak Attack
+1 Sol Ring
+1 Spectator Seating
+1 Spire Garden
+1 Stomping Ground
+1 Sundering Growth
+1 Sundown Pass
+1 Sunpetal Grove
+1 Swiftfoot Boots
+1 Swords to Plowshares
+1 Temple Garden
+1 Terror of the Peaks
+1 Thornbite Staff
+1 Thousand-Year Elixir
+1 Three Visits
+1 Tragic Arrogance
+1 Valakut Awakening // Valakut Stoneforge
+1 Wild Growth
+1 Windswept Heath
+1 Wooded Foothills
+1 Woodfall Primus
+1 Worldly Tutor
+1 Worldspine Wurm
+1 Yavimaya, Cradle of Growth
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Faster.txt
+
+````txt
+1 Abbot of Keral Keep
+1 Adventuring Gear
+1 Ancient Tomb
+1 Arcane Signet
+1 Arid Mesa
+1 Blackblade Reforged
+1 Blasphemous Act
+1 Blood Moon
+1 Bloodstained Mire
+1 Bone Saw
+1 Bonesplitter
+1 Boots of Speed
+1 Bronze Cudgels
+1 Chef's Kiss
+1 Command Beacon
+1 Commander's Plate
+1 Conqueror's Flail
+1 Crystal Slipper
+1 Deflecting Swat
+1 Dockside Extortionist
+1 Downhill Charge
+1 Dowsing Dagger // Lost Vale
+1 Dragon Mantle
+1 Dual Strike
+1 Dueling Rapier
+1 Electrodominance
+1 Fork
+1 Fury Storm
+1 Gauntlet of Might
+1 Goldvein Pick
+1 Golem-Skin Gauntlets
+1 Heartfire Immolator
+1 Heraldic Banner
+1 Increasing Vengeance
+1 Jaya's Immolating Inferno
+1 Jeska, Thrice Reborn
+1 Jeweled Lotus
+1 Laelia, the Blade Reforged
+1 Lightning Bolt
+1 Liquimetal Torque
+1 Lithoform Engine
+1 Magus of the Moon
+1 Mana Crypt
+1 Mana Vault
+1 Maze of Ith
+1 Mind Stone
+1 Mizzix's Mastery
+1 Monastery Swiftspear
+23 Mountain
+1 Obsidian Battle-Axe
+1 Opal Palace
+1 Red Elemental Blast
+1 Reverberate
+1 Ring of Valkas
+1 Rings of Brighthearth
+1 Rograkh, Son of Rohgahh
+1 Ruby Medallion
+1 Rush of Adrenaline
+1 Samut's Sprint
+1 Scalding Tarn
+1 Scavenger Grounds
+1 Shadowspear
+1 Simian Spirit Guide
+1 Sol Ring
+1 Stolen Vitality
+1 Strip Mine
+1 Sudden Breakthrough
+1 Sure Strike
+1 Temur Battle Rage
+1 Thought Vessel
+1 Tibalt's Trickery
+1 Titan's Strength
+1 Umezawa's Jitte
+1 Vandalblast
+1 War Room
+1 Wasteland
+1 Wayfarer's Bauble
+1 Wooded Foothills
+
+Maybeboard
+1 Runechanter's Pike
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Whip Tribal.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom cube\WUBG.txt
+
+````txt
+Deck
+1 Gemstone Caverns (TSR) 280
+1 Forbidden Orchard (C16) 296
+1 Forest (ODY) 349
+1 Island (ODY) 337
+1 Show and Tell (CN2) 121
+1 Flash (A25) 57
+1 Channel (IMA) 157
+1 Oath of Druids (G01) 2
+1 Noxious Revival (NPH) 118
+1 Sphinx of the Steel Wind (ARB) 110
+1 Worldspine Wurm (RTR) 140
+1 Ashen Rider (THS) 187
+1 Iona, Shield of Emeria (ZEN) 13
+1 Emrakul, the Aeons Torn (ROE) 4
+1 Ulamog, the Infinite Gyre (ROE) 12
+
+Sideboard
+1 Forest (ODY) 349
+1 Island (ODY) 337
+1 Plateau (LEB) 280
+1 Undiscovered Paradise (VIS) 167
+1 Force of Despair (MH1) 92
+1 Lion's Eye Diamond (MIR) 307
+1 Putrid Imp (TOR) 77
+1 Ancient Grudge (TSP) 143
+1 Sphinx of Foresight (RNA) 55
+1 Auriok Salvagers (5DN) 4
+1 Disrupting Shoal (BOK) 33
+1 Stubborn Denial (KTK) 56
+1 An Offer You Can't Refuse (SNC) 464
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Woof.txt
+
+````txt
+1 Adeline, Resplendent Cathar
+1 Ancient Tomb
+1 Anointed Procession
+1 Arcane Signet
+1 Arid Mesa
+1 Ashnod's Altar
+1 Aura Shards
+1 Avenger of Zendikar
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Beast Within
+1 Benevolent Offering
+1 Blasphemous Act
+1 Boseiju, Who Endures
+1 Brimaz, King of Oreskos
+1 Cathars' Crusade
+1 Command Tower
+1 Curse of Opulence
+1 Darien, King of Kjeldor
+1 Darksteel Mutation
+1 Declaration in Stone
+1 Deflecting Swat
+1 Dismantling Wave
+1 Dockside Extortionist
+1 Doubling Season
+1 Dragonlair Spider
+1 Earthcraft
+1 Elemental Bond
+1 Elspeth, Sun's Champion
+1 Esper Sentinel
+1 Farewell
+1 Flawless Maneuver
+6 Forest
+1 Gala Greeters
+1 Generous Gift
+1 Gilded Goose
+1 Goblin Bombardment
+1 Goldspan Dragon
+1 Grasp of Fate
+1 Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun
+1 Harvest Season
+1 Heraldic Banner
+1 Hero of Bladehold
+1 Heroic Intervention
+1 Huatli, Radiant Champion
+1 Impact Tremors
+1 Jeska's Will
+1 Jetmir's Garden
+1 Jinnie Fay, Jetmir's Second
+1 Lightning Greaves
+1 Loyal Apprentice
+1 Mana Echoes
+1 Mirari's Wake
+6 Mountain
+1 Mycoloth
+1 Ohran Frostfang
+1 Old Gnawbone
+1 Olivia's Attendants
+1 Parallel Lives
+1 Phyrexian Altar
+7 Plains
+1 Purphoros, God of the Forge
+1 Rabble Rousing
+1 Rampant Growth
+1 Requiem Angel
+1 Rumor Gatherer
+1 Sacred Foundry
+1 Scavenger Grounds
+1 Skullclamp
+1 Smothering Tithe
+1 Sokenzan, Crucible of Defiance
+1 Sol Ring
+1 Song of the Dryads
+1 Stomping Ground
+1 Strip Mine
+1 Strixhaven Stadium
+1 Surge to Victory
+1 Swiftfoot Boots
+1 Sword of the Animist
+1 Swords to Plowshares
+1 Temple Garden
+1 Tendershoot Dryad
+1 Three Visits
+1 Tilonalli's Summoner
+1 Tireless Provisioner
+1 Toski, Bearer of Secrets
+1 Treasure Vault
+1 Wasteland
+1 Welcoming Vampire
+1 Windswept Heath
+1 Wooded Foothills
+1 Yavimaya, Cradle of Growth
+
+Maybeboard
+1 Academy Manufactor
+1 Angelic Exaltation
+1 Arasta of the Endless Web
+1 Atsushi, the Blazing Sky
+1 Basri Ket
+1 Beast Whisperer
+1 Beastmaster Ascension
+1 Birds of Paradise
+1 Bloodstained Mire
+1 Boros Signet
+1 Brass's Bounty
+1 Burn Down the House
+1 Circle of Dreams Druid
+1 Cultivate
+1 Dolmen Gate
+1 Dragon Broodmother
+1 Echoing Courage
+1 Elspeth Tirel
+1 Fable of the Mirror-Breaker // Reflection of Kiki-Jiki
+1 Farseek
+1 Fecundity
+1 Fires of Yavimaya
+1 Flamerush Rider
+1 Flameshadow Conjuring
+1 Flooded Strand
+1 Giant Opportunity
+1 Goblin Rabblemaster
+1 Goblin Traprunner
+1 God-Eternal Oketra
+1 Gruul Signet
+1 Harrow
+1 Haunted Library
+1 Heartwood Storyteller
+1 Heat Stroke
+1 Hordeling Outburst
+1 Hornet Nest
+1 Keeper of Fables
+1 Kessig Cagebreakers
+1 Kindred Charge
+1 Kodama's Reach
+1 Mentor of the Meek
+1 Might of the Masses
+1 Militia's Pride
+1 Misty Rainforest
+1 Monastery Mentor
+1 Monologue Tax
+1 Neyith of the Dire Hunt
+1 Nomads' Assembly
+1 Oketra's Monument
+1 Phylath, World Sculptor
+1 Pollenbright Wings
+1 Primal Vigor
+1 Raise the Alarm
+1 Rapacious One
+1 Retreat to Emeria
+1 Rin and Seri, Inseparable
+1 Rite of Harmony
+1 Rite of the Raging Storm
+1 Rith's Charm
+1 Rith, the Awakener
+1 Saproling Symbiosis
+1 Scatter the Seeds
+1 Scour the Desert
+1 Search for Tomorrow
+1 Selesnya Signet
+1 Shamanic Revelation
+1 Séance
+1 Tana, the Bloodsower
+1 Tireless Tracker
+1 Treasure Map // Treasure Cove
+1 Visions of Glory
+1 Wedding Ring
+1 Wolf's Quarry
+1 Woodland Champion
+1 Wrath of God
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\volvo.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom cube\WG.txt
+
+````txt
+Deck
+3 Forest (UNH) 140
+9 Plains (UNH) 136
+1 Noble Hierarch (PUMA) U18
+1 Usher of the Fallen (KHM) 401
+1 Life from the Loam (RAV) 172
+1 Rampant Growth (TMP) 245
+1 Lion Sash (NEO) 368
+1 Intrepid Adversary (MID) 25
+1 Beast Within (NPH) 103
+1 Blade Splicer (NPH) 4
+1 Adeline, Resplendent Cathar (MID) 1
+1 Monastery Mentor (PLIST) 25
+1 Porcelain Legionnaire (NPH) 19
+1 Augur of Autumn (MID) 168
+1 Recruiter of the Guard (CN2) 22
+1 Collected Company (DTK) 177
+1 Hero of Bladehold (MBS) 8
+1 Restoration Angel (IMA) 28
+1 Elesh Norn, Grand Cenobite (NPH) 9
+1 Tundra (30A) 577
+1 Urza's Saga (MH2) 259
+1 Verdant Catacombs (SLU) 3
+1 Godless Shrine (SLD) 128
+1 Arid Mesa (SLU) 4
+1 Swift Reconfiguration (NEC) 10
+1 Skullclamp (C14) 268
+1 Path to Exile (F15) 7
+1 Survival of the Fittest (EXO) 129
+1 Lingering Souls (TSR) 296
+1 The Wandering Emperor (NEO) 42
+
+Sideboard
+1 Island (UNH) 137
+1 Overgrown Tomb (SLD) 130
+1 Dark Ritual (LEB) 99
+1 Brainstorm (MMQ) 61
+1 Relic of Progenitus (ALA) 218
+1 Recruitment Officer (BRO) 23
+1 Duress (STA) 29
+1 Valki, God of Lies (KHM) 308
+1 Glimmer Lens (ONC) 6
+1 Manamorphose (MMA) 191
+1 Frantic Search (ULG) 32
+1 Aether Channeler (DMU) 42
+1 Turnabout (USG) 105
+1 Tendrils of Agony (SCG) 75
+1 Aetherflux Reservoir (KLD) 192
+1 Mulldrifter (TSR) 311
+1 Golos, Tireless Pilgrim (M20) 226
+1 Tasigur, the Golden Fang (TSR) 333
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Gavi.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Wheel and Deal.txt
+
+````txt
+1 Anguished Unmaking
+1 Arcane Denial
+1 Arcane Signet
+1 Arjun, the Shifting Flame
+1 Assassin's Trophy
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Beast Within
+1 Blasphemous Act
+1 Blood Crypt
+1 Bloodchief Ascension
+1 Bloodstained Mire
+1 Brallin, Skyshark Rider
+1 Breeding Pool
+1 Chromatic Lantern
+1 Cleansing Nova
+1 Command Tower
+1 Commit // Memory
+1 Consecrated Sphinx
+1 Cultivate
+1 Curtains' Call
+1 Cyclonic Rift
+1 Echo of Eons
+1 Exotic Orchard
+1 Farseek
+1 Fate Unraveler
+1 Fellwar Stone
+1 Fevered Visions
+1 Flooded Strand
+4 Forest
+1 Geth's Grimoire
+1 Hallowed Fountain
+1 Heroic Intervention
+6 Island
+1 Jace's Archivist
+1 Kenrith, the Returned King
+1 Ketria Triome
+1 Khorvath's Fury
+1 Kydele, Chosen of Kruphix
+1 Leyline of Anticipation
+1 Liliana's Caress
+1 Molten Psyche
+5 Mountain
+1 Mystic Confluence
+1 Nature's Lore
+1 Nekusar, the Mindrazer
+1 Overgrown Tomb
+1 Phyrexian Tyranny
+1 Plains
+1 Polluted Delta
+1 Rampant Growth
+1 Reforge the Soul
+1 Return to Nature
+1 Rhystic Study
+1 Rielle, the Everwise
+1 Sea Gate Restoration // Sea Gate, Reborn
+1 Shabraz, the Skyshark
+1 Smothering Tithe
+1 Sol Ring
+1 Spiteful Visions
+1 Steam Vents
+4 Swamp
+1 Swords to Plowshares
+1 Teferi's Ageless Insight
+1 Teferi's Puzzle Box
+1 Temple Garden
+1 The Locust God
+1 Three Visits
+1 Time Reversal
+1 Toxic Deluge
+1 Treasure Cruise
+1 Underworld Breach
+1 Valakut Awakening // Valakut Stoneforge
+1 Vandalblast
+1 Waste Not
+1 Watery Grave
+1 Wheel and Deal
+1 Wheel of Fortune
+1 Whispering Madness
+1 Windfall
+1 Winds of Change
+1 Windswept Heath
+1 Wooded Foothills
+1 Xyris, the Writhing Storm
+1 Zagoth Triome
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\index.txt
+
+````txt
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Tree.txt
+
+````txt
+1 Acidic Slime
+1 Alpha Authority
+1 Ancient Tomb
+1 Aspect of Mongoose
+1 Avenger of Zendikar
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Bane of Progress
+1 Bear Umbra
+1 Beast Whisperer
+1 Beast Within
+1 Birds of Paradise
+1 Boseiju, Who Endures
+1 Bow of Nylea
+1 Caustic Caterpillar
+1 Concord with the Kami
+1 Defense of the Heart
+1 Elemental Bond
+1 Emerald Medallion
+1 Finale of Devastation
+26 Forest
+1 Forgotten Ancient
+1 Green Sun's Zenith
+1 Gyre Sage
+1 Harvest Season
+1 Heroic Intervention
+1 Hexdrinker
+1 Ironscale Hydra
+1 Jeweled Lotus
+1 Joraga Treespeaker
+1 Kalonian Hydra
+1 Kodama of the West Tree
+1 Lightning Greaves
+1 Loyal Guardian
+1 Lure
+1 Natural Order
+1 Ohran Frostfang
+1 Opal Palace
+1 Oran-Rief Hydra
+1 Orochi Merge-Keeper
+1 Pattern of Rebirth
+1 Rampaging Baloths
+1 Rancor
+1 Ranging Raptors
+1 Retreat to Kazandu
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Rishkar's Expertise
+1 Roaring Earth
+1 Scavenger Grounds
+1 Scavenging Ooze
+1 Silkguard
+1 Sol Ring
+1 Song of the Dryads
+1 Strip Mine
+1 Summoner's Pact
+1 Swiftfoot Boots
+1 Sword of Feast and Famine
+1 Sword of the Animist
+1 Sylvan Library
+1 Teachings of the Kirin // Kirin-Touched Orochi
+1 Territorial Scythecat
+1 Tome of Legends
+1 Toski, Bearer of Secrets
+1 Towashi Guide-Bot
+1 Umezawa's Jitte
+1 Undergrowth Champion
+1 Vastwood Fortification // Vastwood Thicket
+1 Vastwood Hydra
+1 Verdurous Gearhulk
+1 Vigor
+1 Vorinclex, Monstrous Raider
+1 Walking Ballista
+1 War Room
+1 Wasteland
+1 Worldly Tutor
+
+Maybeboard
+1 Abundant Harvest
+1 Aether Vial
+1 Aeve, Progenitor Ooze
+1 Ainok Guide
+1 Algae Gharial
+1 Ambush Viper
+1 Amulet of Vigor
+1 Arasta of the Endless Web
+1 Arbor Elf
+1 Arcane Signet
+1 Armorcraft Judge
+1 Ascendant Packleader
+1 Beastmaster Ascension
+1 Bloodspore Thrinax
+1 Commander's Plate
+1 Craterhoof Behemoth
+1 Darksteel Plate
+1 Dolmen Gate
+1 Elder Gargaroth
+1 Elvish Mystic
+1 Fauna Shaman
+1 Force of Vigor
+1 Fyndhorn Elves
+1 Garruk Wildspeaker
+1 Hangarback Walker
+1 Hardened Scales
+1 Harmonize
+1 Harrow
+1 Hungering Hydra
+1 Jugan Defends the Temple // Remnant of the Rising Star
+1 Lifeblood Hydra
+1 Llanowar Elves
+1 Managorger Hydra
+1 Manglehorn
+1 Momentous Fall
+1 Mycoloth
+1 Nissa, Worldwaker
+1 One with the Kami
+1 Ordeal of Nylea
+1 Outland Liberator // Frenzied Trapbreaker
+1 Permeating Mass
+1 Polyraptor
+1 Predator Ooze
+1 Primal Command
+1 Rampant Growth
+1 Rancor
+1 Ripjaw Raptor
+1 Sakura-Tribe Elder
+1 Scute Swarm
+1 Seal of Primordium
+1 Seedborn Muse
+1 Snake Umbra
+1 Solemn Simulacrum
+1 Song of Freyalise
+1 Sporemound
+1 Steelbane Hydra
+1 Stonecoil Serpent
+1 Stonehoof Chieftain
+1 Survival of the Fittest
+1 The Great Henge
+1 The Ozolith
+1 Thrashing Brontodon
+1 Three Visits
+1 Tireless Provisioner
+1 Urban Daggertooth
+1 Vedalken Orrery
+1 Voracious Hydra
+1 Whispersilk Cloak
+1 Wilderness Reclamation
+1 Wood Elves
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\opponent stuff.txt
+
+````txt
+1 Acquire
+1 Ancient Tomb
+1 Animate Dead
+1 Bojuka Bog
+1 Bond of Insight
+1 Bribery
+1 Cabal Coffers
+1 Cemetery Puca
+1 Clever Impersonator
+1 Command Tower
+1 Consecrated Sphinx
+1 Cruel Ultimatum
+1 Crypt of Agadeem
+1 Curse of Echoes
+1 Cut of the Profits
+1 Darksteel Plate
+1 Dauthi Voidwalker
+1 Dazzling Sphinx
+1 Diluvian Primordial
+1 Dimir Signet
+1 Eternal Dominion
+1 Expedition Map
+1 Faerie Artisans
+1 Fallen Shinobi
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Flawless Forgery
+1 Fool's Demise
+1 Gonti, Lord of Luxury
+1 Grave Betrayal
+1 Hostage Taker
+1 Illusionist's Gambit
+1 Imprisoned in the Moon
+1 In Too Deep
+1 Inevitable Betrayal
+11 Island
+1 Jeska's Will
+1 Lazav, Dimir Mastermind
+1 Lightning Greaves
+1 Lithoform Engine
+1 Malakir Rebirth // Malakir Mire
+1 Memory Plunder
+1 Mimic Vat
+1 Mind's Dilation
+1 Mirage Mirror
+1 Mirror Match
+1 Mission Briefing
+1 Mystic Remora
+1 Mystic Sanctuary
+1 Nascent Metamorph
+1 Nashi, Moon Sage's Scion
+1 Necromancy
+1 Notion Thief
+1 Opposition Agent
+1 Perplexing Chimera
+1 Phantom Steed
+1 Polluted Delta
+1 Praetor's Grasp
+1 Puppeteer Clique
+1 Reanimate
+1 Reliquary Tower
+1 Rhystic Study
+1 Rite of Replication
+1 Sol Ring
+1 Solemn Simulacrum
+1 Spelltwine
+1 Sphinx Ambassador
+1 Stinging Study
+1 Strionic Resonator
+1 Strip Mine
+1 Sudden Spoiling
+1 Sudden Substitution
+10 Swamp
+1 Swiftfoot Boots
+1 Talent of the Telepath
+1 Talisman of Dominance
+1 Theoretical Duplication
+1 Thespian's Stage
+1 Thief of Sanity
+1 Thought Vessel
+1 Urborg, Tomb of Yawgmoth
+1 Vesuva
+1 War Room
+1 Wasteland
+1 Watery Grave
+1 Wayfarer's Bauble
+1 Word of Command
+1 Worst Fears
+1 Wrexial, the Risen Deep
+1 Zevlor, Elturel Exile
+
+Maybeboard
+1 Abaddon the Despoiler
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Alchemist's Refuge
+1 Ash Barrens
+1 Chromeshell Crab
+1 Codex Shredder
+1 Consuming Aberration
+1 Curse of the Swine
+1 Deadly Rollick
+1 Double Major
+1 Dreamborn Muse
+1 Etrata, the Silencer
+1 Evelyn, the Covetous
+1 Evil Twin
+1 Finest Hour
+1 Fleet Swallower
+1 Glasspool Mimic // Glasspool Shore
+1 Havengul Lich
+1 Helm of the Host
+1 Hofri Ghostforge
+1 Identity Thief
+1 Illusory Gains
+1 Intet, the Dreamer
+1 Isshin, Two Heavens as One
+1 Jace's Archivist
+1 Jace, Cunning Castaway
+1 Junji, the Midnight Sky
+1 Keiga, the Tide Star
+1 Kess, Dissident Mage
+1 Kiora, Master of the Depths
+1 Magus of the Mirror
+1 Mesmeric Orb
+1 Mindcrank
+1 Mirko Vosk, Mind Drinker
+1 Mirror Box
+1 Mirror Mockery
+1 Mirror Universe
+1 Mirror of the Forebears
+1 Mirrormade
+1 Necromantic Summons
+1 Ognis, the Dragon's Lash
+1 Phantasmal Image
+1 Phenax, God of Deception
+1 Phyrexian Metamorph
+1 Prosper, Tome-Bound
+1 Reflections of Littjara
+1 Renegade Doppelganger
+1 Response // Resurgence
+1 Retaliator Griffin
+1 Riku of Two Reflections
+1 Rise from the Grave
+1 Robe of Mirrors
+1 Rowan, Scholar of Sparks // Will, Scholar of Frost
+1 Runo Stromkirk // Krothuss, Lord of the Deep
+1 Sakashima of a Thousand Faces
+1 Sepulchral Primordial
+1 Spark Double
+1 Stunt Double
+1 Sublime Epiphany
+1 Take Possession
+1 Traumatize
+1 Unstable Shapeshifter
+1 Vazi, Keen Negotiator
+1 Volo, Guide to Monsters
+1 Waves of Aggression
+1 Whispersilk Cloak
+1 Will Kenrith
+1 Wulfgar of Icewind Dale
+1 Yawgmoth's Vile Offering
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Facts and logic.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Magda.txt
+
+````txt
+1 Adaptive Automaton
+1 Aggravated Assault
+1 Arcane Signet
+1 Axgard Cavalry
+1 Balefire Dragon
+1 Blasphemous Act
+1 Blightsteel Colossus
+1 Brass's Bounty
+1 Breakneck Berserker
+1 Buried Ruin
+1 Caged Sun
+1 Castle Embereth
+1 Chaos Warp
+1 Command Beacon
+1 Cryptic Gateway
+1 Cursed Mirror
+1 Deflecting Swat
+1 Dockside Extortionist
+1 Dwarven Berserker
+1 Dwarven Blastminer
+1 Dwarven Bloodboiler
+1 Dwarven Mine
+1 Dwarven Miner
+1 Dwarven Nomad
+1 Dwarven Recruiter
+1 Fearless Liberator
+1 Fire Diamond
+1 Goldspan Dragon
+1 Hammer of Purphoros
+1 Hellkite Tyrant
+1 Honor-Worn Shaku
+1 Jeska's Will
+1 Kyren Negotiations
+1 Lightning Greaves
+1 Lithoform Engine
+1 Magda, Brazen Outlaw
+1 Mana Geyser
+1 Meteor Golem
+26 Mountain
+1 Nykthos, Shrine to Nyx
+1 Oblivion Stone
+1 Paradise Mantle
+1 Pardic Miner
+1 Pirate's Pillage
+1 Plundering Barbarian
+1 Ruby Medallion
+1 Scavenger Grounds
+1 Seize the Spoils
+7 Seven Dwarves
+1 Shattering Spree
+1 Smuggler's Copter
+1 Sol Ring
+1 Springleaf Drum
+1 Storm-Kiln Artist
+1 Taurean Mauler
+1 Terror of the Peaks
+1 Torbran, Thane of Red Fell
+1 Treasure Map // Treasure Cove
+1 Triplicate Titan
+1 Unexpected Windfall
+1 Valakut Awakening // Valakut Stoneforge
+1 Valakut, the Molten Pinnacle
+1 Vandalblast
+1 Vault Robber
+1 War Room
+1 Wasteland
+1 Wayfarer's Bauble
+1 Wheel of Misfortune
+1 Xorn
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Evelyn.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Zombie juice.txt
+
+````txt
+1 Agadeem's Awakening // Agadeem, the Undercrypt
+1 Ancient Tomb
+1 Anguished Unmaking
+1 Animate Dead
+1 Anointed Procession
+1 Ao, the Dawn Sky
+1 Arcane Signet
+1 Ashnod's Altar
+1 Athreos, God of Passage
+1 Austere Command
+1 Ayara, First of Locthwain
+1 Black Market Connections
+1 Blade of Selves
+1 Bojuka Bog
+1 Bolas's Citadel
+1 Braids, Arisen Nightmare
+1 Brightclimb Pathway // Grimclimb Pathway
+1 Cabal Coffers
+1 Command Beacon
+1 Command Tower
+1 Commissar Severina Raine
+1 Damn
+1 Deadly Dispute
+1 Eiganjo Castle
+1 Elas il-Kor, Sadistic Pilgrim
+1 Elenda, the Dusk Rose
+1 Elesh Norn, Grand Cenobite
+1 Exotic Orchard
+1 Fabled Passage
+1 Fellwar Stone
+1 Fetid Heath
+1 Generous Gift
+1 God-Eternal Bontu
+1 God-Eternal Oketra
+1 Godless Shrine
+1 Gonti, Lord of Luxury
+1 High Market
+1 Honor-Worn Shaku
+1 Illuminor Szeras
+1 Inkshield
+1 Isolated Chapel
+1 Junji, the Midnight Sky
+1 Kambal, Consul of Allocation
+1 Kokusho, the Evening Star
+1 Krav, the Unredeemed
+1 Liesa, Forgotten Archangel
+1 Lightning Greaves
+1 Living Death
+1 Loran of the Third Path
+1 Luminous Broodmoth
+1 Malakir Rebirth // Malakir Mire
+1 Marsh Flats
+1 Mikaeus, the Unhallowed
+1 Mox Amber
+1 Nykthos, Shrine to Nyx
+1 Orzhov Basilica
+1 Orzhov Signet
+1 Phyrexian Altar
+1 Phyrexian Tower
+1 Pitiless Plunderer
+1 Plumb the Forbidden
+1 Primevals' Glorious Rebirth
+1 Prismatic Vista
+1 Rankle, Master of Pranks
+1 Ratadrabik of Urborg
+1 Reanimate
+1 Reflecting Pool
+1 Relic of Legends
+1 Saw in Half
+1 Shattered Sanctum
+1 Sheoldred, Whispering One
+1 Sheoldred, the Apocalypse
+1 Shizo, Death's Storehouse
+1 Sidisi, Undead Vizier
+1 Silent Clearing
+1 Skullclamp
+1 Smothering Tithe
+1 Sol Ring
+1 Swords to Plowshares
+1 Syr Konrad, the Grim
+1 Tainted Field
+1 Takenuma, Abandoned Mire
+1 Talisman of Hierarchy
+1 Teferi's Protection
+1 Teshar, Ancestor's Apostle
+1 Teysa Karlov
+1 Thalisse, Reverent Medium
+1 The Meathook Massacre
+1 Toxic Deluge
+1 Urborg, Tomb of Yawgmoth
+1 Vanquish the Horde
+1 Victimize
+1 Village Rites
+1 Viscera Seer
+1 Wayfarer's Bauble
+1 Whisper, Blood Liturgist
+1 Yahenni, Undying Partisan
+1 Yawgmoth, Thran Physician
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\greg\Marneus.txt
+
+````txt
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\spy.txt
+
+````txt
+1 Alchemist's Refuge
+1 Alhammarret's Archive
+1 Ancient Tomb
+1 Arcane Denial
+1 Arcane Signet
+1 Aspiring Aeronaut
+1 Aviation Pioneer
+1 Beast Within
+1 Beastmaster Ascension
+1 Bident of Thassa
+1 Birds of Paradise
+1 Blinkmoth Nexus
+1 Bow of Nylea
+1 Breeding Pool
+1 Cloak and Dagger
+1 Coat of Arms
+1 Command Tower
+1 Consecrated Sphinx
+1 Cyclonic Rift
+1 Dolmen Gate
+1 Earthcraft
+1 Edric, Spymaster of Trest
+1 Efficient Construction
+1 Experimental Aviator
+1 Farseek
+1 Fellwar Stone
+1 Fierce Guardianship
+1 Flooded Grove
+9 Forest
+1 Growth Spiral
+1 Hangarback Walker
+1 Heroic Intervention
+1 Hinterland Harbor
+1 Imprisoned in the Moon
+1 Inkmoth Nexus
+9 Island
+1 Ixidron
+1 Lightning Greaves
+1 Maze of Ith
+1 Meekstone
+1 Misty Rainforest
+1 Mutavault
+1 Novijen, Heart of Progress
+1 Opposition
+1 Padeem, Consul of Innovation
+1 Parallel Lives
+1 Pendelhaven
+1 Phyrexian Metamorph
+1 Pongify
+1 Prismatic Vista
+1 Psychosis Crawler
+1 Quietus Spike
+1 Rampant Growth
+1 Rapid Hybridization
+1 Reliquary Tower
+1 Sai, Master Thopterist
+1 Sakura-Tribe Elder
+1 Scavenger Grounds
+1 Search for Tomorrow
+1 Sharding Sphinx
+1 Simic Signet
+1 Skullclamp
+1 Smuggler's Copter
+1 Sol Ring
+1 Solemn Simulacrum
+1 Song of the Dryads
+1 Swiftfoot Boots
+1 Talisman of Curiosity
+1 Teferi's Ageless Insight
+1 Tetsuko Umezawa, Fugitive
+1 Thopter Spy Network
+1 Thought Vessel
+1 Three Visits
+1 Throne of the God-Pharaoh
+1 Toski, Bearer of Secrets
+1 True-Name Nemesis
+1 Waterlogged Grove
+1 Whirler Rogue
+1 Whispersilk Cloak
+1 Wild Growth
+1 Winged Boots
+1 Wizard Class
+1 Yavimaya Coast
+1 Yavimaya, Cradle of Growth
+
+Maybeboard
+1 Chasm Skulker
+1 Coastal Piracy
+1 Concordant Crossroads
+1 Copy Artifact
+1 Cryptolith Rite
+1 Cultivate
+1 Daggerback Basilisk
+1 Diviner Spirit
+1 Explorer's Scope
+1 Faerie Vandal
+1 Harrow
+1 Hope of Ghirapur
+1 Horizon Chimera
+1 Jolrael, Mwonvuli Recluse
+1 Kodama's Reach
+1 Lithoform Engine
+1 Lorescale Coatl
+1 Mind Over Matter
+1 Minn, Wily Illusionist
+1 Nadir Kraken
+1 Ominous Seas
+1 Oneirophage
+1 Pir, Imaginative Rascal
+1 Shardless Agent
+1 Sword of Feast and Famine
+1 Sword of War and Peace
+1 Sword of the Animist
+1 Sylvan Basilisk
+1 Teferi's Veil
+1 Tezzeret, Artifice Master
+1 Thopter Assembly
+1 Thopter Squadron
+1 Toothy, Imaginary Friend
+1 Training Grounds
+1 Umezawa's Jitte
+1 Venser's Journal
+1 Whirlermaker
+1 Wonder
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Teeth.txt
+
+````txt
+1 Astral Cornucopia
+1 Beast Whisperer
+1 Benefactor's Draught
+1 Benthic Biomancer
+1 Bident of Thassa
+1 Body of Knowledge
+1 Bred for the Hunt
+1 Breeding Pool
+1 Chasm Skulker
+1 Coastal Piracy
+1 Cold-Eyed Selkie
+1 Command Tower
+1 Confounding Conundrum
+1 Conjurer's Closet
+1 Consecrated Sphinx
+1 Contagion Clasp
+1 Contagion Engine
+1 Curse of Verbosity
+1 Deepfathom Skulker
+1 Diviner Spirit
+1 Edric, Spymaster of Trest
+1 Elder Gargaroth
+1 Elemental Bond
+1 Ever-Watching Threshold
+1 Everflowing Chalice
+1 Faerie Vandal
+1 Farseek
+1 Farsight Mask
+1 Fathom Mage
+1 Flooded Grove
+1 Forced Fruition
+12 Forest
+1 Forge of Heroes
+1 Garruk's Uprising
+1 Ghostly Pilferer
+1 God-Eternal Kefnet
+1 Hangarback Walker
+1 Hinterland Harbor
+1 Horizon Chimera
+1 Horn of Greed
+1 Hunter's Insight
+1 Hunter's Prowess
+1 Illusory Ambusher
+12 Island
+1 Karn's Bastion
+1 Lightning Greaves
+1 Llanowar Reborn
+1 Mosswort Bridge
+1 Ominous Seas
+1 Opal Palace
+1 Oran-Rief, the Vastwood
+1 Pir, Imaginative Rascal
+1 Psychosis Crawler
+1 Reliquary Tower
+1 Rogue's Passage
+1 Simic Signet
+1 Sol Ring
+1 Swiftfoot Boots
+1 Sword of Truth and Justice
+1 The Ozolith
+1 Thought Vessel
+1 Three Visits
+1 Tome of Legends
+1 Toothy, Imaginary Friend
+1 Verdurous Gearhulk
+1 Walking Ballista
+1 Whispersilk Cloak
+1 Yavimaya Coast
+
+
+````
+
+
+
+## C:\Users\TeamD\OneDrive\Documents\Backups\MTG Decks\dom\Kalamax.txt
+
+````txt
+1 Alchemist's Refuge
+1 Ancient Tomb
+1 Arcane Denial
+1 Arid Mesa
+1 Bala Ged Recovery // Bala Ged Sanctuary
+1 Barkchannel Pathway // Tidechannel Pathway
+1 Beast Within
+1 Blasphemous Act
+1 Blighted Woodland
+1 Bloodstained Mire
+1 Boseiju, Who Endures
+1 Brainstorm
+1 Breeding Pool
+1 Channeled Force
+1 Cinder Glade
+1 Command Tower
+1 Cragcrown Pathway // Timbercrown Pathway
+1 Crop Rotation
+1 Cryptolith Rite
+1 Cyclonic Rift
+1 Deflecting Swat
+1 Docent of Perfection // Final Iteration
+1 Dominate
+1 Dragon Throne of Tarkir
+1 Earthcraft
+1 Electrodominance
+1 Energy Tap
+1 Expansion // Explosion
+1 Fabled Passage
+1 Fact or Fiction
+1 Fierce Guardianship
+1 Flooded Strand
+7 Forest
+1 Harrow
+1 Heroic Intervention
+7 Island
+1 Kalamax, the Stormsire
+1 Ketria Triome
+1 Khalni Ambush // Khalni Territory
+1 Kodama's Reach
+1 Krosan Grip
+1 Kruphix, God of Horizons
+1 Leadership Vacuum
+1 Metallurgic Summonings
+1 Moonsnare Prototype
+6 Mountain
+1 Murmuring Mystic
+1 Narset's Reversal
+1 Natural Connection
+1 Opposition
+1 Pongify
+1 Power Sink
+1 Rapid Hybridization
+1 Reiterate
+1 Reset
+1 Return of the Wildspeaker
+1 Reverberate
+1 Rishkar's Expertise
+1 Road // Ruin
+1 Roiling Regrowth
+1 Search for Azcanta // Azcanta, the Sunken Ruin
+1 Seedborn Muse
+1 Shark Typhoon
+1 Silkguard
+1 Skullclamp
+1 Song of Creation
+1 Split Decision
+1 Springleaf Drum
+1 Stomping Ground
+1 Storm-Kiln Artist
+1 Sublime Epiphany
+1 Sudden Shock
+1 Sudden Substitution
+1 Supplant Form
+1 Survivors' Encampment
+1 Talrand, Sky Summoner
+1 Teferi's Time Twist
+1 Theoretical Duplication
+1 Thousand-Year Storm
+1 Twinning Staff
+1 Valakut Awakening // Valakut Stoneforge
+1 Vedalken Orrery
+1 Veyran, Voice of Duality
+1 Wilderness Reclamation
+1 Wipe Away
+1 Word of Seizing
+1 Young Pyromancer
+
+Maybeboard
+1 Arcane Signet
+1 Cultivate
+1 Curse of Bounty
+1 Fury Storm
+1 Jeweled Lotus
+1 Momentous Fall
+1 Mothdust Changeling
+1 Nature's Claim
+1 Sakura-Tribe Elder
+1 Savage Summoning
+1 Spring // Mind
+1 Stroke of Genius
+1 Trickbind
+1 Twisted Image
+
+
+````
+
+
+
+Summarize the general theme of the decks made by this person.
