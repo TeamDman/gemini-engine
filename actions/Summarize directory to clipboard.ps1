@@ -1,12 +1,23 @@
-# Prompt user to enter the directory to summarize
-$starting_dir = Read-Host "Enter the directory to summarize"
-if ([string]::IsNullOrWhiteSpace($starting_dir) -or -not (Test-Path $starting_dir)) {
+param (
+    [string]$StartingDir
+)
+
+# If no StartingDir parameter is provided or it is null/empty, prompt the user
+if (-not $StartingDir -or [string]::IsNullOrWhiteSpace($StartingDir)) {
+    $StartingDir = Read-Host "Enter the directory to summarize"
+}
+
+# Validate the provided directory
+if ([string]::IsNullOrWhiteSpace($StartingDir) -or -not (Test-Path $StartingDir)) {
     Write-Host "Invalid or no directory specified. Exiting..."
     return
 }
 
+Write-Host "Processing directory: $StartingDir"
+# Add your directory summarization logic here
+
 # Check if the specified directory is a Git repository
-$choices = cargo run --manifest-path ".\tools\list unignored files\Cargo.toml" -- $starting_dir
+$choices = cargo run --manifest-path ".\tools\list unignored files\Cargo.toml" -- $StartingDir
 
 # Load ignore patterns
 $ignore_patterns = Get-Content .\ignore_patterns.txt

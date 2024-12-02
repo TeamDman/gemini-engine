@@ -1,4 +1,8 @@
+\.sql$
+justfile$
 \.txt$
+\.sfml$
+\.sfm$
 \.md$
 \.rs$
 \.ps1$
@@ -8,10 +12,12 @@
 \.py$
 \.svg$
 \.cpp$
+\.c$
 \.h$
 \.java$
 \.tf$
 \.yaml$
+\.toml$
 \.yml$
 \.ipynb$
 Cargo.toml$
