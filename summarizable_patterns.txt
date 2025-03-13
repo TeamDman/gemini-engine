@@ -1,3 +1,11 @@
+\.svelte$
+Dockerfile$
+dockerignore$
+\.js$
+\.html$
+\.xml$
+\.gradle$
+\.properties$
 \.sql$
 justfile$
 \.txt$
