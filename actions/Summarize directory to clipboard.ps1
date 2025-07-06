@@ -17,7 +17,17 @@ Write-Host "Processing directory: $StartingDir"
 # Add your directory summarization logic here
 
 # Check if the specified directory is a Git repository
-$choices = cargo run --manifest-path ".\tools\list unignored files\Cargo.toml" -- $StartingDir
+$exePath = ".\target\release\list_unignored_files.exe"
+if (-not (Test-Path $exePath)) {
+    Write-Host "Building list_unignored_files.exe..."
+    cargo build --manifest-path ".\tools\list unignored files\Cargo.toml" --release
+}
+if (Test-Path $exePath) {
+    $choices = & $exePath $StartingDir
+} else {
+    Write-Host "Failed to build list_unignored_files.exe, falling back to cargo run..."
+    $choices = cargo run --manifest-path ".\tools\list unignored files\Cargo.toml" -- $StartingDir
+}
 
 # Load ignore patterns
 $ignore_patterns = Get-Content .\ignore_patterns.txt
