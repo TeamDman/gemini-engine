@@ -1,3 +1,7 @@
+\.sfml$
+\.hlsl$
+\.g4$
+\.sfm$
 \.svelte$
 Dockerfile$
 dockerignore$
